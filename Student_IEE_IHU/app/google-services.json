@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "436333231808",
+    "project_id": "student-iee-ihu",
+    "storage_bucket": "student-iee-ihu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:436333231808:android:823ed9e0be7ace6c3ab725",
+        "android_client_info": {
+          "package_name": "eu.seijindemon.student_iee_ihu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "436333231808-rkeithq7hl4i5v4gjk9uc2nrfcitqdfb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "eu.seijindemon.student_iee_ihu",
+            "certificate_hash": "f7e4f22b29611fbd1fe9fe4e2d5728a712851d43"
+          }
+        },
+        {
+          "client_id": "436333231808-9uvk0ruatj6eqeu3dajm9c9kkts7m2f4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXhniiyrHTi6ov_JzHHODLFZPTDfn3EH4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "436333231808-9uvk0ruatj6eqeu3dajm9c9kkts7m2f4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
