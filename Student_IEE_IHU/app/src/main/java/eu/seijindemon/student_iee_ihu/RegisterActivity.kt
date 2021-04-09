@@ -1,30 +1,73 @@
 package eu.seijindemon.student_iee_ihu
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.widget.doOnTextChanged
+import com.google.firebase.auth.UserProfileChangeRequest
 import kotlinx.android.synthetic.main.activity_register.*
 import www.sanju.motiontoast.MotionToast
 
 class RegisterActivity : AppCompatActivity() {
 
-
+    lateinit var firebaseSetup: FirebaseSetup
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        checkPasswords()
-
-        setupFirebase()
+        firebaseSetup =  FirebaseSetup()
+        firebaseSetup.setupFirebase()
 
         register()
-
     }
 
     private fun register()
     {
+        register_am.doOnTextChanged { text, start, before, count ->
+            when {
+                text!!.length < 8 -> {
+                    register_am.error = "AM = 8!"
+                }
+                text.length > 8 -> {
+                    register_am.error = "AM = 8!"
+                }
+                else -> {
+                    register_am.error = null
+                }
+            }
+        }
+
+        register_password.doOnTextChanged { text, start, before, count ->
+            when {
+                text!!.length < 10 -> {
+                    register_password.error = "Password >= 10!"
+                }
+                text.length > 20 -> {
+                    register_password.error = "Password <= 20!"
+                }
+                else -> {
+                    register_password.error = null
+                }
+            }
+        }
+
+        register_verify_password.doOnTextChanged { text, start, before, count ->
+            when {
+                text!!.length < 10 -> {
+                    register_verify_password.error = "Verify Password >= 10!"
+                }
+                text.length > 20 -> {
+                    register_verify_password.error = "Verify Password <= 20!"
+                }
+                else -> {
+                    register_verify_password.error = null
+                }
+            }
+        }
+
         register_button.setOnClickListener {
             if(register_email.text.toString().trim().isEmpty())
             {
@@ -38,24 +81,12 @@ class RegisterActivity : AppCompatActivity() {
                     ResourcesCompat.getFont(this, R.font.helvetica_regular)
                 )
             }
-            else if(register_password.text.toString().trim().isEmpty() || register_verify_password.text.toString().trim().isEmpty())
+            else if(register_am.text.toString().trim().isEmpty())
             {
                 MotionToast.Companion.createColorToast(
                     this,
                     "Warning",
-                    "Input Password or Confirm Password",
-                    MotionToast.Companion.TOAST_WARNING,
-                    MotionToast.Companion.GRAVITY_BOTTOM,
-                    MotionToast.Companion.LONG_DURATION,
-                    ResourcesCompat.getFont(this, R.font.helvetica_regular)
-                )
-            }
-            else if (register_password.text.toString().trim() != register_verify_password.text.toString().trim())
-            {
-                MotionToast.Companion.createColorToast(
-                    this,
-                    "Warning",
-                    "Passwords are different",
+                    "Input AM",
                     MotionToast.Companion.TOAST_WARNING,
                     MotionToast.Companion.GRAVITY_BOTTOM,
                     MotionToast.Companion.LONG_DURATION,
@@ -86,11 +117,36 @@ class RegisterActivity : AppCompatActivity() {
                     ResourcesCompat.getFont(this, R.font.helvetica_regular)
                 )
             }
+            else if(register_password.text.toString().trim().isEmpty() || register_verify_password.text.toString().trim().isEmpty())
+            {
+                MotionToast.Companion.createColorToast(
+                    this,
+                    "Warning",
+                    "Input Password or Confirm Password",
+                    MotionToast.Companion.TOAST_WARNING,
+                    MotionToast.Companion.GRAVITY_BOTTOM,
+                    MotionToast.Companion.LONG_DURATION,
+                    ResourcesCompat.getFont(this, R.font.helvetica_regular)
+                )
+            }
+            else if (register_password.text.toString().trim() != register_verify_password.text.toString().trim())
+            {
+                MotionToast.Companion.createColorToast(
+                    this,
+                    "Warning",
+                    "Passwords are different",
+                    MotionToast.Companion.TOAST_WARNING,
+                    MotionToast.Companion.GRAVITY_BOTTOM,
+                    MotionToast.Companion.LONG_DURATION,
+                    ResourcesCompat.getFont(this, R.font.helvetica_regular)
+                )
+            }
             else
             {
                 createUser(
                     register_email.text.toString().trim(),
                     register_password.text.toString().trim(),
+                    register_am.text.toString().trim(),
                     register_firstName.text.toString().trim(),
                     register_lastName.text.toString().trim()
                 )
@@ -98,43 +154,69 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    private fun createUser(email: String, password: String, firstName: String, lastName: String)
+    private fun createUser(email: String, password: String, am: String, firstName: String, lastName: String)
     {
+        firebaseSetup.auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this){ task ->
+                if(task.isSuccessful)
+                {
+                    val currentUser = firebaseSetup.auth.currentUser!!
 
-    }
+                    val profileUpdates = UserProfileChangeRequest.Builder()
+                        .setDisplayName(am).build()
 
-    private fun setupFirebase() {
+                    currentUser.updateProfile(profileUpdates)
+                        .addOnCompleteListener(this){ task ->
+                            if (task.isSuccessful)
+                            {
+                                Log.e("TAG", "Updated Profile")
+                            }
+                        }
 
-    }
+                    val currentUserDb = firebaseSetup.userReference.child(currentUser.uid)
+                    currentUserDb.child("am").setValue(am)
+                    currentUserDb.child("firstname").setValue(firstName)
+                    currentUserDb.child("lastname").setValue(lastName)
+                    currentUserDb.child("email").setValue(email)
 
-    private fun checkPasswords()
-    {
-        register_password.doOnTextChanged { text, start, before, count ->
-            when {
-                text!!.length < 10 -> {
-                    register_password.error = "Password >= 10!"
+                    currentUser.sendEmailVerification().addOnCompleteListener{
+                        MotionToast.Companion.createColorToast(
+                            this,
+                            "Successful",
+                            "Verification Email has been sent.",
+                            MotionToast.Companion.TOAST_SUCCESS,
+                            MotionToast.Companion.GRAVITY_BOTTOM,
+                            MotionToast.Companion.LONG_DURATION,
+                            ResourcesCompat.getFont(this, R.font.helvetica_regular)
+                        )
+                    }
+
+                    MotionToast.Companion.createColorToast(
+                        this,
+                        "Successful",
+                        "Registration successful",
+                        MotionToast.Companion.TOAST_SUCCESS,
+                        MotionToast.Companion.GRAVITY_BOTTOM,
+                        MotionToast.Companion.LONG_DURATION,
+                        ResourcesCompat.getFont(this, R.font.helvetica_regular)
+                    )
+
+                    startActivity(Intent(this, LoginActivity::class.java))
+                    finish()
+
                 }
-                text.length > 20 -> {
-                    register_password.error = "Password <= 20!"
-                }
-                else -> {
-                    register_password.error = null
+                else
+                {
+                    MotionToast.Companion.createColorToast(
+                        this,
+                        "Failed",
+                        "Registration failed, please try again!",
+                        MotionToast.Companion.TOAST_ERROR,
+                        MotionToast.Companion.GRAVITY_BOTTOM,
+                        MotionToast.Companion.LONG_DURATION,
+                        ResourcesCompat.getFont(this, R.font.helvetica_regular)
+                    )
                 }
             }
-        }
-
-        register_verify_password.doOnTextChanged { text, start, before, count ->
-            when {
-                text!!.length < 10 -> {
-                    register_verify_password.error = "Verify Password >= 10!"
-                }
-                text.length > 20 -> {
-                    register_verify_password.error = "Verify Password <= 20!"
-                }
-                else -> {
-                    register_verify_password.error = null
-                }
-            }
-        }
     }
 }
