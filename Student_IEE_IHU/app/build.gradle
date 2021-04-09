@@ -72,7 +72,7 @@ dependencies {
     // implementation 'com.firebaseui:firebase-ui-storage:7.1.1'
 
     // RecyclerView + CardView
-    implementation "androidx.recyclerview:recyclerview:1.1.0"
+    implementation "androidx.recyclerview:recyclerview:1.2.0"
     implementation "androidx.cardview:cardview:1.0.0"
 
     // Navigation Component
@@ -99,7 +99,13 @@ dependencies {
     // Google Maps
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
 
+    // Dexter
+    implementation 'com.karumi:dexter:6.2.2'
+
+    // MaterialStyledDialogs
+    implementation 'com.github.javiersantos:MaterialStyledDialogs:3.0.1'
+
     // Percent Layout
-    implementation "androidx.percentlayout:percentlayout:1.0.0"
+    // implementation "androidx.percentlayout:percentlayout:1.0.0"
 
 }
