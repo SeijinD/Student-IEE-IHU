@@ -69,153 +69,147 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         register_button.setOnClickListener {
-            if(register_email.text.toString().trim().isEmpty())
-            {
-                MotionToast.Companion.createColorToast(
-                    this,
-                    "Warning",
-                    "Input Email",
-                    MotionToast.Companion.TOAST_WARNING,
-                    MotionToast.Companion.GRAVITY_BOTTOM,
-                    MotionToast.Companion.LONG_DURATION,
-                    ResourcesCompat.getFont(this, R.font.helvetica_regular)
-                )
-            }
-            else if(register_am.text.toString().trim().isEmpty())
-            {
-                MotionToast.Companion.createColorToast(
-                    this,
-                    "Warning",
-                    "Input AM",
-                    MotionToast.Companion.TOAST_WARNING,
-                    MotionToast.Companion.GRAVITY_BOTTOM,
-                    MotionToast.Companion.LONG_DURATION,
-                    ResourcesCompat.getFont(this, R.font.helvetica_regular)
-                )
-            }
-            else if(register_firstName.text.toString().trim().isEmpty())
-            {
-                MotionToast.Companion.createColorToast(
-                    this,
-                    "Warning",
-                    "Input FirstName",
-                    MotionToast.Companion.TOAST_WARNING,
-                    MotionToast.Companion.GRAVITY_BOTTOM,
-                    MotionToast.Companion.LONG_DURATION,
-                    ResourcesCompat.getFont(this, R.font.helvetica_regular)
-                )
-            }
-            else if(register_lastName.text.toString().trim().isEmpty())
-            {
-                MotionToast.Companion.createColorToast(
-                    this,
-                    "Warning",
-                    "Input LastName",
-                    MotionToast.Companion.TOAST_WARNING,
-                    MotionToast.Companion.GRAVITY_BOTTOM,
-                    MotionToast.Companion.LONG_DURATION,
-                    ResourcesCompat.getFont(this, R.font.helvetica_regular)
-                )
-            }
-            else if(register_password.text.toString().trim().isEmpty() || register_verify_password.text.toString().trim().isEmpty())
-            {
-                MotionToast.Companion.createColorToast(
-                    this,
-                    "Warning",
-                    "Input Password or Confirm Password",
-                    MotionToast.Companion.TOAST_WARNING,
-                    MotionToast.Companion.GRAVITY_BOTTOM,
-                    MotionToast.Companion.LONG_DURATION,
-                    ResourcesCompat.getFont(this, R.font.helvetica_regular)
-                )
-            }
-            else if (register_password.text.toString().trim() != register_verify_password.text.toString().trim())
-            {
-                MotionToast.Companion.createColorToast(
-                    this,
-                    "Warning",
-                    "Passwords are different",
-                    MotionToast.Companion.TOAST_WARNING,
-                    MotionToast.Companion.GRAVITY_BOTTOM,
-                    MotionToast.Companion.LONG_DURATION,
-                    ResourcesCompat.getFont(this, R.font.helvetica_regular)
-                )
-            }
-            else
-            {
-                createUser(
-                    register_email.text.toString().trim(),
-                    register_password.text.toString().trim(),
-                    register_am.text.toString().trim(),
-                    register_firstName.text.toString().trim(),
-                    register_lastName.text.toString().trim()
-                )
+            when {
+                register_email.text.toString().trim().isEmpty() -> {
+                    MotionToast.Companion.createColorToast(
+                        this,
+                        "Warning",
+                        "Input Email",
+                        MotionToast.Companion.TOAST_WARNING,
+                        MotionToast.Companion.GRAVITY_BOTTOM,
+                        MotionToast.Companion.LONG_DURATION,
+                        ResourcesCompat.getFont(this, R.font.helvetica_regular)
+                    )
+                }
+                register_am.text.toString().trim().isEmpty() -> {
+                    MotionToast.Companion.createColorToast(
+                        this,
+                        "Warning",
+                        "Input AM",
+                        MotionToast.Companion.TOAST_WARNING,
+                        MotionToast.Companion.GRAVITY_BOTTOM,
+                        MotionToast.Companion.LONG_DURATION,
+                        ResourcesCompat.getFont(this, R.font.helvetica_regular)
+                    )
+                }
+                register_firstName.text.toString().trim().isEmpty() -> {
+                    MotionToast.Companion.createColorToast(
+                        this,
+                        "Warning",
+                        "Input FirstName",
+                        MotionToast.Companion.TOAST_WARNING,
+                        MotionToast.Companion.GRAVITY_BOTTOM,
+                        MotionToast.Companion.LONG_DURATION,
+                        ResourcesCompat.getFont(this, R.font.helvetica_regular)
+                    )
+                }
+                register_lastName.text.toString().trim().isEmpty() -> {
+                    MotionToast.Companion.createColorToast(
+                        this,
+                        "Warning",
+                        "Input LastName",
+                        MotionToast.Companion.TOAST_WARNING,
+                        MotionToast.Companion.GRAVITY_BOTTOM,
+                        MotionToast.Companion.LONG_DURATION,
+                        ResourcesCompat.getFont(this, R.font.helvetica_regular)
+                    )
+                }
+                register_password.text.toString().trim().isEmpty() || register_verify_password.text.toString().trim().isEmpty() -> {
+                    MotionToast.Companion.createColorToast(
+                        this,
+                        "Warning",
+                        "Input Password or Confirm Password",
+                        MotionToast.Companion.TOAST_WARNING,
+                        MotionToast.Companion.GRAVITY_BOTTOM,
+                        MotionToast.Companion.LONG_DURATION,
+                        ResourcesCompat.getFont(this, R.font.helvetica_regular)
+                    )
+                }
+                register_password.text.toString().trim() != register_verify_password.text.toString().trim() -> {
+                    MotionToast.Companion.createColorToast(
+                        this,
+                        "Warning",
+                        "Passwords are different",
+                        MotionToast.Companion.TOAST_WARNING,
+                        MotionToast.Companion.GRAVITY_BOTTOM,
+                        MotionToast.Companion.LONG_DURATION,
+                        ResourcesCompat.getFont(this, R.font.helvetica_regular)
+                    )
+                }
+                else -> {
+                    createUser(
+                        register_email.text.toString().trim(),
+                        register_password.text.toString().trim(),
+                        register_am.text.toString().trim(),
+                        register_firstName.text.toString().trim(),
+                        register_lastName.text.toString().trim()
+                    )
+                }
             }
         }
     }
 
     private fun createUser(email: String, password: String, am: String, firstName: String, lastName: String)
     {
-        firebaseSetup.auth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this){ task ->
-                if(task.isSuccessful)
-                {
-                    val currentUser = firebaseSetup.auth.currentUser!!
+        firebaseSetup.auth?.createUserWithEmailAndPassword(email, password)
+            ?.addOnCompleteListener(this){ task ->
+                when {
+                    task.isSuccessful -> {
+                        val currentUser = firebaseSetup.auth?.currentUser
 
-                    val profileUpdates = UserProfileChangeRequest.Builder()
-                        .setDisplayName(am).build()
+                        val profileUpdates = UserProfileChangeRequest.Builder()
+                            .setDisplayName(am).build()
 
-                    currentUser.updateProfile(profileUpdates)
-                        .addOnCompleteListener(this){ task ->
-                            if (task.isSuccessful)
-                            {
-                                Log.e("TAG", "Updated Profile")
+                        currentUser!!.updateProfile(profileUpdates)
+                            .addOnCompleteListener(this){ task ->
+                                if (task.isSuccessful) {
+                                    Log.e("TAG", "Updated Profile")
+                                }
                             }
+
+                        val currentUserDb = firebaseSetup.usersReference!!.child(currentUser.uid)
+                        currentUserDb.child("am").setValue(am)
+                        currentUserDb.child("firstname").setValue(firstName)
+                        currentUserDb.child("lastname").setValue(lastName)
+                        currentUserDb.child("email").setValue(email)
+
+                        currentUser.sendEmailVerification().addOnCompleteListener{
+                            MotionToast.Companion.createColorToast(
+                                this,
+                                "Successful",
+                                "Verification Email has been sent.",
+                                MotionToast.Companion.TOAST_SUCCESS,
+                                MotionToast.Companion.GRAVITY_BOTTOM,
+                                MotionToast.Companion.LONG_DURATION,
+                                ResourcesCompat.getFont(this, R.font.helvetica_regular)
+                            )
                         }
 
-                    val currentUserDb = firebaseSetup.userReference.child(currentUser.uid)
-                    currentUserDb.child("am").setValue(am)
-                    currentUserDb.child("firstname").setValue(firstName)
-                    currentUserDb.child("lastname").setValue(lastName)
-                    currentUserDb.child("email").setValue(email)
-
-                    currentUser.sendEmailVerification().addOnCompleteListener{
                         MotionToast.Companion.createColorToast(
                             this,
                             "Successful",
-                            "Verification Email has been sent.",
+                            "Registration successful",
                             MotionToast.Companion.TOAST_SUCCESS,
                             MotionToast.Companion.GRAVITY_BOTTOM,
                             MotionToast.Companion.LONG_DURATION,
                             ResourcesCompat.getFont(this, R.font.helvetica_regular)
                         )
+
+                        startActivity(Intent(this, LoginActivity::class.java))
+                        finish()
+
                     }
-
-                    MotionToast.Companion.createColorToast(
-                        this,
-                        "Successful",
-                        "Registration successful",
-                        MotionToast.Companion.TOAST_SUCCESS,
-                        MotionToast.Companion.GRAVITY_BOTTOM,
-                        MotionToast.Companion.LONG_DURATION,
-                        ResourcesCompat.getFont(this, R.font.helvetica_regular)
-                    )
-
-                    startActivity(Intent(this, LoginActivity::class.java))
-                    finish()
-
-                }
-                else
-                {
-                    MotionToast.Companion.createColorToast(
-                        this,
-                        "Failed",
-                        "Registration failed, please try again!",
-                        MotionToast.Companion.TOAST_ERROR,
-                        MotionToast.Companion.GRAVITY_BOTTOM,
-                        MotionToast.Companion.LONG_DURATION,
-                        ResourcesCompat.getFont(this, R.font.helvetica_regular)
-                    )
+                    else -> {
+                        MotionToast.Companion.createColorToast(
+                            this,
+                            "Failed",
+                            "Registration failed, please try again!",
+                            MotionToast.Companion.TOAST_ERROR,
+                            MotionToast.Companion.GRAVITY_BOTTOM,
+                            MotionToast.Companion.LONG_DURATION,
+                            ResourcesCompat.getFont(this, R.font.helvetica_regular)
+                        )
+                    }
                 }
             }
     }
