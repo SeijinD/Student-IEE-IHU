@@ -10,4 +10,6 @@
     <string name="verify_password">Verify Password</string>
     <string name="lastname">LastName</string>
     <string name="am">AM</string>
+    <string name="home">Home</string>
+    <string name="settings">Settings</string>
 </resources>

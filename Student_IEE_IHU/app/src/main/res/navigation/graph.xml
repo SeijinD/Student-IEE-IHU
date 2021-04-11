@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/graph"
+    app:startDestination="@id/menuHome">
+
+
+    <activity
+        android:id="@+id/menuRegister"
+        android:name="eu.seijindemon.student_iee_ihu.RegisterActivity"
+        android:label="@string/register"
+        tools:layout="@layout/activity_register" />
+    <activity
+        android:id="@+id/menuLogin"
+        android:name="eu.seijindemon.student_iee_ihu.LoginActivity"
+        android:label="@string/login"
+        tools:layout="@layout/activity_login" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="eu.seijindemon.student_iee_ihu.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <activity
+        android:id="@+id/adminMainActivity"
+        android:name="eu.seijindemon.student_iee_ihu.AdminMainActivity"
+        android:label="admin_main_activity"
+        tools:layout="@layout/activity_admin_main" />
+    <fragment
+        android:id="@+id/menuHome"
+        android:name="eu.seijindemon.student_iee_ihu.nav_fragments.HomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/menuSettings"
+        android:name="eu.seijindemon.student_iee_ihu.nav_fragments.SettingsFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>
