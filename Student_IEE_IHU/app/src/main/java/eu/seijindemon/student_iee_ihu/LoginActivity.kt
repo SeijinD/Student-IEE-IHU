@@ -51,6 +51,10 @@ class LoginActivity : AppCompatActivity() {
             login()
         }
 
+        reset_password_button.setOnClickListener {
+            // TODO
+        }
+
         create_account_button.setOnClickListener{
             startActivity(Intent(this, RegisterActivity::class.java))
             finish()
