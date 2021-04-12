@@ -37,4 +37,9 @@
         android:name="eu.seijindemon.student_iee_ihu.nav_fragments.SettingsFragment"
         android:label="@string/settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/menuProfile"
+        android:name="eu.seijindemon.student_iee_ihu.nav_fragments.ProfileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

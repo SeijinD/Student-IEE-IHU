@@ -11,8 +11,13 @@
             android:title="@string/home"
             />
         <item
+            android:id="@+id/menuProfile"
+            android:icon="@drawable/ic_baseline_account_box_24"
+            android:title="@string/profile"
+            />
+        <item
             android:id="@+id/menuSettings"
-            android:icon="@drawable/ic_baseline_home_24"
+            android:icon="@drawable/ic_baseline_settings_24"
             android:title="@string/settings"
             />
 
