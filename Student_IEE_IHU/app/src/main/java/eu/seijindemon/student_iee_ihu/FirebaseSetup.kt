@@ -10,6 +10,7 @@ import com.google.firebase.storage.StorageReference
 class FirebaseSetup {
 
     var auth: FirebaseAuth? = null
+    var user: FirebaseUser? = null
     var usersReference: DatabaseReference? = null
     var userReference: DatabaseReference? = null
     var database: FirebaseDatabase? = null
@@ -19,6 +20,10 @@ class FirebaseSetup {
     fun setupFirebase()
     {
         auth = FirebaseAuth.getInstance()
+        if (auth != null)
+        {
+            user = auth?.currentUser
+        }
 
         database = FirebaseDatabase.getInstance()
         storage = FirebaseStorage.getInstance()
