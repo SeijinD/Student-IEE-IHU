@@ -57,10 +57,6 @@ class ProfileFragment : Fragment() {
             updateProfile()
         }
 
-        view.logout_button.setOnClickListener {
-            logout()
-        }
-
         return view
     }
 
@@ -148,13 +144,6 @@ class ProfileFragment : Fragment() {
                 currentUserDb?.updateChildren(mapPhone)
             }
         }
-    }
-
-    private fun logout()
-    {
-        firebaseSetup.auth?.signOut()
-        startActivity(Intent(context, LoginActivity::class.java))
-        activity?.finish()
     }
 
     private fun pickImage()

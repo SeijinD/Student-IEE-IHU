@@ -17,4 +17,20 @@
     <string name="logout">Logout</string>
     <string name="phone">Phone</string>
     <string name="update">Update</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="reset_email">Reset Email</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="rate_app">Rate App</string>
+    <string name="share_app">Share App</string>
+    <string name="report">Report or Changes</string>
+    <string name="change_language">Change Language</string>
+    <string name="greek">Greek</string>
+    <string name="english">English</string>
+    <string name="change_theme">Change Theme</string>
+    <string name="dark">Dark</string>
+    <string name="white">White</string>
+    <string name="auto">Auto</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>
