@@ -13,10 +13,11 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/login_image"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:src="@drawable/login"
             android:layout_marginTop="20dp"
+            app:layout_constraintHeight_percent="0.4"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -86,7 +87,7 @@
             app:layout_constraintTop_toBottomOf="@+id/reset_password_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:background="@drawable/custom_button"
+            android:background="@drawable/btn_custom"
             android:text="@string/login"
             android:textSize="20sp"
             android:textAllCaps="false"
