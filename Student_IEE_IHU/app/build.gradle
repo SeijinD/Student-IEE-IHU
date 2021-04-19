@@ -107,6 +107,9 @@ dependencies {
     // MaterialStyledDialogs
     implementation 'com.github.javiersantos:MaterialStyledDialogs:3.0.1'
 
+    // Material Dialog Input
+    implementation 'com.afollestad.material-dialogs:input:3.3.0'
+
     // Percent Layout
     // implementation "androidx.percentlayout:percentlayout:1.0.0"
 

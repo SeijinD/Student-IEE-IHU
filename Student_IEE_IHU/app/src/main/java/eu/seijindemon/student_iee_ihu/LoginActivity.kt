@@ -3,7 +3,13 @@ package eu.seijindemon.student_iee_ihu
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.InputType
 import androidx.core.content.res.ResourcesCompat
+import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.WhichButton.POSITIVE
+import com.afollestad.materialdialogs.actions.setActionButtonEnabled
+import com.afollestad.materialdialogs.input.getInputField
+import com.afollestad.materialdialogs.input.input
 import kotlinx.android.synthetic.main.activity_login.*
 import www.sanju.motiontoast.MotionToast
 
@@ -52,7 +58,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         reset_password_button.setOnClickListener {
-            // TODO
+            resetPassword()
         }
 
         create_account_button.setOnClickListener{
@@ -61,6 +67,57 @@ class LoginActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    private fun resetPassword()
+    {
+        val type = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+        var email : String? = null
+        MaterialDialog(this).show {
+            title(R.string.reset_password)
+            input(waitForPositiveButton = false, inputType = type, maxLength = 35, hintRes = R.string.email) { dialog, text ->
+                val inputField = dialog.getInputField()
+                val isValid = text.contains("@")
+
+                inputField.error = if (isValid) null else "Must contains @ in email!"
+                dialog.setActionButtonEnabled(POSITIVE, isValid)
+                email = text.toString()
+            }
+            negativeButton(R.string.no)
+            positiveButton(R.string.yes)
+            positiveButton { confirmResetPassword(email!!) }
+        }
+    }
+
+    private fun confirmResetPassword(email: String)
+    {
+        firebaseSetup.auth?.sendPasswordResetEmail(email)
+            ?.addOnCompleteListener { task ->
+                if (task.isSuccessful)
+                {
+                    MotionToast.Companion.createColorToast(
+                        this,
+                        "Successful",
+                        "Send Reset Password Email!",
+                        MotionToast.Companion.TOAST_SUCCESS,
+                        MotionToast.Companion.GRAVITY_BOTTOM,
+                        MotionToast.Companion.LONG_DURATION,
+                        ResourcesCompat.getFont(this, R.font.helvetica_regular)
+                    )
+                }
+                else
+                {
+                    MotionToast.Companion.createColorToast(
+                        this,
+                        "UnSuccessful",
+                        "No Send Reset Password Email",
+                        MotionToast.Companion.TOAST_ERROR,
+                        MotionToast.Companion.GRAVITY_BOTTOM,
+                        MotionToast.Companion.LONG_DURATION,
+                        ResourcesCompat.getFont(this, R.font.helvetica_regular)
+                    )
+                }
+            }
     }
 
     private fun login()
