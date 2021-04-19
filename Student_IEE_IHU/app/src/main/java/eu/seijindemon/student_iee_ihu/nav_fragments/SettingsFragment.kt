@@ -1,6 +1,8 @@
 package eu.seijindemon.student_iee_ihu.nav_fragments
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -49,9 +51,70 @@ class SettingsFragment : Fragment() {
             deleteAccount()
         }
 
+        view.share_app.setOnClickListener {
+            shareApp()
+        }
+
+        view.rate_app.setOnClickListener {
+            rateApp()
+        }
+
+        view.report.setOnClickListener {
+            report()
+        }
+
+        view.privacy_policy.setOnClickListener {
+            privacyPolicy()
+        }
 
         return view
     }
+
+    private fun shareApp()
+    {
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.type = "text/plain"
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Student IEE-IHU")
+        intent.putExtra(Intent.EXTRA_TEXT, "Download this Application now: http://play.google.com/store/apps/details?id=${activity?.packageName}")
+        startActivity(Intent.createChooser(intent, "Share with"))
+    }
+
+    private fun rateApp()
+    {
+        try
+        {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=${activity?.packageName}")))
+        }
+        catch (e: ActivityNotFoundException)
+        {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=${activity?.packageName}")))
+        }
+    }
+
+    private fun report()
+    {
+
+    }
+
+    private fun privacyPolicy()
+    {
+        try
+        {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://my-informations.flycricket.io/privacy.html")))
+        }
+        catch (e: ActivityNotFoundException)
+        {
+            MotionToast.Companion.createColorToast(
+                requireActivity(),
+                "Warning",
+                "Privacy Policy Not Found!",
+                MotionToast.Companion.TOAST_WARNING,
+                MotionToast.Companion.GRAVITY_BOTTOM,
+                MotionToast.Companion.LONG_DURATION,
+                ResourcesCompat.getFont(requireContext(), R.font.helvetica_regular))
+        }
+    }
+
 
     private fun resetPassword()
     {
@@ -92,7 +155,33 @@ class SettingsFragment : Fragment() {
 
     private fun confirmResetPassword()
     {
-
+        firebaseSetup.auth?.sendPasswordResetEmail(firebaseSetup.user?.email!!)
+                ?.addOnCompleteListener { task ->
+                    if (task.isSuccessful)
+                    {
+                        MotionToast.Companion.createColorToast(
+                                this.requireActivity(),
+                                "Successful",
+                                "Send Reset Password Email!",
+                                MotionToast.Companion.TOAST_SUCCESS,
+                                MotionToast.Companion.GRAVITY_BOTTOM,
+                                MotionToast.Companion.LONG_DURATION,
+                                ResourcesCompat.getFont(this.requireContext(), R.font.helvetica_regular)
+                        )
+                    }
+                    else
+                    {
+                        MotionToast.Companion.createColorToast(
+                                this.requireActivity(),
+                                "UnSuccessful",
+                                "No Send Reset Password Email",
+                                MotionToast.Companion.TOAST_ERROR,
+                                MotionToast.Companion.GRAVITY_BOTTOM,
+                                MotionToast.Companion.LONG_DURATION,
+                                ResourcesCompat.getFont(this.requireContext(), R.font.helvetica_regular)
+                        )
+                    }
+                }
     }
 
     private fun confirmResetEmail()
