@@ -1,4 +1,4 @@
-package eu.seijindemon.student_iee_ihu
+package eu.seijindemon.student_iee_ihu.utils
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
