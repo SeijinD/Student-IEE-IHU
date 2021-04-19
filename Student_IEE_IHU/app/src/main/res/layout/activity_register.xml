@@ -32,7 +32,7 @@
             app:startIconDrawable="@drawable/ic_baseline_email_24"
             app:endIconMode="clear_text"
             app:counterEnabled="true"
-            app:counterMaxLength="30"
+            app:counterMaxLength="35"
             app:helperText="@string/required"
             app:helperTextTextColor="@color/red"
             app:layout_constraintTop_toBottomOf="@+id/login_image"
@@ -42,7 +42,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/register_email"
                 android:inputType="textEmailAddress"
-                android:maxLength="31"
+                android:maxLength="36"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>

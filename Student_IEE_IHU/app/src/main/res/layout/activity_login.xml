@@ -32,7 +32,7 @@
             app:startIconDrawable="@drawable/ic_baseline_email_24"
             app:endIconMode="clear_text"
             app:counterEnabled="true"
-            app:counterMaxLength="30"
+            app:counterMaxLength="35"
             app:layout_constraintTop_toBottomOf="@+id/login_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -40,7 +40,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/login_email"
                 android:inputType="textEmailAddress"
-                android:maxLength="31"
+                android:maxLength="36"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>
