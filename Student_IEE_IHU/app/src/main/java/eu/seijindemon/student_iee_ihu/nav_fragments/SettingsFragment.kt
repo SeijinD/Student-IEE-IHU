@@ -1,9 +1,13 @@
 package eu.seijindemon.student_iee_ihu.nav_fragments
 
+import android.app.Activity
 import android.content.ActivityNotFoundException
+import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,12 +15,12 @@ import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
 import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog
 import com.github.javiersantos.materialstyleddialogs.enums.Style
-import eu.seijindemon.student_iee_ihu.AdminMainActivity
-import eu.seijindemon.student_iee_ihu.FirebaseSetup
+import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import eu.seijindemon.student_iee_ihu.LoginActivity
 import eu.seijindemon.student_iee_ihu.R
 import kotlinx.android.synthetic.main.fragment_settings.view.*
 import www.sanju.motiontoast.MotionToast
+import java.util.*
 
 class SettingsFragment : Fragment() {
 
@@ -30,48 +34,81 @@ class SettingsFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view =  inflater.inflate(R.layout.fragment_settings, container, false)
+        val view = inflater.inflate(R.layout.fragment_settings, container, false)
+
+        loadLanguage(view)
+        loadTheme(view)
 
         firebaseSetup =  FirebaseSetup()
         firebaseSetup.setupFirebase()
 
-        view.logout_button.setOnClickListener {
-            logout()
-        }
+        view.logout_button.setOnClickListener { logout() }
 
-        view.reset_password_button_settings.setOnClickListener {
-            resetPassword()
-        }
+        view.reset_password_button_settings.setOnClickListener { resetPassword() }
 
-        view.reset_email_button_settings.setOnClickListener {
-            resetEmail()
-        }
+        view.reset_email_button_settings.setOnClickListener { resetEmail() }
 
-        view.delete_account_button_settings.setOnClickListener {
-            deleteAccount()
-        }
+        view.delete_account_button_settings.setOnClickListener { deleteAccount() }
 
-        view.share_app.setOnClickListener {
-            shareApp()
-        }
+        view.share_app.setOnClickListener { shareApp() }
 
-        view.rate_app.setOnClickListener {
-            rateApp()
-        }
+        view.rate_app.setOnClickListener { rateApp() }
 
-        view.report.setOnClickListener {
-            report()
-        }
+        view.report.setOnClickListener { report() }
 
-        view.privacy_policy.setOnClickListener {
-            privacyPolicy()
-        }
+        view.privacy_policy.setOnClickListener { privacyPolicy() }
+
+        view.english_rb.setOnClickListener{ setLocale("en") }
+
+        view.greek_rb.setOnClickListener{ setLocale("el") }
 
         return view
     }
 
-    private fun shareApp()
-    {
+    private fun loadTheme(view: View) {
+        val sharedPreferences = activity?.getSharedPreferences("Settings", Activity.MODE_PRIVATE)
+        val theme = sharedPreferences?.getString("My_Lang", "")
+
+//        when (theme) {
+//            "dark" -> {
+//                view.dark_rb.isChecked = true
+//            }
+//            ("white") -> {
+//                view.white_rb.isChecked = true
+//            }
+//            ("auto") -> {
+//                view.auto_rb.isChecked = true
+//            }
+//        }
+    }
+
+    private fun loadLanguage(view: View) {
+        val sharedPreferences = activity?.getSharedPreferences("Settings", Activity.MODE_PRIVATE)
+
+        when (sharedPreferences?.getString("My_Lang", "")) {
+            "el" -> {
+                view.greek_rb.isChecked = true
+            }
+            ("en") -> {
+                view.english_rb.isChecked = true
+            }
+        }
+    }
+
+    private fun setLocale(Lang: String) {
+        val locale = Locale(Lang)
+        Locale.setDefault(locale)
+        val config = Configuration()
+        config.locale = locale
+        activity?.baseContext?.resources?.updateConfiguration(config, activity?.baseContext?.resources?.displayMetrics)
+        val editor = activity?.getSharedPreferences("Settings", Context.MODE_PRIVATE)?.edit()
+        editor?.putString("My_Lang", Lang)
+        editor?.apply()
+
+        logout()
+    }
+
+    private fun shareApp() {
         val intent = Intent(Intent.ACTION_SEND)
         intent.type = "text/plain"
         intent.putExtra(Intent.EXTRA_SUBJECT, "Student IEE-IHU")
@@ -79,31 +116,24 @@ class SettingsFragment : Fragment() {
         startActivity(Intent.createChooser(intent, "Share with"))
     }
 
-    private fun rateApp()
-    {
-        try
-        {
+    private fun rateApp() {
+        try {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=${activity?.packageName}")))
         }
-        catch (e: ActivityNotFoundException)
-        {
+        catch (e: ActivityNotFoundException) {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=${activity?.packageName}")))
         }
     }
 
-    private fun report()
-    {
+    private fun report() {
 
     }
 
-    private fun privacyPolicy()
-    {
-        try
-        {
+    private fun privacyPolicy() {
+        try {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://my-informations.flycricket.io/privacy.html")))
         }
-        catch (e: ActivityNotFoundException)
-        {
+        catch (e: ActivityNotFoundException) {
             MotionToast.Companion.createColorToast(
                 requireActivity(),
                 "Warning",
@@ -116,8 +146,7 @@ class SettingsFragment : Fragment() {
     }
 
 
-    private fun resetPassword()
-    {
+    private fun resetPassword() {
         MaterialStyledDialog.Builder(requireContext())
                 .setTitle("Reset Your Password!")
                 .setDescription("Are you sure?")
@@ -128,8 +157,7 @@ class SettingsFragment : Fragment() {
                 .show()
     }
 
-    private fun resetEmail()
-    {
+    private fun resetEmail() {
         MaterialStyledDialog.Builder(requireContext())
                 .setTitle("Reset Your Email!")
                 .setDescription("Are you sure?")
@@ -140,8 +168,7 @@ class SettingsFragment : Fragment() {
                 .show()
     }
 
-    private fun deleteAccount()
-    {
+    private fun deleteAccount() {
         MaterialStyledDialog.Builder(requireContext())
                 .setTitle("Delete Your Account!")
                 .setDescription("Are you sure?")
@@ -150,15 +177,12 @@ class SettingsFragment : Fragment() {
                 .onPositive { confirmDelete() }
                 .setStyle(Style.HEADER_WITH_TITLE)
                 .show()
-
     }
 
-    private fun confirmResetPassword()
-    {
+    private fun confirmResetPassword() {
         firebaseSetup.auth?.sendPasswordResetEmail(firebaseSetup.user?.email!!)
                 ?.addOnCompleteListener { task ->
-                    if (task.isSuccessful)
-                    {
+                    if (task.isSuccessful) {
                         MotionToast.Companion.createColorToast(
                                 this.requireActivity(),
                                 "Successful",
@@ -166,11 +190,9 @@ class SettingsFragment : Fragment() {
                                 MotionToast.Companion.TOAST_SUCCESS,
                                 MotionToast.Companion.GRAVITY_BOTTOM,
                                 MotionToast.Companion.LONG_DURATION,
-                                ResourcesCompat.getFont(this.requireContext(), R.font.helvetica_regular)
-                        )
+                                ResourcesCompat.getFont(this.requireContext(), R.font.helvetica_regular))
                     }
-                    else
-                    {
+                    else {
                         MotionToast.Companion.createColorToast(
                                 this.requireActivity(),
                                 "UnSuccessful",
@@ -178,23 +200,19 @@ class SettingsFragment : Fragment() {
                                 MotionToast.Companion.TOAST_ERROR,
                                 MotionToast.Companion.GRAVITY_BOTTOM,
                                 MotionToast.Companion.LONG_DURATION,
-                                ResourcesCompat.getFont(this.requireContext(), R.font.helvetica_regular)
-                        )
+                                ResourcesCompat.getFont(this.requireContext(), R.font.helvetica_regular))
                     }
                 }
     }
 
-    private fun confirmResetEmail()
-    {
+    private fun confirmResetEmail() {
 
     }
 
-    private fun confirmDelete()
-    {
+    private fun confirmDelete() {
         firebaseSetup.user?.delete()
             ?.addOnCompleteListener { task ->
-                if (task.isSuccessful)
-                {
+                if (task.isSuccessful) {
                     firebaseSetup.userReference?.removeValue()
                     MotionToast.Companion.createColorToast(
                             this.requireActivity(),
@@ -208,8 +226,7 @@ class SettingsFragment : Fragment() {
                     startActivity(Intent(activity, LoginActivity::class.java))
                     activity?.finish()
                 }
-                else
-                {
+                else {
                     MotionToast.Companion.createColorToast(
                             this.requireActivity(),
                             "UnSuccessful",
@@ -223,8 +240,7 @@ class SettingsFragment : Fragment() {
             }
     }
 
-    private fun logout()
-    {
+    private fun logout() {
         firebaseSetup.auth?.signOut()
         startActivity(Intent(context, LoginActivity::class.java))
         activity?.finish()

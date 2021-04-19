@@ -17,6 +17,7 @@ import com.google.android.material.navigation.NavigationView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
+import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.navigation_header.view.*
 import kotlinx.android.synthetic.main.navigation_header_admin.view.*
@@ -39,8 +40,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun drawNavTool()
-    {
+    private fun drawNavTool() {
         // DrawLayout
         val drawerLayout: DrawerLayout = findViewById(R.id.drawerLayout)
         findViewById<ImageView>(R.id.imageMenu).setOnClickListener{
@@ -64,20 +64,17 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
     }
 
-    private fun loadHeader()
-    {
+    private fun loadHeader() {
         val headView: View = navigationView.getHeaderView(0)
         firebaseSetup.userReference?.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 headView.header_am.text = snapshot.child("am").value.toString()
                 headView.header_email.text = snapshot.child("email").value.toString()
-                if (snapshot.hasChild("profile"))
-                {
+                if (snapshot.hasChild("profile")) {
                     val loadImage = snapshot.child("profile").value.toString()
                     Glide.with(applicationContext).load(loadImage).apply(RequestOptions.circleCropTransform()).into(headView.imageProfile_admin)
                 }
-                else
-                {
+                else {
                     Glide.with(applicationContext).load(R.drawable.default_profile).apply(RequestOptions.circleCropTransform()).into(headView.imageProfile_admin)
                 }
             }

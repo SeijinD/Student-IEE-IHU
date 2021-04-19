@@ -1,6 +1,9 @@
 package eu.seijindemon.student_iee_ihu
 
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
@@ -10,8 +13,11 @@ import com.afollestad.materialdialogs.WhichButton.POSITIVE
 import com.afollestad.materialdialogs.actions.setActionButtonEnabled
 import com.afollestad.materialdialogs.input.getInputField
 import com.afollestad.materialdialogs.input.input
+import eu.seijindemon.student_iee_ihu.nav_fragments.SettingsFragment
+import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import kotlinx.android.synthetic.main.activity_login.*
 import www.sanju.motiontoast.MotionToast
+import java.util.*
 
 class LoginActivity : AppCompatActivity() {
 
@@ -19,6 +25,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        loadLocale()
         setContentView(R.layout.activity_login)
 
         firebaseSetup =  FirebaseSetup()
@@ -53,24 +60,37 @@ class LoginActivity : AppCompatActivity() {
         }
 
 
-        login_button.setOnClickListener{
-            login()
-        }
+        login_button.setOnClickListener{ login() }
 
-        reset_password_button.setOnClickListener {
-            resetPassword()
-        }
+        reset_password_button.setOnClickListener { resetPassword() }
 
-        create_account_button.setOnClickListener{
+        create_account_button.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
             finish()
         }
 
-
     }
 
-    private fun resetPassword()
-    {
+    fun setLocale(Lang: String) {
+        val locale = Locale(Lang)
+        Locale.setDefault(locale)
+        val config = Configuration()
+        config.locale = locale
+        baseContext.resources?.updateConfiguration(config, baseContext.resources.displayMetrics)
+        val editor = getSharedPreferences("Settings", Context.MODE_PRIVATE).edit()
+        editor.putString("My_Lang", Lang)
+        editor.apply()
+    }
+
+    fun loadLocale() {
+        val sharedPreferences = getSharedPreferences("Settings", Activity.MODE_PRIVATE)
+        val language = sharedPreferences.getString("My_Lang", "")
+        if (language != null) {
+            setLocale(language)
+        }
+    }
+
+    private fun resetPassword() {
         val type = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
         var email : String? = null
         MaterialDialog(this).show {
@@ -89,12 +109,10 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun confirmResetPassword(email: String)
-    {
+    private fun confirmResetPassword(email: String) {
         firebaseSetup.auth?.sendPasswordResetEmail(email)
             ?.addOnCompleteListener { task ->
-                if (task.isSuccessful)
-                {
+                if (task.isSuccessful) {
                     MotionToast.Companion.createColorToast(
                         this,
                         "Successful",
@@ -102,11 +120,9 @@ class LoginActivity : AppCompatActivity() {
                         MotionToast.Companion.TOAST_SUCCESS,
                         MotionToast.Companion.GRAVITY_BOTTOM,
                         MotionToast.Companion.LONG_DURATION,
-                        ResourcesCompat.getFont(this, R.font.helvetica_regular)
-                    )
+                        ResourcesCompat.getFont(this, R.font.helvetica_regular))
                 }
-                else
-                {
+                else {
                     MotionToast.Companion.createColorToast(
                         this,
                         "UnSuccessful",
@@ -114,14 +130,12 @@ class LoginActivity : AppCompatActivity() {
                         MotionToast.Companion.TOAST_ERROR,
                         MotionToast.Companion.GRAVITY_BOTTOM,
                         MotionToast.Companion.LONG_DURATION,
-                        ResourcesCompat.getFont(this, R.font.helvetica_regular)
-                    )
+                        ResourcesCompat.getFont(this, R.font.helvetica_regular))
                 }
             }
     }
 
-    private fun login()
-    {
+    private fun login() {
         when {
             login_email.text.toString().trim().isEmpty() -> {
                 MotionToast.Companion.createColorToast(
@@ -147,11 +161,9 @@ class LoginActivity : AppCompatActivity() {
                 loginUser(login_email.text.toString().trim(), login_password.text.toString().trim())
             }
         }
-
     }
 
-    private fun loginUser(email: String, password: String)
-    {
+    private fun loginUser(email: String, password: String) {
         firebaseSetup.auth!!.signInWithEmailAndPassword(email,password)
             .addOnCompleteListener(this){ task ->
                 val currentUser = firebaseSetup.auth?.currentUser

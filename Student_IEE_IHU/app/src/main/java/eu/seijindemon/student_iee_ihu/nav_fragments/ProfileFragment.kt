@@ -20,8 +20,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.StorageTask
 import com.google.firebase.storage.UploadTask
-import eu.seijindemon.student_iee_ihu.FirebaseSetup
-import eu.seijindemon.student_iee_ihu.LoginActivity
+import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import eu.seijindemon.student_iee_ihu.R
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
@@ -49,35 +48,27 @@ class ProfileFragment : Fragment() {
 
         loadProfile()
 
-        view.profile_image.setOnClickListener {
-            pickImage()
-        }
+        view.profile_image.setOnClickListener { pickImage() }
 
-        view.update_button.setOnClickListener {
-            updateProfile()
-        }
+        view.update_button.setOnClickListener { updateProfile() }
 
         return view
     }
 
-    private fun loadProfile()
-    {
+    private fun loadProfile() {
         firebaseSetup.userReference?.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                if (context != null)
-                {
+                if (context != null) {
                     profile_am.setText(snapshot.child("am").value.toString())
                     profile_firstName.setText(snapshot.child("firstname").value.toString())
                     profile_lastName.setText(snapshot.child("lastname").value.toString())
                     profile_phone.setText(snapshot.child("phone").value.toString())
 
-                    if (snapshot.hasChild("profile"))
-                    {
+                    if (snapshot.hasChild("profile")) {
                         val loadImage = snapshot.child("profile").value.toString()
                         Glide.with(requireActivity()).load(loadImage).apply(RequestOptions.circleCropTransform()).into(profile_image)
                     }
-                    else
-                    {
+                    else {
                         Glide.with(requireActivity()).load(R.drawable.default_profile).apply(RequestOptions.circleCropTransform()).into(profile_image)
                     }
                 }
@@ -89,8 +80,7 @@ class ProfileFragment : Fragment() {
         })
     }
 
-    private fun updateProfile()
-    {
+    private fun updateProfile() {
         when {
             profile_am.text.toString().trim().isEmpty() -> {
                 MotionToast.Companion.createColorToast(
@@ -100,8 +90,7 @@ class ProfileFragment : Fragment() {
                         MotionToast.Companion.TOAST_WARNING,
                         MotionToast.Companion.GRAVITY_BOTTOM,
                         MotionToast.Companion.LONG_DURATION,
-                        ResourcesCompat.getFont(requireActivity(), R.font.helvetica_regular)
-                )
+                        ResourcesCompat.getFont(requireActivity(), R.font.helvetica_regular))
             }
             profile_firstName.text.toString().trim().isEmpty() -> {
                 MotionToast.Companion.createColorToast(
@@ -111,8 +100,7 @@ class ProfileFragment : Fragment() {
                         MotionToast.Companion.TOAST_WARNING,
                         MotionToast.Companion.GRAVITY_BOTTOM,
                         MotionToast.Companion.LONG_DURATION,
-                        ResourcesCompat.getFont(requireActivity(), R.font.helvetica_regular)
-                )
+                        ResourcesCompat.getFont(requireActivity(), R.font.helvetica_regular))
             }
             profile_lastName.text.toString().trim().isEmpty() -> {
                 MotionToast.Companion.createColorToast(
@@ -122,8 +110,7 @@ class ProfileFragment : Fragment() {
                         MotionToast.Companion.TOAST_WARNING,
                         MotionToast.Companion.GRAVITY_BOTTOM,
                         MotionToast.Companion.LONG_DURATION,
-                        ResourcesCompat.getFont(requireActivity(), R.font.helvetica_regular)
-                )
+                        ResourcesCompat.getFont(requireActivity(), R.font.helvetica_regular))
             }
             else -> {
                 val currentUserDb = firebaseSetup.userReference
@@ -146,8 +133,7 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    private fun pickImage()
-    {
+    private fun pickImage() {
         val intent = Intent()
         intent.type = "image/*"
         intent.action = Intent.ACTION_GET_CONTENT
@@ -157,8 +143,7 @@ class ProfileFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == RequestCode && resultCode == Activity.RESULT_OK && data!!.data != null)
-        {
+        if (requestCode == RequestCode && resultCode == Activity.RESULT_OK && data!!.data != null) {
             imageUri = data.data
             MotionToast.Companion.createColorToast(
                 this.requireActivity(),
@@ -172,14 +157,12 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    private fun uploadImageToDatabase()
-    {
+    private fun uploadImageToDatabase() {
         val prograssBar = ProgressDialog(context)
         prograssBar.setMessage("Image is uploading, please wait...")
         prograssBar.show()
 
-        if(imageUri != null)
-        {
+        if(imageUri != null) {
             val fileRef = firebaseSetup.userStorage!!.child(System.currentTimeMillis().toString() + ".jpg")
             val uploadTask: StorageTask<*>
             uploadTask = fileRef.putFile(imageUri!!)
@@ -192,8 +175,7 @@ class ProfileFragment : Fragment() {
                 }
                 return@Continuation fileRef.downloadUrl
             }).addOnCompleteListener{ task ->
-                if(task.isSuccessful)
-                {
+                if(task.isSuccessful) {
                     val downloadUrl = task.result
                     val url = downloadUrl.toString()
 

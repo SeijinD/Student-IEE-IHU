@@ -7,6 +7,7 @@ import android.util.Log
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.widget.doOnTextChanged
 import com.google.firebase.auth.UserProfileChangeRequest
+import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import kotlinx.android.synthetic.main.activity_register.*
 import www.sanju.motiontoast.MotionToast
 
@@ -24,8 +25,7 @@ class RegisterActivity : AppCompatActivity() {
         register()
     }
 
-    private fun register()
-    {
+    private fun register() {
         register_am.doOnTextChanged { text, start, before, count ->
             when {
                 text!!.length < 8 -> {
@@ -78,8 +78,7 @@ class RegisterActivity : AppCompatActivity() {
                         MotionToast.Companion.TOAST_WARNING,
                         MotionToast.Companion.GRAVITY_BOTTOM,
                         MotionToast.Companion.LONG_DURATION,
-                        ResourcesCompat.getFont(this, R.font.helvetica_regular)
-                    )
+                        ResourcesCompat.getFont(this, R.font.helvetica_regular))
                 }
                 register_am.text.toString().trim().isEmpty() -> {
                     MotionToast.Companion.createColorToast(
@@ -89,8 +88,7 @@ class RegisterActivity : AppCompatActivity() {
                         MotionToast.Companion.TOAST_WARNING,
                         MotionToast.Companion.GRAVITY_BOTTOM,
                         MotionToast.Companion.LONG_DURATION,
-                        ResourcesCompat.getFont(this, R.font.helvetica_regular)
-                    )
+                        ResourcesCompat.getFont(this, R.font.helvetica_regular))
                 }
                 register_firstName.text.toString().trim().isEmpty() -> {
                     MotionToast.Companion.createColorToast(
@@ -100,8 +98,7 @@ class RegisterActivity : AppCompatActivity() {
                         MotionToast.Companion.TOAST_WARNING,
                         MotionToast.Companion.GRAVITY_BOTTOM,
                         MotionToast.Companion.LONG_DURATION,
-                        ResourcesCompat.getFont(this, R.font.helvetica_regular)
-                    )
+                        ResourcesCompat.getFont(this, R.font.helvetica_regular))
                 }
                 register_lastName.text.toString().trim().isEmpty() -> {
                     MotionToast.Companion.createColorToast(
@@ -111,8 +108,7 @@ class RegisterActivity : AppCompatActivity() {
                         MotionToast.Companion.TOAST_WARNING,
                         MotionToast.Companion.GRAVITY_BOTTOM,
                         MotionToast.Companion.LONG_DURATION,
-                        ResourcesCompat.getFont(this, R.font.helvetica_regular)
-                    )
+                        ResourcesCompat.getFont(this, R.font.helvetica_regular))
                 }
                 register_password.text.toString().trim().isEmpty() || register_verify_password.text.toString().trim().isEmpty() -> {
                     MotionToast.Companion.createColorToast(
@@ -122,8 +118,7 @@ class RegisterActivity : AppCompatActivity() {
                         MotionToast.Companion.TOAST_WARNING,
                         MotionToast.Companion.GRAVITY_BOTTOM,
                         MotionToast.Companion.LONG_DURATION,
-                        ResourcesCompat.getFont(this, R.font.helvetica_regular)
-                    )
+                        ResourcesCompat.getFont(this, R.font.helvetica_regular))
                 }
                 register_password.text.toString().trim() != register_verify_password.text.toString().trim() -> {
                     MotionToast.Companion.createColorToast(
@@ -133,8 +128,7 @@ class RegisterActivity : AppCompatActivity() {
                         MotionToast.Companion.TOAST_WARNING,
                         MotionToast.Companion.GRAVITY_BOTTOM,
                         MotionToast.Companion.LONG_DURATION,
-                        ResourcesCompat.getFont(this, R.font.helvetica_regular)
-                    )
+                        ResourcesCompat.getFont(this, R.font.helvetica_regular))
                 }
                 else -> {
                     createUser(
@@ -149,8 +143,7 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    private fun createUser(email: String, password: String, am: String, firstName: String, lastName: String)
-    {
+    private fun createUser(email: String, password: String, am: String, firstName: String, lastName: String) {
         firebaseSetup.auth?.createUserWithEmailAndPassword(email, password)
             ?.addOnCompleteListener(this){ task ->
                 when {
@@ -181,8 +174,7 @@ class RegisterActivity : AppCompatActivity() {
                                 MotionToast.Companion.TOAST_SUCCESS,
                                 MotionToast.Companion.GRAVITY_BOTTOM,
                                 MotionToast.Companion.LONG_DURATION,
-                                ResourcesCompat.getFont(this, R.font.helvetica_regular)
-                            )
+                                ResourcesCompat.getFont(this, R.font.helvetica_regular))
                         }
 
                         MotionToast.Companion.createColorToast(
@@ -192,8 +184,7 @@ class RegisterActivity : AppCompatActivity() {
                             MotionToast.Companion.TOAST_SUCCESS,
                             MotionToast.Companion.GRAVITY_BOTTOM,
                             MotionToast.Companion.LONG_DURATION,
-                            ResourcesCompat.getFont(this, R.font.helvetica_regular)
-                        )
+                            ResourcesCompat.getFont(this, R.font.helvetica_regular))
 
                         startActivity(Intent(this, LoginActivity::class.java))
                         finish()
