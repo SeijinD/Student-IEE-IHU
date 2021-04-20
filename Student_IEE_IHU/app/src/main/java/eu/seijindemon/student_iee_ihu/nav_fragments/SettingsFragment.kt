@@ -7,11 +7,11 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.res.ResourcesCompat
 import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog
 import com.github.javiersantos.materialstyleddialogs.enums.Style
@@ -24,14 +24,7 @@ import java.util.*
 
 class SettingsFragment : Fragment() {
 
-    lateinit var firebaseSetup: FirebaseSetup
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
-
-    }
+    private lateinit var firebaseSetup: FirebaseSetup
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_settings, container, false)
@@ -56,30 +49,50 @@ class SettingsFragment : Fragment() {
 
         view.report.setOnClickListener { report() }
 
+        view.about.setOnClickListener { about() }
+
         view.privacy_policy.setOnClickListener { privacyPolicy() }
 
         view.english_rb.setOnClickListener{ setLocale("en") }
 
         view.greek_rb.setOnClickListener{ setLocale("el") }
 
+        view.dark_rb.setOnClickListener{ setTheme("dark") }
+
+        view.white_rb.setOnClickListener{ setTheme("white") }
+
         return view
+    }
+
+    private fun setTheme(theme: String){
+        val sharedPreferences = activity?.getSharedPreferences("Settings", Activity.MODE_PRIVATE)
+        val sharedPreferencesEdit = sharedPreferences?.edit()
+
+        when (theme) {
+            "dark" -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                sharedPreferencesEdit?.putBoolean("NightMode", true)
+                sharedPreferencesEdit?.apply()
+            }
+            "white" -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                sharedPreferencesEdit?.putBoolean("NightMode", false)
+                sharedPreferencesEdit?.apply()
+            }
+        }
     }
 
     private fun loadTheme(view: View) {
         val sharedPreferences = activity?.getSharedPreferences("Settings", Activity.MODE_PRIVATE)
-        val theme = sharedPreferences?.getString("My_Lang", "")
 
-//        when (theme) {
-//            "dark" -> {
-//                view.dark_rb.isChecked = true
-//            }
-//            ("white") -> {
-//                view.white_rb.isChecked = true
-//            }
-//            ("auto") -> {
-//                view.auto_rb.isChecked = true
-//            }
-//        }
+        when (sharedPreferences?.getBoolean("NightMode", false)) {
+            true -> {
+                view.dark_rb.isChecked = true
+            }
+            false -> {
+                view.white_rb.isChecked = true
+            }
+        }
     }
 
     private fun loadLanguage(view: View) {
@@ -126,6 +139,10 @@ class SettingsFragment : Fragment() {
     }
 
     private fun report() {
+
+    }
+
+    private fun about() {
 
     }
 
