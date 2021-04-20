@@ -6,14 +6,15 @@ import android.content.Intent
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.text.InputType
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.res.ResourcesCompat
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.WhichButton.POSITIVE
 import com.afollestad.materialdialogs.actions.setActionButtonEnabled
 import com.afollestad.materialdialogs.input.getInputField
 import com.afollestad.materialdialogs.input.input
-import eu.seijindemon.student_iee_ihu.nav_fragments.SettingsFragment
 import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import kotlinx.android.synthetic.main.activity_login.*
 import www.sanju.motiontoast.MotionToast
@@ -21,11 +22,12 @@ import java.util.*
 
 class LoginActivity : AppCompatActivity() {
 
-    lateinit var firebaseSetup: FirebaseSetup
+    private lateinit var firebaseSetup: FirebaseSetup
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         loadLocale()
+        loadTheme()
         setContentView(R.layout.activity_login)
 
         firebaseSetup =  FirebaseSetup()
@@ -71,7 +73,20 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-    fun setLocale(Lang: String) {
+    private fun loadTheme() {
+        val sharedPreferences = getSharedPreferences("Settings", Activity.MODE_PRIVATE)
+
+        when (sharedPreferences.getBoolean("NightMode", false)) {
+            true -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            }
+            false -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+        }
+    }
+
+    private fun setLocale(Lang: String) {
         val locale = Locale(Lang)
         Locale.setDefault(locale)
         val config = Configuration()
@@ -82,7 +97,7 @@ class LoginActivity : AppCompatActivity() {
         editor.apply()
     }
 
-    fun loadLocale() {
+    private fun loadLocale() {
         val sharedPreferences = getSharedPreferences("Settings", Activity.MODE_PRIVATE)
         val language = sharedPreferences.getString("My_Lang", "")
         if (language != null) {
