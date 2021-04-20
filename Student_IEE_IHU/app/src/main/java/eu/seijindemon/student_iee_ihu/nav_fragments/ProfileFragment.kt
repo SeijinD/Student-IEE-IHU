@@ -28,17 +28,10 @@ import www.sanju.motiontoast.MotionToast
 
 class ProfileFragment : Fragment() {
 
-    lateinit var firebaseSetup: FirebaseSetup
+    private lateinit var firebaseSetup: FirebaseSetup
 
-    private val RequestCode = 438
+    private val requestCode = 438
     private var imageUri: Uri? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
-
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view =  inflater.inflate(R.layout.fragment_profile, container, false)
@@ -137,13 +130,13 @@ class ProfileFragment : Fragment() {
         val intent = Intent()
         intent.type = "image/*"
         intent.action = Intent.ACTION_GET_CONTENT
-        startActivityForResult(intent, RequestCode)
+        startActivityForResult(intent, requestCode)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == RequestCode && resultCode == Activity.RESULT_OK && data!!.data != null) {
+        if (requestCode == this.requestCode && resultCode == Activity.RESULT_OK && data!!.data != null) {
             imageUri = data.data
             MotionToast.Companion.createColorToast(
                 this.requireActivity(),

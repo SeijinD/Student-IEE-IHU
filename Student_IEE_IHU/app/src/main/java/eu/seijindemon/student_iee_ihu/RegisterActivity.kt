@@ -13,7 +13,7 @@ import www.sanju.motiontoast.MotionToast
 
 class RegisterActivity : AppCompatActivity() {
 
-    lateinit var firebaseSetup: FirebaseSetup
+    private lateinit var firebaseSetup: FirebaseSetup
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

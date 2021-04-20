@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.navigation_header_admin.view.*
 
 class AdminMainActivity : AppCompatActivity() {
 
-    lateinit var firebaseSetup: FirebaseSetup
+    private lateinit var firebaseSetup: FirebaseSetup
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
