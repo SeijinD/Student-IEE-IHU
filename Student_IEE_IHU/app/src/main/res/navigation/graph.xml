@@ -42,4 +42,14 @@
         android:name="eu.seijindemon.student_iee_ihu.nav_fragments.ProfileFragment"
         android:label="@string/profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/menuAbout"
+        android:name="eu.seijindemon.student_iee_ihu.nav_fragments.AboutFragment"
+        android:label="@string/about_app"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/menuEmailForm"
+        android:name="eu.seijindemon.student_iee_ihu.nav_fragments.EmailFormFragment"
+        android:label="@string/email"
+        tools:layout="@layout/email_form" />
 </navigation>

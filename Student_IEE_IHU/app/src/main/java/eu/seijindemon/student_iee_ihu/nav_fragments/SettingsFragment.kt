@@ -13,11 +13,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.res.ResourcesCompat
+import androidx.navigation.Navigation
 import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog
 import com.github.javiersantos.materialstyleddialogs.enums.Style
 import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import eu.seijindemon.student_iee_ihu.LoginActivity
+import eu.seijindemon.student_iee_ihu.MainActivity
 import eu.seijindemon.student_iee_ihu.R
+import kotlinx.android.synthetic.main.fragment_settings.*
 import kotlinx.android.synthetic.main.fragment_settings.view.*
 import www.sanju.motiontoast.MotionToast
 import java.util.*
@@ -47,9 +50,9 @@ class SettingsFragment : Fragment() {
 
         view.rate_app.setOnClickListener { rateApp() }
 
-        view.report.setOnClickListener { report() }
+        view.report.setOnClickListener { report(view) }
 
-        view.about.setOnClickListener { about() }
+        view.about.setOnClickListener { about(view) }
 
         view.privacy_policy.setOnClickListener { privacyPolicy() }
 
@@ -138,12 +141,12 @@ class SettingsFragment : Fragment() {
         }
     }
 
-    private fun report() {
-
+    private fun report(view: View) {
+        report.setOnClickListener{ Navigation.findNavController(view).navigate(R.id.menuEmailForm) }
     }
 
-    private fun about() {
-
+    private fun about(view: View) {
+        about.setOnClickListener{ Navigation.findNavController(view).navigate(R.id.menuAbout) }
     }
 
     private fun privacyPolicy() {
