@@ -64,6 +64,8 @@ class SettingsFragment : Fragment() {
 
         view.white_rb.setOnClickListener{ setTheme("white") }
 
+        view.auto_rb.setOnClickListener{ setTheme("auto") }
+
         return view
     }
 
@@ -74,12 +76,17 @@ class SettingsFragment : Fragment() {
         when (theme) {
             "dark" -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                sharedPreferencesEdit?.putBoolean("NightMode", true)
+                sharedPreferencesEdit?.putInt("ThemeMode", 1)
                 sharedPreferencesEdit?.apply()
             }
             "white" -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                sharedPreferencesEdit?.putBoolean("NightMode", false)
+                sharedPreferencesEdit?.putInt("ThemeMode", 2)
+                sharedPreferencesEdit?.apply()
+            }
+            "auto" -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+                sharedPreferencesEdit?.putInt("ThemeMode", 3)
                 sharedPreferencesEdit?.apply()
             }
         }
@@ -88,12 +95,15 @@ class SettingsFragment : Fragment() {
     private fun loadTheme(view: View) {
         val sharedPreferences = activity?.getSharedPreferences("Settings", Activity.MODE_PRIVATE)
 
-        when (sharedPreferences?.getBoolean("NightMode", false)) {
-            true -> {
+        when (sharedPreferences?.getInt("ThemeMode", 0)) {
+            1 -> {
                 view.dark_rb.isChecked = true
             }
-            false -> {
+            2 -> {
                 view.white_rb.isChecked = true
+            }
+            3 -> {
+                view.auto_rb.isChecked = true
             }
         }
     }

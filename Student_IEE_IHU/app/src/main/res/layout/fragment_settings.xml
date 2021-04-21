@@ -148,6 +148,13 @@
                 android:text="@string/white"
                 android:layout_marginStart="55dp"/>
 
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/auto_rb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/auto"
+                android:layout_marginStart="55dp"/>
+
         </RadioGroup>
 
         <View

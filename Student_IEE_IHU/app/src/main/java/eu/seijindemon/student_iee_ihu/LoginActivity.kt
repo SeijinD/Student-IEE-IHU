@@ -75,12 +75,15 @@ class LoginActivity : AppCompatActivity() {
     private fun loadTheme() {
         val sharedPreferences = getSharedPreferences("Settings", Activity.MODE_PRIVATE)
 
-        when (sharedPreferences.getBoolean("NightMode", false)) {
-            true -> {
+        when (sharedPreferences.getInt("ThemeMode", 0)) {
+            1 -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             }
-            false -> {
+            2 -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+            3 -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
             }
         }
     }
