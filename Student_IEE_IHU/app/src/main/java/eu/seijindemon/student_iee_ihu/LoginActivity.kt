@@ -14,6 +14,7 @@ import com.afollestad.materialdialogs.WhichButton.POSITIVE
 import com.afollestad.materialdialogs.actions.setActionButtonEnabled
 import com.afollestad.materialdialogs.input.getInputField
 import com.afollestad.materialdialogs.input.input
+import com.tencent.mmkv.MMKV
 import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import kotlinx.android.synthetic.main.activity_login.*
 import www.sanju.motiontoast.MotionToast
@@ -25,6 +26,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        MMKV.initialize(this)
         loadLocale()
         loadTheme()
         setContentView(R.layout.activity_login)
@@ -73,9 +75,12 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loadTheme() {
-        val sharedPreferences = getSharedPreferences("Settings", Activity.MODE_PRIVATE)
+        val kv = MMKV.mmkvWithID("themeMode")
+        if (kv?.decodeInt("int") == 0){
+            kv.encode("int",3)
+        }
 
-        when (sharedPreferences.getInt("ThemeMode", 0)) {
+        when (kv?.decodeInt("int")) {
             1 -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             }
@@ -94,17 +99,19 @@ class LoginActivity : AppCompatActivity() {
         val config = Configuration()
         config.locale = locale
         baseContext.resources?.updateConfiguration(config, baseContext.resources.displayMetrics)
-        val editor = getSharedPreferences("Settings", Context.MODE_PRIVATE).edit()
-        editor.putString("My_Lang", Lang)
-        editor.apply()
+
+        val kv = MMKV.mmkvWithID("languageMode")
+        kv?.encode("string", Lang)
     }
 
     private fun loadLocale() {
-        val sharedPreferences = getSharedPreferences("Settings", Activity.MODE_PRIVATE)
-        val language = sharedPreferences.getString("My_Lang", "")
-        if (language != null) {
-            setLocale(language)
+        val kv = MMKV.mmkvWithID("languageMode")
+
+        if (kv?.decodeString("string") == null) {
+            kv?.encode("string","en")
         }
+
+        setLocale(kv?.decodeString("string")!!)
     }
 
     private fun resetPassword() {

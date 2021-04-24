@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +17,7 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.navigation.Navigation
 import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog
 import com.github.javiersantos.materialstyleddialogs.enums.Style
+import com.tencent.mmkv.MMKV
 import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import eu.seijindemon.student_iee_ihu.LoginActivity
 import eu.seijindemon.student_iee_ihu.MainActivity
@@ -70,32 +72,28 @@ class SettingsFragment : Fragment() {
     }
 
     private fun setTheme(theme: String){
-        val sharedPreferences = activity?.getSharedPreferences("Settings", Activity.MODE_PRIVATE)
-        val sharedPreferencesEdit = sharedPreferences?.edit()
+        val kv = MMKV.mmkvWithID("themeMode")
 
         when (theme) {
             "dark" -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                sharedPreferencesEdit?.putInt("ThemeMode", 1)
-                sharedPreferencesEdit?.apply()
+                kv?.encode("int",1)
             }
             "white" -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                sharedPreferencesEdit?.putInt("ThemeMode", 2)
-                sharedPreferencesEdit?.apply()
+                kv?.encode("int",2)
             }
             "auto" -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
-                sharedPreferencesEdit?.putInt("ThemeMode", 3)
-                sharedPreferencesEdit?.apply()
+                kv?.encode("int",3)
             }
         }
     }
 
     private fun loadTheme(view: View) {
-        val sharedPreferences = activity?.getSharedPreferences("Settings", Activity.MODE_PRIVATE)
+        val kv = MMKV.mmkvWithID("themeMode")
 
-        when (sharedPreferences?.getInt("ThemeMode", 0)) {
+        when (kv?.decodeInt("int")) {
             1 -> {
                 view.dark_rb.isChecked = true
             }
@@ -109,9 +107,9 @@ class SettingsFragment : Fragment() {
     }
 
     private fun loadLanguage(view: View) {
-        val sharedPreferences = activity?.getSharedPreferences("Settings", Activity.MODE_PRIVATE)
+        val kv = MMKV.mmkvWithID("languageMode")
 
-        when (sharedPreferences?.getString("My_Lang", "")) {
+        when (kv?.decodeString("string")) {
             "el" -> {
                 view.greek_rb.isChecked = true
             }
@@ -127,9 +125,9 @@ class SettingsFragment : Fragment() {
         val config = Configuration()
         config.locale = locale
         activity?.baseContext?.resources?.updateConfiguration(config, activity?.baseContext?.resources?.displayMetrics)
-        val editor = activity?.getSharedPreferences("Settings", Context.MODE_PRIVATE)?.edit()
-        editor?.putString("My_Lang", Lang)
-        editor?.apply()
+
+        val kv = MMKV.mmkvWithID("languageMode")
+        kv?.encode("string", Lang)
 
         logout()
     }

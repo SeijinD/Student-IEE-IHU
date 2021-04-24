@@ -110,7 +110,7 @@ dependencies {
     // Material Dialog Input
     implementation 'com.afollestad.material-dialogs:input:3.3.0'
 
-    // Percent Layout
-    // implementation "androidx.percentlayout:percentlayout:1.0.0"
+    //  MMKV
+    implementation 'com.tencent:mmkv-static:1.2.7'
 
 }
