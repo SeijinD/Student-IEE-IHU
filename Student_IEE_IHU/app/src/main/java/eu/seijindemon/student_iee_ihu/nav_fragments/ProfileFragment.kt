@@ -28,16 +28,13 @@ import www.sanju.motiontoast.MotionToast
 
 class ProfileFragment : Fragment() {
 
-    private lateinit var firebaseSetup: FirebaseSetup
-
     private val requestCode = 438
     private var imageUri: Uri? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view =  inflater.inflate(R.layout.fragment_profile, container, false)
 
-        firebaseSetup =  FirebaseSetup()
-        firebaseSetup.setupFirebase()
+        FirebaseSetup.setupFirebase()
 
         loadProfile()
 
@@ -49,7 +46,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun loadProfile() {
-        firebaseSetup.userReference?.addValueEventListener(object : ValueEventListener {
+        FirebaseSetup.userReference?.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (context != null) {
                     profile_am.setText(snapshot.child("am").value.toString())
@@ -106,7 +103,7 @@ class ProfileFragment : Fragment() {
                         ResourcesCompat.getFont(requireActivity(), R.font.helvetica_regular))
             }
             else -> {
-                val currentUserDb = firebaseSetup.userReference
+                val currentUserDb = FirebaseSetup.userReference
 
                 val mapAM = HashMap<String, Any>()
                 val mapFirstname = HashMap<String, Any>()
@@ -122,6 +119,15 @@ class ProfileFragment : Fragment() {
                 currentUserDb?.updateChildren(mapFirstname)
                 currentUserDb?.updateChildren(mapLastname)
                 currentUserDb?.updateChildren(mapPhone)
+
+                MotionToast.Companion.createColorToast(
+                    this.requireActivity(),
+                    "Succeeded",
+                    "Updated Profile Info",
+                    MotionToast.Companion.TOAST_SUCCESS,
+                    MotionToast.Companion.GRAVITY_BOTTOM,
+                    MotionToast.Companion.LONG_DURATION,
+                    ResourcesCompat.getFont(this.requireContext(), R.font.helvetica_regular))
             }
         }
     }
@@ -156,7 +162,7 @@ class ProfileFragment : Fragment() {
         prograssBar.show()
 
         if(imageUri != null) {
-            val fileRef = firebaseSetup.userStorage!!.child(System.currentTimeMillis().toString() + ".jpg")
+            val fileRef = FirebaseSetup.userStorage!!.child(System.currentTimeMillis().toString() + ".jpg")
             val uploadTask: StorageTask<*>
             uploadTask = fileRef.putFile(imageUri!!)
 
@@ -174,7 +180,7 @@ class ProfileFragment : Fragment() {
 
                     val mapProfileImg = HashMap<String, Any>()
                     mapProfileImg["profile"] = url
-                    val currentUSerDb = firebaseSetup.userReference
+                    val currentUSerDb = FirebaseSetup.userReference
                     currentUSerDb?.updateChildren(mapProfileImg)
                 }
                 prograssBar.dismiss()

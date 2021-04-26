@@ -29,16 +29,13 @@ import java.util.*
 
 class SettingsFragment : Fragment() {
 
-    private lateinit var firebaseSetup: FirebaseSetup
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_settings, container, false)
 
         loadLanguage(view)
         loadTheme(view)
 
-        firebaseSetup =  FirebaseSetup()
-        firebaseSetup.setupFirebase()
+        FirebaseSetup.setupFirebase()
 
         view.logout_button.setOnClickListener { logout() }
 
@@ -208,7 +205,7 @@ class SettingsFragment : Fragment() {
     }
 
     private fun confirmResetPassword() {
-        firebaseSetup.auth?.sendPasswordResetEmail(firebaseSetup.user?.email!!)
+        FirebaseSetup.auth?.sendPasswordResetEmail(FirebaseSetup.user?.email!!)
                 ?.addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         MotionToast.Companion.createColorToast(
@@ -238,10 +235,10 @@ class SettingsFragment : Fragment() {
     }
 
     private fun confirmDelete() {
-        firebaseSetup.user?.delete()
+        FirebaseSetup.user?.delete()
             ?.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    firebaseSetup.userReference?.removeValue()
+                    FirebaseSetup.userReference?.removeValue()
                     MotionToast.Companion.createColorToast(
                             this.requireActivity(),
                             "Successful",
@@ -269,7 +266,7 @@ class SettingsFragment : Fragment() {
     }
 
     private fun logout() {
-        firebaseSetup.auth?.signOut()
+        FirebaseSetup.auth?.signOut()
         startActivity(Intent(context, LoginActivity::class.java))
         activity?.finish()
     }

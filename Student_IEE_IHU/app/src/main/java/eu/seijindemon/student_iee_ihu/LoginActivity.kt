@@ -1,7 +1,6 @@
 package eu.seijindemon.student_iee_ihu
 
-import android.app.Activity
-import android.content.Context
+
 import android.content.Intent
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
@@ -22,8 +21,6 @@ import java.util.*
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var firebaseSetup: FirebaseSetup
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         MMKV.initialize(this)
@@ -31,10 +28,9 @@ class LoginActivity : AppCompatActivity() {
         loadTheme()
         setContentView(R.layout.activity_login)
 
-        firebaseSetup =  FirebaseSetup()
-        firebaseSetup.setupFirebase()
+        FirebaseSetup.setupFirebase()
 
-        val currentUser = firebaseSetup.auth?.currentUser
+        val currentUser = FirebaseSetup.auth?.currentUser
 
         when {
             currentUser != null -> {
@@ -134,7 +130,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun confirmResetPassword(email: String) {
-        firebaseSetup.auth?.sendPasswordResetEmail(email)
+        FirebaseSetup.auth?.sendPasswordResetEmail(email)
             ?.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     MotionToast.Companion.createColorToast(
@@ -188,9 +184,9 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loginUser(email: String, password: String) {
-        firebaseSetup.auth!!.signInWithEmailAndPassword(email,password)
+        FirebaseSetup.auth!!.signInWithEmailAndPassword(email,password)
             .addOnCompleteListener(this){ task ->
-                val currentUser = firebaseSetup.auth?.currentUser
+                val currentUser = FirebaseSetup.auth?.currentUser
                 when {
                     task.isSuccessful -> {
                         MotionToast.Companion.createColorToast(

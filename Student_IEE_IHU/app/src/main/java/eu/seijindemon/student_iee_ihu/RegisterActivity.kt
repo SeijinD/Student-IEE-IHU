@@ -13,14 +13,11 @@ import www.sanju.motiontoast.MotionToast
 
 class RegisterActivity : AppCompatActivity() {
 
-    private lateinit var firebaseSetup: FirebaseSetup
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        firebaseSetup =  FirebaseSetup()
-        firebaseSetup.setupFirebase()
+        FirebaseSetup.setupFirebase()
 
         register()
     }
@@ -144,11 +141,11 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun createUser(email: String, password: String, am: String, firstName: String, lastName: String) {
-        firebaseSetup.auth?.createUserWithEmailAndPassword(email, password)
+        FirebaseSetup.auth?.createUserWithEmailAndPassword(email, password)
             ?.addOnCompleteListener(this){ task ->
                 when {
                     task.isSuccessful -> {
-                        val currentUser = firebaseSetup.auth?.currentUser
+                        val currentUser = FirebaseSetup.auth?.currentUser
 
                         val profileUpdates = UserProfileChangeRequest.Builder()
                             .setDisplayName(am).build()
@@ -160,7 +157,7 @@ class RegisterActivity : AppCompatActivity() {
                                 }
                             }
 
-                        val currentUserDb = firebaseSetup.usersReference!!.child(currentUser.uid)
+                        val currentUserDb = FirebaseSetup.usersReference!!.child(currentUser.uid)
                         currentUserDb.child("am").setValue(am)
                         currentUserDb.child("firstname").setValue(firstName)
                         currentUserDb.child("lastname").setValue(lastName)

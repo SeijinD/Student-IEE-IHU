@@ -23,13 +23,10 @@ import kotlinx.android.synthetic.main.navigation_header_admin.view.*
 
 class AdminMainActivity : AppCompatActivity() {
 
-    private lateinit var firebaseSetup: FirebaseSetup
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        firebaseSetup =  FirebaseSetup()
-        firebaseSetup.setupFirebase()
+        FirebaseSetup.setupFirebase()
 
         setContentView(R.layout.activity_admin_main)
 
@@ -66,7 +63,7 @@ class AdminMainActivity : AppCompatActivity() {
 
     private fun loadHeader() {
         val headView: View = navigationViewAdmin.getHeaderView(0)
-        firebaseSetup.userReference?.addValueEventListener(object: ValueEventListener {
+        FirebaseSetup.userReference?.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 headView.header_am_admin.text = snapshot.child("am").value.toString()
                 headView.header_email_admin.text = snapshot.child("email").value.toString()

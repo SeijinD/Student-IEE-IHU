@@ -8,39 +8,40 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 
 class FirebaseSetup {
+    companion object{
 
-    var auth: FirebaseAuth? = null
-    var user: FirebaseUser? = null
-    var usersReference: DatabaseReference? = null
-    var userReference: DatabaseReference? = null
-    private var database: FirebaseDatabase? = null
-    private var storage: FirebaseStorage? = null
-    var userStorage: StorageReference? = null
+        var auth: FirebaseAuth? = null
+        var user: FirebaseUser? = null
+        var usersReference: DatabaseReference? = null
+        var userReference: DatabaseReference? = null
+        private var database: FirebaseDatabase? = null
+        private var storage: FirebaseStorage? = null
+        var userStorage: StorageReference? = null
 
-    fun setupFirebase()
-    {
-        auth = FirebaseAuth.getInstance()
-        if (auth != null)
+        fun setupFirebase()
         {
-            user = auth?.currentUser
+            auth = FirebaseAuth.getInstance()
+            if (auth != null)
+            {
+                user = auth?.currentUser
+            }
+
+            database = FirebaseDatabase.getInstance()
+            storage = FirebaseStorage.getInstance()
+
+            // Realtime Database
+            usersReference = database!!.reference.child("profile")
+            if (auth?.currentUser != null)
+            {
+                userReference = usersReference?.child(auth?.currentUser!!.uid)
+            }
+
+
+            // Storage
+            userStorage = storage!!.reference.child("users_images")
+
         }
-
-        database = FirebaseDatabase.getInstance()
-        storage = FirebaseStorage.getInstance()
-
-        // Realtime Database
-        usersReference = database!!.reference.child("profile")
-        if (auth?.currentUser != null)
-        {
-            userReference = usersReference?.child(auth?.currentUser!!.uid)
-        }
-
-
-        // Storage
-        userStorage = storage!!.reference.child("users_images")
 
     }
-
-
 
 }
