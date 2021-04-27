@@ -1,10 +1,12 @@
 package eu.seijindemon.student_iee_ihu
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import androidx.annotation.WorkerThread
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -18,8 +20,12 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
+import eu.seijindemon.student_iee_ihu.utils.NetworkStatus
 import kotlinx.android.synthetic.main.activity_admin_main.*
 import kotlinx.android.synthetic.main.navigation_header_admin.view.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class AdminMainActivity : AppCompatActivity() {
 
@@ -35,8 +41,23 @@ class AdminMainActivity : AppCompatActivity() {
 
     }
 
-    private fun drawNavTool()
-    {
+    override fun onResume() {
+        super.onResume()
+
+        CoroutineScope(Dispatchers.IO).launch {
+            networkAvailable()
+        }
+    }
+
+    @WorkerThread
+    private suspend fun networkAvailable() {
+        if (!NetworkStatus.networkAvailable(application)) {
+            startActivity(Intent(this, NotNetworkActivity::class.java))
+            finish()
+        }
+    }
+
+    private fun drawNavTool() {
         // DrawLayout
         val drawerLayout: DrawerLayout = findViewById(R.id.drawerAdminLayout)
         findViewById<ImageView>(R.id.imageMenuAdmin).setOnClickListener{

@@ -52,4 +52,9 @@
         android:name="eu.seijindemon.student_iee_ihu.nav_fragments.EmailFormFragment"
         android:label="@string/email"
         tools:layout="@layout/email_form" />
+    <activity
+        android:id="@+id/menuNotNetwork"
+        android:name="eu.seijindemon.student_iee_ihu.NotNetworkActivity"
+        android:label="@string/not_network"
+        tools:layout="@layout/activity_not_network" />
 </navigation>

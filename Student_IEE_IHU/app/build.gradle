@@ -64,6 +64,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage-ktx'
     // Realtime Database
     implementation 'com.google.firebase:firebase-database'
+
     // Firebase UI
     // FirebaseUI for Firebase Realtime Database
     implementation 'com.firebaseui:firebase-ui-database:7.1.1'
@@ -112,5 +113,8 @@ dependencies {
 
     //  MMKV
     implementation 'com.tencent:mmkv-static:1.2.7'
+
+    // Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2'
 
 }

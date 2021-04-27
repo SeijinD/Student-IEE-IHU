@@ -38,4 +38,5 @@
     <string name="subject">Subject</string>
     <string name="send">Send</string>
     <string name="message">Message</string>
+    <string name="not_network">Not Network</string>
 </resources>

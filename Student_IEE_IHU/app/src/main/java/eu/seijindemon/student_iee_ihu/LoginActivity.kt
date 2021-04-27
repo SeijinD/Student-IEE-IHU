@@ -23,6 +23,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         MMKV.initialize(this)
         loadLocale()
         loadTheme()
@@ -51,8 +52,7 @@ class LoginActivity : AppCompatActivity() {
                             MotionToast.Companion.TOAST_WARNING,
                             MotionToast.Companion.GRAVITY_BOTTOM,
                             MotionToast.Companion.LONG_DURATION,
-                            ResourcesCompat.getFont(this, R.font.helvetica_regular)
-                        )
+                            ResourcesCompat.getFont(this, R.font.helvetica_regular))
                     }
                 }
             }
