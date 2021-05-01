@@ -1,13 +1,10 @@
 package eu.seijindemon.student_iee_ihu.nav_fragments
 
-import android.app.Activity
 import android.content.ActivityNotFoundException
-import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -20,7 +17,6 @@ import com.github.javiersantos.materialstyleddialogs.enums.Style
 import com.tencent.mmkv.MMKV
 import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import eu.seijindemon.student_iee_ihu.LoginActivity
-import eu.seijindemon.student_iee_ihu.MainActivity
 import eu.seijindemon.student_iee_ihu.R
 import kotlinx.android.synthetic.main.fragment_settings.*
 import kotlinx.android.synthetic.main.fragment_settings.view.*

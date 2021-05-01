@@ -44,12 +44,12 @@
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/menuAbout"
-        android:name="eu.seijindemon.student_iee_ihu.nav_fragments.AboutFragment"
+        android:name="eu.seijindemon.student_iee_ihu.nav_fragments.settings_fragments.AboutFragment"
         android:label="@string/about_app"
         tools:layout="@layout/fragment_about" />
     <fragment
         android:id="@+id/menuEmailForm"
-        android:name="eu.seijindemon.student_iee_ihu.nav_fragments.EmailFormFragment"
+        android:name="eu.seijindemon.student_iee_ihu.nav_fragments.settings_fragments.EmailFormFragment"
         android:label="@string/email"
         tools:layout="@layout/email_form" />
     <activity
