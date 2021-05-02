@@ -57,4 +57,9 @@
         android:name="eu.seijindemon.student_iee_ihu.NotNetworkActivity"
         android:label="@string/not_network"
         tools:layout="@layout/activity_not_network" />
+    <fragment
+        android:id="@+id/menuCommunity"
+        android:name="eu.seijindemon.student_iee_ihu.nav_fragments.CommunityFragment"
+        android:label="@string/community"
+        tools:layout="@layout/fragment_community" />
 </navigation>

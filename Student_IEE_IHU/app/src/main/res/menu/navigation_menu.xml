@@ -10,6 +10,11 @@
             android:title="@string/home"
             />
         <item
+            android:id="@+id/menuCommunity"
+            android:icon="@drawable/ic_baseline_people_24"
+            android:title="@string/community"
+            />
+        <item
             android:id="@+id/menuProfile"
             android:icon="@drawable/ic_baseline_account_box_24"
             android:title="@string/profile"
