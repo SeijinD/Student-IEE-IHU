@@ -40,4 +40,8 @@
     <string name="message">Message</string>
     <string name="not_network">Not Network</string>
     <string name="community">Community</string>
+    <string name="facebook_groups">Facebook Groups</string>
+    <string name="discords">Discords</string>
+    <string name="facebook_pages">Facebook Pages</string>
+    <string name="other_community">Other</string>
 </resources>

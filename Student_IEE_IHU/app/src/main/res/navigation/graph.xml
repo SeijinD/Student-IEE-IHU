@@ -62,4 +62,24 @@
         android:name="eu.seijindemon.student_iee_ihu.nav_fragments.CommunityFragment"
         android:label="@string/community"
         tools:layout="@layout/fragment_community" />
+    <fragment
+        android:id="@+id/menuDiscords"
+        android:name="eu.seijindemon.student_iee_ihu.nav_fragments.community_fragments.DiscordsFragment"
+        android:label="@string/discords"
+        tools:layout="@layout/fragment_discords" />
+    <fragment
+        android:id="@+id/menuFacebookGroups"
+        android:name="eu.seijindemon.student_iee_ihu.nav_fragments.community_fragments.FacebookGroupsFragment"
+        android:label="@string/facebook_groups"
+        tools:layout="@layout/fragment_facebook_groups" />
+    <fragment
+        android:id="@+id/menuFacebookPages"
+        android:name="eu.seijindemon.student_iee_ihu.nav_fragments.community_fragments.FacebookPagesFragment"
+        android:label="@string/facebook_pages"
+        tools:layout="@layout/fragment_facebook_pages" />
+    <fragment
+        android:id="@+id/menuOtherCommunity"
+        android:name="eu.seijindemon.student_iee_ihu.nav_fragments.community_fragments.OtherCommunityFragment"
+        android:label="@string/other_community"
+        tools:layout="@layout/fragment_other_community" />
 </navigation>
