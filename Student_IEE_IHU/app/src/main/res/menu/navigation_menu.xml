@@ -11,7 +11,7 @@
             />
         <item
             android:id="@+id/menuCommunity"
-            android:icon="@drawable/ic_baseline_people_24"
+            android:icon="@drawable/ic_baseline_groups_24"
             android:title="@string/community"
             />
         <item
