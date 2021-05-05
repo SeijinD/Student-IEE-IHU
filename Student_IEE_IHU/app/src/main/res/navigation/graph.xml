@@ -9,12 +9,12 @@
 
     <activity
         android:id="@+id/menuRegister"
-        android:name="eu.seijindemon.student_iee_ihu.ui.RegisterActivity"
+        android:name="eu.seijindemon.student_iee_ihu.ui.auth.RegisterActivity"
         android:label="@string/register"
         tools:layout="@layout/activity_register" />
     <activity
         android:id="@+id/menuLogin"
-        android:name="eu.seijindemon.student_iee_ihu.ui.LoginActivity"
+        android:name="eu.seijindemon.student_iee_ihu.ui.auth.LoginActivity"
         android:label="@string/login"
         tools:layout="@layout/activity_login" />
     <activity
@@ -36,7 +36,14 @@
         android:id="@+id/menuSettings"
         android:name="eu.seijindemon.student_iee_ihu.ui.settings.SettingsFragment"
         android:label="@string/settings"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_menuSettings_to_menuEmailForm"
+            app:destination="@id/menuEmailForm" />
+        <action
+            android:id="@+id/action_menuSettings_to_menuAbout"
+            app:destination="@id/menuAbout" />
+    </fragment>
     <fragment
         android:id="@+id/menuProfile"
         android:name="eu.seijindemon.student_iee_ihu.ui.profile.ProfileFragment"
@@ -51,17 +58,25 @@
         android:id="@+id/menuEmailForm"
         android:name="eu.seijindemon.student_iee_ihu.ui.settings.EmailFormFragment"
         android:label="@string/email"
-        tools:layout="@layout/email_form" />
-    <activity
-        android:id="@+id/menuNotNetwork"
-        android:name="eu.seijindemon.student_iee_ihu.ui.NotNetworkActivity"
-        android:label="@string/not_network"
-        tools:layout="@layout/activity_not_network" />
+        tools:layout="@layout/fragment_email_form" />
     <fragment
         android:id="@+id/menuCommunity"
         android:name="eu.seijindemon.student_iee_ihu.ui.community.CommunityFragment"
         android:label="@string/community"
-        tools:layout="@layout/fragment_community" />
+        tools:layout="@layout/fragment_community" >
+        <action
+            android:id="@+id/action_menuCommunity_to_menuDiscords"
+            app:destination="@id/menuDiscords" />
+        <action
+            android:id="@+id/action_menuCommunity_to_menuFacebookGroups"
+            app:destination="@id/menuFacebookGroups" />
+        <action
+            android:id="@+id/action_menuCommunity_to_menuFacebookPages"
+            app:destination="@id/menuFacebookPages" />
+        <action
+            android:id="@+id/action_menuCommunity_to_menuOtherCommunity3"
+            app:destination="@id/menuOtherCommunity" />
+    </fragment>
     <fragment
         android:id="@+id/menuDiscords"
         android:name="eu.seijindemon.student_iee_ihu.ui.community.DiscordsFragment"
@@ -82,4 +97,9 @@
         android:name="eu.seijindemon.student_iee_ihu.ui.community.OtherCommunityFragment"
         android:label="@string/other_community"
         tools:layout="@layout/fragment_other_community" />
+    <activity
+        android:id="@+id/menuNotNetwork"
+        android:name="eu.seijindemon.student_iee_ihu.ui.not_network.NotNetworkActivity"
+        android:label="@string/not_network"
+        tools:layout="@layout/activity_not_network" />
 </navigation>

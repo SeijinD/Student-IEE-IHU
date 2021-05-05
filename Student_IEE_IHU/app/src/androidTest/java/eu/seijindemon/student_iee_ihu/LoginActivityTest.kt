@@ -6,7 +6,7 @@ import androidx.test.espresso.action.ViewActions.replaceText
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
-import eu.seijindemon.student_iee_ihu.ui.LoginActivity
+import eu.seijindemon.student_iee_ihu.ui.auth.LoginActivity
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith

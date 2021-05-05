@@ -16,7 +16,7 @@ import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog
 import com.github.javiersantos.materialstyleddialogs.enums.Style
 import com.tencent.mmkv.MMKV
 import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
-import eu.seijindemon.student_iee_ihu.ui.LoginActivity
+import eu.seijindemon.student_iee_ihu.ui.auth.LoginActivity
 import eu.seijindemon.student_iee_ihu.R
 import kotlinx.android.synthetic.main.fragment_settings.*
 import kotlinx.android.synthetic.main.fragment_settings.view.*

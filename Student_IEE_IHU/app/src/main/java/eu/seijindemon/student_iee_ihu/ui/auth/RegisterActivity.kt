@@ -1,4 +1,4 @@
-package eu.seijindemon.student_iee_ihu.ui
+package eu.seijindemon.student_iee_ihu.ui.auth
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

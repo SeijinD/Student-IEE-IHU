@@ -1,10 +1,11 @@
-package eu.seijindemon.student_iee_ihu.ui
+package eu.seijindemon.student_iee_ihu.ui.not_network
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.annotation.WorkerThread
 import eu.seijindemon.student_iee_ihu.R
+import eu.seijindemon.student_iee_ihu.ui.auth.LoginActivity
 import eu.seijindemon.student_iee_ihu.utils.NetworkStatus
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
