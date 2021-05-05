@@ -1,4 +1,4 @@
-package eu.seijindemon.student_iee_ihu.nav_fragments
+package eu.seijindemon.student_iee_ihu.ui.profile
 
 import android.app.Activity
 import android.app.ProgressDialog

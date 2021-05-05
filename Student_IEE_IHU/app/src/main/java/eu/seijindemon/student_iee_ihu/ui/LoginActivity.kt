@@ -1,4 +1,4 @@
-package eu.seijindemon.student_iee_ihu
+package eu.seijindemon.student_iee_ihu.ui
 
 
 import android.content.Intent
@@ -14,6 +14,7 @@ import com.afollestad.materialdialogs.actions.setActionButtonEnabled
 import com.afollestad.materialdialogs.input.getInputField
 import com.afollestad.materialdialogs.input.input
 import com.tencent.mmkv.MMKV
+import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import kotlinx.android.synthetic.main.activity_login.*
 import www.sanju.motiontoast.MotionToast

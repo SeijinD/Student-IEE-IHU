@@ -9,77 +9,77 @@
 
     <activity
         android:id="@+id/menuRegister"
-        android:name="eu.seijindemon.student_iee_ihu.RegisterActivity"
+        android:name="eu.seijindemon.student_iee_ihu.ui.RegisterActivity"
         android:label="@string/register"
         tools:layout="@layout/activity_register" />
     <activity
         android:id="@+id/menuLogin"
-        android:name="eu.seijindemon.student_iee_ihu.LoginActivity"
+        android:name="eu.seijindemon.student_iee_ihu.ui.LoginActivity"
         android:label="@string/login"
         tools:layout="@layout/activity_login" />
     <activity
         android:id="@+id/mainActivity"
-        android:name="eu.seijindemon.student_iee_ihu.MainActivity"
+        android:name="eu.seijindemon.student_iee_ihu.ui.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
     <activity
         android:id="@+id/adminMainActivity"
-        android:name="eu.seijindemon.student_iee_ihu.AdminMainActivity"
+        android:name="eu.seijindemon.student_iee_ihu.ui.AdminMainActivity"
         android:label="admin_main_activity"
         tools:layout="@layout/activity_admin_main" />
     <fragment
         android:id="@+id/menuHome"
-        android:name="eu.seijindemon.student_iee_ihu.nav_fragments.HomeFragment"
+        android:name="eu.seijindemon.student_iee_ihu.ui.home.HomeFragment"
         android:label="@string/home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/menuSettings"
-        android:name="eu.seijindemon.student_iee_ihu.nav_fragments.SettingsFragment"
+        android:name="eu.seijindemon.student_iee_ihu.ui.settings.SettingsFragment"
         android:label="@string/settings"
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/menuProfile"
-        android:name="eu.seijindemon.student_iee_ihu.nav_fragments.ProfileFragment"
+        android:name="eu.seijindemon.student_iee_ihu.ui.profile.ProfileFragment"
         android:label="@string/profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/menuAbout"
-        android:name="eu.seijindemon.student_iee_ihu.nav_fragments.settings_fragments.AboutFragment"
+        android:name="eu.seijindemon.student_iee_ihu.ui.settings.AboutFragment"
         android:label="@string/about_app"
         tools:layout="@layout/fragment_about" />
     <fragment
         android:id="@+id/menuEmailForm"
-        android:name="eu.seijindemon.student_iee_ihu.nav_fragments.settings_fragments.EmailFormFragment"
+        android:name="eu.seijindemon.student_iee_ihu.ui.settings.EmailFormFragment"
         android:label="@string/email"
         tools:layout="@layout/email_form" />
     <activity
         android:id="@+id/menuNotNetwork"
-        android:name="eu.seijindemon.student_iee_ihu.NotNetworkActivity"
+        android:name="eu.seijindemon.student_iee_ihu.ui.NotNetworkActivity"
         android:label="@string/not_network"
         tools:layout="@layout/activity_not_network" />
     <fragment
         android:id="@+id/menuCommunity"
-        android:name="eu.seijindemon.student_iee_ihu.nav_fragments.CommunityFragment"
+        android:name="eu.seijindemon.student_iee_ihu.ui.community.CommunityFragment"
         android:label="@string/community"
         tools:layout="@layout/fragment_community" />
     <fragment
         android:id="@+id/menuDiscords"
-        android:name="eu.seijindemon.student_iee_ihu.nav_fragments.community_fragments.DiscordsFragment"
+        android:name="eu.seijindemon.student_iee_ihu.ui.community.DiscordsFragment"
         android:label="@string/discords"
         tools:layout="@layout/fragment_discords" />
     <fragment
         android:id="@+id/menuFacebookGroups"
-        android:name="eu.seijindemon.student_iee_ihu.nav_fragments.community_fragments.FacebookGroupsFragment"
+        android:name="eu.seijindemon.student_iee_ihu.ui.community.FacebookGroupsFragment"
         android:label="@string/facebook_groups"
         tools:layout="@layout/fragment_facebook_groups" />
     <fragment
         android:id="@+id/menuFacebookPages"
-        android:name="eu.seijindemon.student_iee_ihu.nav_fragments.community_fragments.FacebookPagesFragment"
+        android:name="eu.seijindemon.student_iee_ihu.ui.community.FacebookPagesFragment"
         android:label="@string/facebook_pages"
         tools:layout="@layout/fragment_facebook_pages" />
     <fragment
         android:id="@+id/menuOtherCommunity"
-        android:name="eu.seijindemon.student_iee_ihu.nav_fragments.community_fragments.OtherCommunityFragment"
+        android:name="eu.seijindemon.student_iee_ihu.ui.community.OtherCommunityFragment"
         android:label="@string/other_community"
         tools:layout="@layout/fragment_other_community" />
 </navigation>

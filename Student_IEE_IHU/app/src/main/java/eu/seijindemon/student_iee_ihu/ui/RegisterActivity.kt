@@ -1,4 +1,4 @@
-package eu.seijindemon.student_iee_ihu
+package eu.seijindemon.student_iee_ihu.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,7 @@ import android.util.Log
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.widget.doOnTextChanged
 import com.google.firebase.auth.UserProfileChangeRequest
+import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import kotlinx.android.synthetic.main.activity_register.*
 import www.sanju.motiontoast.MotionToast

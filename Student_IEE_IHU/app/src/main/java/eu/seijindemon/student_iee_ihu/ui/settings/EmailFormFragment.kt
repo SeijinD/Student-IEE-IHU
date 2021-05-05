@@ -1,4 +1,4 @@
-package eu.seijindemon.student_iee_ihu.nav_fragments.settings_fragments
+package eu.seijindemon.student_iee_ihu.ui.settings
 
 import android.content.Intent
 import android.net.Uri

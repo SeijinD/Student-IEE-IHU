@@ -1,4 +1,4 @@
-package eu.seijindemon.student_iee_ihu
+package eu.seijindemon.student_iee_ihu.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -19,22 +19,25 @@ import com.google.android.material.navigation.NavigationView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
+import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import eu.seijindemon.student_iee_ihu.utils.NetworkStatus
-import kotlinx.android.synthetic.main.activity_admin_main.*
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.navigation_header.view.*
 import kotlinx.android.synthetic.main.navigation_header_admin.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class AdminMainActivity : AppCompatActivity() {
+
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         FirebaseSetup.setupFirebase()
 
-        setContentView(R.layout.activity_admin_main)
+        setContentView(R.layout.activity_main)
 
         drawNavTool() // DrawLayout Menu, Navigation, Toolbar
         loadHeader()
@@ -59,22 +62,21 @@ class AdminMainActivity : AppCompatActivity() {
 
     private fun drawNavTool() {
         // DrawLayout
-        val drawerLayout: DrawerLayout = findViewById(R.id.drawerAdminLayout)
-        findViewById<ImageView>(R.id.imageMenuAdmin).setOnClickListener{
+        val drawerLayout: DrawerLayout = findViewById(R.id.drawerLayout)
+        findViewById<ImageView>(R.id.imageMenu).setOnClickListener{
             drawerLayout.openDrawer(GravityCompat.START)
         }
 
         // Nav
-        val navigationView: NavigationView = findViewById(R.id.navigationViewAdmin)
+        val navigationView: NavigationView = findViewById(R.id.navigationView)
         navigationView.itemIconTintList = null
-        val navController: NavController = Navigation.findNavController(this, R.id.navHostFragmentAdmin)
+        val navController: NavController = Navigation.findNavController(this, R.id.navHostFragment)
         NavigationUI.setupWithNavController(navigationView, navController)
 
         // Change Title in Toolbar
         navController.addOnDestinationChangedListener{ _, destination, _ ->
             textTitle.text = destination.label
         }
-
 
         // Toolbar
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
@@ -83,11 +85,11 @@ class AdminMainActivity : AppCompatActivity() {
     }
 
     private fun loadHeader() {
-        val headView: View = navigationViewAdmin.getHeaderView(0)
+        val headView: View = navigationView.getHeaderView(0)
         FirebaseSetup.userReference?.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                headView.header_am_admin.text = snapshot.child("am").value.toString()
-                headView.header_email_admin.text = snapshot.child("email").value.toString()
+                headView.header_am.text = snapshot.child("am").value.toString()
+                headView.header_email.text = snapshot.child("email").value.toString()
                 if (snapshot.hasChild("profile")) {
                     val loadImage = snapshot.child("profile").value.toString()
                     Glide.with(applicationContext).load(loadImage).apply(RequestOptions.circleCropTransform()).into(headView.imageProfile_admin)
@@ -101,6 +103,5 @@ class AdminMainActivity : AppCompatActivity() {
             }
         })
     }
-
 
 }

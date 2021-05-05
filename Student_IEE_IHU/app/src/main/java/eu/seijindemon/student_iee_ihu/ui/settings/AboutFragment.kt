@@ -1,4 +1,4 @@
-package eu.seijindemon.student_iee_ihu.nav_fragments.community_fragments
+package eu.seijindemon.student_iee_ihu.ui.settings
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,17 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import eu.seijindemon.student_iee_ihu.R
 
-class FacebookGroupsFragment : Fragment() {
-
-
+class AboutFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_facebook_groups, container, false)
+        val view = inflater.inflate(R.layout.fragment_about, container, false)
 
 
 
         return view
     }
-
 
 }

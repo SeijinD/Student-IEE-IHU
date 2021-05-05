@@ -1,4 +1,4 @@
-package eu.seijindemon.student_iee_ihu.nav_fragments
+package eu.seijindemon.student_iee_ihu.ui.community
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
