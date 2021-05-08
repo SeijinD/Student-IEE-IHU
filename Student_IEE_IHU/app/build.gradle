@@ -118,7 +118,7 @@ dependencies {
     implementation 'com.afollestad.material-dialogs:input:3.3.0'
 
     // MMKV
-    implementation 'com.tencent:mmkv-static:1.2.7'
+    implementation 'com.tencent:mmkv-static:1.2.8'
 
     // Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2'
