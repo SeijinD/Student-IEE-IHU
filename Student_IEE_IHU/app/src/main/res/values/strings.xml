@@ -48,4 +48,12 @@
     <string name="facebook_group_2">ΔΙ.ΠΑ.Ε. - Τμήμα Μηχανικών Πληροφορικής, Υπολογιστών και Τηλεπικοινωνιών</string>
     <string name="facebook_group_3">Περιβαλλοντικη Ομαδα ΔΙΠΑΕ Θεσσαλονικης</string>
     <string name="facebook_group_4">ΔΙΠΑΕ(Σινδος)</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="semesters">Semesters</string>
+    <string name="find">Find</string>
+    <string name="teachers">Teachers</string>
+    <string name="first_semester">First Semester</string>
+    <string name="second_semester">Second Semester</string>
+    <string name="mathematics_1">Mathematics Ι</string>
 </resources>

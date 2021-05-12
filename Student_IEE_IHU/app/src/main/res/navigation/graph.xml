@@ -102,4 +102,43 @@
         android:name="eu.seijindemon.student_iee_ihu.ui.not_network.NotNetworkActivity"
         android:label="@string/not_network"
         tools:layout="@layout/activity_not_network" />
+    <fragment
+        android:id="@+id/menuFind"
+        android:name="eu.seijindemon.student_iee_ihu.ui.find.FindFragment"
+        android:label="@string/find"
+        tools:layout="@layout/fragment_find" >
+        <action
+            android:id="@+id/action_menuFind_to_menuSemesters"
+            app:destination="@id/menuSemesters" />
+        <action
+            android:id="@+id/action_menuFind_to_menuTeachers"
+            app:destination="@id/menuTeachers" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuSemesters"
+        android:name="eu.seijindemon.student_iee_ihu.ui.find.SemestersFragment"
+        android:label="@string/semesters"
+        tools:layout="@layout/fragment_semesters" >
+        <action
+            android:id="@+id/action_menuSemesters_to_menuFirstSemester"
+            app:destination="@id/menuFirstSemester" />
+        <action
+            android:id="@+id/action_menuSemesters_to_menuSecondSemester"
+            app:destination="@id/menuSecondSemester" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuTeachers"
+        android:name="eu.seijindemon.student_iee_ihu.ui.find.TeachersFragment"
+        android:label="@string/teachers"
+        tools:layout="@layout/fragment_teachers" />
+    <fragment
+        android:id="@+id/menuFirstSemester"
+        android:name="eu.seijindemon.student_iee_ihu.ui.find.semesters.FirstSemesterFragment"
+        android:label="@string/first_semester"
+        tools:layout="@layout/fragment_first_semester" />
+    <fragment
+        android:id="@+id/menuSecondSemester"
+        android:name="eu.seijindemon.student_iee_ihu.ui.find.semesters.SecondSemesterFragment"
+        android:label="@string/second_semester"
+        tools:layout="@layout/fragment_second_semester" />
 </navigation>
