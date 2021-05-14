@@ -18,7 +18,8 @@ class SemesterFragment : Fragment() {
 
         when(semester_number){
             "1" -> {
-
+                // Load Layout
+                // Send in CourseFragment with course_number
             }
             "2" -> {
 
