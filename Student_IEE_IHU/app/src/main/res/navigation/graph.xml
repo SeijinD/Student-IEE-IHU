@@ -120,11 +120,8 @@
         android:label="@string/semesters"
         tools:layout="@layout/fragment_semesters" >
         <action
-            android:id="@+id/action_menuSemesters_to_menuFirstSemester"
-            app:destination="@id/menuFirstSemester" />
-        <action
-            android:id="@+id/action_menuSemesters_to_menuSecondSemester"
-            app:destination="@id/menuSecondSemester" />
+            android:id="@+id/action_menuSemesters_to_semesterFragment"
+            app:destination="@id/menuSemester" />
     </fragment>
     <fragment
         android:id="@+id/menuTeachers"
@@ -132,13 +129,24 @@
         android:label="@string/teachers"
         tools:layout="@layout/fragment_teachers" />
     <fragment
-        android:id="@+id/menuFirstSemester"
-        android:name="eu.seijindemon.student_iee_ihu.ui.find.semesters.FirstSemesterFragment"
-        android:label="@string/first_semester"
-        tools:layout="@layout/fragment_first_semester" />
+        android:id="@+id/menuSemester"
+        android:name="eu.seijindemon.student_iee_ihu.ui.find.SemesterFragment"
+        android:label="@string/semesters"
+        tools:layout="@layout/fragment_semester" >
+        <action
+            android:id="@+id/action_menuSemester_to_courseFragment"
+            app:destination="@id/menuCourse" />
+        <argument
+            android:name="semester_number"
+            app:argType="string" />
+    </fragment>
     <fragment
-        android:id="@+id/menuSecondSemester"
-        android:name="eu.seijindemon.student_iee_ihu.ui.find.semesters.SecondSemesterFragment"
-        android:label="@string/second_semester"
-        tools:layout="@layout/fragment_second_semester" />
+        android:id="@+id/menuCourse"
+        android:name="eu.seijindemon.student_iee_ihu.ui.find.CourseFragment"
+        android:label="@string/course"
+        tools:layout="@layout/fragment_course" >
+        <argument
+            android:name="course_number"
+            app:argType="string" />
+    </fragment>
 </navigation>

@@ -16,12 +16,13 @@ class SemestersFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_semesters, container, false)
 
-        view.first_semester.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.menuSemesters)
-        }
+        val semester_number = arrayListOf("1","2","3","4","5","6","7","8","9","10")
 
-        view.second_semester.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.menuSemesters)
+        view.first_semester.setOnClickListener{
+            Navigation.findNavController(view).navigate(SemestersFragmentDirections.actionMenuSemestersToSemesterFragment(semester_number[0]))
+        }
+        view.second_semester.setOnClickListener{
+            Navigation.findNavController(view).navigate(SemestersFragmentDirections.actionMenuSemestersToSemesterFragment(semester_number[1]))
         }
 
         return view

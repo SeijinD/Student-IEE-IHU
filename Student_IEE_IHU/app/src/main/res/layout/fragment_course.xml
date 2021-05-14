@@ -5,13 +5,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.find.semesters.SecondSemesterFragment">
+    tools:context=".ui.find.CourseFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
+        <WebView
+            android:id="@+id/course_webview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
