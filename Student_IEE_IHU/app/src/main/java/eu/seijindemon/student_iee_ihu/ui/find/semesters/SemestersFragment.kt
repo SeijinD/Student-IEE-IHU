@@ -1,4 +1,4 @@
-package eu.seijindemon.student_iee_ihu.ui.find
+package eu.seijindemon.student_iee_ihu.ui.find.semesters
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -116,7 +116,7 @@
     </fragment>
     <fragment
         android:id="@+id/menuSemesters"
-        android:name="eu.seijindemon.student_iee_ihu.ui.find.SemestersFragment"
+        android:name="eu.seijindemon.student_iee_ihu.ui.find.semesters.SemestersFragment"
         android:label="@string/semesters"
         tools:layout="@layout/fragment_semesters" >
         <action
@@ -130,7 +130,7 @@
         tools:layout="@layout/fragment_teachers" />
     <fragment
         android:id="@+id/menuSemester"
-        android:name="eu.seijindemon.student_iee_ihu.ui.find.SemesterFragment"
+        android:name="eu.seijindemon.student_iee_ihu.ui.find.semesters.SemesterFragment"
         android:label="@string/semesters"
         tools:layout="@layout/fragment_semester" >
         <action
@@ -142,11 +142,11 @@
     </fragment>
     <fragment
         android:id="@+id/menuCourse"
-        android:name="eu.seijindemon.student_iee_ihu.ui.find.CourseFragment"
+        android:name="eu.seijindemon.student_iee_ihu.ui.find.semesters.CourseFragment"
         android:label="@string/course"
         tools:layout="@layout/fragment_course" >
         <argument
-            android:name="course_number"
+            android:name="course_link"
             app:argType="string" />
     </fragment>
 </navigation>

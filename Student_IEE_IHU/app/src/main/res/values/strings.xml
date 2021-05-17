@@ -55,4 +55,5 @@
     <string name="course">Course</string>
     <string name="first_semester">First Semester</string>
     <string name="second_semester">Second Semester</string>
+    <string name="title">Title</string>
 </resources>
