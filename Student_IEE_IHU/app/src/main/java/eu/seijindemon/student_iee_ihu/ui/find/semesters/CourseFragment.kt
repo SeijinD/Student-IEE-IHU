@@ -9,11 +9,11 @@ import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import eu.seijindemon.student_iee_ihu.R
+import eu.seijindemon.student_iee_ihu.utils.Constants
+import eu.seijindemon.student_iee_ihu.utils.LoadLanguage
 import kotlinx.android.synthetic.main.fragment_course.view.*
 
 class CourseFragment : Fragment() {
-
-
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -29,10 +29,17 @@ class CourseFragment : Fragment() {
                         "})()")
             }
         }
-        view.course_webview.loadUrl(CourseFragmentArgs.fromBundle(requireArguments()).courseLink)
+
+        when(LoadLanguage.loadLanguage()) {
+            "el" -> {
+                view.course_webview.loadUrl(Constants.BaseUrlSite + CourseFragmentArgs.fromBundle(requireArguments()).courseLink)
+            }
+            "en" -> {
+                view.course_webview.loadUrl(Constants.BaseUrlSiteEn + CourseFragmentArgs.fromBundle(requireArguments()).courseLink)
+            }
+        }
 
         return view
     }
-
 
 }

@@ -106,7 +106,7 @@ class SettingsFragment : Fragment() {
             "el" -> {
                 view.greek_rb.isChecked = true
             }
-            ("en") -> {
+            "en" -> {
                 view.english_rb.isChecked = true
             }
         }
