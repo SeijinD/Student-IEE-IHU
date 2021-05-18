@@ -56,4 +56,12 @@
     <string name="first_semester">First Semester</string>
     <string name="second_semester">Second Semester</string>
     <string name="title">Title</string>
+    <string name="third_semester">Third Semester</string>
+    <string name="fourth_semester">Fourth Semester</string>
+    <string name="fifth_semester">Fifth Semester</string>
+    <string name="sixth_semester">Sixth Semester</string>
+    <string name="seventh_semester">Seventh Semester</string>
+    <string name="eighth_semester">Eighth Semester</string>
+    <string name="ninth_semester">Ninth Semester</string>
+    <string name="tenth_semester">Tenth Semester</string>
 </resources>
