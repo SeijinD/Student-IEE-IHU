@@ -33,8 +33,6 @@
             app:endIconMode="clear_text"
             app:counterEnabled="true"
             app:counterMaxLength="35"
-            app:helperText="@string/required"
-            app:helperTextTextColor="@color/red"
             app:layout_constraintTop_toBottomOf="@+id/login_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -58,8 +56,6 @@
             app:errorEnabled="true"
             app:counterEnabled="true"
             app:counterMaxLength="8"
-            app:helperText="@string/required"
-            app:helperTextTextColor="@color/red"
             app:layout_constraintTop_toBottomOf="@+id/emailLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -83,8 +79,6 @@
             app:endIconMode="clear_text"
             app:counterEnabled="true"
             app:counterMaxLength="20"
-            app:helperText="@string/required"
-            app:helperTextTextColor="@color/red"
             app:layout_constraintTop_toBottomOf="@+id/amLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -108,8 +102,6 @@
             app:endIconMode="clear_text"
             app:counterEnabled="true"
             app:counterMaxLength="20"
-            app:helperText="@string/required"
-            app:helperTextTextColor="@color/red"
             app:layout_constraintTop_toBottomOf="@+id/firstNameLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -133,8 +125,6 @@
             app:errorEnabled="true"
             app:counterEnabled="true"
             app:counterMaxLength="20"
-            app:helperText="@string/required"
-            app:helperTextTextColor="@color/red"
             app:layout_constraintTop_toBottomOf="@+id/lastNameLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -158,8 +148,6 @@
             app:errorEnabled="true"
             app:counterEnabled="true"
             app:counterMaxLength="20"
-            app:helperText="@string/required"
-            app:helperTextTextColor="@color/red"
             app:layout_constraintTop_toBottomOf="@+id/passwordLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
