@@ -25,7 +25,7 @@ class SemesterFragment : Fragment(), AdapterView.OnItemClickListener {
 
         when(SemesterFragmentArgs.fromBundle(requireArguments()).semesterNumber){
             "1" -> {
-                toolbar.title = "First Semester"
+                toolbar.title = "1st Semester"
 
                 courseList.add(Course("Μαθηματικά Ι", "course/1101"))
                 courseList.add(Course("Δομημένος Προγραμματισμός", "course/1102"))
@@ -38,7 +38,7 @@ class SemesterFragment : Fragment(), AdapterView.OnItemClickListener {
                 view.course_list.onItemClickListener = this
             }
             "2" -> {
-                toolbar.title = "Second Semester"
+                toolbar.title = "2nd Semester"
 
                 courseList.add(Course("Μαθηματικά ΙΙ", "course/1201"))
                 courseList.add(Course("Μετρήσεις και Κυκλώματα Εναλλασσόμενου Ρεύματος", "course/1202"))
@@ -51,7 +51,7 @@ class SemesterFragment : Fragment(), AdapterView.OnItemClickListener {
                 view.course_list.onItemClickListener = this
             }
             "3" -> {
-                toolbar.title = "Third Semester"
+                toolbar.title = "3rd Semester"
 
                 courseList.add(Course("Θεωρία Πιθανοτήτων και Στατιστική", "course/1301"))
                 courseList.add(Course("Μαθηματικά ΙΙI", "course/1302"))
@@ -64,7 +64,7 @@ class SemesterFragment : Fragment(), AdapterView.OnItemClickListener {
                 view.course_list.onItemClickListener = this
             }
             "4" -> {
-                toolbar.title = "Fourth Semester"
+                toolbar.title = "4th Semester"
 
                 courseList.add(Course("Οργάνωση και Αρχιτεκτονική Υπολογιστικών Συστημάτων\t", "course/1304"))
                 courseList.add(Course("Συστήματα Διαχείρισης Βάσεων Δεδομένων", "course/1401"))
@@ -77,7 +77,7 @@ class SemesterFragment : Fragment(), AdapterView.OnItemClickListener {
                 view.course_list.onItemClickListener = this
             }
             "5" -> {
-                toolbar.title = "Fifth Semester"
+                toolbar.title = "5th Semester"
 
                 courseList.add(Course("Ασύρματες Επικοινωνίες", "course/1501"))
                 courseList.add(Course("Μικροελεγκτές", "course/1502"))
@@ -90,7 +90,7 @@ class SemesterFragment : Fragment(), AdapterView.OnItemClickListener {
                 view.course_list.onItemClickListener = this
             }
             "6" -> {
-                toolbar.title = "Sixth Semester"
+                toolbar.title = "6th Semester"
 
                 courseList.add(Course("Τεχνητή Νοημοσύνη", "course/1601"))
                 courseList.add(Course("Ενσωματωμένα Συστήματα", "course/1602"))
@@ -109,7 +109,7 @@ class SemesterFragment : Fragment(), AdapterView.OnItemClickListener {
                 view.course_list.onItemClickListener = this
             }
             "7" -> {
-                toolbar.title = "Seventh Semester"
+                toolbar.title = "7th Semester"
 
                 courseList.add(Course("Δίκτυα Υπολογιστών", "course/1701"))
                 courseList.add(Course("Ηλεκτρονικά Ισχύος", "course/1702"))
@@ -128,7 +128,7 @@ class SemesterFragment : Fragment(), AdapterView.OnItemClickListener {
                 view.course_list.onItemClickListener = this
             }
             "8" -> {
-                toolbar.title = "Eighth Semester"
+                toolbar.title = "8th Semester"
 
                 courseList.add(Course("Ασφάλεια Πληροφοριακών Συστημάτων", "course/1801"))
                 courseList.add(Course("Αρχές και Μέθοδοι Μηχανικής Μάθησης", "course/1802"))
@@ -153,7 +153,7 @@ class SemesterFragment : Fragment(), AdapterView.OnItemClickListener {
                 view.course_list.onItemClickListener = this
             }
             "9" -> {
-                toolbar.title = "Ninth Semester"
+                toolbar.title = "9th Semester"
 
                 courseList.add(Course("Πρακτική Άσκηση", "course/1970"))
                 courseList.add(Course("Εφαρμογές Ενσωματωμένων Συστημάτων", "course/1911"))
@@ -184,7 +184,7 @@ class SemesterFragment : Fragment(), AdapterView.OnItemClickListener {
                 view.course_list.onItemClickListener = this
             }
             "10" -> {
-                toolbar.title = "Tenth Semester"
+                toolbar.title = "10th Semester"
 
                 courseList.add(Course("Διπλωματική Εργασία", "course/1999"))
 

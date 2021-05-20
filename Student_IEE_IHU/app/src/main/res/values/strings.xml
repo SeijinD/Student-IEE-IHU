@@ -51,17 +51,16 @@
     <string name="semesters">Semesters</string>
     <string name="find">Find</string>
     <string name="teachers">Teachers</string>
-    <string name="mathematics_1">Mathematics Ι</string>
     <string name="course">Course</string>
-    <string name="first_semester">First Semester</string>
-    <string name="second_semester">Second Semester</string>
     <string name="title">Title</string>
-    <string name="third_semester">Third Semester</string>
-    <string name="fourth_semester">Fourth Semester</string>
-    <string name="fifth_semester">Fifth Semester</string>
-    <string name="sixth_semester">Sixth Semester</string>
-    <string name="seventh_semester">Seventh Semester</string>
-    <string name="eighth_semester">Eighth Semester</string>
-    <string name="ninth_semester">Ninth Semester</string>
-    <string name="tenth_semester">Tenth Semester</string>
+    <string name="first_semester">1st Semester</string>
+    <string name="second_semester">2nd Semester</string>
+    <string name="third_semester">3rd Semester</string>
+    <string name="fourth_semester">4th Semester</string>
+    <string name="fifth_semester">5th Semester</string>
+    <string name="sixth_semester">6th Semester</string>
+    <string name="seventh_semester">7th Semester</string>
+    <string name="eighth_semester">8th Semester</string>
+    <string name="ninth_semester">9th Semester</string>
+    <string name="tenth_semester">10th Semester</string>
 </resources>
