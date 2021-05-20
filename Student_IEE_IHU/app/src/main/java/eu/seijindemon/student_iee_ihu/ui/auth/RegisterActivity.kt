@@ -26,43 +26,25 @@ class RegisterActivity : AppCompatActivity() {
     private fun register() {
         register_am.doOnTextChanged { text, start, before, count ->
             when {
-                text!!.length < 8 -> {
-                    register_am.error = "AM = 8!"
-                }
-                text.length > 8 -> {
-                    register_am.error = "AM = 8!"
-                }
-                else -> {
-                    register_am.error = null
-                }
+                text!!.length < 8 -> register_am.error = "AM = 8!"
+                text.length > 8 -> register_am.error = "AM = 8!"
+                else -> register_am.error = null
             }
         }
 
         register_password.doOnTextChanged { text, start, before, count ->
             when {
-                text!!.length < 10 -> {
-                    register_password.error = "Password >= 10!"
-                }
-                text.length > 20 -> {
-                    register_password.error = "Password <= 20!"
-                }
-                else -> {
-                    register_password.error = null
-                }
+                text!!.length < 10 -> register_password.error = "Password >= 10!"
+                text.length > 20 -> register_password.error = "Password <= 20!"
+                else -> register_password.error = null
             }
         }
 
         register_verify_password.doOnTextChanged { text, start, before, count ->
             when {
-                text!!.length < 10 -> {
-                    register_verify_password.error = "Verify Password >= 10!"
-                }
-                text.length > 20 -> {
-                    register_verify_password.error = "Verify Password <= 20!"
-                }
-                else -> {
-                    register_verify_password.error = null
-                }
+                text!!.length < 10 -> register_verify_password.error = "Verify Password >= 10!"
+                text.length > 20 -> register_verify_password.error = "Verify Password <= 20!"
+                else -> register_verify_password.error = null
             }
         }
 

@@ -31,12 +31,8 @@ class CourseFragment : Fragment() {
         }
 
         when(LoadLanguage.loadLanguage()) {
-            "el" -> {
-                view.course_webview.loadUrl(Constants.BASE_URL_SITE_EL + CourseFragmentArgs.fromBundle(requireArguments()).courseLink)
-            }
-            "en" -> {
-                view.course_webview.loadUrl(Constants.BASE_URL_SITE_EN + CourseFragmentArgs.fromBundle(requireArguments()).courseLink)
-            }
+            "el" -> view.course_webview.loadUrl(Constants.BASE_URL_SITE_EL + CourseFragmentArgs.fromBundle(requireArguments()).courseLink)
+            "en" -> view.course_webview.loadUrl(Constants.BASE_URL_SITE_EN + CourseFragmentArgs.fromBundle(requireArguments()).courseLink)
         }
 
         return view

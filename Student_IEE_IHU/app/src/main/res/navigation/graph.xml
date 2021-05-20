@@ -125,7 +125,7 @@
     </fragment>
     <fragment
         android:id="@+id/menuTeachers"
-        android:name="eu.seijindemon.student_iee_ihu.ui.find.TeachersFragment"
+        android:name="eu.seijindemon.student_iee_ihu.ui.find.teachers.TeachersFragment"
         android:label="@string/teachers"
         tools:layout="@layout/fragment_teachers" />
     <fragment

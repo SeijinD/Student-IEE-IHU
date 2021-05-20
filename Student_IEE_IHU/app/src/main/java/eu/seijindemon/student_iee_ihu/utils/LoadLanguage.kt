@@ -8,12 +8,8 @@ class LoadLanguage {
             val kv = MMKV.mmkvWithID("languageMode")
 
             when (kv?.decodeString("string")) {
-                "el" -> {
-                    return "el"
-                }
-                "en" -> {
-                    return "en"
-                }
+                "el" -> return "el"
+                "en" -> return "en"
             }
             return "el"
         }

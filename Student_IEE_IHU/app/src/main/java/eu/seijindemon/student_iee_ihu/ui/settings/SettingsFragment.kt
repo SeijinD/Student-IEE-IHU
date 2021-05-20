@@ -51,9 +51,9 @@ class SettingsFragment : Fragment() {
 
         view.privacy_policy.setOnClickListener { privacyPolicy() }
 
-        view.english_rb.setOnClickListener{ setLocale("en") }
+        view.english_rb.setOnClickListener{ setLocale("en",view) }
 
-        view.greek_rb.setOnClickListener{ setLocale("el") }
+        view.greek_rb.setOnClickListener{ setLocale("el",view) }
 
         view.dark_rb.setOnClickListener{ setTheme("dark") }
 
@@ -87,15 +87,9 @@ class SettingsFragment : Fragment() {
         val kv = MMKV.mmkvWithID("themeMode")
 
         when (kv?.decodeInt("int")) {
-            1 -> {
-                view.dark_rb.isChecked = true
-            }
-            2 -> {
-                view.white_rb.isChecked = true
-            }
-            3 -> {
-                view.auto_rb.isChecked = true
-            }
+            1 -> view.dark_rb.isChecked = true
+            2 -> view.white_rb.isChecked = true
+            3 -> view.auto_rb.isChecked = true
         }
     }
 
@@ -103,16 +97,12 @@ class SettingsFragment : Fragment() {
         val kv = MMKV.mmkvWithID("languageMode")
 
         when (kv?.decodeString("string")) {
-            "el" -> {
-                view.greek_rb.isChecked = true
-            }
-            "en" -> {
-                view.english_rb.isChecked = true
-            }
+            "el" -> view.greek_rb.isChecked = true
+            "en" -> view.english_rb.isChecked = true
         }
     }
 
-    private fun setLocale(Lang: String) {
+    private fun setLocale(Lang: String, view: View) {
         val locale = Locale(Lang)
         Locale.setDefault(locale)
         val config = Configuration()
@@ -122,7 +112,8 @@ class SettingsFragment : Fragment() {
         val kv = MMKV.mmkvWithID("languageMode")
         kv?.encode("string", Lang)
 
-        logout()
+        activity?.finish()
+        startActivity(activity?.intent)
     }
 
     private fun shareApp() {
