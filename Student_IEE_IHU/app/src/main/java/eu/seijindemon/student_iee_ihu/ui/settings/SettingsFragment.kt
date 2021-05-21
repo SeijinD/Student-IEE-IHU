@@ -45,9 +45,9 @@ class SettingsFragment : Fragment() {
 
         view.rate_app.setOnClickListener { rateApp() }
 
-        view.report.setOnClickListener { report(view) }
+        view.report.setOnClickListener {  Navigation.findNavController(view).navigate(R.id.menuEmailForm) }
 
-        view.about.setOnClickListener { about(view) }
+        view.about.setOnClickListener {  Navigation.findNavController(view).navigate(R.id.menuAbout) }
 
         view.privacy_policy.setOnClickListener { privacyPolicy() }
 
@@ -131,14 +131,6 @@ class SettingsFragment : Fragment() {
         catch (e: ActivityNotFoundException) {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=${activity?.packageName}")))
         }
-    }
-
-    private fun report(view: View) {
-        report.setOnClickListener{ Navigation.findNavController(view).navigate(R.id.menuEmailForm) }
-    }
-
-    private fun about(view: View) {
-        about.setOnClickListener{ Navigation.findNavController(view).navigate(R.id.menuAbout) }
     }
 
     private fun privacyPolicy() {

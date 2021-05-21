@@ -4,16 +4,16 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import eu.seijindemon.student_iee_ihu.data.model.Teacher
-import eu.seijindemon.student_iee_ihu.databinding.TeacherModelBinding
+import eu.seijindemon.student_iee_ihu.databinding.ModelTeacherBinding
 
 class TeacherAdapter: RecyclerView.Adapter<TeacherAdapter.MyViewHolder>() {
 
     private var oldData = emptyList<Teacher>()
 
-    class MyViewHolder(val binding: TeacherModelBinding): RecyclerView.ViewHolder(binding.root)
+    class MyViewHolder(val binding: ModelTeacherBinding): RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        return MyViewHolder(TeacherModelBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return MyViewHolder(ModelTeacherBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
