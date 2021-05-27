@@ -113,6 +113,9 @@
         <action
             android:id="@+id/action_menuFind_to_menuTeachers"
             app:destination="@id/menuTeachers" />
+        <action
+            android:id="@+id/action_menuFind_to_menuMaps"
+            app:destination="@id/menuMaps" />
     </fragment>
     <fragment
         android:id="@+id/menuSemesters"
@@ -149,4 +152,9 @@
             android:name="course_link"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/menuMaps"
+        android:name="eu.seijindemon.student_iee_ihu.ui.find.google_maps.MapsFragment"
+        android:label="@string/maps"
+        tools:layout="@layout/fragment_maps" />
 </navigation>

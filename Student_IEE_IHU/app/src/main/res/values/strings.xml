@@ -63,4 +63,10 @@
     <string name="eighth_semester">8th Semester</string>
     <string name="ninth_semester">9th Semester</string>
     <string name="tenth_semester">10th Semester</string>
+    <string name="category">Category</string>
+    <string name="name">Name</string>
+    <string name="personal_site">Personal Site</string>
+    <string name="maps">Maps</string>
+    <string name="ihu_sindou">I.H.U. Sindou</string>
+    <string name="eudoxus">Eudoxus</string>
 </resources>

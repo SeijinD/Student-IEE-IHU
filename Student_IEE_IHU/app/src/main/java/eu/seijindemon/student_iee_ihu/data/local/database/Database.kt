@@ -4,15 +4,17 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import eu.seijindemon.student_iee_ihu.data.local.dao.MapDao
 import eu.seijindemon.student_iee_ihu.data.local.dao.TeacherDao
+import eu.seijindemon.student_iee_ihu.data.model.Map
 import eu.seijindemon.student_iee_ihu.data.model.Teacher
 
-@Database(entities = [Teacher::class],version = 1, exportSchema = false)
+@Database(entities = [Teacher::class, Map::class],version = 1, exportSchema = false)
 abstract class Database: RoomDatabase() {
 
     abstract fun teacherDao(): TeacherDao
 
-
+    abstract fun mapDao(): MapDao
 
     companion object {
         // Singleton prevents multiple instances of database opening at the

@@ -24,6 +24,10 @@ class FindFragment : Fragment() {
             Navigation.findNavController(view).navigate(R.id.menuTeachers)
         }
 
+        view.maps.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.menuMaps)
+        }
+
         return view
     }
 

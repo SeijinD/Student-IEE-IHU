@@ -18,6 +18,9 @@ class TeacherAdapter: RecyclerView.Adapter<TeacherAdapter.MyViewHolder>() {
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.binding.teacherName.text = oldData[position].name
+        holder.binding.teacherEmail.text = oldData[position].email
+        holder.binding.teacherPersonalSite.text = oldData[position].personal_site
+        holder.binding.teacherCategory.text = oldData[position].category
     }
 
     override fun getItemCount(): Int {

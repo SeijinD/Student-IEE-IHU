@@ -12,12 +12,13 @@ import eu.seijindemon.student_iee_ihu.CoreApplication
 import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.data.local.viewmodel.TeacherViewModel
 import eu.seijindemon.student_iee_ihu.data.local.viewmodel.TeacherViewModelFactory
+import eu.seijindemon.student_iee_ihu.data.model.Teacher
 import kotlinx.android.synthetic.main.fragment_teachers.view.*
 
 
 class TeachersFragment : Fragment(), SearchView.OnQueryTextListener {
 
-    private val teacherViewModel: TeacherViewModel by viewModels() { TeacherViewModelFactory((activity?.application as CoreApplication).teacherRepository) }
+    private val teacherViewModel: TeacherViewModel by viewModels { TeacherViewModelFactory((activity?.application as CoreApplication).teacherRepository) }
 
     private val teacherAdapter: TeacherAdapter by lazy { TeacherAdapter() }
 
@@ -27,7 +28,10 @@ class TeachersFragment : Fragment(), SearchView.OnQueryTextListener {
         view.teachers_recyclerview.layoutManager = LinearLayoutManager(requireContext())
         view.teachers_recyclerview.adapter = teacherAdapter
 
-        teacherViewModel.readData.observe(this) {
+//        val teacher = Teacher("Manabis Giwrgos", "georgekara@yahoo.gr", "https://www.seijind.eu", "Kurios")
+//        teacherViewModel.insertData(teacher)
+
+        teacherViewModel.readData.observe(viewLifecycleOwner) {
             teacherAdapter.setData(it)
         }
 

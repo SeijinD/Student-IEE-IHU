@@ -2,6 +2,7 @@ package eu.seijindemon.student_iee_ihu
 
 import android.app.Application
 import eu.seijindemon.student_iee_ihu.data.local.database.Database
+import eu.seijindemon.student_iee_ihu.data.repository.MapRepository
 import eu.seijindemon.student_iee_ihu.data.repository.TeacherRepository
 
 class CoreApplication: Application() {
@@ -11,5 +12,6 @@ class CoreApplication: Application() {
 
     val database by lazy { Database.getDatabase(this) }
     val teacherRepository by lazy { TeacherRepository(database.teacherDao()) }
+    val mapRepository by lazy { MapRepository(database.mapDao()) }
 
 }
