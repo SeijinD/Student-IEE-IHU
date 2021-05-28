@@ -16,28 +16,17 @@
         android:gravity="center"
         android:orientation="vertical"
         tools:ignore="UseCompoundDrawables">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_baseline_menu_book_24"
+            android:contentDescription="@string/title" />
         <TextView
             android:id="@+id/course_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:text="@string/title"
-            android:textSize="16sp"
-            android:textColor="@color/blue_500"/>
-        <TextView
-            android:id="@+id/course_semester"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:text="@string/semester"
-            android:textSize="16sp"
-            android:textColor="@color/blue_500"/>
-        <TextView
-            android:id="@+id/course_teachers"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:text="@string/teachers"
             android:textSize="16sp"
             android:textColor="@color/blue_500"/>
     </LinearLayout>

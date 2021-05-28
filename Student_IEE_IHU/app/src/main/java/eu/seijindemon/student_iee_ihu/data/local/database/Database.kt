@@ -4,13 +4,17 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import eu.seijindemon.student_iee_ihu.data.local.dao.CourseDao
 import eu.seijindemon.student_iee_ihu.data.local.dao.MapDao
 import eu.seijindemon.student_iee_ihu.data.local.dao.TeacherDao
+import eu.seijindemon.student_iee_ihu.data.model.Course
 import eu.seijindemon.student_iee_ihu.data.model.Map
 import eu.seijindemon.student_iee_ihu.data.model.Teacher
 
-@Database(entities = [Teacher::class, Map::class],version = 1, exportSchema = false)
+@Database(entities = [Course::class, Teacher::class, Map::class],version = 1, exportSchema = false)
 abstract class Database: RoomDatabase() {
+
+    abstract fun courseDao(): CourseDao
 
     abstract fun teacherDao(): TeacherDao
 

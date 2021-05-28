@@ -69,4 +69,6 @@
     <string name="maps">Maps</string>
     <string name="ihu_sindou">I.H.U. Sindou</string>
     <string name="eudoxus">Eudoxus</string>
+    <string name="courses">Courses</string>
+    <string name="semester">Semester</string>
 </resources>

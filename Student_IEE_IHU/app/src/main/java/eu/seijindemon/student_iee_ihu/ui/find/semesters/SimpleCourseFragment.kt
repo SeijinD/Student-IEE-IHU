@@ -11,13 +11,13 @@ import android.webkit.WebViewClient
 import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.utils.Constants
 import eu.seijindemon.student_iee_ihu.utils.LoadLanguage
-import kotlinx.android.synthetic.main.fragment_course.view.*
+import kotlinx.android.synthetic.main.fragment_simple_course.view.*
 
-class CourseFragment : Fragment() {
+class SimpleCourseFragment : Fragment() {
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_course, container, false)
+        val view = inflater.inflate(R.layout.fragment_simple_course, container, false)
 
         view.course_webview.settings.javaScriptEnabled = true
         view.course_webview.webViewClient = object : WebViewClient() {
@@ -31,8 +31,8 @@ class CourseFragment : Fragment() {
         }
 
         when(LoadLanguage.loadLanguage()) {
-            "el" -> view.course_webview.loadUrl(Constants.BASE_URL_SITE_EL + CourseFragmentArgs.fromBundle(requireArguments()).courseLink)
-            "en" -> view.course_webview.loadUrl(Constants.BASE_URL_SITE_EN + CourseFragmentArgs.fromBundle(requireArguments()).courseLink)
+            "el" -> view.course_webview.loadUrl(Constants.BASE_URL_SITE_EL + SimpleCourseFragmentArgs.fromBundle(requireArguments()).courseLink)
+            "en" -> view.course_webview.loadUrl(Constants.BASE_URL_SITE_EN + SimpleCourseFragmentArgs.fromBundle(requireArguments()).courseLink)
         }
 
         return view

@@ -35,9 +35,14 @@ class MapsFragment : Fragment(), OnMapReadyCallback, SearchView.OnQueryTextListe
 
 //        val map = Map("40.85954", "22.80485", "Salonika", "This is a beautiful city!")
 //        mapViewModel.insertData(map)
+//        val map2 = Map("40.85754", "22.80785", "Kavala", "This is a beautiful place!")
+//        mapViewModel.insertData(map2)
+
 
         view.search_map.isSubmitButtonEnabled = true
         view.search_map.setOnQueryTextListener(this)
+
+
 
         supportMapFragment.getMapAsync(this)
 

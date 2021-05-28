@@ -116,6 +116,9 @@
         <action
             android:id="@+id/action_menuFind_to_menuMaps"
             app:destination="@id/menuMaps" />
+        <action
+            android:id="@+id/action_menuFind_to_menuCourses"
+            app:destination="@id/menuCourses" />
     </fragment>
     <fragment
         android:id="@+id/menuSemesters"
@@ -137,17 +140,17 @@
         android:label="@string/semesters"
         tools:layout="@layout/fragment_semester" >
         <action
-            android:id="@+id/action_menuSemester_to_courseFragment"
-            app:destination="@id/menuCourse" />
+            android:id="@+id/action_menuSemester_to_simpleCourseFragment"
+            app:destination="@id/menuSimpleCourse" />
         <argument
             android:name="semester_number"
             app:argType="string" />
     </fragment>
     <fragment
-        android:id="@+id/menuCourse"
-        android:name="eu.seijindemon.student_iee_ihu.ui.find.semesters.CourseFragment"
+        android:id="@+id/menuSimpleCourse"
+        android:name="eu.seijindemon.student_iee_ihu.ui.find.semesters.SimpleCourseFragment"
         android:label="@string/course"
-        tools:layout="@layout/fragment_course" >
+        tools:layout="@layout/fragment_simple_course" >
         <argument
             android:name="course_link"
             app:argType="string" />
@@ -157,4 +160,9 @@
         android:name="eu.seijindemon.student_iee_ihu.ui.find.google_maps.MapsFragment"
         android:label="@string/maps"
         tools:layout="@layout/fragment_maps" />
+    <fragment
+        android:id="@+id/menuCourses"
+        android:name="eu.seijindemon.student_iee_ihu.ui.find.courses.CoursesFragment"
+        android:label="@string/courses"
+        tools:layout="@layout/fragment_courses" />
 </navigation>
