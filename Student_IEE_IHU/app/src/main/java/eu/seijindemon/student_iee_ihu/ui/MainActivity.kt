@@ -25,7 +25,6 @@ import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import eu.seijindemon.student_iee_ihu.utils.NetworkStatus
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.navigation_header.view.*
-import kotlinx.android.synthetic.main.navigation_header_admin.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -91,13 +90,13 @@ class MainActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 headView.header_am.text = snapshot.child("am").value.toString()
                 headView.header_email.text = snapshot.child("email").value.toString()
-                if (snapshot.hasChild("profile")) {
-                    val loadImage = snapshot.child("profile").value.toString()
-                    Glide.with(applicationContext).load(loadImage).apply(RequestOptions.circleCropTransform()).into(headView.imageProfile_admin)
-                }
-                else {
-                    Glide.with(applicationContext).load(R.drawable.default_profile).apply(RequestOptions.circleCropTransform()).into(headView.imageProfile_admin)
-                }
+
+                val loadImage = snapshot.child("profile").value.toString()
+                Glide.with(applicationContext)
+                    .load(loadImage)
+                    .apply(RequestOptions.circleCropTransform())
+                    .error(R.drawable.default_profile)
+                    .into(headView.imageProfile)
             }
             override fun onCancelled(error: DatabaseError) {
                 Log.e("TAG", error.message)

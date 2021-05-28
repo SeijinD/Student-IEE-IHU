@@ -54,13 +54,12 @@ class ProfileFragment : Fragment() {
                     profile_lastName.setText(snapshot.child("lastname").value.toString())
                     profile_phone.setText(snapshot.child("phone").value.toString())
 
-                    if (snapshot.hasChild("profile")) {
-                        val loadImage = snapshot.child("profile").value.toString()
-                        Glide.with(requireActivity()).load(loadImage).apply(RequestOptions.circleCropTransform()).into(profile_image)
-                    }
-                    else {
-                        Glide.with(requireActivity()).load(R.drawable.default_profile).apply(RequestOptions.circleCropTransform()).into(profile_image)
-                    }
+                    val loadImage = snapshot.child("profile").value.toString()
+                    Glide.with(requireActivity())
+                        .load(loadImage)
+                        .apply(RequestOptions.circleCropTransform())
+                        .error(R.drawable.default_profile)
+                        .into(profile_image)
                 }
             }
 

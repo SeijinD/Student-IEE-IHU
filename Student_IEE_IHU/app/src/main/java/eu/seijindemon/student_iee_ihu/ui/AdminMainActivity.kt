@@ -90,13 +90,13 @@ class AdminMainActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 headView.header_am_admin.text = snapshot.child("am").value.toString()
                 headView.header_email_admin.text = snapshot.child("email").value.toString()
-                if (snapshot.hasChild("profile")) {
-                    val loadImage = snapshot.child("profile").value.toString()
-                    Glide.with(applicationContext).load(loadImage).apply(RequestOptions.circleCropTransform()).into(headView.imageProfile_admin)
-                }
-                else {
-                    Glide.with(applicationContext).load(R.drawable.default_profile).apply(RequestOptions.circleCropTransform()).into(headView.imageProfile_admin)
-                }
+
+                val loadImage = snapshot.child("profile").value.toString()
+                Glide.with(applicationContext)
+                    .load(loadImage)
+                    .apply(RequestOptions.circleCropTransform())
+                    .error(R.drawable.default_profile)
+                    .into(headView.imageProfile_admin)
             }
             override fun onCancelled(error: DatabaseError) {
                 Log.e("TAG", error.message)
