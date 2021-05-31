@@ -225,8 +225,7 @@ class SettingsFragment : Fragment() {
                             MotionToast.Companion.TOAST_SUCCESS,
                             MotionToast.Companion.GRAVITY_BOTTOM,
                             MotionToast.Companion.LONG_DURATION,
-                            ResourcesCompat.getFont(this.requireContext(), R.font.helvetica_regular)
-                    )
+                            ResourcesCompat.getFont(this.requireContext(), R.font.helvetica_regular))
                     startActivity(Intent(activity, LoginActivity::class.java))
                     activity?.finish()
                 }
@@ -238,8 +237,7 @@ class SettingsFragment : Fragment() {
                             MotionToast.Companion.TOAST_ERROR,
                             MotionToast.Companion.GRAVITY_BOTTOM,
                             MotionToast.Companion.LONG_DURATION,
-                            ResourcesCompat.getFont(this.requireContext(), R.font.helvetica_regular)
-                    )
+                            ResourcesCompat.getFont(this.requireContext(), R.font.helvetica_regular))
                 }
             }
     }
