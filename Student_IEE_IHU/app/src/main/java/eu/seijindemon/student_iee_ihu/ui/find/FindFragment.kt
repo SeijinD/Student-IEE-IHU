@@ -1,7 +1,5 @@
 package eu.seijindemon.student_iee_ihu.ui.find
 
-import android.Manifest
-import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,12 +10,11 @@ import androidx.navigation.Navigation
 import com.vmadalin.easypermissions.EasyPermissions
 import com.vmadalin.easypermissions.dialogs.SettingsDialog
 import eu.seijindemon.student_iee_ihu.R
+import eu.seijindemon.student_iee_ihu.utils.Permissions
 import kotlinx.android.synthetic.main.fragment_find.view.*
 import www.sanju.motiontoast.MotionToast
 
 class FindFragment : Fragment(), EasyPermissions.PermissionCallbacks {
-
-    val PERMISSION_LOCATION_REQUEST_CODE = 101
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_find, container, false)
@@ -52,7 +49,7 @@ class FindFragment : Fragment(), EasyPermissions.PermissionCallbacks {
             SettingsDialog.Builder(requireContext()).build().show()
         }
         else {
-            requestLocationPermission()
+            Permissions.requestLocationPermission(requireActivity())
         }
     }
 
@@ -67,23 +64,17 @@ class FindFragment : Fragment(), EasyPermissions.PermissionCallbacks {
                 ResourcesCompat.getFont(requireContext(), R.font.helvetica_regular))
     }
 
-    private fun requestLocationPermission() {
-        EasyPermissions.requestPermissions(
-            this,
-            "This application cannot work without Location Permission.",
-            PERMISSION_LOCATION_REQUEST_CODE,
-            Manifest.permission.ACCESS_FINE_LOCATION
-        )
-    }
+
 
     private fun checkPermissions(view: View) {
-        if (EasyPermissions.hasPermissions(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION)) {
+        if (Permissions.hasLocationPermission(requireContext())) {
             Navigation.findNavController(view).navigate(R.id.menuMaps)
         }
         else {
-            requestLocationPermission()
+            Permissions.requestLocationPermission(requireActivity())
         }
     }
+
 
 
 }

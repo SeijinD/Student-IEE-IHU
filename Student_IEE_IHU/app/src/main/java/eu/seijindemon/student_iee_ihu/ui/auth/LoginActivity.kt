@@ -14,15 +14,19 @@ import com.afollestad.materialdialogs.actions.setActionButtonEnabled
 import com.afollestad.materialdialogs.input.getInputField
 import com.afollestad.materialdialogs.input.input
 import com.tencent.mmkv.MMKV
+import com.vmadalin.easypermissions.EasyPermissions
+import com.vmadalin.easypermissions.annotations.AfterPermissionGranted
+import com.vmadalin.easypermissions.dialogs.SettingsDialog
 import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.ui.AdminMainActivity
 import eu.seijindemon.student_iee_ihu.ui.MainActivity
 import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
+import eu.seijindemon.student_iee_ihu.utils.Permissions
 import kotlinx.android.synthetic.main.activity_login.*
 import www.sanju.motiontoast.MotionToast
 import java.util.*
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -175,7 +179,8 @@ class LoginActivity : AppCompatActivity() {
                     ResourcesCompat.getFont(this, R.font.helvetica_regular))
             }
             else -> {
-                loginUser(login_email.text.toString().trim(), login_password.text.toString().trim())
+                checkPermissions()
+                //loginUser(login_email.text.toString().trim(), login_password.text.toString().trim())
             }
         }
     }
@@ -230,4 +235,41 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
     }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        // EasyPermissions handles the request result.
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this)
+    }
+
+    override fun onPermissionsDenied(requestCode: Int, perms: List<String>) {
+        if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
+            SettingsDialog.Builder(this).build().show()
+        }
+        else {
+            Permissions.requestBasicPermission(this)
+        }
+    }
+
+    override fun onPermissionsGranted(requestCode: Int, perms: List<String>) {
+//        MotionToast.Companion.createColorToast(
+//            this,
+//            "Successful",
+//            "Permissions Granted!",
+//            MotionToast.Companion.TOAST_SUCCESS,
+//            MotionToast.Companion.GRAVITY_BOTTOM,
+//            MotionToast.Companion.LONG_DURATION,
+//            ResourcesCompat.getFont(this, R.font.helvetica_regular))
+    }
+
+
+    private fun checkPermissions() {
+        if (Permissions.hasBasicPermission(this)) {
+            loginUser(login_email.text.toString().trim(), login_password.text.toString().trim())
+        }
+        else {
+            Permissions.requestBasicPermission(this)
+        }
+    }
+
 }
