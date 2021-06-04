@@ -76,4 +76,5 @@
     <string name="zoom_link_2">Participants Guide</string>
     <string name="guides">Guides</string>
     <string name="webview">WebView</string>
+    <string name="rooms">Rooms</string>
 </resources>

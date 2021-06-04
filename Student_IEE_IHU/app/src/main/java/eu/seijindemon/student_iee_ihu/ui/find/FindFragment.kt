@@ -31,6 +31,10 @@ class FindFragment : Fragment(), EasyPermissions.PermissionCallbacks {
             Navigation.findNavController(view).navigate(R.id.menuTeachers)
         }
 
+        view.rooms.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.menuRooms)
+        }
+
         view.maps.setOnClickListener {
             checkPermissions(view)
         }

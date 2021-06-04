@@ -122,6 +122,9 @@
         <action
             android:id="@+id/action_menuFind_to_menuGuides"
             app:destination="@id/menuGuides" />
+        <action
+            android:id="@+id/action_menuFind_to_menuRooms"
+            app:destination="@id/menuRooms" />
     </fragment>
     <fragment
         android:id="@+id/menuSemesters"
@@ -195,4 +198,9 @@
             android:name="url"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/menuRooms"
+        android:name="eu.seijindemon.student_iee_ihu.ui.find.rooms.RoomsFragment"
+        android:label="@string/rooms"
+        tools:layout="@layout/fragment_rooms" />
 </navigation>
