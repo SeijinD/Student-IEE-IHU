@@ -71,4 +71,9 @@
     <string name="eudoxus">Eudoxus</string>
     <string name="courses">Courses</string>
     <string name="semester">Semester</string>
+    <string name="zoom">Zoom</string>
+    <string name="zoom_link_1">Installation - Audio - Video</string>
+    <string name="zoom_link_2">Participants Guide</string>
+    <string name="guides">Guides</string>
+    <string name="webview">WebView</string>
 </resources>

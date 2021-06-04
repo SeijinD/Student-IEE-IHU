@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -20,7 +19,7 @@ import eu.seijindemon.student_iee_ihu.data.local.viewmodel.MapViewModelFactory
 import eu.seijindemon.student_iee_ihu.data.model.Map
 import kotlinx.android.synthetic.main.fragment_maps.view.*
 
-class MapsFragment : Fragment(), OnMapReadyCallback, SearchView.OnQueryTextListener {
+class MapsFragment : Fragment(), OnMapReadyCallback, SearchView.OnQueryTextListener{
 
     private lateinit var viewMap: GoogleMap
 
@@ -96,6 +95,5 @@ class MapsFragment : Fragment(), OnMapReadyCallback, SearchView.OnQueryTextListe
             }
         })
     }
-
 
 }

@@ -119,6 +119,9 @@
         <action
             android:id="@+id/action_menuFind_to_menuCourses"
             app:destination="@id/menuCourses" />
+        <action
+            android:id="@+id/action_menuFind_to_menuGuides"
+            app:destination="@id/menuGuides" />
     </fragment>
     <fragment
         android:id="@+id/menuSemesters"
@@ -165,4 +168,31 @@
         android:name="eu.seijindemon.student_iee_ihu.ui.find.courses.CoursesFragment"
         android:label="@string/courses"
         tools:layout="@layout/fragment_courses" />
+    <fragment
+        android:id="@+id/menuZoom"
+        android:name="eu.seijindemon.student_iee_ihu.ui.guides.ZoomFragment"
+        android:label="@string/zoom"
+        tools:layout="@layout/fragment_zoom" >
+        <action
+            android:id="@+id/action_menuZoom_to_webview"
+            app:destination="@id/webview" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuGuides"
+        android:name="eu.seijindemon.student_iee_ihu.ui.guides.GuidesFragment"
+        android:label="@string/guides"
+        tools:layout="@layout/fragment_guides" >
+        <action
+            android:id="@+id/action_menuGuides_to_menuZoom"
+            app:destination="@id/menuZoom" />
+    </fragment>
+    <fragment
+        android:id="@+id/webview"
+        android:name="eu.seijindemon.student_iee_ihu.ui.webview.WebViewFragment"
+        android:label="@string/webview"
+        tools:layout="@layout/fragment_webview" >
+        <argument
+            android:name="url"
+            app:argType="string" />
+    </fragment>
 </navigation>

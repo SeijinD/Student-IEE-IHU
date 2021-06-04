@@ -20,6 +20,11 @@
             android:title="@string/find"
             />
         <item
+            android:id="@+id/menuGuides"
+            android:icon="@drawable/ic_baseline_menu_book_24"
+            android:title="@string/guides"
+            />
+        <item
             android:id="@+id/menuProfile"
             android:icon="@drawable/ic_baseline_account_box_24"
             android:title="@string/profile"

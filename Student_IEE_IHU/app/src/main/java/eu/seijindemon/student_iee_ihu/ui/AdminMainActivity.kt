@@ -40,7 +40,6 @@ class AdminMainActivity : AppCompatActivity() {
 
         drawNavTool() // DrawLayout Menu, Navigation, Toolbar
         loadHeader()
-
     }
 
     override fun onResume() {
@@ -103,6 +102,4 @@ class AdminMainActivity : AppCompatActivity() {
             }
         })
     }
-
-
 }
