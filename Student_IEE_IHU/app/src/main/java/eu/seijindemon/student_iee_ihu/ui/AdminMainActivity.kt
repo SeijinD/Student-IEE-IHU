@@ -7,7 +7,6 @@ import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.annotation.WorkerThread
-import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
@@ -38,8 +37,62 @@ class AdminMainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_admin_main)
 
-        drawNavTool() // DrawLayout Menu, Navigation, Toolbar
+        setupNav()
         loadHeader()
+    }
+
+
+
+    private fun setupNav() {
+        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_admin_layout)
+        val navigationView: NavigationView = findViewById(R.id.navigation_view_admin)
+        val navController: NavController = Navigation.findNavController(this, R.id.nav_host_fragment_admin)
+
+        NavigationUI.setupWithNavController(navigationView, navController)
+
+        // Click menu image to open drawer menu
+        findViewById<ImageView>(R.id.image_menu_admin).setOnClickListener{
+            drawerLayout.openDrawer(GravityCompat.START)
+        }
+
+        // Change Title in toolbar, if change fragment
+        navController.addOnDestinationChangedListener{ _, destination, _ ->
+            text_title.text = destination.label
+        }
+
+        // Color in drawer menu icons
+        navigationView.itemIconTintList = null
+
+
+
+    }
+
+    private fun loadHeader() {
+        val headView: View = navigation_view_admin.getHeaderView(0)
+        FirebaseSetup.userReference?.addValueEventListener(object: ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                headView.header_am_admin.text = snapshot.child("am").value.toString()
+                headView.header_email_admin.text = snapshot.child("email").value.toString()
+
+                val loadImage = snapshot.child("profile").value.toString()
+                Glide.with(applicationContext)
+                    .load(loadImage)
+                    .apply(RequestOptions.circleCropTransform())
+                    .error(R.drawable.default_profile)
+                    .into(headView.imageProfile_admin)
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Log.e("TAG", error.message)
+            }
+        })
+    }
+
+    override fun onBackPressed() {
+        if (drawer_admin_layout.isDrawerOpen(GravityCompat.START)) {
+            drawer_admin_layout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
     }
 
     override fun onResume() {
@@ -58,48 +111,4 @@ class AdminMainActivity : AppCompatActivity() {
         }
     }
 
-    private fun drawNavTool() {
-        // DrawLayout
-        val drawerLayout: DrawerLayout = findViewById(R.id.drawerAdminLayout)
-        findViewById<ImageView>(R.id.imageMenuAdmin).setOnClickListener{
-            drawerLayout.openDrawer(GravityCompat.START)
-        }
-
-        // Nav
-        val navigationView: NavigationView = findViewById(R.id.navigationViewAdmin)
-        navigationView.itemIconTintList = null
-        val navController: NavController = Navigation.findNavController(this, R.id.navHostFragmentAdmin)
-        NavigationUI.setupWithNavController(navigationView, navController)
-
-        // Change Title in Toolbar
-        navController.addOnDestinationChangedListener{ _, destination, _ ->
-            textTitle.text = destination.label
-        }
-
-
-        // Toolbar
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        toolbar.title = ""
-        setSupportActionBar(toolbar)
-    }
-
-    private fun loadHeader() {
-        val headView: View = navigationViewAdmin.getHeaderView(0)
-        FirebaseSetup.userReference?.addValueEventListener(object: ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                headView.header_am_admin.text = snapshot.child("am").value.toString()
-                headView.header_email_admin.text = snapshot.child("email").value.toString()
-
-                val loadImage = snapshot.child("profile").value.toString()
-                Glide.with(applicationContext)
-                    .load(loadImage)
-                    .apply(RequestOptions.circleCropTransform())
-                    .error(R.drawable.default_profile)
-                    .into(headView.imageProfile_admin)
-            }
-            override fun onCancelled(error: DatabaseError) {
-                Log.e("TAG", error.message)
-            }
-        })
-    }
 }

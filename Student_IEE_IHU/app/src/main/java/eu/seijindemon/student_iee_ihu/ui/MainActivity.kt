@@ -7,7 +7,6 @@ import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.annotation.WorkerThread
-import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
@@ -24,6 +23,7 @@ import eu.seijindemon.student_iee_ihu.ui.not_network.NotNetworkActivity
 import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import eu.seijindemon.student_iee_ihu.utils.NetworkStatus
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.text_title
 import kotlinx.android.synthetic.main.navigation_header.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -39,53 +39,37 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        drawNavTool() // DrawLayout Menu, Navigation, Toolbar
+        setupNav()
         loadHeader()
 
     }
 
-    override fun onResume() {
-        super.onResume()
 
-        CoroutineScope(Dispatchers.IO).launch {
-            networkAvailable()
-        }
-    }
 
-    @WorkerThread
-    private suspend fun networkAvailable() {
-        if (!NetworkStatus.networkAvailable(application)) {
-            startActivity(Intent(this, NotNetworkActivity::class.java))
-            finish()
-        }
-    }
+    private fun setupNav() {
+        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
+        val navigationView: NavigationView = findViewById(R.id.navigation_view)
+        val navController: NavController = Navigation.findNavController(this, R.id.nav_host_fragment)
 
-    private fun drawNavTool() {
-        // DrawLayout
-        val drawerLayout: DrawerLayout = findViewById(R.id.drawerLayout)
-        findViewById<ImageView>(R.id.imageMenu).setOnClickListener{
+        NavigationUI.setupWithNavController(navigationView, navController)
+
+        // Click menu image to open drawer menu
+        findViewById<ImageView>(R.id.image_menu).setOnClickListener{
             drawerLayout.openDrawer(GravityCompat.START)
         }
 
-        // Nav
-        val navigationView: NavigationView = findViewById(R.id.navigationView)
-        navigationView.itemIconTintList = null
-        val navController: NavController = Navigation.findNavController(this, R.id.navHostFragment)
-        NavigationUI.setupWithNavController(navigationView, navController)
-
-        // Change Title in Toolbar
+        // Change Title in toolbar, if change fragment
         navController.addOnDestinationChangedListener{ _, destination, _ ->
-            textTitle.text = destination.label
+            text_title.text = destination.label
         }
 
-        // Toolbar
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        toolbar.title = ""
-        setSupportActionBar(toolbar)
+        // Color in drawer menu icons
+        navigationView.itemIconTintList = null
+
     }
 
     private fun loadHeader() {
-        val headView: View = navigationView.getHeaderView(0)
+        val headView: View = navigation_view.getHeaderView(0)
         FirebaseSetup.userReference?.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 headView.header_am.text = snapshot.child("am").value.toString()
@@ -102,6 +86,30 @@ class MainActivity : AppCompatActivity() {
                 Log.e("TAG", error.message)
             }
         })
+    }
+
+    override fun onBackPressed() {
+        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
+            drawer_layout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        CoroutineScope(Dispatchers.IO).launch {
+            networkAvailable()
+        }
+    }
+
+    @WorkerThread
+    private suspend fun networkAvailable() {
+        if (!NetworkStatus.networkAvailable(application)) {
+            startActivity(Intent(this, NotNetworkActivity::class.java))
+            finish()
+        }
     }
 
 }

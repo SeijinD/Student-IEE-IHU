@@ -77,4 +77,5 @@
     <string name="guides">Guides</string>
     <string name="webview">WebView</string>
     <string name="rooms">Rooms</string>
+    <string name="apps">Apps</string>
 </resources>
