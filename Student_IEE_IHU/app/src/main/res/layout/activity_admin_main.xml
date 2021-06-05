@@ -41,6 +41,19 @@
                 android:textSize="18sp"
                 android:textStyle="bold"/>
 
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/open_apps"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:contentDescription="@string/apps"
+                android:src="@drawable/alerter_ic_notifications"
+                app:tint="@color/white" />
+
         </LinearLayout>
 
         <fragment

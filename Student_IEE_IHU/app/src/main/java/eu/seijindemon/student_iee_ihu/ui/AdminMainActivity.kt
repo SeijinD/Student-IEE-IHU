@@ -1,12 +1,13 @@
 package eu.seijindemon.student_iee_ihu.ui
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.ImageView
 import androidx.annotation.WorkerThread
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
@@ -51,7 +52,7 @@ class AdminMainActivity : AppCompatActivity() {
         NavigationUI.setupWithNavController(navigationView, navController)
 
         // Click menu image to open drawer menu
-        findViewById<ImageView>(R.id.image_menu_admin).setOnClickListener{
+        image_menu_admin.setOnClickListener{
             drawerLayout.openDrawer(GravityCompat.START)
         }
 
@@ -63,8 +64,17 @@ class AdminMainActivity : AppCompatActivity() {
         // Color in drawer menu icons
         navigationView.itemIconTintList = null
 
+        open_apps.setOnClickListener{ openApps() }
 
+    }
 
+    private fun openApps(){
+        try {
+            startActivity(Intent(packageManager.getLaunchIntentForPackage("gr.teithe.it.it_app")))
+        }
+        catch (e: ActivityNotFoundException) {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://apps.iee.ihu.gr/announcements")))
+        }
     }
 
     private fun loadHeader() {
