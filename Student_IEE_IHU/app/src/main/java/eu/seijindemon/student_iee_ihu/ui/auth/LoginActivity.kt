@@ -13,6 +13,8 @@ import com.afollestad.materialdialogs.WhichButton.POSITIVE
 import com.afollestad.materialdialogs.actions.setActionButtonEnabled
 import com.afollestad.materialdialogs.input.getInputField
 import com.afollestad.materialdialogs.input.input
+import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog
+import com.github.javiersantos.materialstyleddialogs.enums.Style
 import com.tencent.mmkv.MMKV
 import com.vmadalin.easypermissions.EasyPermissions
 import com.vmadalin.easypermissions.annotations.AfterPermissionGranted
@@ -187,25 +189,34 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
 
     private fun loginUser(email: String, password: String) {
         FirebaseSetup.auth!!.signInWithEmailAndPassword(email,password)
-            .addOnCompleteListener(this){ task ->
+            .addOnCompleteListener{ task ->
                 val currentUser = FirebaseSetup.auth?.currentUser
                 when {
                     task.isSuccessful -> {
-                        MotionToast.Companion.createColorToast(
-                            this,
-                            "Successful",
-                            "Login...",
-                            MotionToast.Companion.TOAST_SUCCESS,
-                            MotionToast.Companion.GRAVITY_BOTTOM,
-                            MotionToast.Companion.LONG_DURATION,
-                            ResourcesCompat.getFont(this, R.font.helvetica_regular))
-
                         when {
                             email == "georgekara2010@yahoo.gr" -> {
+                                MotionToast.Companion.createColorToast(
+                                    this,
+                                    "Successful",
+                                    "Login...",
+                                    MotionToast.Companion.TOAST_SUCCESS,
+                                    MotionToast.Companion.GRAVITY_BOTTOM,
+                                    MotionToast.Companion.LONG_DURATION,
+                                    ResourcesCompat.getFont(this, R.font.helvetica_regular))
+
                                 startActivity(Intent(this, AdminMainActivity::class.java))
                                 finish()
                             }
                             currentUser?.isEmailVerified!! -> {
+                                MotionToast.Companion.createColorToast(
+                                    this,
+                                    "Successful",
+                                    "Login...",
+                                    MotionToast.Companion.TOAST_SUCCESS,
+                                    MotionToast.Companion.GRAVITY_BOTTOM,
+                                    MotionToast.Companion.LONG_DURATION,
+                                    ResourcesCompat.getFont(this, R.font.helvetica_regular))
+
                                 startActivity(Intent(this, MainActivity::class.java))
                                 finish()
                             }
@@ -217,8 +228,15 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                                     MotionToast.Companion.TOAST_WARNING,
                                     MotionToast.Companion.GRAVITY_BOTTOM,
                                     MotionToast.Companion.LONG_DURATION,
-                                    ResourcesCompat.getFont(this, R.font.helvetica_regular)
-                                )
+                                    ResourcesCompat.getFont(this, R.font.helvetica_regular))
+
+                                MaterialStyledDialog.Builder(this)
+                                    .setTitle("Are you want to send email verification again?")
+                                    .setNegativeText(R.string.no)
+                                    .setPositiveText(R.string.yes)
+                                    .onPositive { sendVerificationAgain() }
+                                    .setStyle(Style.HEADER_WITH_TITLE)
+                                    .show()
                             }
                         }
                     }
@@ -234,6 +252,33 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                     }
                 }
             }
+    }
+
+    private fun sendVerificationAgain() {
+        val currentUser = FirebaseSetup.auth?.currentUser
+        currentUser?.sendEmailVerification()?.addOnCompleteListener{ task ->
+            if (task.isSuccessful) {
+                MotionToast.Companion.createColorToast(
+                    this,
+                    "Successful",
+                    "Verification Email has been sent.",
+                    MotionToast.Companion.TOAST_SUCCESS,
+                    MotionToast.Companion.GRAVITY_BOTTOM,
+                    MotionToast.Companion.LONG_DURATION,
+                    ResourcesCompat.getFont(this, R.font.helvetica_regular))
+            }
+            else
+            {
+                MotionToast.Companion.createColorToast(
+                    this,
+                    "Failed",
+                    "Try Again...",
+                    MotionToast.Companion.TOAST_ERROR,
+                    MotionToast.Companion.GRAVITY_BOTTOM,
+                    MotionToast.Companion.LONG_DURATION,
+                    ResourcesCompat.getFont(this, R.font.helvetica_regular))
+            }
+        }
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {

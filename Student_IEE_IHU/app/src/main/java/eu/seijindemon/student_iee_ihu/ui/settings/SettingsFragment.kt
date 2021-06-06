@@ -18,7 +18,6 @@ import com.tencent.mmkv.MMKV
 import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import eu.seijindemon.student_iee_ihu.ui.auth.LoginActivity
 import eu.seijindemon.student_iee_ihu.R
-import kotlinx.android.synthetic.main.fragment_settings.*
 import kotlinx.android.synthetic.main.fragment_settings.view.*
 import www.sanju.motiontoast.MotionToast
 import java.util.*
@@ -37,7 +36,7 @@ class SettingsFragment : Fragment() {
 
         view.reset_password_button_settings.setOnClickListener { resetPassword() }
 
-        view.reset_email_button_settings.setOnClickListener { resetEmail() }
+        view.reset_email_button_settings.setOnClickListener { Navigation.findNavController(view).navigate(R.id.menuResetEmail) }
 
         view.delete_account_button_settings.setOnClickListener { deleteAccount() }
 
@@ -161,17 +160,6 @@ class SettingsFragment : Fragment() {
                 .show()
     }
 
-    private fun resetEmail() {
-        MaterialStyledDialog.Builder(requireContext())
-                .setTitle("Reset Your Email!")
-                .setDescription("Are you sure?")
-                .setNegativeText(R.string.no)
-                .setPositiveText(R.string.yes)
-                .onPositive { confirmResetEmail() }
-                .setStyle(Style.HEADER_WITH_TITLE)
-                .show()
-    }
-
     private fun deleteAccount() {
         MaterialStyledDialog.Builder(requireContext())
                 .setTitle("Delete Your Account!")
@@ -207,10 +195,6 @@ class SettingsFragment : Fragment() {
                                 ResourcesCompat.getFont(this.requireContext(), R.font.helvetica_regular))
                     }
                 }
-    }
-
-    private fun confirmResetEmail() {
-
     }
 
     private fun confirmDelete() {

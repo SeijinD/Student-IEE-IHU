@@ -43,6 +43,9 @@
         <action
             android:id="@+id/action_menuSettings_to_menuAbout"
             app:destination="@id/menuAbout" />
+        <action
+            android:id="@+id/action_menuSettings_to_menuResetEmail"
+            app:destination="@id/menuResetEmail" />
     </fragment>
     <fragment
         android:id="@+id/menuProfile"
@@ -203,4 +206,9 @@
         android:name="eu.seijindemon.student_iee_ihu.ui.find.rooms.RoomsFragment"
         android:label="@string/rooms"
         tools:layout="@layout/fragment_rooms" />
+    <fragment
+        android:id="@+id/menuResetEmail"
+        android:name="eu.seijindemon.student_iee_ihu.ui.settings.ResetEmailFragment"
+        android:label="@string/reset_email"
+        tools:layout="@layout/fragment_reset_email" />
 </navigation>
