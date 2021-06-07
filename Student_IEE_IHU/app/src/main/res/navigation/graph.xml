@@ -123,9 +123,6 @@
             android:id="@+id/action_menuFind_to_menuCourses"
             app:destination="@id/menuCourses" />
         <action
-            android:id="@+id/action_menuFind_to_menuGuides"
-            app:destination="@id/menuGuides" />
-        <action
             android:id="@+id/action_menuFind_to_menuRooms"
             app:destination="@id/menuRooms" />
     </fragment>
@@ -211,4 +208,13 @@
         android:name="eu.seijindemon.student_iee_ihu.ui.settings.ResetEmailFragment"
         android:label="@string/reset_email"
         tools:layout="@layout/fragment_reset_email" />
+    <fragment
+        android:id="@+id/menuHelp"
+        android:name="eu.seijindemon.student_iee_ihu.ui.help.HelpFragment"
+        android:label="@string/help_title"
+        tools:layout="@layout/fragment_help" >
+        <argument
+            android:name="helpInfo"
+            app:argType="string" />
+    </fragment>
 </navigation>
