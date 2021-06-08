@@ -1,4 +1,4 @@
-package eu.seijindemon.student_iee_ihu.ui
+package eu.seijindemon.student_iee_ihu.ui.main
 
 import android.content.ActivityNotFoundException
 import android.content.Intent

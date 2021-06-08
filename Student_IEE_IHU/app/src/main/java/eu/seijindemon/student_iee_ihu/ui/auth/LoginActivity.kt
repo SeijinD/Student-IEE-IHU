@@ -17,11 +17,10 @@ import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog
 import com.github.javiersantos.materialstyleddialogs.enums.Style
 import com.tencent.mmkv.MMKV
 import com.vmadalin.easypermissions.EasyPermissions
-import com.vmadalin.easypermissions.annotations.AfterPermissionGranted
 import com.vmadalin.easypermissions.dialogs.SettingsDialog
 import eu.seijindemon.student_iee_ihu.R
-import eu.seijindemon.student_iee_ihu.ui.AdminMainActivity
-import eu.seijindemon.student_iee_ihu.ui.MainActivity
+import eu.seijindemon.student_iee_ihu.ui.main.AdminMainActivity
+import eu.seijindemon.student_iee_ihu.ui.main.MainActivity
 import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import eu.seijindemon.student_iee_ihu.utils.Permissions
 import kotlinx.android.synthetic.main.activity_login.*

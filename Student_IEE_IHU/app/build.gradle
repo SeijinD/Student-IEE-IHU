@@ -38,6 +38,26 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    sourceSets {
+        main {
+            res.srcDirs =
+                    [
+                            'src/main/res',
+                            'src/main/res/layouts/layout_auth',
+                            'src/main/res/layouts/layout_community',
+                            'src/main/res/layouts/layout_guides',
+                            'src/main/res/layouts/layout_profile',
+                            'src/main/res/layouts/layout_settings',
+                            'src/main/res/layouts/layout_find',
+                            'src/main/res/layouts/layout_help',
+                            'src/main/res/layouts/layout_home',
+                            'src/main/res/layouts/layout_main',
+                            'src/main/res/layouts/layout_not_network',
+                            'src/main/res/layouts/layout_webview',
+                            'src/main/res/layouts/layout_other'
+                    ]
+        }
+    }
 }
 
 dependencies {
@@ -81,7 +101,7 @@ dependencies {
     // implementation 'com.firebaseui:firebase-ui-storage:7.1.1'
 
     // RecyclerView + CardView
-    implementation "androidx.recyclerview:recyclerview:1.2.0"
+    implementation "androidx.recyclerview:recyclerview:1.2.1"
     implementation "androidx.cardview:cardview:1.0.0"
 
     // Navigation Component

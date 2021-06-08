@@ -84,4 +84,5 @@
     <string name="send_verification_email">Send Verification Email</string>
     <string name="help_you">Click to help you!</string>
     <string name="help_title">Help Page</string>
+    <string name="first_day">First Day</string>
 </resources>

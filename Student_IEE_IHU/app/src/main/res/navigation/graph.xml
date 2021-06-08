@@ -19,12 +19,12 @@
         tools:layout="@layout/activity_login" />
     <activity
         android:id="@+id/mainActivity"
-        android:name="eu.seijindemon.student_iee_ihu.ui.MainActivity"
+        android:name="eu.seijindemon.student_iee_ihu.ui.main.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
     <activity
         android:id="@+id/adminMainActivity"
-        android:name="eu.seijindemon.student_iee_ihu.ui.AdminMainActivity"
+        android:name="eu.seijindemon.student_iee_ihu.ui.main.AdminMainActivity"
         android:label="admin_main_activity"
         tools:layout="@layout/activity_admin_main" />
     <fragment
@@ -188,6 +188,9 @@
         <action
             android:id="@+id/action_menuGuides_to_menuZoom"
             app:destination="@id/menuZoom" />
+        <action
+            android:id="@+id/action_menuGuides_to_menuFirstDay"
+            app:destination="@id/menuFirstDay" />
     </fragment>
     <fragment
         android:id="@+id/webview"
@@ -217,4 +220,9 @@
             android:name="helpInfo"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/menuFirstDay"
+        android:name="eu.seijindemon.student_iee_ihu.ui.guides.FirstDayFragment"
+        android:label="@string/first_day"
+        tools:layout="@layout/fragment_first_day" />
 </navigation>
