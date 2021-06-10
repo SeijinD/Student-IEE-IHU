@@ -86,4 +86,6 @@
     <string name="help_title">Help Page</string>
     <string name="first_day">First Day</string>
     <string name="zoom_rooms">Zoom Rooms</string>
+    <string name="r1_r8">R1-R8</string>
+    <string name="e1_e8">E1-E8</string>
 </resources>
