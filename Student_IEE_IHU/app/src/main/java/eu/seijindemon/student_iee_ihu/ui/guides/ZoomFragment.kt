@@ -17,11 +17,11 @@ class ZoomFragment : Fragment() {
 
 
         view.zoom_link_1.setOnClickListener{
-            Navigation.findNavController(requireView()).navigate(ZoomFragmentDirections.actionMenuZoomToWebview("https://www.iee.ihu.gr/wp-content/uploads/2020/03/zoom-manual_setup_sound_video.pdf"))
+            Navigation.findNavController(requireView()).navigate(ZoomFragmentDirections.actionMenuZoomToPdfWebview("https://www.iee.ihu.gr/wp-content/uploads/2020/03/zoom-manual_setup_sound_video.pdf"))
         }
 
         view.zoom_link_2.setOnClickListener{
-            Navigation.findNavController(requireView()).navigate(ZoomFragmentDirections.actionMenuZoomToWebview("https://www.iee.ihu.gr/wp-content/uploads/2020/03/zoom-manual_plain_participation.pdf"))
+            Navigation.findNavController(requireView()).navigate(ZoomFragmentDirections.actionMenuZoomToPdfWebview("https://www.iee.ihu.gr/wp-content/uploads/2020/03/zoom-manual_plain_participation.pdf"))
         }
 
         return view

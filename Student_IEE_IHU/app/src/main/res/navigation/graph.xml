@@ -177,8 +177,8 @@
         android:label="@string/zoom"
         tools:layout="@layout/fragment_zoom" >
         <action
-            android:id="@+id/action_menuZoom_to_webview"
-            app:destination="@id/webview" />
+            android:id="@+id/action_menuZoom_to_pdf_webview"
+            app:destination="@id/pdf_webview" />
     </fragment>
     <fragment
         android:id="@+id/menuGuides"
@@ -193,10 +193,10 @@
             app:destination="@id/menuFirstDay" />
     </fragment>
     <fragment
-        android:id="@+id/webview"
-        android:name="eu.seijindemon.student_iee_ihu.ui.webview.WebViewFragment"
-        android:label="@string/webview"
-        tools:layout="@layout/fragment_webview" >
+        android:id="@+id/pdf_webview"
+        android:name="eu.seijindemon.student_iee_ihu.ui.webview.PDFWebViewFragment"
+        android:label="@string/pdf_webview"
+        tools:layout="@layout/fragment_pdf_webview" >
         <argument
             android:name="url"
             app:argType="string" />
@@ -242,4 +242,13 @@
         android:name="eu.seijindemon.student_iee_ihu.ui.find.rooms.ZoomRoomFragment"
         android:label="@string/zoom_rooms"
         tools:layout="@layout/fragment_zoom_room" />
+    <fragment
+        android:id="@+id/webview"
+        android:name="eu.seijindemon.student_iee_ihu.ui.webview.WebViewFragment"
+        android:label="@string/webview"
+        tools:layout="@layout/fragment_webview" >
+        <argument
+            android:name="url"
+            app:argType="string" />
+    </fragment>
 </navigation>
