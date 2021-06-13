@@ -105,4 +105,11 @@
     <string name="r8">R8</string>
     <string name="r7">R7</string>
     <string name="pdf_webview">PDF WebView</string>
+    <string name="discord_server_1">ΔΙΠΑΕ Μηχανικών Πληροφορικής και Ηλεκτρονικών Συστημάτων</string>
+    <string name="discord_server_2">ΟΜΠΡΕΛΑ</string>
+    <string name="facebook_page_2">Ενημέρωση Φοιτητών ΔΙΠΑΕ Σίνδου</string>
+    <string name="facebook_page_1">Τμήμα Μηχανικών Πληροφορικής Και Ηλεκτρονικών Συστημάτων ΔΙΠΑΕ θεσ/νίκης</string>
+    <string name="other_community_1">Other Community 1</string>
+    <string name="facebook_page_3">IMentor</string>
+    <string name="facebook_page_4">IEEE Student Branch - International Hellenic University - Thessaloniki</string>
 </resources>
