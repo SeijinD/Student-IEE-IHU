@@ -88,4 +88,20 @@
     <string name="zoom_rooms">Zoom Rooms</string>
     <string name="r1_r8">R1-R8</string>
     <string name="e1_e8">E1-E8</string>
+    <string name="e1">E1</string>
+    <string name="e2">E2</string>
+    <string name="e3">E3</string>
+    <string name="e4">E4</string>
+    <string name="e5">E5</string>
+    <string name="e6">E6</string>
+    <string name="r1">R1</string>
+    <string name="r6">R6</string>
+    <string name="r5">R5</string>
+    <string name="r4">R4</string>
+    <string name="r3">R3</string>
+    <string name="r2">R2</string>
+    <string name="e7">E7</string>
+    <string name="e8">E8</string>
+    <string name="r8">R8</string>
+    <string name="r7">R7</string>
 </resources>

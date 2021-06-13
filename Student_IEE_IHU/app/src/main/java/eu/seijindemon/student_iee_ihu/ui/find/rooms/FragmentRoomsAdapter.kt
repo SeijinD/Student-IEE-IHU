@@ -15,10 +15,10 @@ class FragmentRoomsAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycl
     override fun createFragment(position: Int): Fragment {
         return when(position) {
             1 -> {
-                RRoomsFragment()
+                ERoomsFragment()
             }
             else -> {
-                ERoomsFragment()
+                RRoomsFragment()
             }
         }
     }
