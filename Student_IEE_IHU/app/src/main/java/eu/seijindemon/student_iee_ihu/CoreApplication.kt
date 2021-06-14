@@ -2,6 +2,7 @@ package eu.seijindemon.student_iee_ihu
 
 import android.app.Application
 import eu.seijindemon.student_iee_ihu.data.local.database.Database
+import eu.seijindemon.student_iee_ihu.data.repository.CommunityRepository
 import eu.seijindemon.student_iee_ihu.data.repository.CourseRepository
 import eu.seijindemon.student_iee_ihu.data.repository.MapRepository
 import eu.seijindemon.student_iee_ihu.data.repository.TeacherRepository
@@ -16,5 +17,6 @@ class CoreApplication: Application() {
     val courseRepository by lazy { CourseRepository(database.courseDao()) }
     val teacherRepository by lazy { TeacherRepository(database.teacherDao()) }
     val mapRepository by lazy { MapRepository(database.mapDao()) }
+    val communityRepository by lazy { CommunityRepository(database.communityDao()) }
 
 }

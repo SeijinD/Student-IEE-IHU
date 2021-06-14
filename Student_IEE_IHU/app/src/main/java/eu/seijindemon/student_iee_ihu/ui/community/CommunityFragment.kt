@@ -15,19 +15,19 @@ class CommunityFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_community, container, false)
 
         view.discords.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.menuDiscords)
+            Navigation.findNavController(view).navigate(CommunityFragmentDirections.actionMenuCommunityToCategoryCommunity("discords_servers"))
         }
 
         view.facebook_groups.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.menuFacebookGroups)
+            Navigation.findNavController(view).navigate(CommunityFragmentDirections.actionMenuCommunityToCategoryCommunity("facebook_groups"))
         }
 
         view.facebook_pages.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.menuFacebookPages)
+            Navigation.findNavController(view).navigate(CommunityFragmentDirections.actionMenuCommunityToCategoryCommunity("facebook_pages"))
         }
 
         view.other_community.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.menuOtherCommunity)
+            Navigation.findNavController(view).navigate(CommunityFragmentDirections.actionMenuCommunityToCategoryCommunity("other_community"))
         }
 
         return view

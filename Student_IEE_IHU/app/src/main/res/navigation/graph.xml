@@ -68,38 +68,9 @@
         android:label="@string/community"
         tools:layout="@layout/fragment_community" >
         <action
-            android:id="@+id/action_menuCommunity_to_menuDiscords"
-            app:destination="@id/menuDiscords" />
-        <action
-            android:id="@+id/action_menuCommunity_to_menuFacebookGroups"
-            app:destination="@id/menuFacebookGroups" />
-        <action
-            android:id="@+id/action_menuCommunity_to_menuFacebookPages"
-            app:destination="@id/menuFacebookPages" />
-        <action
-            android:id="@+id/action_menuCommunity_to_menuOtherCommunity3"
-            app:destination="@id/menuOtherCommunity" />
+            android:id="@+id/action_menuCommunity_to_categoryCommunity"
+            app:destination="@id/categoryCommunity" />
     </fragment>
-    <fragment
-        android:id="@+id/menuDiscords"
-        android:name="eu.seijindemon.student_iee_ihu.ui.community.DiscordsFragment"
-        android:label="@string/discords"
-        tools:layout="@layout/fragment_discords" />
-    <fragment
-        android:id="@+id/menuFacebookGroups"
-        android:name="eu.seijindemon.student_iee_ihu.ui.community.FacebookGroupsFragment"
-        android:label="@string/facebook_groups"
-        tools:layout="@layout/fragment_facebook_groups" />
-    <fragment
-        android:id="@+id/menuFacebookPages"
-        android:name="eu.seijindemon.student_iee_ihu.ui.community.FacebookPagesFragment"
-        android:label="@string/facebook_pages"
-        tools:layout="@layout/fragment_facebook_pages" />
-    <fragment
-        android:id="@+id/menuOtherCommunity"
-        android:name="eu.seijindemon.student_iee_ihu.ui.community.OtherCommunityFragment"
-        android:label="@string/other_community"
-        tools:layout="@layout/fragment_other_community" />
     <activity
         android:id="@+id/menuNotNetwork"
         android:name="eu.seijindemon.student_iee_ihu.ui.not_network.NotNetworkActivity"
@@ -249,6 +220,15 @@
         tools:layout="@layout/fragment_webview" >
         <argument
             android:name="url"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryCommunity"
+        android:name="eu.seijindemon.student_iee_ihu.ui.community.CategoryCommunityFragment"
+        android:label="@string/community"
+        tools:layout="@layout/fragment_category_community" >
+        <argument
+            android:name="categoryCommunity"
             app:argType="string" />
     </fragment>
 </navigation>

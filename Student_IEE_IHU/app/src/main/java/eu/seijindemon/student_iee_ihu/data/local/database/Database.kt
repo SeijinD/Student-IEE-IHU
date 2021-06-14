@@ -4,14 +4,16 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import eu.seijindemon.student_iee_ihu.data.local.dao.CommunityDao
 import eu.seijindemon.student_iee_ihu.data.local.dao.CourseDao
 import eu.seijindemon.student_iee_ihu.data.local.dao.MapDao
 import eu.seijindemon.student_iee_ihu.data.local.dao.TeacherDao
+import eu.seijindemon.student_iee_ihu.data.model.Community
 import eu.seijindemon.student_iee_ihu.data.model.Course
 import eu.seijindemon.student_iee_ihu.data.model.Map
 import eu.seijindemon.student_iee_ihu.data.model.Teacher
 
-@Database(entities = [Course::class, Teacher::class, Map::class],version = 1, exportSchema = false)
+@Database(entities = [Course::class, Teacher::class, Map::class, Community::class],version = 1, exportSchema = false)
 abstract class Database: RoomDatabase() {
 
     abstract fun courseDao(): CourseDao
@@ -19,6 +21,8 @@ abstract class Database: RoomDatabase() {
     abstract fun teacherDao(): TeacherDao
 
     abstract fun mapDao(): MapDao
+
+    abstract fun communityDao(): CommunityDao
 
     companion object {
         // Singleton prevents multiple instances of database opening at the
