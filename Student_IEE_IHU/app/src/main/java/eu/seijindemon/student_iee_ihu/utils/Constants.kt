@@ -6,7 +6,5 @@ class Constants {
         const val BASE_URL_SITE_EN = "https://www.iee.ihu.gr/en/"
 
 
-
-
     }
 }

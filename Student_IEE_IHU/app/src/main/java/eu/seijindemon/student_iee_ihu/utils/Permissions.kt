@@ -9,8 +9,8 @@ class Permissions {
     companion object {
 
         // Permissions
-        const val PERMISSION_ACCESS_FINE_LOCATION_REQUEST_CODE = 101
-        const val PERMISSION_BASIC_REQUEST_CODE = 1
+        private const val PERMISSION_ACCESS_FINE_LOCATION_REQUEST_CODE = 101
+        private const val PERMISSION_BASIC_REQUEST_CODE = 1
 
         // hasPermission
         fun hasLocationPermission(context: Context): Boolean {

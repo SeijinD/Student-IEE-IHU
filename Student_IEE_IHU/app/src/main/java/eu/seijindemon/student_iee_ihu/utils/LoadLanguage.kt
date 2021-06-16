@@ -11,6 +11,7 @@ class LoadLanguage {
                 "el" -> return "el"
                 "en" -> return "en"
             }
+
             return "el"
         }
     }
