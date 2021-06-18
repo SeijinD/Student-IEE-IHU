@@ -6,6 +6,7 @@ import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
+import android.util.Log
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.res.ResourcesCompat
 import com.afollestad.materialdialogs.MaterialDialog
@@ -43,29 +44,39 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
 
         when {
             currentUser != null -> {
-                when {
-                    currentUser.email == "georgekara2010@yahoo.gr" -> {
-                        startActivity(Intent(this, AdminMainActivity::class.java))
-                        finish()
-                    }
-                    currentUser.isEmailVerified -> {
-                        startActivity(Intent(this, MainActivity::class.java))
-                        finish()
-                    }
-                    else -> {
+                FirebaseSetup.userReference?.child("admin")?.get()?.addOnSuccessListener { data ->
+                    val isAdmin = data.value as String
+                    if (isAdmin == "no") {
                         MotionToast.Companion.createColorToast(
                             this,
-                            "Warning",
-                            "Must verify email!",
-                            MotionToast.Companion.TOAST_WARNING,
+                            "Successful",
+                            "Login...",
+                            MotionToast.Companion.TOAST_SUCCESS,
                             MotionToast.Companion.GRAVITY_BOTTOM,
                             MotionToast.Companion.LONG_DURATION,
                             ResourcesCompat.getFont(this, R.font.helvetica_regular))
+
+                        startActivity(Intent(this, MainActivity::class.java))
+                        finish()
                     }
+                    else if (isAdmin == "yes"){
+                        MotionToast.Companion.createColorToast(
+                            this,
+                            "Successful",
+                            "Login...",
+                            MotionToast.Companion.TOAST_SUCCESS,
+                            MotionToast.Companion.GRAVITY_BOTTOM,
+                            MotionToast.Companion.LONG_DURATION,
+                            ResourcesCompat.getFont(this, R.font.helvetica_regular))
+
+                        startActivity(Intent(this, AdminMainActivity::class.java))
+                        finish()
+                    }
+                }?.addOnFailureListener {
+                    Log.e("firebase", "Error getting data", it)
                 }
             }
         }
-
 
         login_button.setOnClickListener{ login() }
 
@@ -187,26 +198,14 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
     }
 
     private fun loginUser(email: String, password: String) {
-        FirebaseSetup.auth!!.signInWithEmailAndPassword(email,password)
-            .addOnCompleteListener{ task ->
-                val currentUser = FirebaseSetup.auth?.currentUser
-                when {
-                    task.isSuccessful -> {
-                        when {
-                            email == "georgekara2010@yahoo.gr" -> {
-                                MotionToast.Companion.createColorToast(
-                                    this,
-                                    "Successful",
-                                    "Login...",
-                                    MotionToast.Companion.TOAST_SUCCESS,
-                                    MotionToast.Companion.GRAVITY_BOTTOM,
-                                    MotionToast.Companion.LONG_DURATION,
-                                    ResourcesCompat.getFont(this, R.font.helvetica_regular))
-
-                                startActivity(Intent(this, AdminMainActivity::class.java))
-                                finish()
-                            }
-                            currentUser?.isEmailVerified!! -> {
+        FirebaseSetup.auth!!.signInWithEmailAndPassword(email,password).addOnCompleteListener{ task ->
+                if (task.isSuccessful) {
+                    FirebaseSetup.setupFirebase() // update current user
+                    FirebaseSetup.userReference?.child("admin")?.get()?.addOnSuccessListener { data ->
+                        val currentUser = FirebaseSetup.auth?.currentUser
+                        val isAdmin = data.value as String
+                        if (isAdmin == "no") {
+                            if (currentUser?.isEmailVerified!!) {
                                 MotionToast.Companion.createColorToast(
                                     this,
                                     "Successful",
@@ -218,8 +217,7 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
 
                                 startActivity(Intent(this, MainActivity::class.java))
                                 finish()
-                            }
-                            !currentUser.isEmailVerified -> {
+                            } else if (!currentUser.isEmailVerified) {
                                 MotionToast.Companion.createColorToast(
                                     this,
                                     "Warning",
@@ -238,17 +236,32 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                                     .show()
                             }
                         }
+                        else if (isAdmin == "yes"){
+                            MotionToast.Companion.createColorToast(
+                                this,
+                                "Successful",
+                                "Login...",
+                                MotionToast.Companion.TOAST_SUCCESS,
+                                MotionToast.Companion.GRAVITY_BOTTOM,
+                                MotionToast.Companion.LONG_DURATION,
+                                ResourcesCompat.getFont(this, R.font.helvetica_regular))
+
+                            startActivity(Intent(this, AdminMainActivity::class.java))
+                            finish()
+                        }
+                    }?.addOnFailureListener {
+                        Log.e("firebase", "Error getting data", it)
                     }
-                    else -> {
-                        MotionToast.Companion.createColorToast(
-                            this,
-                            "Failed",
-                            "Try Again...",
-                            MotionToast.Companion.TOAST_ERROR,
-                            MotionToast.Companion.GRAVITY_BOTTOM,
-                            MotionToast.Companion.LONG_DURATION,
-                            ResourcesCompat.getFont(this, R.font.helvetica_regular))
-                    }
+                }
+                else {
+                    MotionToast.Companion.createColorToast(
+                        this,
+                        "Failed",
+                        "Try Again...",
+                        MotionToast.Companion.TOAST_ERROR,
+                        MotionToast.Companion.GRAVITY_BOTTOM,
+                        MotionToast.Companion.LONG_DURATION,
+                        ResourcesCompat.getFont(this, R.font.helvetica_regular))
                 }
             }
     }

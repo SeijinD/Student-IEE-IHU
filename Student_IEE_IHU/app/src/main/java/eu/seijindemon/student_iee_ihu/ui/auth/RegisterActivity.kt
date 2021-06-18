@@ -145,6 +145,7 @@ class RegisterActivity : AppCompatActivity() {
                         currentUserDb.child("firstname").setValue(firstName)
                         currentUserDb.child("lastname").setValue(lastName)
                         currentUserDb.child("email").setValue(email)
+                        currentUserDb.child("admin").setValue("no")
 
                         currentUser.sendEmailVerification().addOnCompleteListener{
                             MotionToast.Companion.createColorToast(
