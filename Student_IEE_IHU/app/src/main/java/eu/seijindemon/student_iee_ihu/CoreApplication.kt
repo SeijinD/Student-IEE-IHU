@@ -16,5 +16,8 @@ class CoreApplication: Application() {
     val mapRepository by lazy { MapRepository(database.mapDao()) }
     val communityRepository by lazy { CommunityRepository(database.communityDao()) }
     val offerRepository by lazy { OfferRepository(database.offerDao()) }
+    val officialServiceRepository by lazy { OfficialServiceRepository(database.officialServiceDao()) }
+    val unofficialServiceRepository by lazy { UnofficialServiceRepository(database.unofficialServiceDao()) }
+    val usefulWebsiteRepository by lazy { UsefulWebsiteRepository(database.usefulWebsiteDao()) }
 
 }

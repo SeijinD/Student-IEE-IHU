@@ -8,7 +8,7 @@ import eu.seijindemon.student_iee_ihu.data.local.dao.*
 import eu.seijindemon.student_iee_ihu.data.model.*
 import eu.seijindemon.student_iee_ihu.data.model.Map
 
-@Database(entities = [Course::class, Teacher::class, Map::class, Community::class, Offer::class],version = 1, exportSchema = false)
+@Database(entities = [Course::class, Teacher::class, Map::class, Community::class, Offer::class, OfficialService::class, UnofficialService::class, UsefulWebsite::class],version = 1, exportSchema = false)
 abstract class Database: RoomDatabase() {
 
     abstract fun courseDao(): CourseDao
@@ -20,6 +20,12 @@ abstract class Database: RoomDatabase() {
     abstract fun communityDao(): CommunityDao
 
     abstract fun offerDao(): OfferDao
+
+    abstract fun officialServiceDao(): OfficialServiceDao
+
+    abstract fun unofficialServiceDao(): UnofficialServiceDao
+
+    abstract fun usefulWebsiteDao(): UsefulWebsiteDao
 
     companion object {
         // Singleton prevents multiple instances of database opening at the
