@@ -9,9 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import android.widget.Toast
 import eu.seijindemon.student_iee_ihu.R
-import eu.seijindemon.student_iee_ihu.utils.Constants
+import eu.seijindemon.student_iee_ihu.utils.Constants.Companion.BASE_URL_SITE_EN
+import eu.seijindemon.student_iee_ihu.utils.Constants.Companion.BASE_URL_SITE_EL
 import eu.seijindemon.student_iee_ihu.utils.LoadLanguage
 import kotlinx.android.synthetic.main.fragment_simple_course.view.*
 
@@ -37,8 +37,8 @@ class SimpleCourseFragment : Fragment() {
         }
 
         when(LoadLanguage.loadLanguage()) {
-            "el" -> view.simple_course_webview.loadUrl(Constants.BASE_URL_SITE_EL + SimpleCourseFragmentArgs.fromBundle(requireArguments()).courseLink)
-            "en" -> view.simple_course_webview.loadUrl(Constants.BASE_URL_SITE_EN + SimpleCourseFragmentArgs.fromBundle(requireArguments()).courseLink)
+            "el" -> view.simple_course_webview.loadUrl(BASE_URL_SITE_EL + SimpleCourseFragmentArgs.fromBundle(requireArguments()).courseLink)
+            "en" -> view.simple_course_webview.loadUrl(BASE_URL_SITE_EN + SimpleCourseFragmentArgs.fromBundle(requireArguments()).courseLink)
         }
 
         //Toast.makeText(requireContext(), view.simple_course_webview.url, Toast.LENGTH_LONG).show()
