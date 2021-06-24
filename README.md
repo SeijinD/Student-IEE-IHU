@@ -57,4 +57,6 @@ Development of an Android application for the support and organization of the st
         - [https://developer.android.com/training/testing/espresso](https://developer.android.com/training/testing/espresso)
         - [https://developer.android.com/training/testing/ui-testing/espresso-testing](https://developer.android.com/training/testing/ui-testing/espresso-testing)
         - [https://www.raywenderlich.com/949489-espresso-testing-and-screen-robots-getting-started](https://www.raywenderlich.com/949489-espresso-testing-and-screen-robots-getting-started)
+    - Retrofit2
+        - [https://square.github.io/retrofit/](https://square.github.io/retrofit/)
     -
