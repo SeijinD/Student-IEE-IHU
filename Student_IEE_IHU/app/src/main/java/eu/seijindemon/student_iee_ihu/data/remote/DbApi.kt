@@ -6,7 +6,7 @@ import retrofit2.http.GET
 
 interface DbApi {
 
-    @GET("Api.php")
+    @GET("/local_api.php")
     suspend fun getTeachers(): Response<List<Teacher>>
 
 
