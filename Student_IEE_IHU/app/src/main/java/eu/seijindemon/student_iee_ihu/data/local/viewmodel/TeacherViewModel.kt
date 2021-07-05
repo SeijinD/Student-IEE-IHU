@@ -5,20 +5,32 @@ import eu.seijindemon.student_iee_ihu.data.model.Teacher
 import eu.seijindemon.student_iee_ihu.data.repository.TeacherRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import retrofit2.Response
 import java.lang.IllegalArgumentException
 
 class TeacherViewModel(private val  repository: TeacherRepository): ViewModel() {
 
-    val readData = repository.readData().asLiveData()
+    fun readData(): LiveData<List<Teacher>> {
+        return  repository.readData().asLiveData()
+    }
 
-    fun insertData(teacher: Teacher) {
+    fun insertData(teachers: List<Teacher>) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.insertData(teacher)
+            repository.insertData(teachers)
         }
     }
 
     fun searchDatabase(searchQuery: String): LiveData<List<Teacher>> {
         return repository.searchDatabase(searchQuery).asLiveData()
+    }
+
+    val myResponse: MutableLiveData<Response<List<Teacher>>> = MutableLiveData()
+
+    fun getTeachers() {
+        viewModelScope.launch {
+            val response = repository.getTeachers()
+            myResponse.value = response
+        }
     }
 
 }

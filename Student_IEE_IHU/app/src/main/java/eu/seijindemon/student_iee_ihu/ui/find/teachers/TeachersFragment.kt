@@ -1,6 +1,7 @@
 package eu.seijindemon.student_iee_ihu.ui.find.teachers
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,9 +36,34 @@ class TeachersFragment : Fragment(), SearchView.OnQueryTextListener {
 //        val teacher3 = Teacher("Mpaxalidis Giwrgos", "george2010@yahoo.gr", "https://www.seijind.eu", "Kurios")
 //        teacherViewModel.insertData(teacher3)
 
-        teacherViewModel.readData.observe(viewLifecycleOwner) {
-            teacherAdapter.setData(it)
+        teacherViewModel.getTeachers()
+        teacherViewModel.myResponse.observe(viewLifecycleOwner) { response ->
+            if (response.isSuccessful) {
+                response.body()?.let {
+                    teacherViewModel.insertData(it)
+                }
+                teacherViewModel.readData().observe(viewLifecycleOwner) {
+                    teacherAdapter.setData(it)
+                }
+            }
+            else {
+                Log.d("Response", response.errorBody().toString())
+            }
         }
+
+//        teacherViewModel.getTeachers()
+//        teacherViewModel.myResponse.observe(viewLifecycleOwner) { response ->
+//            if (response.isSuccessful) {
+//                response.body()?.let { teacherAdapter.setData(it) }
+//            }
+//            else {
+//                Log.d("Response", response.errorBody().toString())
+//            }
+//        }
+
+//        teacherViewModel.readData().observe(viewLifecycleOwner) {
+//            teacherAdapter.setData(it)
+//        }
 
         view.search_teacher.isSubmitButtonEnabled = true
         view.search_teacher.setOnQueryTextListener(this)
