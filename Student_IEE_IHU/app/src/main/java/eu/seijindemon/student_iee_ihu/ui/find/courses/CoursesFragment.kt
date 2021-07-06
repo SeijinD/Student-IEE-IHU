@@ -1,6 +1,7 @@
 package eu.seijindemon.student_iee_ihu.ui.find.courses
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,8 +36,19 @@ class CoursesFragment : Fragment(), SearchView.OnQueryTextListener {
 //        val course3 = Course("Systems", "1st Semester", "Mixas Giwrgos", "https://www.google.com")
 //        courseViewModel.insertData(course3)
 
-        courseViewModel.readData.observe(viewLifecycleOwner) {
-            courseAdapter.setData(it)
+        courseViewModel.getCourses()
+        courseViewModel.myResponse.observe(viewLifecycleOwner) { response ->
+            if (response.isSuccessful) {
+                response.body()?.let {
+                    courseViewModel.insertData(it)
+                }
+                courseViewModel.readData().observe(viewLifecycleOwner) {
+                    courseAdapter.setData(it)
+                }
+            }
+            else {
+                Log.d("Response", response.errorBody().toString())
+            }
         }
 
         view.search_course.isSubmitButtonEnabled = true

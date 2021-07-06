@@ -51,20 +51,6 @@ class TeachersFragment : Fragment(), SearchView.OnQueryTextListener {
             }
         }
 
-//        teacherViewModel.getTeachers()
-//        teacherViewModel.myResponse.observe(viewLifecycleOwner) { response ->
-//            if (response.isSuccessful) {
-//                response.body()?.let { teacherAdapter.setData(it) }
-//            }
-//            else {
-//                Log.d("Response", response.errorBody().toString())
-//            }
-//        }
-
-//        teacherViewModel.readData().observe(viewLifecycleOwner) {
-//            teacherAdapter.setData(it)
-//        }
-
         view.search_teacher.isSubmitButtonEnabled = true
         view.search_teacher.setOnQueryTextListener(this)
 
