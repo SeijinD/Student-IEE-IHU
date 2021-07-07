@@ -2,11 +2,13 @@ package eu.seijindemon.student_iee_ihu.ui.find.semesters
 
 import android.annotation.SuppressLint
 import android.app.ProgressDialog
+import android.net.http.SslError
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.SslErrorHandler
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import eu.seijindemon.student_iee_ihu.R
@@ -33,6 +35,9 @@ class SimpleCourseFragment : Fragment() {
                         "document.getElementById('secondary').style.display='none';" +
                         "})()")
                 progDailog.dismiss()
+            }
+            override fun onReceivedSslError(view: WebView?, handler: SslErrorHandler?, error: SslError?) {
+                handler?.proceed()
             }
         }
 
