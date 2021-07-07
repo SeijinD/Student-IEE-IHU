@@ -89,7 +89,7 @@ switch($table) {
 		 
 		 $stmt->execute();
 		 
-		 $stmt->bind_result($id, $title, $description, $category, $link);
+		 $stmt->bind_result($id, $title, $category, $link);
 		 
 		 $results = array(); 
 		 
@@ -107,7 +107,7 @@ switch($table) {
 		 
 		 $stmt->execute();
 		 
-		 $stmt->bind_result($id, $title, $description, $category, $link);
+		 $stmt->bind_result($id, $latitude, $longitude, $description, $name);
 		 
 		 $results = array(); 
 		 
@@ -145,7 +145,7 @@ switch($table) {
 		 
 		 $stmt->execute();
 		 
-		 $stmt->bind_result($id, $title, $description, $category, $link);
+		 $stmt->bind_result($id, $title, $description, $creator, $category, $link);
 		 
 		 $results = array(); 
 		 
