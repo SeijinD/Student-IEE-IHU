@@ -11,8 +11,8 @@ class UsefulWebsiteRepository(private val usefulWebsiteDao: UsefulWebsiteDao) {
         return usefulWebsiteDao.readData()
     }
 
-    suspend fun insertData(usefulWebsite: UsefulWebsite) {
-        usefulWebsiteDao.insertData(usefulWebsite)
+    suspend fun insertData(usefulWebsites: List<UsefulWebsite>) {
+        usefulWebsiteDao.insertData(usefulWebsites)
     }
 
     fun searchDatabase(searchQuery: String): Flow<List<UsefulWebsite>> {

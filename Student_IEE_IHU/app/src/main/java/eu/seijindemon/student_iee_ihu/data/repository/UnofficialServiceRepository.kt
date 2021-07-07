@@ -11,8 +11,8 @@ class UnofficialServiceRepository(private val unofficialServiceDao: UnofficialSe
         return unofficialServiceDao.readData()
     }
 
-    suspend fun insertData(unofficialService: UnofficialService) {
-        unofficialServiceDao.insertData(unofficialService)
+    suspend fun insertData(unofficialServices: List<UnofficialService>) {
+        unofficialServiceDao.insertData(unofficialServices)
     }
 
     fun searchDatabase(searchQuery: String): Flow<List<UnofficialService>> {

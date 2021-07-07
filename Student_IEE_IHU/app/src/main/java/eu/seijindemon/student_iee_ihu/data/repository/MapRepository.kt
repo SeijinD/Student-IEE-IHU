@@ -10,8 +10,8 @@ class MapRepository(private val mapDao: MapDao) {
         return mapDao.readData()
     }
 
-    suspend fun insertData(map: Map) {
-        mapDao.insertData(map)
+    suspend fun insertData(maps: List<Map>) {
+        mapDao.insertData(maps)
     }
 
     fun searchDatabase(searchQuery: String): Flow<List<Map>> {

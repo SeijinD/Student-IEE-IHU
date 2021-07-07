@@ -11,9 +11,9 @@ class UsefulWebsiteViewModel(private val  repository: UsefulWebsiteRepository): 
 
     val readData = repository.readData().asLiveData()
 
-    fun insertData(usefulWebsite: UsefulWebsite) {
+    fun insertData(usefulWebsites: List<UsefulWebsite>) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.insertData(usefulWebsite)
+            repository.insertData(usefulWebsites)
         }
     }
 

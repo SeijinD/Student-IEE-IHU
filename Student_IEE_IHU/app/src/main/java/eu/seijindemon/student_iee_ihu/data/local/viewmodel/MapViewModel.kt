@@ -11,9 +11,9 @@ class MapViewModel(private val  repository: MapRepository): ViewModel() {
 
     val readData = repository.readData().asLiveData()
 
-    fun insertData(map: Map) {
+    fun insertData(maps: List<Map>) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.insertData(map)
+            repository.insertData(maps)
         }
     }
 

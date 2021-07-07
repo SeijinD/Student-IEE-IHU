@@ -11,8 +11,8 @@ class OfferRepository(private val offerDao: OfferDao) {
         return offerDao.readData()
     }
 
-    suspend fun insertData(offer: Offer) {
-        offerDao.insertData(offer)
+    suspend fun insertData(offers: List<Offer>) {
+        offerDao.insertData(offers)
     }
 
     fun searchDatabase(searchQuery: String): Flow<List<Offer>> {

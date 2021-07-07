@@ -11,9 +11,9 @@ class OfficialServiceViewModel(private val  repository: OfficialServiceRepositor
 
     val readData = repository.readData().asLiveData()
 
-    fun insertData(officialService: OfficialService) {
+    fun insertData(officialServices: List<OfficialService>) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.insertData(officialService)
+            repository.insertData(officialServices)
         }
     }
 

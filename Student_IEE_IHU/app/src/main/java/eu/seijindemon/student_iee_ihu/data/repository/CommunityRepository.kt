@@ -11,8 +11,8 @@ class CommunityRepository(private val communityDao: CommunityDao) {
         return communityDao.readData()
     }
 
-    suspend fun insertData(community: Community) {
-        communityDao.insertData(community)
+    suspend fun insertData(communities: List<Community>) {
+        communityDao.insertData(communities)
     }
 
     fun searchDatabase(searchQuery: String): Flow<List<Community>> {

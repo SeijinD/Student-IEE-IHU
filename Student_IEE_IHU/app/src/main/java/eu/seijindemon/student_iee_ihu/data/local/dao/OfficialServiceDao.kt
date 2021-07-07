@@ -14,9 +14,9 @@ interface OfficialServiceDao {
     fun readData(): Flow<List<OfficialService>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertData(officialService: OfficialService)
+    suspend fun insertData(officialServices: List<OfficialService>)
 
-    @Query("SELECT * FROM offer_table WHERE title LIKE :searchQuery OR description LIKE :searchQuery OR category LIKE :searchQuery OR link LIKE :searchQuery")
+    @Query("SELECT * FROM official_service_table WHERE title LIKE :searchQuery OR description LIKE :searchQuery OR category LIKE :searchQuery OR link LIKE :searchQuery")
     fun searchDatabase(searchQuery: String): Flow<List<OfficialService>>
 
 }

@@ -11,9 +11,9 @@ class OfferViewModel(private val  repository: OfferRepository): ViewModel() {
 
     val readData = repository.readData().asLiveData()
 
-    fun insertData(offer: Offer) {
+    fun insertData(offers: List<Offer>) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.insertData(offer)
+            repository.insertData(offers)
         }
     }
 

@@ -11,9 +11,9 @@ class CommunityViewModel(private val  repository: CommunityRepository): ViewMode
 
     val readData = repository.readData().asLiveData()
 
-    fun insertData(community: Community) {
+    fun insertData(communities: List<Community>) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.insertData(community)
+            repository.insertData(communities)
         }
     }
 

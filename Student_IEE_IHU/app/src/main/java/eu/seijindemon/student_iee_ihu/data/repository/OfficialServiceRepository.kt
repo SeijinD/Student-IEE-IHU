@@ -11,8 +11,8 @@ class OfficialServiceRepository(private val officialServiceDao: OfficialServiceD
         return officialServiceDao.readData()
     }
 
-    suspend fun insertData(officialService: OfficialService) {
-        officialServiceDao.insertData(officialService)
+    suspend fun insertData(officialServices: List<OfficialService>) {
+        officialServiceDao.insertData(officialServices)
     }
 
     fun searchDatabase(searchQuery: String): Flow<List<OfficialService>> {
