@@ -1,6 +1,7 @@
 package eu.seijindemon.student_iee_ihu.ui.community
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -28,6 +29,18 @@ class CategoryCommunityFragment : Fragment() {
 
         view.community_recyclerview.layoutManager = LinearLayoutManager(requireContext())
         view.community_recyclerview.adapter = communityAdapter
+
+        communityViewModel.getCommunities()
+        communityViewModel.myResponse.observe(viewLifecycleOwner) { response ->
+            if (response.isSuccessful) {
+                response.body()?.let {
+                    communityViewModel.insertData(it)
+                }
+            }
+            else {
+                Log.d("Response", response.errorBody().toString())
+            }
+        }
 
 //        val community = Community("Facebook 1", "facebook_pages", "https://www.seijind.eu")
 //        communityViewModel.insertData(community)

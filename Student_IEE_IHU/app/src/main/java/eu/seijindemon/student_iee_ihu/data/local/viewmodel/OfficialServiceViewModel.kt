@@ -9,7 +9,9 @@ import java.lang.IllegalArgumentException
 
 class OfficialServiceViewModel(private val  repository: OfficialServiceRepository): ViewModel() {
 
-    val readData = repository.readData().asLiveData()
+    fun readData(): LiveData<List<OfficialService>> {
+        return repository.readData().asLiveData()
+    }
 
     fun insertData(officialServices: List<OfficialService>) {
         viewModelScope.launch(Dispatchers.IO) {

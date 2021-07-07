@@ -51,7 +51,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, SearchView.OnQueryTextListe
     override fun onMapReady(googleMap: GoogleMap) {
         viewMap = googleMap
 
-        mapViewModel.readData.observe(this, { list ->
+        mapViewModel.readData().observe(this, { list ->
             mapList = list
             for (map in mapList) {
                 viewMap.addMarker(

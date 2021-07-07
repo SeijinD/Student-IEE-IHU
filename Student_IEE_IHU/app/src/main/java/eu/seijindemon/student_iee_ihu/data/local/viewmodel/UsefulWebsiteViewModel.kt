@@ -9,7 +9,9 @@ import java.lang.IllegalArgumentException
 
 class UsefulWebsiteViewModel(private val  repository: UsefulWebsiteRepository): ViewModel() {
 
-    val readData = repository.readData().asLiveData()
+    fun readData(): LiveData<List<UsefulWebsite>> {
+        return repository.readData().asLiveData()
+    }
 
     fun insertData(usefulWebsites: List<UsefulWebsite>) {
         viewModelScope.launch(Dispatchers.IO) {

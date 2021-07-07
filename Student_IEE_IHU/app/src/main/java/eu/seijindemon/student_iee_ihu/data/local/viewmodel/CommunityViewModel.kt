@@ -5,11 +5,14 @@ import eu.seijindemon.student_iee_ihu.data.model.Community
 import eu.seijindemon.student_iee_ihu.data.repository.CommunityRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import retrofit2.Response
 import java.lang.IllegalArgumentException
 
 class CommunityViewModel(private val  repository: CommunityRepository): ViewModel() {
 
-    val readData = repository.readData().asLiveData()
+    fun readData(): LiveData<List<Community>> {
+        return repository.readData().asLiveData()
+    }
 
     fun insertData(communities: List<Community>) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -35,6 +38,15 @@ class CommunityViewModel(private val  repository: CommunityRepository): ViewMode
 
     fun communityOther(): LiveData<List<Community>> {
         return repository.communityOther().asLiveData()
+    }
+
+    val myResponse: MutableLiveData<Response<List<Community>>> = MutableLiveData()
+
+    fun getCommunities() {
+        viewModelScope.launch {
+            val response = repository.getCommunities()
+            myResponse.value = response
+        }
     }
 
 }

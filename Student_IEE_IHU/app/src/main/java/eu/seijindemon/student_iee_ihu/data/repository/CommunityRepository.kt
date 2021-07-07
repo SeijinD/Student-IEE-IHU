@@ -3,7 +3,9 @@ package eu.seijindemon.student_iee_ihu.data.repository
 
 import eu.seijindemon.student_iee_ihu.data.local.dao.CommunityDao
 import eu.seijindemon.student_iee_ihu.data.model.Community
+import eu.seijindemon.student_iee_ihu.data.remote.RetrofitInstance
 import kotlinx.coroutines.flow.Flow
+import retrofit2.Response
 
 class CommunityRepository(private val communityDao: CommunityDao) {
 
@@ -33,6 +35,10 @@ class CommunityRepository(private val communityDao: CommunityDao) {
 
     fun communityOther(): Flow<List<Community>> {
         return communityDao.communityOther()
+    }
+
+    suspend fun getCommunities(): Response<List<Community>> {
+        return RetrofitInstance.dbApi.getCommunities()
     }
 
 }

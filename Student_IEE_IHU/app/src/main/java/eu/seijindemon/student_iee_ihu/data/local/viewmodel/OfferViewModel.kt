@@ -9,7 +9,9 @@ import java.lang.IllegalArgumentException
 
 class OfferViewModel(private val  repository: OfferRepository): ViewModel() {
 
-    val readData = repository.readData().asLiveData()
+    fun readData(): LiveData<List<Offer>> {
+        return repository.readData().asLiveData()
+    }
 
     fun insertData(offers: List<Offer>) {
         viewModelScope.launch(Dispatchers.IO) {

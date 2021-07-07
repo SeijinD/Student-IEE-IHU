@@ -9,7 +9,9 @@ import java.lang.IllegalArgumentException
 
 class MapViewModel(private val  repository: MapRepository): ViewModel() {
 
-    val readData = repository.readData().asLiveData()
+    fun readData(): LiveData<List<Map>> {
+        return repository.readData().asLiveData()
+    }
 
     fun insertData(maps: List<Map>) {
         viewModelScope.launch(Dispatchers.IO) {
