@@ -1,11 +1,5 @@
 <?php 
- 
- /*
- * Created by Belal Khan
- * website: www.simplifiedcoding.net 
- * Retrieve Data From MySQL Database in Android
- */
- 
+
  //database constants
  define('DB_HOST', 'localhost');
  define('DB_USER', 'root');
@@ -17,8 +11,8 @@
  
  //Checking if any error occured while connecting
  if (mysqli_connect_errno()) {
- echo "Failed to connect to MySQL: " . mysqli_connect_error();
- die();
+	 echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	 die();
  }
  
  mysqli_set_charset($conn, "utf8");
@@ -53,24 +47,134 @@ switch($table) {
 		 }
 		break;
 	case 'courses':
-		//creating a query
 		 $stmt = $conn->prepare("SELECT `id`, `title`, `semester`, `teachers`, `link` FROM `courses`");
 		 
-		 //executing the query 
 		 $stmt->execute();
 		 
-		 //binding results to the query 
 		 $stmt->bind_result($id, $title, $semester, $teachers, $link);
 		 
 		 $results = array(); 
 		 
-		 //traversing through all the result 
 		 while($stmt->fetch()){
 			 $temp = array();
 			 $temp['id'] = $id; 
 			 $temp['title'] = $title; 
 			 $temp['semester'] = $semester; 
 			 $temp['teachers'] = $teachers; 
+			 $temp['link'] = $link; 
+			 array_push($results, $temp);
+		 }
+		break;
+	case 'offers':
+		 $stmt = $conn->prepare("SELECT `id`, `title`, `description`, `category`, `link` FROM `offers`");
+		 
+		 $stmt->execute();
+		 
+		 $stmt->bind_result($id, $title, $description, $category, $link);
+		 
+		 $results = array(); 
+		 
+		 while($stmt->fetch()){
+			 $temp = array();
+			 $temp['id'] = $id; 
+			 $temp['title'] = $title; 
+			 $temp['description'] = $description; 
+			 $temp['category'] = $category; 
+			 $temp['link'] = $link; 
+			 array_push($results, $temp);
+		 }
+		break;
+	case 'communities':
+		 $stmt = $conn->prepare("SELECT `id`, `title`, `category`, `link` FROM `communities`");
+		 
+		 $stmt->execute();
+		 
+		 $stmt->bind_result($id, $title, $description, $category, $link);
+		 
+		 $results = array(); 
+		 
+		 while($stmt->fetch()){
+			 $temp = array();
+			 $temp['id'] = $id; 
+			 $temp['title'] = $title; 
+			 $temp['category'] = $category; 
+			 $temp['link'] = $link; 
+			 array_push($results, $temp);
+		 }
+		break;
+	case 'maps':
+		 $stmt = $conn->prepare("SELECT `id`, `latitude`, `longitude`, `name`, `description` FROM `maps`");
+		 
+		 $stmt->execute();
+		 
+		 $stmt->bind_result($id, $title, $description, $category, $link);
+		 
+		 $results = array(); 
+		 
+		 while($stmt->fetch()){
+			 $temp = array();
+			 $temp['id'] = $id; 
+			 $temp['latitude'] = $latitude; 
+			 $temp['longitude'] = $longitude; 
+			 $temp['name'] = $name; 
+			 $temp['description'] = $description; 
+			 array_push($results, $temp);
+		 }
+		break;
+	case 'official_services':
+		 $stmt = $conn->prepare("SELECT `id`, `title`, `description`, `category`, `link` FROM `official_services`");
+		 
+		 $stmt->execute();
+		 
+		 $stmt->bind_result($id, $title, $description, $category, $link);
+		 
+		 $results = array(); 
+		 
+		 while($stmt->fetch()){
+			 $temp = array();
+			 $temp['id'] = $id; 
+			 $temp['title'] = $title; 
+			 $temp['description'] = $description; 
+			 $temp['category'] = $category; 
+			 $temp['link'] = $link; 
+			 array_push($results, $temp);
+		 }
+		break;
+	case 'unofficial_services':
+		 $stmt = $conn->prepare("SELECT `id`, `title`, `description`, `creator`, `category`, `link` FROM `unofficial_services`");
+		 
+		 $stmt->execute();
+		 
+		 $stmt->bind_result($id, $title, $description, $category, $link);
+		 
+		 $results = array(); 
+		 
+		 while($stmt->fetch()){
+			 $temp = array();
+			 $temp['id'] = $id; 
+			 $temp['title'] = $title; 
+			 $temp['description'] = $description; 
+			 $temp['creator'] = $creator; 
+			 $temp['category'] = $category; 
+			 $temp['link'] = $link; 
+			 array_push($results, $temp);
+		 }
+		break;
+	case 'useful_websites':
+		 $stmt = $conn->prepare("SELECT `id`, `title`, `description`, `category`, `link` FROM `useful_websites`");
+		 
+		 $stmt->execute();
+		 
+		 $stmt->bind_result($id, $title, $description, $category, $link);
+		 
+		 $results = array(); 
+		 
+		 while($stmt->fetch()){
+			 $temp = array();
+			 $temp['id'] = $id; 
+			 $temp['title'] = $title; 
+			 $temp['description'] = $description; 
+			 $temp['category'] = $category; 
 			 $temp['link'] = $link; 
 			 array_push($results, $temp);
 		 }
