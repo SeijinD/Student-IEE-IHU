@@ -65,7 +65,7 @@
     <fragment
         android:id="@+id/menuCommunity"
         android:name="eu.seijindemon.student_iee_ihu.ui.community.CommunityFragment"
-        android:label="@string/community"
+        android:label="@string/communities"
         tools:layout="@layout/fragment_community" >
         <action
             android:id="@+id/action_menuCommunity_to_categoryCommunity"
@@ -225,7 +225,7 @@
     <fragment
         android:id="@+id/categoryCommunity"
         android:name="eu.seijindemon.student_iee_ihu.ui.community.CategoryCommunityFragment"
-        android:label="@string/community"
+        android:label="@string/communities"
         tools:layout="@layout/fragment_category_community" >
         <argument
             android:name="categoryCommunity"

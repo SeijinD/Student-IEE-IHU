@@ -12,7 +12,7 @@
         <item
             android:id="@+id/menuCommunity"
             android:icon="@drawable/ic_baseline_groups_24"
-            android:title="@string/community"
+            android:title="@string/communities"
             />
         <item
             android:id="@+id/menuFind"
