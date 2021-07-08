@@ -5,6 +5,7 @@ import eu.seijindemon.student_iee_ihu.data.model.Map
 import eu.seijindemon.student_iee_ihu.data.repository.MapRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import retrofit2.Response
 import java.lang.IllegalArgumentException
 
 class MapViewModel(private val  repository: MapRepository): ViewModel() {
@@ -21,6 +22,15 @@ class MapViewModel(private val  repository: MapRepository): ViewModel() {
 
     fun searchDatabase(searchQuery: String): LiveData<List<Map>> {
         return repository.searchDatabase(searchQuery).asLiveData()
+    }
+
+    val myResponse: MutableLiveData<Response<List<Map>>> = MutableLiveData()
+
+    fun getMaps() {
+        viewModelScope.launch {
+            val response = repository.getMaps()
+            myResponse.value = response
+        }
     }
 
 }

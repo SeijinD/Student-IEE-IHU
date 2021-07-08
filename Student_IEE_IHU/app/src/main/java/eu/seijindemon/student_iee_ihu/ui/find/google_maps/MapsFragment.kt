@@ -1,6 +1,7 @@
 package eu.seijindemon.student_iee_ihu.ui.find.google_maps
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -41,7 +42,17 @@ class MapsFragment : Fragment(), OnMapReadyCallback, SearchView.OnQueryTextListe
         view.search_map.isSubmitButtonEnabled = true
         view.search_map.setOnQueryTextListener(this)
 
-
+        mapViewModel.getMaps()
+        mapViewModel.myResponse.observe(viewLifecycleOwner) { response ->
+            if (response.isSuccessful) {
+                response.body()?.let {
+                    mapViewModel.insertData(it)
+                }
+            }
+            else {
+                Log.d("Response", response.errorBody().toString())
+            }
+        }
 
         supportMapFragment.getMapAsync(this)
 
