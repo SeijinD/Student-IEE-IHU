@@ -25,6 +25,11 @@
             android:title="@string/guides"
             />
         <item
+            android:id="@+id/menuContact"
+            android:icon="@drawable/ic_baseline_contact_phone_24"
+            android:title="@string/contact"
+            />
+        <item
             android:id="@+id/menuProfile"
             android:icon="@drawable/ic_baseline_account_box_24"
             android:title="@string/profile"

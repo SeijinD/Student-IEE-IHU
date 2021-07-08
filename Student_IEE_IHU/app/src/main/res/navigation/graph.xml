@@ -231,4 +231,8 @@
             android:name="categoryCommunity"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/menuContact"
+        android:name="eu.seijindemon.student_iee_ihu.ui.contact.ContactFragment"
+        android:label="@string/contact" />
 </navigation>
