@@ -10,9 +10,13 @@ class Permissions {
 
         // Permissions
         private const val PERMISSION_ACCESS_FINE_LOCATION_REQUEST_CODE = 101
+        private const val PERMISSION_CALL_PHONE_REQUEST_CODE = 102
         private const val PERMISSION_BASIC_REQUEST_CODE = 1
 
         // hasPermission
+        fun hasCallPermission(context: Context): Boolean {
+            return EasyPermissions.hasPermissions(context, Manifest.permission.CALL_PHONE)
+        }
         fun hasLocationPermission(context: Context): Boolean {
             return EasyPermissions.hasPermissions(context, Manifest.permission.ACCESS_FINE_LOCATION)
         }
@@ -27,6 +31,14 @@ class Permissions {
         }
 
         // requestPermission
+        fun requestCallPermission(activity: Activity) {
+            EasyPermissions.requestPermissions(
+                activity,
+                "This application cannot work without Call Phone Permission.",
+                PERMISSION_CALL_PHONE_REQUEST_CODE,
+                Manifest.permission.CALL_PHONE
+            )
+        }
         fun requestLocationPermission(activity: Activity) {
             EasyPermissions.requestPermissions(
                 activity,
