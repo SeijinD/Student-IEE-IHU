@@ -103,4 +103,15 @@
     <string name="pdf_webview">PDF WebView</string>
     <string name="admin_page">Admin Page</string>
     <string name="contact">Contact</string>
+    <string name="call">Call</string>
+    <string name="secretariat">Secretariat</string>
+    <string name="network_center">Network Center (NOC)</string>
+    <string name="library">Library</string>
+    <string name="erasmus_office">Erasmus Office</string>
+    <string name="practice_office">Practice Office</string>
+    <string name="feeding_office">Feeding Office</string>
+    <string name="student_residence">Student Residence</string>
+    <string name="president">"President "</string>
+    <string name="vice_president">"Vice President "</string>
+    <string name="infirmary">Infirmary</string>
 </resources>

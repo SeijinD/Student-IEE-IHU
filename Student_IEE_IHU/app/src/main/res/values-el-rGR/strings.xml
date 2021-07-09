@@ -84,4 +84,15 @@
     <string name="admin_page">"Σελίδα Διαχειριστή "</string>
     <string name="pdf_webview">Προβολή Ιστοσελίδων PDF</string>
     <string name="contact">Επικοινωνία</string>
+    <string name="secretariat">Γραμματεία</string>
+    <string name="call">Κλήση</string>
+    <string name="network_center">Κέντρο Δικτύου (NOC)</string>
+    <string name="library">Βιβλιοθήκη</string>
+    <string name="erasmus_office">Γραφείο Erasmus</string>
+    <string name="practice_office">Γραφείο Πρακτικής</string>
+    <string name="feeding_office">Γραφείο Σίτισης</string>
+    <string name="student_residence">Φοιτητική Εστία</string>
+    <string name="president">Πρόεδρος</string>
+    <string name="vice_president">Αναπληρωτής Πρόεδρος</string>
+    <string name="infirmary">Ιατρείο</string>
 </resources>
