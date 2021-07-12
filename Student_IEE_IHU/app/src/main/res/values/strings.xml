@@ -114,4 +114,5 @@
     <string name="president">"President "</string>
     <string name="vice_president">"Vice President "</string>
     <string name="infirmary">Infirmary</string>
+    <string name="thesis">Thesis</string>
 </resources>

@@ -162,6 +162,9 @@
         <action
             android:id="@+id/action_menuGuides_to_menuFirstDay"
             app:destination="@id/menuFirstDay" />
+        <action
+            android:id="@+id/action_menuGuides_to_menuThesis"
+            app:destination="@id/menuThesis" />
     </fragment>
     <fragment
         android:id="@+id/pdf_webview"
@@ -235,4 +238,9 @@
         android:id="@+id/menuContact"
         android:name="eu.seijindemon.student_iee_ihu.ui.contact.ContactFragment"
         android:label="@string/contact" />
+    <fragment
+        android:id="@+id/menuThesis"
+        android:name="eu.seijindemon.student_iee_ihu.ui.guides.ThesisFragment"
+        android:label="fragment_thesis"
+        tools:layout="@string/thesis" />
 </navigation>

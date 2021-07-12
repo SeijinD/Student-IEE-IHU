@@ -26,8 +26,8 @@ class RegisterActivity : AppCompatActivity() {
     private fun register() {
         register_am.doOnTextChanged { text, start, before, count ->
             when {
-                text!!.length < 8 -> register_am.error = "AM = 8!"
-                text.length > 8 -> register_am.error = "AM = 8!"
+                text!!.length < 6 -> register_am.error = "AM >= 6!"
+                text.length > 10 -> register_am.error = "AM <= 10!"
                 else -> register_am.error = null
             }
         }

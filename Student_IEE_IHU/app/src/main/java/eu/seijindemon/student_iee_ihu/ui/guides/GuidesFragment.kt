@@ -23,6 +23,10 @@ class GuidesFragment : Fragment() {
             Navigation.findNavController(view).navigate(R.id.menuZoom)
         }
 
+        view.thesis.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.menuThesis)
+        }
+
         return view
     }
 
