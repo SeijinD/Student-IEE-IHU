@@ -42,13 +42,6 @@ class CategoryCommunityFragment : Fragment() {
             }
         }
 
-//        val community = Community("Facebook 1", "facebook_pages", "https://www.seijind.eu")
-//        communityViewModel.insertData(community)
-//        val community2 = Community("Facebook 2", "facebook_pages", "https://www.seijind.eu")
-//        communityViewModel.insertData(community2)
-//        val community3 = Community("Discord 1", "discord_servers", "https://www.seijind.eu")
-//        communityViewModel.insertData(community3)
-
         when(CategoryCommunityFragmentArgs.fromBundle(requireArguments()).categoryCommunity) {
             "discords_servers" -> {
                 toolbar.title = "Discord Servers"

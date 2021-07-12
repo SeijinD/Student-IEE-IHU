@@ -115,4 +115,9 @@
     <string name="vice_president">"Vice President "</string>
     <string name="infirmary">Infirmary</string>
     <string name="thesis">Thesis</string>
+    <string name="creator">Creator</string>
+    <string name="useful_websites">Useful Websites</string>
+    <string name="offers">Offers</string>
+    <string name="official_services">Official Services</string>
+    <string name="unofficial_services">Unofficial Services</string>
 </resources>

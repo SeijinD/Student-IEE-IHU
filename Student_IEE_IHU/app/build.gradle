@@ -55,7 +55,8 @@ android {
                             'src/main/res/layouts/layout_not_network',
                             'src/main/res/layouts/layout_webview',
                             'src/main/res/layouts/layout_other',
-                            'src/main/res/layouts/layout_contact'
+                            'src/main/res/layouts/layout_contact',
+                            'src/main/res/layouts/layout_admin'
                     ]
         }
     }

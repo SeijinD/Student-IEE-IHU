@@ -23,16 +23,32 @@ class FindFragment : Fragment(), EasyPermissions.PermissionCallbacks {
             Navigation.findNavController(view).navigate(R.id.menuSemesters)
         }
 
+        view.rooms.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.menuRooms)
+        }
+
         view.courses.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.menuCourses)
         }
 
-        view.teachers.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.menuTeachers)
+        view.official_services.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.menuOfficialServices)
         }
 
-        view.rooms.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.menuRooms)
+        view.unofficial_services.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.menuUnofficialServices)
+        }
+
+        view.useful_websites.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.menuUsefulWebsites)
+        }
+
+        view.offers.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.menuOffers)
+        }
+
+        view.teachers.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.menuTeachers)
         }
 
         view.maps.setOnClickListener {

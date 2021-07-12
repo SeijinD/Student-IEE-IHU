@@ -5,6 +5,7 @@ import eu.seijindemon.student_iee_ihu.data.model.UnofficialService
 import eu.seijindemon.student_iee_ihu.data.repository.UnofficialServiceRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import retrofit2.Response
 import java.lang.IllegalArgumentException
 
 class UnofficialServiceViewModel(private val  repository: UnofficialServiceRepository): ViewModel() {
@@ -21,6 +22,15 @@ class UnofficialServiceViewModel(private val  repository: UnofficialServiceRepos
 
     fun searchDatabase(searchQuery: String): LiveData<List<UnofficialService>> {
         return repository.searchDatabase(searchQuery).asLiveData()
+    }
+
+    val myResponse: MutableLiveData<Response<List<UnofficialService>>> = MutableLiveData()
+
+    fun getUnofficialServices() {
+        viewModelScope.launch {
+            val response = repository.getUnofficialServices()
+            myResponse.value = response
+        }
     }
 
 }

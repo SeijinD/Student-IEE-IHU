@@ -29,13 +29,6 @@ class TeachersFragment : Fragment(), SearchView.OnQueryTextListener {
         view.teachers_recyclerview.layoutManager = LinearLayoutManager(requireContext())
         view.teachers_recyclerview.adapter = teacherAdapter
 
-//        val teacher = Teacher("Manabis Giwrgos", "georgekara@yahoo.gr", "https://www.seijind.eu", "Kurios")
-//        teacherViewModel.insertData(teacher)
-//        val teacher2 = Teacher("Karanikolas Gogos", "georgekara2010@yahoo.gr", "https://www.seijind.eu", "Anapliromatikos")
-//        teacherViewModel.insertData(teacher2)
-//        val teacher3 = Teacher("Mpaxalidis Giwrgos", "george2010@yahoo.gr", "https://www.seijind.eu", "Kurios")
-//        teacherViewModel.insertData(teacher3)
-
         teacherViewModel.getTeachers()
         teacherViewModel.myResponse.observe(viewLifecycleOwner) { response ->
             if (response.isSuccessful) {

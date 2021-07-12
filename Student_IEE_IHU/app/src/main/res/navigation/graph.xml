@@ -96,6 +96,18 @@
         <action
             android:id="@+id/action_menuFind_to_menuRooms"
             app:destination="@id/menuRooms" />
+        <action
+            android:id="@+id/action_menuFind_to_menuUsefulWebsites"
+            app:destination="@id/menuUsefulWebsites" />
+        <action
+            android:id="@+id/action_menuFind_to_menuOfficialServices"
+            app:destination="@id/menuOfficialServices" />
+        <action
+            android:id="@+id/action_menuFind_to_menuOffers"
+            app:destination="@id/menuOffers" />
+        <action
+            android:id="@+id/action_menuFind_to_menuUnofficialServices"
+            app:destination="@id/menuUnofficialServices" />
     </fragment>
     <fragment
         android:id="@+id/menuSemesters"
@@ -241,6 +253,31 @@
     <fragment
         android:id="@+id/menuThesis"
         android:name="eu.seijindemon.student_iee_ihu.ui.guides.ThesisFragment"
-        android:label="fragment_thesis"
-        tools:layout="@string/thesis" />
+        android:label="@string/thesis"
+        tools:layout="@layout/fragment_thesis" />
+    <fragment
+        android:id="@+id/menuAdmin"
+        android:name="eu.seijindemon.student_iee_ihu.ui.admin.AdminFragment"
+        android:label="@string/admin_page"
+        tools:layout="@layout/fragment_admin" />
+    <fragment
+        android:id="@+id/menuUsefulWebsites"
+        android:name="eu.seijindemon.student_iee_ihu.ui.find.useful_websites.UsefulWebsitesFragment"
+        android:label="@string/useful_websites"
+        tools:layout="@layout/fragment_useful_websites" />
+    <fragment
+        android:id="@+id/menuOffers"
+        android:name="eu.seijindemon.student_iee_ihu.ui.find.offers.OffersFragment"
+        android:label="@string/offers"
+        tools:layout="@layout/fragment_offers" />
+    <fragment
+        android:id="@+id/menuOfficialServices"
+        android:name="eu.seijindemon.student_iee_ihu.ui.find.official_services.OfficialServicesFragment"
+        android:label="@string/official_services"
+        tools:layout="@layout/fragment_official_services" />
+    <fragment
+        android:id="@+id/menuUnofficialServices"
+        android:name="eu.seijindemon.student_iee_ihu.ui.find.unofficial_services.UnofficialServicesFragment"
+        android:label="@string/unofficial_services"
+        tools:layout="@layout/fragment_unofficial_services" />
 </navigation>

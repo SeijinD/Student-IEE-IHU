@@ -5,6 +5,7 @@ import eu.seijindemon.student_iee_ihu.data.model.UsefulWebsite
 import eu.seijindemon.student_iee_ihu.data.repository.UsefulWebsiteRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import retrofit2.Response
 import java.lang.IllegalArgumentException
 
 class UsefulWebsiteViewModel(private val  repository: UsefulWebsiteRepository): ViewModel() {
@@ -21,6 +22,15 @@ class UsefulWebsiteViewModel(private val  repository: UsefulWebsiteRepository): 
 
     fun searchDatabase(searchQuery: String): LiveData<List<UsefulWebsite>> {
         return repository.searchDatabase(searchQuery).asLiveData()
+    }
+
+    val myResponse: MutableLiveData<Response<List<UsefulWebsite>>> = MutableLiveData()
+
+    fun getUsefulWebsites() {
+        viewModelScope.launch {
+            val response = repository.getUsefulWebsites()
+            myResponse.value = response
+        }
     }
 
 }
