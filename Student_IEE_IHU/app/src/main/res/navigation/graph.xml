@@ -259,7 +259,17 @@
         android:id="@+id/menuAdmin"
         android:name="eu.seijindemon.student_iee_ihu.ui.admin.AdminFragment"
         android:label="@string/admin_page"
-        tools:layout="@layout/fragment_admin" />
+        tools:layout="@layout/fragment_admin" >
+        <action
+            android:id="@+id/action_menuAdmin_to_menuAdminUpdates"
+            app:destination="@id/menuAdminUpdates" />
+        <action
+            android:id="@+id/action_menuAdmin_to_menuAdminInserts"
+            app:destination="@id/menuAdminInserts" />
+        <action
+            android:id="@+id/action_menuAdmin_to_menuAdminDeletes"
+            app:destination="@id/menuAdminDeletes" />
+    </fragment>
     <fragment
         android:id="@+id/menuUsefulWebsites"
         android:name="eu.seijindemon.student_iee_ihu.ui.find.useful_websites.UsefulWebsitesFragment"
@@ -280,4 +290,19 @@
         android:name="eu.seijindemon.student_iee_ihu.ui.find.unofficial_services.UnofficialServicesFragment"
         android:label="@string/unofficial_services"
         tools:layout="@layout/fragment_unofficial_services" />
+    <fragment
+        android:id="@+id/menuAdminInserts"
+        android:name="eu.seijindemon.student_iee_ihu.ui.admin.AdminInsertsFragment"
+        android:label="@string/inserts"
+        tools:layout="@layout/fragment_admin_inserts" />
+    <fragment
+        android:id="@+id/menuAdminUpdates"
+        android:name="eu.seijindemon.student_iee_ihu.ui.admin.AdminUpdatesFragment"
+        android:label="@string/updates"
+        tools:layout="@layout/fragment_admin_deletes" />
+    <fragment
+        android:id="@+id/menuAdminDeletes"
+        android:name="eu.seijindemon.student_iee_ihu.ui.admin.AdminDeletesFragment"
+        android:label="@string/deletes"
+        tools:layout="@layout/fragment_admin_deletes"/>
 </navigation>
