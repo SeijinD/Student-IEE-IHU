@@ -1,6 +1,7 @@
 package eu.seijindemon.student_iee_ihu.ui.auth
 
 
+import android.app.ProgressDialog
 import android.content.Intent
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
@@ -40,10 +41,14 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
 
         FirebaseSetup.setupFirebase()
 
-        val currentUser = FirebaseSetup.auth?.currentUser
+        val progDailog = ProgressDialog.show(this, "Loading", "Please wait...", true)
+        progDailog.setCancelable(false)
 
-        when {
-            currentUser != null -> {
+        when (FirebaseSetup.auth?.currentUser) {
+            null -> {
+                progDailog.dismiss()
+            }
+            else -> {
                 FirebaseSetup.userReference?.child("admin")?.get()?.addOnSuccessListener { data ->
                     val isAdmin = data.value as String
                     if (isAdmin == "no") {
@@ -58,8 +63,8 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
 
                         startActivity(Intent(this, MainActivity::class.java))
                         finish()
-                    }
-                    else if (isAdmin == "yes"){
+                        progDailog.dismiss()
+                    } else if (isAdmin == "yes") {
                         MotionToast.Companion.createColorToast(
                             this,
                             "Successful",
@@ -71,9 +76,11 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
 
                         startActivity(Intent(this, AdminMainActivity::class.java))
                         finish()
+                        progDailog.dismiss()
                     }
                 }?.addOnFailureListener {
                     Log.e("firebase", "Error getting data", it)
+                    progDailog.dismiss()
                 }
             }
         }
