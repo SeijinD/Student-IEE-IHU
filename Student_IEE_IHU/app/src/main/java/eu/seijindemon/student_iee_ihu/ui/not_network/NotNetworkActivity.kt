@@ -7,17 +7,23 @@ import androidx.annotation.WorkerThread
 import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.ui.auth.LoginActivity
 import eu.seijindemon.student_iee_ihu.utils.NetworkStatus
+import kotlinx.android.synthetic.main.activity_not_network.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class NotNetworkActivity : AppCompatActivity() {
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_not_network)
+
+        refresh_network.setOnClickListener{
+            if (NetworkStatus.networkAvailable(application)) {
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
+            }
+        }
 
     }
 

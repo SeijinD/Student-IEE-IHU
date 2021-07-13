@@ -32,7 +32,7 @@
             app:startIconDrawable="@drawable/ic_baseline_credit_card_24"
             app:errorEnabled="true"
             app:counterEnabled="true"
-            app:counterMaxLength="8"
+            app:counterMaxLength="10"
             app:layout_constraintTop_toBottomOf="@+id/profile_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -40,7 +40,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/profile_am"
                 android:inputType="text"
-                android:maxLength="9"
+                android:maxLength="11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>
