@@ -1,6 +1,5 @@
 package eu.seijindemon.student_iee_ihu.ui.auth
 
-
 import android.app.ProgressDialog
 import android.content.Intent
 import android.content.res.Configuration
@@ -37,6 +36,7 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
         MMKV.initialize(this)
         loadLocale()
         loadTheme()
+
         setContentView(R.layout.activity_login)
 
         FirebaseSetup.setupFirebase()
@@ -52,19 +52,8 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                 FirebaseSetup.userReference?.child("admin")?.get()?.addOnSuccessListener { data ->
                     val isAdmin = data.value as String
                     if (isAdmin == "no") {
-                        MotionToast.Companion.createColorToast(
-                            this,
-                            "Successful",
-                            "Login...",
-                            MotionToast.Companion.TOAST_SUCCESS,
-                            MotionToast.Companion.GRAVITY_BOTTOM,
-                            MotionToast.Companion.LONG_DURATION,
-                            ResourcesCompat.getFont(this, R.font.helvetica_regular))
-
                         startActivity(Intent(this, MainActivity::class.java))
                         finish()
-                        progDailog.dismiss()
-                    } else if (isAdmin == "yes") {
                         MotionToast.Companion.createColorToast(
                             this,
                             "Successful",
@@ -73,21 +62,34 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                             MotionToast.Companion.GRAVITY_BOTTOM,
                             MotionToast.Companion.LONG_DURATION,
                             ResourcesCompat.getFont(this, R.font.helvetica_regular))
-
+                        //progDailog.dismiss()
+                    } else if (isAdmin == "yes") {
                         startActivity(Intent(this, AdminMainActivity::class.java))
                         finish()
-                        progDailog.dismiss()
+                        MotionToast.Companion.createColorToast(
+                            this,
+                            "Successful",
+                            "Login...",
+                            MotionToast.Companion.TOAST_SUCCESS,
+                            MotionToast.Companion.GRAVITY_BOTTOM,
+                            MotionToast.Companion.LONG_DURATION,
+                            ResourcesCompat.getFont(this, R.font.helvetica_regular))
+                        //progDailog.dismiss()
                     }
                 }?.addOnFailureListener {
                     Log.e("firebase", "Error getting data", it)
-                    progDailog.dismiss()
+                    //progDailog.dismiss()
                 }
             }
         }
 
-        login_button.setOnClickListener{ login() }
+        login_button.setOnClickListener{
+            login()
+        }
 
-        reset_password_button.setOnClickListener { resetPassword() }
+        reset_password_button.setOnClickListener {
+            resetPassword()
+        }
 
         create_account_button.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))

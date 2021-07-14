@@ -9,12 +9,11 @@ import android.util.Log
 import android.view.View
 import androidx.annotation.WorkerThread
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -24,7 +23,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.tencent.mmkv.MMKV
 import eu.seijindemon.student_iee_ihu.R
-import eu.seijindemon.student_iee_ihu.ui.help.HelpFragment
 import eu.seijindemon.student_iee_ihu.ui.not_network.NotNetworkActivity
 import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import eu.seijindemon.student_iee_ihu.utils.NetworkStatus
@@ -33,6 +31,7 @@ import kotlinx.android.synthetic.main.navigation_header_admin.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import www.sanju.motiontoast.MotionToast
 import java.util.*
 
 class AdminMainActivity : AppCompatActivity() {
