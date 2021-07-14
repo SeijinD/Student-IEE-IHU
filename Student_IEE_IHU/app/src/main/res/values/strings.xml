@@ -150,4 +150,5 @@
     <string name="delete_community">Delete Community</string>
     <string name="refresh">Refresh</string>
     <string name="more">More</string>
+    <string name="department">Department</string>
 </resources>

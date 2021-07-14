@@ -177,6 +177,9 @@
         <action
             android:id="@+id/action_menuGuides_to_menuThesis"
             app:destination="@id/menuThesis" />
+        <action
+            android:id="@+id/action_menuGuides_to_menuSoftwares"
+            app:destination="@id/menuSoftwares" />
     </fragment>
     <fragment
         android:id="@+id/pdf_webview"
@@ -303,4 +306,14 @@
         android:name="eu.seijindemon.student_iee_ihu.ui.admin.AdminDeletesFragment"
         android:label="@string/deletes"
         tools:layout="@layout/fragment_admin_deletes"/>
+    <fragment
+        android:id="@+id/menuSoftwares"
+        android:name="eu.seijindemon.student_iee_ihu.ui.guides.SoftwaresFragment"
+        android:label="@string/softwares"
+        tools:layout="@layout/fragment_softwares" />
+    <fragment
+        android:id="@+id/menuDepartment"
+        android:name="eu.seijindemon.student_iee_ihu.ui.department.DepartmentFragment"
+        android:label="@string/department"
+        tools:layout="@layout/fragment_department" />
 </navigation>

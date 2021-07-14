@@ -28,7 +28,7 @@ class GuidesFragment : Fragment() {
         }
 
         view.softwares.setOnClickListener{
-            Navigation.findNavController(view).navigate(R.id.menuThesis)
+            Navigation.findNavController(view).navigate(R.id.menuSoftwares)
         }
 
         return view
