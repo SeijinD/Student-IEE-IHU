@@ -11,8 +11,10 @@ import androidx.annotation.WorkerThread
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -22,6 +24,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.tencent.mmkv.MMKV
 import eu.seijindemon.student_iee_ihu.R
+import eu.seijindemon.student_iee_ihu.ui.help.HelpFragment
 import eu.seijindemon.student_iee_ihu.ui.not_network.NotNetworkActivity
 import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import eu.seijindemon.student_iee_ihu.utils.NetworkStatus
@@ -89,7 +92,13 @@ class AdminMainActivity : AppCompatActivity() {
         // Color in drawer menu icons
         navigationView.itemIconTintList = null
 
-        open_apps.setOnClickListener{ openApps() }
+        open_apps.setOnClickListener{
+            openApps()
+        }
+
+        help_button.setOnClickListener{
+            navController.navigate(R.id.menuHelp)
+        }
 
     }
 

@@ -25,7 +25,9 @@ import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.ui.not_network.NotNetworkActivity
 import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import eu.seijindemon.student_iee_ihu.utils.NetworkStatus
+import kotlinx.android.synthetic.main.activity_admin_main.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.open_apps
 import kotlinx.android.synthetic.main.activity_main.text_title
 import kotlinx.android.synthetic.main.navigation_header.view.*
 import kotlinx.coroutines.CoroutineScope
@@ -48,7 +50,6 @@ class MainActivity : AppCompatActivity() {
 
         setupNav()
         loadHeader()
-
     }
 
     private fun setLocale(Lang: String) {
@@ -92,7 +93,13 @@ class MainActivity : AppCompatActivity() {
         // Color in drawer menu icons
         navigationView.itemIconTintList = null
 
-        open_apps.setOnClickListener{ openApps() }
+        open_apps.setOnClickListener{
+            openApps()
+        }
+
+        help_button.setOnClickListener{
+            navController.navigate(R.id.menuHelp)
+        }
 
     }
 

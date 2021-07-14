@@ -209,9 +209,6 @@
         android:name="eu.seijindemon.student_iee_ihu.ui.help.HelpFragment"
         android:label="@string/help_title"
         tools:layout="@layout/fragment_help" >
-        <argument
-            android:name="helpInfo"
-            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/menuFirstDay"
@@ -249,7 +246,8 @@
     <fragment
         android:id="@+id/menuContact"
         android:name="eu.seijindemon.student_iee_ihu.ui.contact.ContactFragment"
-        android:label="@string/contact" />
+        android:label="@string/contact"
+        tools:layout="@layout/fragment_contact"/>
     <fragment
         android:id="@+id/menuThesis"
         android:name="eu.seijindemon.student_iee_ihu.ui.guides.ThesisFragment"
