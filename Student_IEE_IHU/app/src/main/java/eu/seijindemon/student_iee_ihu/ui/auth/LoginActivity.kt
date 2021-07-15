@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.text.InputType
 import android.util.Log
 import androidx.appcompat.app.AppCompatDelegate
@@ -23,12 +24,15 @@ import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.ui.main.AdminMainActivity
 import eu.seijindemon.student_iee_ihu.ui.main.MainActivity
 import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
+import eu.seijindemon.student_iee_ihu.utils.LoadingDialog
 import eu.seijindemon.student_iee_ihu.utils.Permissions
 import kotlinx.android.synthetic.main.activity_login.*
 import www.sanju.motiontoast.MotionToast
 import java.util.*
 
 class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
+
+    private val loading = LoadingDialog(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,17 +45,17 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
 
         FirebaseSetup.setupFirebase()
 
-        val progDailog = ProgressDialog.show(this, "Loading", "Please wait...", true)
-        progDailog.setCancelable(false)
+        loading.startLoading()
 
         when (FirebaseSetup.auth?.currentUser) {
             null -> {
-                progDailog.dismiss()
+                loading.isDismiss()
             }
             else -> {
                 FirebaseSetup.userReference?.child("admin")?.get()?.addOnSuccessListener { data ->
                     val isAdmin = data.value as String
                     if (isAdmin == "no") {
+                        loading.isDismiss()
                         startActivity(Intent(this, MainActivity::class.java))
                         finish()
                         MotionToast.Companion.createColorToast(
@@ -62,8 +66,8 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                             MotionToast.Companion.GRAVITY_BOTTOM,
                             MotionToast.Companion.LONG_DURATION,
                             ResourcesCompat.getFont(this, R.font.helvetica_regular))
-                        //progDailog.dismiss()
                     } else if (isAdmin == "yes") {
+                        loading.isDismiss()
                         startActivity(Intent(this, AdminMainActivity::class.java))
                         finish()
                         MotionToast.Companion.createColorToast(
@@ -74,11 +78,10 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                             MotionToast.Companion.GRAVITY_BOTTOM,
                             MotionToast.Companion.LONG_DURATION,
                             ResourcesCompat.getFont(this, R.font.helvetica_regular))
-                        //progDailog.dismiss()
                     }
                 }?.addOnFailureListener {
                     Log.e("firebase", "Error getting data", it)
-                    //progDailog.dismiss()
+                    loading.isDismiss()
                 }
             }
         }
@@ -97,6 +100,11 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
         }
 
     }
+
+//    override fun onDestroy() {
+//        super.onDestroy()
+//        loading.isDismiss()
+//    }
 
     private fun loadTheme() {
         val kv = MMKV.mmkvWithID("themeMode")

@@ -15,6 +15,7 @@ import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.utils.Constants.Companion.BASE_URL_SITE_EN
 import eu.seijindemon.student_iee_ihu.utils.Constants.Companion.BASE_URL_SITE_EL
 import eu.seijindemon.student_iee_ihu.utils.LoadLanguage
+import eu.seijindemon.student_iee_ihu.utils.LoadingDialog
 import kotlinx.android.synthetic.main.fragment_simple_course.view.*
 
 class SimpleCourseFragment : Fragment() {
@@ -23,8 +24,8 @@ class SimpleCourseFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_simple_course, container, false)
 
-        val progDailog = ProgressDialog.show(requireContext(), "Loading", "Please wait...", true)
-        progDailog.setCancelable(false)
+        val loading = LoadingDialog(requireActivity())
+        loading.startLoading()
 
         view.simple_course_webview.settings.javaScriptEnabled = true
         view.simple_course_webview.webViewClient = object : WebViewClient() {
@@ -34,7 +35,7 @@ class SimpleCourseFragment : Fragment() {
                         "document.getElementById('colophon').style.display='none';" +
                         "document.getElementById('secondary').style.display='none';" +
                         "})()")
-                progDailog.dismiss()
+                loading.isDismiss()
             }
             override fun onReceivedSslError(view: WebView?, handler: SslErrorHandler?, error: SslError?) {
                 handler?.proceed()
