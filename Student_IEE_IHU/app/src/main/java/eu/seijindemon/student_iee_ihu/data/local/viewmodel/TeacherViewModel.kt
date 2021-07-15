@@ -4,10 +4,7 @@ import android.util.Log
 import androidx.lifecycle.*
 import eu.seijindemon.student_iee_ihu.data.model.Teacher
 import eu.seijindemon.student_iee_ihu.data.repository.TeacherRepository
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 import retrofit2.Response
 import java.lang.IllegalArgumentException
 
@@ -27,8 +24,12 @@ class TeacherViewModel(private val  repository: TeacherRepository): ViewModel() 
         return repository.searchDatabase(searchQuery).asLiveData()
     }
 
+    private val handler = CoroutineExceptionHandler { _, exception ->
+        Log.e("Network", "Caught $exception")
+    }
+
     fun getTeachers() {
-        CoroutineScope(Dispatchers.IO).launch {
+        CoroutineScope(Dispatchers.IO).launch(handler) {
             val response = repository.getTeachers()
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {

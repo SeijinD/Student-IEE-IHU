@@ -4,10 +4,7 @@ import android.util.Log
 import androidx.lifecycle.*
 import eu.seijindemon.student_iee_ihu.data.model.Community
 import eu.seijindemon.student_iee_ihu.data.repository.CommunityRepository
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 import retrofit2.Response
 import java.lang.IllegalArgumentException
 
@@ -43,8 +40,12 @@ class CommunityViewModel(private val  repository: CommunityRepository): ViewMode
         return repository.communityOther().asLiveData()
     }
 
+    private val handler = CoroutineExceptionHandler { _, exception ->
+        Log.e("Network", "Caught $exception")
+    }
+
     fun getCommunities() {
-        CoroutineScope(Dispatchers.IO).launch {
+        CoroutineScope(Dispatchers.IO).launch(handler) {
             val response = repository.getCommunities()
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
