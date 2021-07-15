@@ -29,18 +29,8 @@ class UsefulWebsitesFragment : Fragment(), SearchView.OnQueryTextListener {
         view.useful_websites_recyclerview.adapter = usefulWebsiteAdapter
 
         usefulWebsiteViewModel.getUsefulWebsites()
-        usefulWebsiteViewModel.myResponse.observe(viewLifecycleOwner) { response ->
-            if (response.isSuccessful) {
-                response.body()?.let {
-                    usefulWebsiteViewModel.insertData(it)
-                }
-                usefulWebsiteViewModel.readData().observe(viewLifecycleOwner) {
-                    usefulWebsiteAdapter.setData(it)
-                }
-            }
-            else {
-                Log.d("Response", response.errorBody().toString())
-            }
+        usefulWebsiteViewModel.readData().observe(viewLifecycleOwner) {
+            usefulWebsiteAdapter.setData(it)
         }
 
         view.search_useful_website.isSubmitButtonEnabled = true

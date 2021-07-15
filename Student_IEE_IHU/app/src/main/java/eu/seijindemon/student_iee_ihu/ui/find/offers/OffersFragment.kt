@@ -29,18 +29,8 @@ class OffersFragment : Fragment(), SearchView.OnQueryTextListener {
         view.offers_recyclerview.adapter = offerAdapter
 
         offerViewModel.getOffers()
-        offerViewModel.myResponse.observe(viewLifecycleOwner) { response ->
-            if (response.isSuccessful) {
-                response.body()?.let {
-                    offerViewModel.insertData(it)
-                }
-                offerViewModel.readData().observe(viewLifecycleOwner) {
-                    offerAdapter.setData(it)
-                }
-            }
-            else {
-                Log.d("Response", response.errorBody().toString())
-            }
+        offerViewModel.readData().observe(viewLifecycleOwner) {
+            offerAdapter.setData(it)
         }
 
         view.search_offer.isSubmitButtonEnabled = true

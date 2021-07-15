@@ -30,18 +30,8 @@ class TeachersFragment : Fragment(), SearchView.OnQueryTextListener {
         view.teachers_recyclerview.adapter = teacherAdapter
 
         teacherViewModel.getTeachers()
-        teacherViewModel.myResponse.observe(viewLifecycleOwner) { response ->
-            if (response.isSuccessful) {
-                response.body()?.let {
-                    teacherViewModel.insertData(it)
-                }
-                teacherViewModel.readData().observe(viewLifecycleOwner) {
-                    teacherAdapter.setData(it)
-                }
-            }
-            else {
-                Log.d("Response", response.errorBody().toString())
-            }
+        teacherViewModel.readData().observe(viewLifecycleOwner) {
+            teacherAdapter.setData(it)
         }
 
         view.search_teacher.isSubmitButtonEnabled = true

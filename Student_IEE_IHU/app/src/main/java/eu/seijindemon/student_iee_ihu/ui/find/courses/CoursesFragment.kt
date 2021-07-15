@@ -29,18 +29,8 @@ class CoursesFragment : Fragment(), SearchView.OnQueryTextListener {
         view.courses_recyclerview.adapter = courseAdapter
 
         courseViewModel.getCourses()
-        courseViewModel.myResponse.observe(viewLifecycleOwner) { response ->
-            if (response.isSuccessful) {
-                response.body()?.let {
-                    courseViewModel.insertData(it)
-                }
-                courseViewModel.readData().observe(viewLifecycleOwner) {
-                    courseAdapter.setData(it)
-                }
-            }
-            else {
-                Log.d("Response", response.errorBody().toString())
-            }
+        courseViewModel.readData().observe(viewLifecycleOwner) {
+            courseAdapter.setData(it)
         }
 
         view.search_course.isSubmitButtonEnabled = true

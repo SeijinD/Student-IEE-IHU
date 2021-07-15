@@ -1,10 +1,13 @@
 package eu.seijindemon.student_iee_ihu.data.local.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.*
 import eu.seijindemon.student_iee_ihu.data.model.OfficialService
 import eu.seijindemon.student_iee_ihu.data.repository.OfficialServiceRepository
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import retrofit2.Response
 import java.lang.IllegalArgumentException
 
@@ -24,12 +27,19 @@ class OfficialServiceViewModel(private val  repository: OfficialServiceRepositor
         return repository.searchDatabase(searchQuery).asLiveData()
     }
 
-    val myResponse: MutableLiveData<Response<List<OfficialService>>> = MutableLiveData()
-
     fun getOfficialServices() {
-        viewModelScope.launch {
+        CoroutineScope(Dispatchers.IO).launch {
             val response = repository.getOfficialServices()
-            myResponse.value = response
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
+                    response.body()?.let {
+                        insertData(it)
+                    }
+                }
+                else {
+                    Log.d("Response", response.errorBody().toString())
+                }
+            }
         }
     }
 

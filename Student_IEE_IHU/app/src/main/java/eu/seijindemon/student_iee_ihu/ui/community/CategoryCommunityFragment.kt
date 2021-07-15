@@ -31,16 +31,6 @@ class CategoryCommunityFragment : Fragment() {
         view.community_recyclerview.adapter = communityAdapter
 
         communityViewModel.getCommunities()
-        communityViewModel.myResponse.observe(viewLifecycleOwner) { response ->
-            if (response.isSuccessful) {
-                response.body()?.let {
-                    communityViewModel.insertData(it)
-                }
-            }
-            else {
-                Log.d("Response", response.errorBody().toString())
-            }
-        }
 
         when(CategoryCommunityFragmentArgs.fromBundle(requireArguments()).categoryCommunity) {
             "discords_servers" -> {

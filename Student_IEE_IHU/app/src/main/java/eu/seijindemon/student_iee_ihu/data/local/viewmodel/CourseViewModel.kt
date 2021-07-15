@@ -1,11 +1,10 @@
 package eu.seijindemon.student_iee_ihu.data.local.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.*
 import eu.seijindemon.student_iee_ihu.data.model.Course
 import eu.seijindemon.student_iee_ihu.data.repository.CourseRepository
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.plus
+import kotlinx.coroutines.*
 import retrofit2.Response
 import java.lang.IllegalArgumentException
 
@@ -25,12 +24,19 @@ class CourseViewModel(private val  repository: CourseRepository): ViewModel() {
         return repository.searchDatabase(searchQuery).asLiveData()
     }
 
-    val myResponse: MutableLiveData<Response<List<Course>>> = MutableLiveData()
-
     fun getCourses() {
-        viewModelScope.launch {
+        CoroutineScope(Dispatchers.IO).launch {
             val response = repository.getCourses()
-            myResponse.value = response
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
+                    response.body()?.let {
+                        insertData(it)
+                    }
+                }
+                else {
+                    Log.d("Response", response.errorBody().toString())
+                }
+            }
         }
     }
 

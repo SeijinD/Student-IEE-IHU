@@ -1,10 +1,13 @@
 package eu.seijindemon.student_iee_ihu.data.local.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.*
 import eu.seijindemon.student_iee_ihu.data.model.Community
 import eu.seijindemon.student_iee_ihu.data.repository.CommunityRepository
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import retrofit2.Response
 import java.lang.IllegalArgumentException
 
@@ -40,12 +43,19 @@ class CommunityViewModel(private val  repository: CommunityRepository): ViewMode
         return repository.communityOther().asLiveData()
     }
 
-    val myResponse: MutableLiveData<Response<List<Community>>> = MutableLiveData()
-
     fun getCommunities() {
-        viewModelScope.launch {
+        CoroutineScope(Dispatchers.IO).launch {
             val response = repository.getCommunities()
-            myResponse.value = response
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
+                    response.body()?.let {
+                        insertData(it)
+                    }
+                }
+                else {
+                    Log.d("Response", response.errorBody().toString())
+                }
+            }
         }
     }
 

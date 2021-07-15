@@ -29,18 +29,8 @@ class UnofficialServicesFragment : Fragment(), SearchView.OnQueryTextListener {
         view.unofficial_service_recyclerview.adapter = unofficialServiceAdapter
 
         unofficialServiceViewModel.getUnofficialServices()
-        unofficialServiceViewModel.myResponse.observe(viewLifecycleOwner) { response ->
-            if (response.isSuccessful) {
-                response.body()?.let {
-                    unofficialServiceViewModel.insertData(it)
-                }
-                unofficialServiceViewModel.readData().observe(viewLifecycleOwner) {
-                    unofficialServiceAdapter.setData(it)
-                }
-            }
-            else {
-                Log.d("Response", response.errorBody().toString())
-            }
+        unofficialServiceViewModel.readData().observe(viewLifecycleOwner) {
+            unofficialServiceAdapter.setData(it)
         }
 
         view.search_unofficial_service.isSubmitButtonEnabled = true

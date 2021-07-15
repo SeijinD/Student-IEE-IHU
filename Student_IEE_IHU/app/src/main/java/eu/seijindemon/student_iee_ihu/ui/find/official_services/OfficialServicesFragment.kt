@@ -29,18 +29,8 @@ class OfficialServicesFragment : Fragment(), SearchView.OnQueryTextListener {
         view.official_services_recyclerview.adapter = officialServiceAdapter
 
         officialServiceViewModel.getOfficialServices()
-        officialServiceViewModel.myResponse.observe(viewLifecycleOwner) { response ->
-            if (response.isSuccessful) {
-                response.body()?.let {
-                    officialServiceViewModel.insertData(it)
-                }
-                officialServiceViewModel.readData().observe(viewLifecycleOwner) {
-                    officialServiceAdapter.setData(it)
-                }
-            }
-            else {
-                Log.d("Response", response.errorBody().toString())
-            }
+        officialServiceViewModel.readData().observe(viewLifecycleOwner) {
+            officialServiceAdapter.setData(it)
         }
 
         view.search_official_service.isSubmitButtonEnabled = true

@@ -1,10 +1,13 @@
 package eu.seijindemon.student_iee_ihu.data.local.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.*
 import eu.seijindemon.student_iee_ihu.data.model.UsefulWebsite
 import eu.seijindemon.student_iee_ihu.data.repository.UsefulWebsiteRepository
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import retrofit2.Response
 import java.lang.IllegalArgumentException
 
@@ -24,12 +27,19 @@ class UsefulWebsiteViewModel(private val  repository: UsefulWebsiteRepository): 
         return repository.searchDatabase(searchQuery).asLiveData()
     }
 
-    val myResponse: MutableLiveData<Response<List<UsefulWebsite>>> = MutableLiveData()
-
     fun getUsefulWebsites() {
-        viewModelScope.launch {
+        CoroutineScope(Dispatchers.IO).launch {
             val response = repository.getUsefulWebsites()
-            myResponse.value = response
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
+                    response.body()?.let {
+                        insertData(it)
+                    }
+                }
+                else {
+                    Log.d("Response", response.errorBody().toString())
+                }
+            }
         }
     }
 
