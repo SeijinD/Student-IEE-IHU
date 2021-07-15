@@ -55,9 +55,9 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                 FirebaseSetup.userReference?.child("admin")?.get()?.addOnSuccessListener { data ->
                     val isAdmin = data.value as String
                     if (isAdmin == "no") {
-                        loading.isDismiss()
                         startActivity(Intent(this, MainActivity::class.java))
                         finish()
+                        loading.isDismiss()
                         MotionToast.Companion.createColorToast(
                             this,
                             "Successful",
@@ -67,9 +67,9 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                             MotionToast.Companion.LONG_DURATION,
                             ResourcesCompat.getFont(this, R.font.helvetica_regular))
                     } else if (isAdmin == "yes") {
-                        loading.isDismiss()
                         startActivity(Intent(this, AdminMainActivity::class.java))
                         finish()
+                        loading.isDismiss()
                         MotionToast.Companion.createColorToast(
                             this,
                             "Successful",
@@ -101,10 +101,10 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
 
     }
 
-//    override fun onDestroy() {
-//        super.onDestroy()
-//        loading.isDismiss()
-//    }
+    override fun onDestroy() {
+        super.onDestroy()
+        loading.isDismiss()
+    }
 
     private fun loadTheme() {
         val kv = MMKV.mmkvWithID("themeMode")
