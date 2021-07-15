@@ -25,7 +25,6 @@ import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.ui.not_network.NotNetworkActivity
 import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import eu.seijindemon.student_iee_ihu.utils.NetworkStatus
-import kotlinx.android.synthetic.main.activity_admin_main.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.open_apps
 import kotlinx.android.synthetic.main.activity_main.text_title
@@ -103,10 +102,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openApps(){
-        try {
-            startActivity(Intent(packageManager.getLaunchIntentForPackage("gr.teithe.it.it_app")))
+        val intent = packageManager.getLaunchIntentForPackage("gr.teithe.it.it_app")
+        if (intent != null) {
+            startActivity(intent)
         }
-        catch (e: ActivityNotFoundException) {
+        else {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://apps.iee.ihu.gr/announcements")))
         }
     }

@@ -102,10 +102,11 @@ class AdminMainActivity : AppCompatActivity() {
     }
 
     private fun openApps(){
-        try {
-            startActivity(Intent(packageManager.getLaunchIntentForPackage("gr.teithe.it.it_app")))
+        val intent = packageManager.getLaunchIntentForPackage("gr.teithe.it.it_app")
+        if (intent != null) {
+            startActivity(intent)
         }
-        catch (e: ActivityNotFoundException) {
+        else {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://apps.iee.ihu.gr/announcements")))
         }
     }
