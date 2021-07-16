@@ -15,7 +15,7 @@ class FirebaseSetup {
         var usersReference: DatabaseReference? = null
         var userReference: DatabaseReference? = null
         private var database: FirebaseDatabase? = null
-        private var storage: FirebaseStorage? = null
+        var storage: FirebaseStorage? = null
         var userStorage: StorageReference? = null
 
         fun setupFirebase()

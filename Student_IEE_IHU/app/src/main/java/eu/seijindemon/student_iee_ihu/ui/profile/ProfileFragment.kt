@@ -14,22 +14,30 @@ import androidx.core.content.res.ResourcesCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.gms.tasks.Continuation
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.StorageTask
 import com.google.firebase.storage.UploadTask
 import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import eu.seijindemon.student_iee_ihu.R
+import eu.seijindemon.student_iee_ihu.utils.LoadingDialog
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 import www.sanju.motiontoast.MotionToast
+import java.lang.Exception
 
 class ProfileFragment : Fragment() {
 
     private val requestCode = 438
     private var imageUri: Uri? = null
+
+    private var imageRef: String? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view =  inflater.inflate(R.layout.fragment_profile, container, false)
@@ -55,6 +63,7 @@ class ProfileFragment : Fragment() {
                     profile_phone.setText(snapshot.child("phone").value.toString())
 
                     val loadImage = snapshot.child("profile").value.toString()
+                    imageRef = loadImage
                     Glide.with(requireActivity())
                         .load(loadImage)
                         .apply(RequestOptions.circleCropTransform())
@@ -156,9 +165,9 @@ class ProfileFragment : Fragment() {
     }
 
     private fun uploadImageToDatabase() {
-        val prograssBar = ProgressDialog(context)
-        prograssBar.setMessage("Image is uploading, please wait...")
-        prograssBar.show()
+
+        val loading = LoadingDialog(requireActivity())
+        loading.startLoading()
 
         if(imageUri != null) {
             val fileRef = FirebaseSetup.userStorage!!.child(System.currentTimeMillis().toString() + ".jpg")
@@ -179,10 +188,16 @@ class ProfileFragment : Fragment() {
 
                     val mapProfileImg = HashMap<String, Any>()
                     mapProfileImg["profile"] = url
-                    val currentUSerDb = FirebaseSetup.userReference
-                    currentUSerDb?.updateChildren(mapProfileImg)
+                    val currentUserDb = FirebaseSetup.userReference
+                    currentUserDb?.updateChildren(mapProfileImg)
+
+                    val previousImgRef = FirebaseSetup.storage?.getReferenceFromUrl(imageRef!!)
+                    previousImgRef?.delete()?.addOnSuccessListener {
+                        Log.d("TAG", "onSuccess: deleted file");
+                    }?.addOnFailureListener {
+                        Log.d("TAG", "onFailure: did not delete file"); }
                 }
-                prograssBar.dismiss()
+                loading.isDismiss()
             }
         }
     }
