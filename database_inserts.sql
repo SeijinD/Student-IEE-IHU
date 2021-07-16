@@ -44,7 +44,7 @@ INSERT INTO `official_services` (`title`, `description`, `category`, `link`) VAL
 ('Κέντρο Δικτύου Αιτήματα', 'Η σελίδα του κέντρου δεκτού για σχετικά αιτήματα με τους λογαριασμούς.', 'university', 'https://helpdesk.the.ihu.gr/index.php'),
 ('Κεντρική Βιβλιοθήκη Σχόλης', 'Μπορείς να αναζητήσεις και βιβλία για αν υπάρχουν.', 'university', 'https://www.lib.teithe.gr');
 
-INSERT INTO `unofficial_services` (`title`, `description`, 'creator', `category`, `link`) VALUES
+INSERT INTO `unofficial_services` (`title`, `description`, `creator`, `category`, `link`) VALUES
 ('Φτιάξε το πρόγραμμα του εξαμήνου σου', 'Μια προσπάθεια ενός φοιτητή για να διευκολύνει την δημιουργία του εξαμηνιαίου προγράμματος.', 'Νίκος Θεοφανούδης', 'department', 'https://it185181.herokuapp.com');
 
 INSERT INTO `useful_websites` (`title`, `description`, `category`, `link`) VALUES
