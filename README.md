@@ -38,8 +38,8 @@ Development of an Android application for the support and organization of the st
     - Google Maps
         - [https://developers.google.com/maps/documentation/android-sdk/overview](https://developers.google.com/maps/documentation/android-sdk/overview)
         - [https://www.raywenderlich.com/230-introduction-to-google-maps-api-for-android-with-kotlin](https://www.raywenderlich.com/230-introduction-to-google-maps-api-for-android-with-kotlin)
-    - Dexter
-        - [https://github.com/Karumi/Dexter](https://github.com/Karumi/Dexter)
+    - EasyPermissions-ktx
+        - [https://github.com/VMadalin/easypermissions-ktx](https://github.com/VMadalin/easypermissions-ktx)
     - MaterialStyledDIalogs
         - [https://github.com/javiersantos/MaterialStyledDialogs](https://github.com/javiersantos/MaterialStyledDialogs)
     - Material Dialog Input
@@ -61,4 +61,5 @@ Development of an Android application for the support and organization of the st
         - [https://square.github.io/retrofit/](https://square.github.io/retrofit/)
     - ExpandableTextView
         - [https://github.com/Manabu-GT/ExpandableTextView](https://github.com/Manabu-GT/ExpandableTextView) 
-    - 
+    - ViewPager2
+        - [https://www.raywenderlich.com/8192680-viewpager2-in-android-getting-started](https://www.raywenderlich.com/8192680-viewpager2-in-android-getting-started)
