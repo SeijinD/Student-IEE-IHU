@@ -64,7 +64,7 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                             "Login...",
                             MotionToast.Companion.TOAST_SUCCESS,
                             MotionToast.Companion.GRAVITY_BOTTOM,
-                            MotionToast.Companion.LONG_DURATION,
+                            MotionToast.Companion.SHORT_DURATION,
                             ResourcesCompat.getFont(this, R.font.helvetica_regular))
                     } else if (isAdmin == "yes") {
                         startActivity(Intent(this, AdminMainActivity::class.java))
@@ -76,7 +76,7 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                             "Login...",
                             MotionToast.Companion.TOAST_SUCCESS,
                             MotionToast.Companion.GRAVITY_BOTTOM,
-                            MotionToast.Companion.LONG_DURATION,
+                            MotionToast.Companion.SHORT_DURATION,
                             ResourcesCompat.getFont(this, R.font.helvetica_regular))
                     }
                 }?.addOnFailureListener {
@@ -229,7 +229,7 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                                     "Login...",
                                     MotionToast.Companion.TOAST_SUCCESS,
                                     MotionToast.Companion.GRAVITY_BOTTOM,
-                                    MotionToast.Companion.LONG_DURATION,
+                                    MotionToast.Companion.SHORT_DURATION,
                                     ResourcesCompat.getFont(this, R.font.helvetica_regular))
 
                                 startActivity(Intent(this, MainActivity::class.java))
@@ -260,7 +260,7 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                                 "Login...",
                                 MotionToast.Companion.TOAST_SUCCESS,
                                 MotionToast.Companion.GRAVITY_BOTTOM,
-                                MotionToast.Companion.LONG_DURATION,
+                                MotionToast.Companion.SHORT_DURATION,
                                 ResourcesCompat.getFont(this, R.font.helvetica_regular))
 
                             startActivity(Intent(this, AdminMainActivity::class.java))
