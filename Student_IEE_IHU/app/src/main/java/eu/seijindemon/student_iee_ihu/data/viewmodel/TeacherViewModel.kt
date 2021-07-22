@@ -1,26 +1,25 @@
-package eu.seijindemon.student_iee_ihu.data.local.viewmodel
+package eu.seijindemon.student_iee_ihu.data.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.*
-import eu.seijindemon.student_iee_ihu.data.model.UsefulWebsite
-import eu.seijindemon.student_iee_ihu.data.repository.UsefulWebsiteRepository
+import eu.seijindemon.student_iee_ihu.data.model.Teacher
+import eu.seijindemon.student_iee_ihu.data.repository.TeacherRepository
 import kotlinx.coroutines.*
-import retrofit2.Response
 import java.lang.IllegalArgumentException
 
-class UsefulWebsiteViewModel(private val  repository: UsefulWebsiteRepository): ViewModel() {
+class TeacherViewModel(private val  repository: TeacherRepository): ViewModel() {
 
-    fun readData(): LiveData<List<UsefulWebsite>> {
-        return repository.readData().asLiveData()
+    fun readData(): LiveData<List<Teacher>> {
+        return  repository.readData().asLiveData()
     }
 
-    fun insertData(usefulWebsites: List<UsefulWebsite>) {
+    fun insertData(teachers: List<Teacher>) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.insertData(usefulWebsites)
+            repository.insertData(teachers)
         }
     }
 
-    fun searchDatabase(searchQuery: String): LiveData<List<UsefulWebsite>> {
+    fun searchDatabase(searchQuery: String): LiveData<List<Teacher>> {
         return repository.searchDatabase(searchQuery).asLiveData()
     }
 
@@ -28,9 +27,9 @@ class UsefulWebsiteViewModel(private val  repository: UsefulWebsiteRepository): 
         Log.e("Network", "Caught $exception")
     }
 
-    fun getUsefulWebsites() {
+    fun getTeachers() {
         CoroutineScope(Dispatchers.IO).launch(handler) {
-            val response = repository.getUsefulWebsites()
+            val response = repository.getTeachers()
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
                     response.body()?.let {
@@ -46,11 +45,11 @@ class UsefulWebsiteViewModel(private val  repository: UsefulWebsiteRepository): 
 
 }
 
-class UsefulWebsiteViewModelFactory(private val repository: UsefulWebsiteRepository): ViewModelProvider.Factory {
+class TeacherViewModelFactory(private val repository: TeacherRepository): ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(UsefulWebsiteViewModel::class.java)) {
+        if (modelClass.isAssignableFrom(TeacherViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return UsefulWebsiteViewModel(repository) as T
+            return TeacherViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel Class")
     }

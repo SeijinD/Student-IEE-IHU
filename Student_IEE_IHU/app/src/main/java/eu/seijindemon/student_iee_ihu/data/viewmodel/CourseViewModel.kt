@@ -1,26 +1,25 @@
-package eu.seijindemon.student_iee_ihu.data.local.viewmodel
+package eu.seijindemon.student_iee_ihu.data.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.*
-import eu.seijindemon.student_iee_ihu.data.model.Offer
-import eu.seijindemon.student_iee_ihu.data.repository.OfferRepository
+import eu.seijindemon.student_iee_ihu.data.model.Course
+import eu.seijindemon.student_iee_ihu.data.repository.CourseRepository
 import kotlinx.coroutines.*
-import retrofit2.Response
 import java.lang.IllegalArgumentException
 
-class OfferViewModel(private val  repository: OfferRepository): ViewModel() {
+class CourseViewModel(private val  repository: CourseRepository): ViewModel() {
 
-    fun readData(): LiveData<List<Offer>> {
+    fun readData(): LiveData<List<Course>> {
         return repository.readData().asLiveData()
     }
 
-    fun insertData(offers: List<Offer>) {
+    fun insertData(courses: List<Course>) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.insertData(offers)
+            repository.insertData(courses)
         }
     }
 
-    fun searchDatabase(searchQuery: String): LiveData<List<Offer>> {
+    fun searchDatabase(searchQuery: String): LiveData<List<Course>> {
         return repository.searchDatabase(searchQuery).asLiveData()
     }
 
@@ -28,9 +27,9 @@ class OfferViewModel(private val  repository: OfferRepository): ViewModel() {
         Log.e("Network", "Caught $exception")
     }
 
-    fun getOffers() {
+    fun getCourses() {
         CoroutineScope(Dispatchers.IO).launch(handler) {
-            val response = repository.getOffers()
+            val response = repository.getCourses()
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
                     response.body()?.let {
@@ -46,11 +45,11 @@ class OfferViewModel(private val  repository: OfferRepository): ViewModel() {
 
 }
 
-class OfferViewModelFactory(private val repository: OfferRepository): ViewModelProvider.Factory {
+class CourseViewModelFactory(private val repository: CourseRepository): ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(OfferViewModel::class.java)) {
+        if (modelClass.isAssignableFrom(CourseViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return OfferViewModel(repository) as T
+            return CourseViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel Class")
     }

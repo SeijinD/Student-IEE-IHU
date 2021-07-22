@@ -1,7 +1,6 @@
 package eu.seijindemon.student_iee_ihu.ui.community
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,9 +10,8 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import eu.seijindemon.student_iee_ihu.CoreApplication
 import eu.seijindemon.student_iee_ihu.R
-import eu.seijindemon.student_iee_ihu.data.local.viewmodel.CommunityViewModel
-import eu.seijindemon.student_iee_ihu.data.local.viewmodel.CommunityViewModelFactory
-import eu.seijindemon.student_iee_ihu.data.model.Community
+import eu.seijindemon.student_iee_ihu.data.viewmodel.CommunityViewModel
+import eu.seijindemon.student_iee_ihu.data.viewmodel.CommunityViewModelFactory
 import kotlinx.android.synthetic.main.fragment_category_community.view.*
 
 class CategoryCommunityFragment : Fragment() {

@@ -1,26 +1,25 @@
-package eu.seijindemon.student_iee_ihu.data.local.viewmodel
+package eu.seijindemon.student_iee_ihu.data.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.*
-import eu.seijindemon.student_iee_ihu.data.model.UnofficialService
-import eu.seijindemon.student_iee_ihu.data.repository.UnofficialServiceRepository
+import eu.seijindemon.student_iee_ihu.data.model.Offer
+import eu.seijindemon.student_iee_ihu.data.repository.OfferRepository
 import kotlinx.coroutines.*
-import retrofit2.Response
 import java.lang.IllegalArgumentException
 
-class UnofficialServiceViewModel(private val  repository: UnofficialServiceRepository): ViewModel() {
+class OfferViewModel(private val  repository: OfferRepository): ViewModel() {
 
-    fun readData(): LiveData<List<UnofficialService>> {
+    fun readData(): LiveData<List<Offer>> {
         return repository.readData().asLiveData()
     }
 
-    fun insertData(unofficialServices: List<UnofficialService>) {
+    fun insertData(offers: List<Offer>) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.insertData(unofficialServices)
+            repository.insertData(offers)
         }
     }
 
-    fun searchDatabase(searchQuery: String): LiveData<List<UnofficialService>> {
+    fun searchDatabase(searchQuery: String): LiveData<List<Offer>> {
         return repository.searchDatabase(searchQuery).asLiveData()
     }
 
@@ -28,9 +27,9 @@ class UnofficialServiceViewModel(private val  repository: UnofficialServiceRepos
         Log.e("Network", "Caught $exception")
     }
 
-    fun getUnofficialServices() {
+    fun getOffers() {
         CoroutineScope(Dispatchers.IO).launch(handler) {
-            val response = repository.getUnofficialServices()
+            val response = repository.getOffers()
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
                     response.body()?.let {
@@ -46,11 +45,11 @@ class UnofficialServiceViewModel(private val  repository: UnofficialServiceRepos
 
 }
 
-class UnofficialServiceViewModelFactory(private val repository: UnofficialServiceRepository): ViewModelProvider.Factory {
+class OfferViewModelFactory(private val repository: OfferRepository): ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(UnofficialServiceViewModel::class.java)) {
+        if (modelClass.isAssignableFrom(OfferViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return UnofficialServiceViewModel(repository) as T
+            return OfferViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel Class")
     }

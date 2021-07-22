@@ -1,7 +1,6 @@
 package eu.seijindemon.student_iee_ihu.ui.find.teachers
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,9 +10,8 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import eu.seijindemon.student_iee_ihu.CoreApplication
 import eu.seijindemon.student_iee_ihu.R
-import eu.seijindemon.student_iee_ihu.data.local.viewmodel.TeacherViewModel
-import eu.seijindemon.student_iee_ihu.data.local.viewmodel.TeacherViewModelFactory
-import eu.seijindemon.student_iee_ihu.data.model.Teacher
+import eu.seijindemon.student_iee_ihu.data.viewmodel.TeacherViewModel
+import eu.seijindemon.student_iee_ihu.data.viewmodel.TeacherViewModelFactory
 import kotlinx.android.synthetic.main.fragment_teachers.view.*
 
 

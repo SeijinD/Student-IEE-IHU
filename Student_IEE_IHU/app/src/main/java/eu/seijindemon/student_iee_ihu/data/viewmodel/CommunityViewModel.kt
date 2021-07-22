@@ -1,11 +1,10 @@
-package eu.seijindemon.student_iee_ihu.data.local.viewmodel
+package eu.seijindemon.student_iee_ihu.data.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.*
 import eu.seijindemon.student_iee_ihu.data.model.Community
 import eu.seijindemon.student_iee_ihu.data.repository.CommunityRepository
 import kotlinx.coroutines.*
-import retrofit2.Response
 import java.lang.IllegalArgumentException
 
 class CommunityViewModel(private val  repository: CommunityRepository): ViewModel() {

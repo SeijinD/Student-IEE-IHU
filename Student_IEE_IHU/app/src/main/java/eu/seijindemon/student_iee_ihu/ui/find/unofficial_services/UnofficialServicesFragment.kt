@@ -1,7 +1,6 @@
 package eu.seijindemon.student_iee_ihu.ui.find.unofficial_services
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,8 +10,8 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import eu.seijindemon.student_iee_ihu.CoreApplication
 import eu.seijindemon.student_iee_ihu.R
-import eu.seijindemon.student_iee_ihu.data.local.viewmodel.UnofficialServiceViewModel
-import eu.seijindemon.student_iee_ihu.data.local.viewmodel.UnofficialServiceViewModelFactory
+import eu.seijindemon.student_iee_ihu.data.viewmodel.UnofficialServiceViewModel
+import eu.seijindemon.student_iee_ihu.data.viewmodel.UnofficialServiceViewModelFactory
 import kotlinx.android.synthetic.main.fragment_unofficial_services.view.*
 
 

@@ -1,29 +1,25 @@
-package eu.seijindemon.student_iee_ihu.data.local.viewmodel
+package eu.seijindemon.student_iee_ihu.data.viewmodel
 
 import android.util.Log
-import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.*
-import eu.seijindemon.student_iee_ihu.R
-import eu.seijindemon.student_iee_ihu.data.model.Course
-import eu.seijindemon.student_iee_ihu.data.repository.CourseRepository
+import eu.seijindemon.student_iee_ihu.data.model.OfficialService
+import eu.seijindemon.student_iee_ihu.data.repository.OfficialServiceRepository
 import kotlinx.coroutines.*
-import www.sanju.motiontoast.MotionToast
 import java.lang.IllegalArgumentException
-import kotlin.coroutines.coroutineContext
 
-class CourseViewModel(private val  repository: CourseRepository): ViewModel() {
+class OfficialServiceViewModel(private val  repository: OfficialServiceRepository): ViewModel() {
 
-    fun readData(): LiveData<List<Course>> {
+    fun readData(): LiveData<List<OfficialService>> {
         return repository.readData().asLiveData()
     }
 
-    fun insertData(courses: List<Course>) {
+    fun insertData(officialServices: List<OfficialService>) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.insertData(courses)
+            repository.insertData(officialServices)
         }
     }
 
-    fun searchDatabase(searchQuery: String): LiveData<List<Course>> {
+    fun searchDatabase(searchQuery: String): LiveData<List<OfficialService>> {
         return repository.searchDatabase(searchQuery).asLiveData()
     }
 
@@ -31,9 +27,9 @@ class CourseViewModel(private val  repository: CourseRepository): ViewModel() {
         Log.e("Network", "Caught $exception")
     }
 
-    fun getCourses() {
+    fun getOfficialServices() {
         CoroutineScope(Dispatchers.IO).launch(handler) {
-            val response = repository.getCourses()
+            val response = repository.getOfficialServices()
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
                     response.body()?.let {
@@ -49,11 +45,11 @@ class CourseViewModel(private val  repository: CourseRepository): ViewModel() {
 
 }
 
-class CourseViewModelFactory(private val repository: CourseRepository): ViewModelProvider.Factory {
+class OfficialServiceViewModelFactory(private val repository: OfficialServiceRepository): ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(CourseViewModel::class.java)) {
+        if (modelClass.isAssignableFrom(OfficialServiceViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return CourseViewModel(repository) as T
+            return OfficialServiceViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel Class")
     }

@@ -1,26 +1,25 @@
-package eu.seijindemon.student_iee_ihu.data.local.viewmodel
+package eu.seijindemon.student_iee_ihu.data.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.*
-import eu.seijindemon.student_iee_ihu.data.model.Teacher
-import eu.seijindemon.student_iee_ihu.data.repository.TeacherRepository
+import eu.seijindemon.student_iee_ihu.data.model.Map
+import eu.seijindemon.student_iee_ihu.data.repository.MapRepository
 import kotlinx.coroutines.*
-import retrofit2.Response
 import java.lang.IllegalArgumentException
 
-class TeacherViewModel(private val  repository: TeacherRepository): ViewModel() {
+class MapViewModel(private val  repository: MapRepository): ViewModel() {
 
-    fun readData(): LiveData<List<Teacher>> {
-        return  repository.readData().asLiveData()
+    fun readData(): LiveData<List<Map>> {
+        return repository.readData().asLiveData()
     }
 
-    fun insertData(teachers: List<Teacher>) {
+    fun insertData(maps: List<Map>) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.insertData(teachers)
+            repository.insertData(maps)
         }
     }
 
-    fun searchDatabase(searchQuery: String): LiveData<List<Teacher>> {
+    fun searchDatabase(searchQuery: String): LiveData<List<Map>> {
         return repository.searchDatabase(searchQuery).asLiveData()
     }
 
@@ -28,9 +27,9 @@ class TeacherViewModel(private val  repository: TeacherRepository): ViewModel() 
         Log.e("Network", "Caught $exception")
     }
 
-    fun getTeachers() {
+    fun getMaps() {
         CoroutineScope(Dispatchers.IO).launch(handler) {
-            val response = repository.getTeachers()
+            val response = repository.getMaps()
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
                     response.body()?.let {
@@ -46,11 +45,11 @@ class TeacherViewModel(private val  repository: TeacherRepository): ViewModel() 
 
 }
 
-class TeacherViewModelFactory(private val repository: TeacherRepository): ViewModelProvider.Factory {
+class MapViewModelFactory(private val repository: MapRepository): ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(TeacherViewModel::class.java)) {
+        if (modelClass.isAssignableFrom(MapViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return TeacherViewModel(repository) as T
+            return MapViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel Class")
     }

@@ -51,7 +51,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:contentDescription="@string/apps"
-                android:src="@drawable/alerter_ic_notifications"
+                android:src="@drawable/ic_baseline_notifications_24"
                 app:tint="@color/white" />
 
         </LinearLayout>
