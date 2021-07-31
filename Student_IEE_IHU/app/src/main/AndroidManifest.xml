@@ -41,7 +41,9 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".ui.not_network.NotNetworkActivity">
+        <activity
+            android:name=".ui.not_network.NotNetworkActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
