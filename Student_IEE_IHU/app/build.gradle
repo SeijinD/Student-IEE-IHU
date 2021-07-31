@@ -96,11 +96,11 @@ dependencies {
 
     // Firebase UI
     // FirebaseUI for Firebase Realtime Database
-    implementation 'com.firebaseui:firebase-ui-database:7.1.1'
+    implementation 'com.firebaseui:firebase-ui-database:8.0.0'
     // FirebaseUI for Firebase Auth
-    // implementation 'com.firebaseui:firebase-ui-auth:7.1.1'
+    // implementation 'com.firebaseui:firebase-ui-auth:8.0.0'
     // FirebaseUI for Cloud Storage
-    // implementation 'com.firebaseui:firebase-ui-storage:7.1.1'
+    // implementation 'com.firebaseui:firebase-ui-storage:8.0.0'
 
     // RecyclerView + CardView
     implementation "androidx.recyclerview:recyclerview:1.2.1"
@@ -118,7 +118,7 @@ dependencies {
 
     // Glide
     implementation "com.github.bumptech.glide:glide:$glide"
-    annotationProcessor "com.github.bumptech.glide:compiler:$glide"
+    kapt "com.github.bumptech.glide:compiler:$glide"
     // Glide Transformations
     implementation 'jp.wasabeef:glide-transformations:4.3.0'
     // If you want to use the GPU Filters
@@ -134,7 +134,7 @@ dependencies {
     implementation 'com.afollestad.material-dialogs:input:3.3.0'
 
     // MMKV
-    implementation 'com.tencent:mmkv-static:1.2.8'
+    implementation 'com.tencent:mmkv-static:1.2.10'
 
     // Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines"
