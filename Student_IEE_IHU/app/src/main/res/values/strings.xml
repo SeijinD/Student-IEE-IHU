@@ -153,4 +153,6 @@
     <string name="department">Department</string>
     <string name="loading">Loading...</string>
     <string name="home_welcome">Welcome student in the application!</string>
+    <string name="feeding">Feeding</string>
+    <string name="housing">Housing</string>
 </resources>
