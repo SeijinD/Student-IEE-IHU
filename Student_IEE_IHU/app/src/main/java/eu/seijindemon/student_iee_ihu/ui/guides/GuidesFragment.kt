@@ -28,15 +28,15 @@ class GuidesFragment : Fragment() {
         }
 
         view.feeding.setOnClickListener{
-
+            Navigation.findNavController(view).navigate(R.id.menuFeeding)
         }
 
         view.housing.setOnClickListener{
-
+            Navigation.findNavController(view).navigate(R.id.menuHousing)
         }
 
         view.library.setOnClickListener{
-
+            Navigation.findNavController(view).navigate(R.id.menuLibrary)
         }
 
         view.softwares.setOnClickListener{

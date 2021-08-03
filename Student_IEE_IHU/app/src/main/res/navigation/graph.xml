@@ -180,6 +180,15 @@
         <action
             android:id="@+id/action_menuGuides_to_menuSoftwares"
             app:destination="@id/menuSoftwares" />
+        <action
+            android:id="@+id/action_menuGuides_to_menuFeeding"
+            app:destination="@id/menuFeeding" />
+        <action
+            android:id="@+id/action_menuGuides_to_menuHousing"
+            app:destination="@id/menuHousing" />
+        <action
+            android:id="@+id/action_menuGuides_to_menuLibrary"
+            app:destination="@id/menuLibrary" />
     </fragment>
     <fragment
         android:id="@+id/pdf_webview"
@@ -316,4 +325,19 @@
         android:name="eu.seijindemon.student_iee_ihu.ui.department.DepartmentFragment"
         android:label="@string/department"
         tools:layout="@layout/fragment_department" />
+    <fragment
+        android:id="@+id/menuFeeding"
+        android:name="eu.seijindemon.student_iee_ihu.ui.guides.FeedingFragment"
+        android:label="@string/feeding"
+        tools:layout="@layout/fragment_feeding" />
+    <fragment
+        android:id="@+id/menuHousing"
+        android:name="eu.seijindemon.student_iee_ihu.ui.guides.HousingFragment"
+        android:label="@string/housing"
+        tools:layout="@layout/fragment_housing" />
+    <fragment
+        android:id="@+id/menuLibrary"
+        android:name="eu.seijindemon.student_iee_ihu.ui.guides.LibraryFragment"
+        android:label="@string/library"
+        tools:layout="@layout/fragment_library" />
 </navigation>
