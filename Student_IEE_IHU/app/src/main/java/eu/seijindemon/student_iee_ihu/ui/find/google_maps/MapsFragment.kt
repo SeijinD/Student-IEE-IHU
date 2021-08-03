@@ -45,6 +45,10 @@ class MapsFragment : Fragment(), OnMapReadyCallback, SearchView.OnQueryTextListe
     override fun onMapReady(googleMap: GoogleMap) {
         viewMap = googleMap
 
+        viewMap.uiSettings.isZoomControlsEnabled = true
+        viewMap.uiSettings.isMapToolbarEnabled = true
+        viewMap.uiSettings.isMyLocationButtonEnabled = true
+
         mapViewModel.readData().observe(this, { list ->
             mapList = list
             for (map in mapList) {

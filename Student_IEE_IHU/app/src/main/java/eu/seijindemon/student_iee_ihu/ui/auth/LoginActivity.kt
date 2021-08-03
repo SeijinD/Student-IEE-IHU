@@ -1,5 +1,6 @@
 package eu.seijindemon.student_iee_ihu.ui.auth
 
+import android.annotation.SuppressLint
 import android.app.ProgressDialog
 import android.content.Intent
 import android.content.res.Configuration
@@ -8,6 +9,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.text.InputType
 import android.util.Log
+import androidx.annotation.WorkerThread
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.res.ResourcesCompat
 import com.afollestad.materialdialogs.MaterialDialog
@@ -23,10 +25,15 @@ import com.vmadalin.easypermissions.dialogs.SettingsDialog
 import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.ui.main.AdminMainActivity
 import eu.seijindemon.student_iee_ihu.ui.main.MainActivity
+import eu.seijindemon.student_iee_ihu.ui.not_network.NotNetworkActivity
 import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import eu.seijindemon.student_iee_ihu.utils.LoadingDialog
+import eu.seijindemon.student_iee_ihu.utils.NetworkStatus
 import eu.seijindemon.student_iee_ihu.utils.Permissions
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import www.sanju.motiontoast.MotionToast
 import java.util.*
 
@@ -140,6 +147,7 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
         setLocale(kv?.decodeString("string")!!)
     }
 
+    @SuppressLint("CheckResult")
     private fun resetPassword() {
         val type = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
         var email : String? = null
@@ -343,6 +351,22 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
         }
         else {
             Permissions.requestBasicPermission(this)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        CoroutineScope(Dispatchers.IO).launch {
+            networkAvailable()
+        }
+    }
+
+    @WorkerThread
+    private suspend fun networkAvailable() {
+        if (!NetworkStatus.networkAvailable(application)) {
+            startActivity(Intent(this, NotNetworkActivity::class.java))
+            finish()
         }
     }
 

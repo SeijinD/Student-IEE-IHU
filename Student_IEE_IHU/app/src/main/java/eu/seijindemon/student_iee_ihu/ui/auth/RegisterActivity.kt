@@ -4,12 +4,18 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.annotation.WorkerThread
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.widget.doOnTextChanged
 import com.google.firebase.auth.UserProfileChangeRequest
 import eu.seijindemon.student_iee_ihu.R
+import eu.seijindemon.student_iee_ihu.ui.not_network.NotNetworkActivity
 import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
+import eu.seijindemon.student_iee_ihu.utils.NetworkStatus
 import kotlinx.android.synthetic.main.activity_register.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import www.sanju.motiontoast.MotionToast
 
 class RegisterActivity : AppCompatActivity() {
@@ -191,5 +197,21 @@ class RegisterActivity : AppCompatActivity() {
 
         startActivity(Intent(this, LoginActivity::class.java))
         finish()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        CoroutineScope(Dispatchers.IO).launch {
+            networkAvailable()
+        }
+    }
+
+    @WorkerThread
+    private suspend fun networkAvailable() {
+        if (!NetworkStatus.networkAvailable(application)) {
+            startActivity(Intent(this, NotNetworkActivity::class.java))
+            finish()
+        }
     }
 }
