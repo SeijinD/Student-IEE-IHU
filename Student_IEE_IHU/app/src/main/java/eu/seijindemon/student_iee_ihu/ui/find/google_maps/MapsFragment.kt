@@ -48,10 +48,13 @@ class MapsFragment : Fragment(), OnMapReadyCallback, SearchView.OnQueryTextListe
     override fun onMapReady(googleMap: GoogleMap) {
         viewMap = googleMap
 
+        viewMap.setPadding(0,0,0,200)
+
         viewMap.uiSettings.isZoomControlsEnabled = true
         viewMap.uiSettings.isMapToolbarEnabled = true
         viewMap.setOnMarkerClickListener(this)
 
+        //viewMap.isMyLocationEnabled
 
         val zoomLevel = 14.0f
         val latLng = LatLng(40.6571442491575, 22.80383399794818)
@@ -88,7 +91,9 @@ class MapsFragment : Fragment(), OnMapReadyCallback, SearchView.OnQueryTextListe
     private fun searchDatabase(query: String) {
         val searchQuery = "%$query%"
 
-        viewMap.clear()
+        if(::viewMap.isInitialized) {
+            viewMap.clear()
+        }
 
         mapViewModel.searchDatabase(searchQuery).observe(this, { list ->
             mapList = list
@@ -102,9 +107,11 @@ class MapsFragment : Fragment(), OnMapReadyCallback, SearchView.OnQueryTextListe
             }
         })
 
-        val zoomLevel = 14.0f
-        val latLng = LatLng(40.6571442491575, 22.80383399794818)
-        viewMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoomLevel))
+        if(::viewMap.isInitialized) {
+            val zoomLevel = 14.0f
+            val latLng = LatLng(40.6571442491575, 22.80383399794818)
+            viewMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoomLevel))
+        }
     }
 
     override fun onMarkerClick(marker: Marker): Boolean {
