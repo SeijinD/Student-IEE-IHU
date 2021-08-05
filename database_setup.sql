@@ -68,7 +68,7 @@ CREATE TABLE `maps` (
   `id` int(11) NOT NULL,
   `latitude` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `longitude` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `description` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
