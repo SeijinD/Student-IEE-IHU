@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.ms.square.android.expandabletextview.ExpandableTextView
 import eu.seijindemon.student_iee_ihu.R
-import eu.seijindemon.student_iee_ihu.utils.HelpTexts
+import eu.seijindemon.student_iee_ihu.utils.Texts
 import eu.seijindemon.student_iee_ihu.utils.LoadLanguage
 import kotlinx.android.synthetic.main.fragment_help.view.*
 import kotlinx.android.synthetic.main.text_item.view.*
@@ -25,16 +25,16 @@ class HelpFragment : Fragment() {
 
         when(LoadLanguage.loadLanguage()) {
             "el" -> {
-                textHelp1.text = HelpTexts.helpText1Gr
-                textHelp2.text = HelpTexts.helpText2Gr
-                textHelp3.text = HelpTexts.helpText3Gr
-                textHelp4.text = HelpTexts.helpText4Gr
+                textHelp1.text = Texts.helpText1Gr
+                textHelp2.text = Texts.helpText2Gr
+                textHelp3.text = Texts.helpText3Gr
+                textHelp4.text = Texts.helpText4Gr
             }
             "en" -> {
-                textHelp1.text = HelpTexts.helpText1En
-                textHelp2.text = HelpTexts.helpText2En
-                textHelp3.text = HelpTexts.helpText3En
-                textHelp4.text = HelpTexts.helpText4En
+                textHelp1.text = Texts.helpText1En
+                textHelp2.text = Texts.helpText2En
+                textHelp3.text = Texts.helpText3En
+                textHelp4.text = Texts.helpText4En
             }
         }
 
