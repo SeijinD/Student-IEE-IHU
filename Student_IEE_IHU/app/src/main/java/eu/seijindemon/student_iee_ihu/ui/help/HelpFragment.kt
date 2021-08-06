@@ -8,10 +8,8 @@ import android.view.ViewGroup
 import com.ms.square.android.expandabletextview.ExpandableTextView
 import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.utils.HelpTexts
+import eu.seijindemon.student_iee_ihu.utils.LoadLanguage
 import kotlinx.android.synthetic.main.fragment_help.view.*
-import kotlinx.android.synthetic.main.fragment_help.view.sample1
-import kotlinx.android.synthetic.main.fragment_help.view.sample2
-import kotlinx.android.synthetic.main.fragment_home.view.*
 import kotlinx.android.synthetic.main.text_item.view.*
 
 class HelpFragment : Fragment() {
@@ -21,10 +19,24 @@ class HelpFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_help, container, false)
 
         val textHelp1: ExpandableTextView = view.sample1.expand_text_view
-        textHelp1.text = HelpTexts.helpText1
-
         val textHelp2: ExpandableTextView = view.sample2.expand_text_view
-        textHelp2.text = HelpTexts.helpText2
+        val textHelp3: ExpandableTextView = view.sample3.expand_text_view
+        val textHelp4: ExpandableTextView = view.sample4.expand_text_view
+
+        when(LoadLanguage.loadLanguage()) {
+            "el" -> {
+                textHelp1.text = HelpTexts.helpText1Gr
+                textHelp2.text = HelpTexts.helpText2Gr
+                textHelp3.text = HelpTexts.helpText3Gr
+                textHelp4.text = HelpTexts.helpText4Gr
+            }
+            "en" -> {
+                textHelp1.text = HelpTexts.helpText1En
+                textHelp2.text = HelpTexts.helpText2En
+                textHelp3.text = HelpTexts.helpText3En
+                textHelp4.text = HelpTexts.helpText4En
+            }
+        }
 
         return view
     }

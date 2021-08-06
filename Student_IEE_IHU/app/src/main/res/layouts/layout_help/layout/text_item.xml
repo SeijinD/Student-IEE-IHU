@@ -10,7 +10,7 @@
         android:id="@+id/expand_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        expandableTextView:maxCollapsedLines="1"
+        expandableTextView:maxCollapsedLines="2"
         expandableTextView:animDuration="200">
         <TextView
             android:id="@id/expandable_text"

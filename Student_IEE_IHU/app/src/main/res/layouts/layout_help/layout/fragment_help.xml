@@ -44,13 +44,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-        <include
-            android:id="@+id/sample1"
-            layout="@layout/text_item" />
+            <include
+                android:id="@+id/sample1"
+                layout="@layout/text_item" />
 
-        <include
-            android:id="@+id/sample2"
-            layout="@layout/text_item" />
+            <include
+                android:id="@+id/sample2"
+                layout="@layout/text_item" />
+
+            <include
+                android:id="@+id/sample3"
+                layout="@layout/text_item" />
+
+            <include
+                android:id="@+id/sample4"
+                layout="@layout/text_item" />
 
         </LinearLayout>
 
