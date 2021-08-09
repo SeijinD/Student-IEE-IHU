@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import eu.seijindemon.student_iee_ihu.R
@@ -21,7 +20,7 @@ class ZoomRoomFragment : Fragment() {
         val pager2 = view.view_page2_rooms
 
         val fm = fragmentManager
-        val adapter = FragmentRoomsAdapter(fm!!, lifecycle)
+        val adapter = RoomsAdapter(fm!!, lifecycle)
         pager2.adapter = adapter
 
         tabLayout.addTab(tabLayout.newTab().setText(R.string.r1_r8))
