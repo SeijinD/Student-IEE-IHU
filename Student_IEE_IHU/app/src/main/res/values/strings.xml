@@ -38,7 +38,7 @@
     <string name="subject">Subject</string>
     <string name="send">Send</string>
     <string name="message">Message</string>
-    <string name="not_network">Not Network</string>
+    <string name="not_network">No Network</string>
     <string name="communities">Communities</string>
     <string name="facebook_groups">Facebook Groups</string>
     <string name="discord_servers">Discord Servers</string>

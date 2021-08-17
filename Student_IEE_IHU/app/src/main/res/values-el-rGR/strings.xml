@@ -39,7 +39,7 @@
     <string name="subject">Θέμα</string>
     <string name="send">Στείλετε</string>
     <string name="message">Μήνυμα</string>
-    <string name="not_network">Όχι Δίκτυο</string>
+    <string name="not_network">Εκτός δικτύου</string>
     <string name="communities">Κοινότητες</string>
     <string name="facebook_groups">Ομάδες Στο Facebook</string>
     <string name="facebook_pages">Σελίδες Στο Facebook</string>
@@ -134,4 +134,6 @@
     <string name="official_services">Επίσημες Υπηρεσίες</string>
     <string name="unofficial_services">Ανεπίσημες Υπηρεσίες</string>
     <string name="softwares">Λογισμικά</string>
+    <string name="housing">Στέγαση</string>
+    <string name="feeding">Σίτιση</string>
 </resources>

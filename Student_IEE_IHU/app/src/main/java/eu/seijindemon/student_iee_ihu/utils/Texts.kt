@@ -38,5 +38,20 @@ class Texts {
         const val departmentText2Gr = "Η  διάρκεια του πρώτου κύκλου σπουδών του Τμήματος έχει οριστεί σε δέκα (10) ακαδημαϊκά εξάμηνα σύμφωνα με το ΦΕΚ 2657/1-7-2019/τ.Β και η εφαρμογή του αντίστοιχου Προγράμματος Προπτυχιακών Σπουδών ορίζεται από το ακαδημαϊκό έτος 2019-20. Το Μάιο 2020 εγκρίθηκε ομόφωνα από την 10η/12-5-2020 Συνέλευση η εισήγηση για υπαγωγή του Προγράμματος Προπτυχιακών Σπουδών του Τμήματος στην “Απονομή ενιαίου και αδιάσπαστου τίτλου σπουδών μεταπτυχιακού επιπέδου (Integrated Master)” σύμφωνα με το άρθρο 46 του ν. 4485/2017."
         const val departmentText2En = "The duration of the Department’s first cycle of studies is set to ten (10) academic semesters in accordance with Government Gazette 2657/1-7-2019/issue B and the first implementation of the corresponding Undergraduate Program of Studies was defined for the academic year 2019-20."
 
+        const val firstDayGr = ""
+        const val firstDayEn = ""
+
+        const val thesisGr = ""
+        const val thesisEn = ""
+
+        const val feedingGr = ""
+        const val feedingEn = ""
+
+        const val housingGr = ""
+        const val housingEn = ""
+
+        const val libraryGr = ""
+        const val libraryEn = ""
+
     }
 }
