@@ -120,7 +120,7 @@ class SettingsFragment : Fragment() {
         intent.type = "text/plain"
         intent.putExtra(Intent.EXTRA_SUBJECT, "Student IEE-IHU")
         intent.putExtra(Intent.EXTRA_TEXT, "Download this Application now: http://play.google.com/store/apps/details?id=${activity?.packageName}")
-        startActivity(Intent.createChooser(intent, "Share with"))
+        startActivity(Intent.createChooser(intent, getString(R.string.share_with)))
     }
 
     private fun rateApp() {
@@ -139,8 +139,8 @@ class SettingsFragment : Fragment() {
         catch (e: ActivityNotFoundException) {
             MotionToast.Companion.createColorToast(
                 requireActivity(),
-                "Warning",
-                "Privacy Policy Not Found!",
+                getString(R.string.warning),
+                getString(R.string.privacy_policy_not_found),
                 MotionToast.Companion.TOAST_WARNING,
                 MotionToast.Companion.GRAVITY_BOTTOM,
                 MotionToast.Companion.LONG_DURATION,
@@ -151,8 +151,8 @@ class SettingsFragment : Fragment() {
 
     private fun resetPassword() {
         MaterialStyledDialog.Builder(requireContext())
-                .setTitle("Reset Your Password!")
-                .setDescription("Are you sure?")
+                .setTitle(R.string.reset_your_password)
+                .setDescription(R.string.are_you_sure)
                 .setNegativeText(R.string.no)
                 .setPositiveText(R.string.yes)
                 .onPositive { confirmResetPassword() }
@@ -162,8 +162,8 @@ class SettingsFragment : Fragment() {
 
     private fun deleteAccount() {
         MaterialStyledDialog.Builder(requireContext())
-                .setTitle("Delete Your Account!")
-                .setDescription("Are you sure?")
+                .setTitle(R.string.delete_your_account)
+                .setDescription(R.string.are_you_sure)
                 .setNegativeText(R.string.no)
                 .setPositiveText(R.string.yes)
                 .onPositive { confirmDelete() }
@@ -177,8 +177,8 @@ class SettingsFragment : Fragment() {
                     if (task.isSuccessful) {
                         MotionToast.Companion.createColorToast(
                                 this.requireActivity(),
-                                "Successful",
-                                "Send Reset Password Email!",
+                                getString(R.string.successful),
+                                getString(R.string.send_reset_password_email),
                                 MotionToast.Companion.TOAST_SUCCESS,
                                 MotionToast.Companion.GRAVITY_BOTTOM,
                                 MotionToast.Companion.LONG_DURATION,
@@ -187,8 +187,8 @@ class SettingsFragment : Fragment() {
                     else {
                         MotionToast.Companion.createColorToast(
                                 this.requireActivity(),
-                                "UnSuccessful",
-                                "No Send Reset Password Email",
+                                getString(R.string.unsuccessful),
+                                getString(R.string.no_send_reset_password_email),
                                 MotionToast.Companion.TOAST_ERROR,
                                 MotionToast.Companion.GRAVITY_BOTTOM,
                                 MotionToast.Companion.LONG_DURATION,
@@ -204,8 +204,8 @@ class SettingsFragment : Fragment() {
                     FirebaseSetup.userReference?.removeValue()
                     MotionToast.Companion.createColorToast(
                             this.requireActivity(),
-                            "Successful",
-                            "Account Deleted",
+                            getString(R.string.successful),
+                            getString(R.string.account_deleted),
                             MotionToast.Companion.TOAST_SUCCESS,
                             MotionToast.Companion.GRAVITY_BOTTOM,
                             MotionToast.Companion.LONG_DURATION,
@@ -216,8 +216,8 @@ class SettingsFragment : Fragment() {
                 else {
                     MotionToast.Companion.createColorToast(
                             this.requireActivity(),
-                            "UnSuccessful",
-                            "Delete Not Deleted",
+                            getString(R.string.unsuccessful),
+                            getString(R.string.account_not_deleted),
                             MotionToast.Companion.TOAST_ERROR,
                             MotionToast.Companion.GRAVITY_BOTTOM,
                             MotionToast.Companion.LONG_DURATION,

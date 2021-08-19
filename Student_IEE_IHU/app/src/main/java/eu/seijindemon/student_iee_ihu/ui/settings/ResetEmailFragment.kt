@@ -30,8 +30,8 @@ class ResetEmailFragment : Fragment() {
             if (view.password_reset_email.text.toString().trim().isEmpty()) {
                 MotionToast.Companion.createColorToast(
                     requireActivity(),
-                    "Warning",
-                    "Input Password",
+                    getString(R.string.warning),
+                    getString(R.string.input_password),
                     MotionToast.Companion.TOAST_WARNING,
                     MotionToast.Companion.GRAVITY_BOTTOM,
                     MotionToast.Companion.LONG_DURATION,
@@ -40,8 +40,8 @@ class ResetEmailFragment : Fragment() {
             else if (view.new_reset_email.text.toString().trim().isEmpty()) {
                 MotionToast.Companion.createColorToast(
                     requireActivity(),
-                    "Warning",
-                    "Input New Email",
+                    getString(R.string.warning),
+                    getString(R.string.input_new_email),
                     MotionToast.Companion.TOAST_WARNING,
                     MotionToast.Companion.GRAVITY_BOTTOM,
                     MotionToast.Companion.LONG_DURATION,
@@ -73,8 +73,8 @@ class ResetEmailFragment : Fragment() {
                                 if (task.isSuccessful) {
                                     MotionToast.Companion.createColorToast(
                                         requireActivity(),
-                                        "Successful",
-                                        "Update Email!",
+                                        getString(R.string.successful),
+                                        getString(R.string.update_email),
                                         MotionToast.Companion.TOAST_SUCCESS,
                                         MotionToast.Companion.GRAVITY_BOTTOM,
                                         MotionToast.Companion.LONG_DURATION,
@@ -91,8 +91,8 @@ class ResetEmailFragment : Fragment() {
                                 } else {
                                     MotionToast.Companion.createColorToast(
                                         requireActivity(),
-                                        "UnSuccessful",
-                                        "Not Update Email",
+                                        getString(R.string.unsuccessful),
+                                        getString(R.string.not_update_email),
                                         MotionToast.Companion.TOAST_ERROR,
                                         MotionToast.Companion.GRAVITY_BOTTOM,
                                         MotionToast.Companion.LONG_DURATION,
@@ -103,8 +103,8 @@ class ResetEmailFragment : Fragment() {
                     it.exception is FirebaseAuthInvalidCredentialsException -> {
                         MotionToast.Companion.createColorToast(
                             requireActivity(),
-                            "Error",
-                            "Password is wrong!",
+                            getString(R.string.error),
+                            getString(R.string.password_is_wrong),
                             MotionToast.Companion.TOAST_ERROR,
                             MotionToast.Companion.GRAVITY_BOTTOM,
                             MotionToast.Companion.LONG_DURATION,
@@ -113,7 +113,7 @@ class ResetEmailFragment : Fragment() {
                     else -> {
                         MotionToast.Companion.createColorToast(
                             requireActivity(),
-                            "Error",
+                            getString(R.string.error),
                             "${it.exception?.message}",
                             MotionToast.Companion.TOAST_ERROR,
                             MotionToast.Companion.GRAVITY_BOTTOM,

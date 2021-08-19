@@ -67,8 +67,8 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                         loading.isDismiss()
                         MotionToast.Companion.createColorToast(
                             this,
-                            "Successful",
-                            "Login...",
+                            getString(R.string.successful),
+                            getString(R.string.login_),
                             MotionToast.Companion.TOAST_SUCCESS,
                             MotionToast.Companion.GRAVITY_BOTTOM,
                             MotionToast.Companion.SHORT_DURATION,
@@ -79,8 +79,8 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                         loading.isDismiss()
                         MotionToast.Companion.createColorToast(
                             this,
-                            "Successful",
-                            "Login...",
+                            getString(R.string.successful),
+                            getString(R.string.login_),
                             MotionToast.Companion.TOAST_SUCCESS,
                             MotionToast.Companion.GRAVITY_BOTTOM,
                             MotionToast.Companion.SHORT_DURATION,
@@ -169,7 +169,7 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                 val inputField = dialog.getInputField()
                 val isValid = text.contains("@")
 
-                inputField.error = if (isValid) null else "Must contains @ in email!"
+                inputField.error = if (isValid) null else getString(R.string.must_contains)
                 dialog.setActionButtonEnabled(POSITIVE, isValid)
                 email = text.toString()
             }
@@ -185,8 +185,8 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                 if (task.isSuccessful) {
                     MotionToast.Companion.createColorToast(
                         this,
-                        "Successful",
-                        "Send Reset Password Email!",
+                        getString(R.string.successful),
+                        getString(R.string.send_reset_password_email),
                         MotionToast.Companion.TOAST_SUCCESS,
                         MotionToast.Companion.GRAVITY_BOTTOM,
                         MotionToast.Companion.LONG_DURATION,
@@ -195,8 +195,8 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                 else {
                     MotionToast.Companion.createColorToast(
                         this,
-                        "UnSuccessful",
-                        "No Send Reset Password Email",
+                        getString(R.string.unsuccessful),
+                        getString(R.string.no_send_reset_password_email),
                         MotionToast.Companion.TOAST_ERROR,
                         MotionToast.Companion.GRAVITY_BOTTOM,
                         MotionToast.Companion.LONG_DURATION,
@@ -210,8 +210,8 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
             login_email.text.toString().trim().isEmpty() -> {
                 MotionToast.Companion.createColorToast(
                     this,
-                    "Warning",
-                    "Input Email",
+                    getString(R.string.warning),
+                    getString(R.string.input_email),
                     MotionToast.Companion.TOAST_WARNING,
                     MotionToast.Companion.GRAVITY_BOTTOM,
                     MotionToast.Companion.LONG_DURATION,
@@ -220,8 +220,8 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
             login_password.text.toString().trim().isEmpty() -> {
                 MotionToast.Companion.createColorToast(
                     this,
-                    "Warning",
-                    "Input Password",
+                    getString(R.string.warning),
+                    getString(R.string.input_password),
                     MotionToast.Companion.TOAST_WARNING,
                     MotionToast.Companion.GRAVITY_BOTTOM,
                     MotionToast.Companion.LONG_DURATION,
@@ -245,8 +245,8 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                             if (currentUser?.isEmailVerified!!) {
                                 MotionToast.Companion.createColorToast(
                                     this,
-                                    "Successful",
-                                    "Login...",
+                                    getString(R.string.successful),
+                                    getString(R.string.login_),
                                     MotionToast.Companion.TOAST_SUCCESS,
                                     MotionToast.Companion.GRAVITY_BOTTOM,
                                     MotionToast.Companion.SHORT_DURATION,
@@ -257,15 +257,15 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                             } else if (!currentUser.isEmailVerified) {
                                 MotionToast.Companion.createColorToast(
                                     this,
-                                    "Warning",
-                                    "Must verify email!",
+                                    getString(R.string.warning),
+                                    getString(R.string.must_verify_email),
                                     MotionToast.Companion.TOAST_WARNING,
                                     MotionToast.Companion.GRAVITY_BOTTOM,
                                     MotionToast.Companion.LONG_DURATION,
                                     ResourcesCompat.getFont(this, R.font.helvetica_regular))
 
                                 MaterialStyledDialog.Builder(this)
-                                    .setTitle("Are you want to send email verification again?")
+                                    .setTitle(getString(R.string.send_email_again))
                                     .setNegativeText(R.string.no)
                                     .setPositiveText(R.string.yes)
                                     .onPositive { sendVerificationAgain() }
@@ -276,8 +276,8 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                         else if (isAdmin == "yes"){
                             MotionToast.Companion.createColorToast(
                                 this,
-                                "Successful",
-                                "Login...",
+                                getString(R.string.successful),
+                                getString(R.string.login_),
                                 MotionToast.Companion.TOAST_SUCCESS,
                                 MotionToast.Companion.GRAVITY_BOTTOM,
                                 MotionToast.Companion.SHORT_DURATION,
@@ -293,8 +293,8 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                 else {
                     MotionToast.Companion.createColorToast(
                         this,
-                        "Failed",
-                        "Try Again...",
+                        getString(R.string.failed),
+                        getString(R.string.try_again_),
                         MotionToast.Companion.TOAST_ERROR,
                         MotionToast.Companion.GRAVITY_BOTTOM,
                         MotionToast.Companion.LONG_DURATION,
@@ -309,8 +309,8 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
             if (task.isSuccessful) {
                 MotionToast.Companion.createColorToast(
                     this,
-                    "Successful",
-                    "Verification Email has been sent.",
+                    getString(R.string.successful),
+                    getString(R.string.vefification_email),
                     MotionToast.Companion.TOAST_SUCCESS,
                     MotionToast.Companion.GRAVITY_BOTTOM,
                     MotionToast.Companion.LONG_DURATION,
@@ -320,8 +320,8 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
             {
                 MotionToast.Companion.createColorToast(
                     this,
-                    "Failed",
-                    "Try Again...",
+                    getString(R.string.failed),
+                    getString(R.string.try_again_),
                     MotionToast.Companion.TOAST_ERROR,
                     MotionToast.Companion.GRAVITY_BOTTOM,
                     MotionToast.Companion.LONG_DURATION,

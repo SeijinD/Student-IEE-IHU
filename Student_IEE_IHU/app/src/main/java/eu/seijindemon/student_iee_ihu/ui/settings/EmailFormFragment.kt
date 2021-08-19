@@ -42,12 +42,12 @@ class EmailFormFragment : Fragment() {
         mIntent.putExtra(Intent.EXTRA_TEXT, message)
 
         try {
-            startActivity(Intent.createChooser(mIntent, "Choose Email Client:"))
+            startActivity(Intent.createChooser(mIntent, getString(R.string.choose_email_client)))
         } catch (e: Exception) {
             MotionToast.Companion.createColorToast(
                 requireActivity(),
-                "Error",
-                "Error Message: ${e.message}",
+                getString(R.string.error),
+                "${getString(R.string.error_message)} ${e.message}",
                 MotionToast.Companion.TOAST_ERROR,
                 MotionToast.Companion.GRAVITY_BOTTOM,
                 MotionToast.Companion.LONG_DURATION,

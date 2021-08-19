@@ -26,7 +26,7 @@ class SemesterFragment : Fragment(), AdapterView.OnItemClickListener {
 
         when(SemesterFragmentArgs.fromBundle(requireArguments()).semesterNumber){
             "1" -> {
-                toolbar.title = "1st Semester"
+                toolbar.title = getString(R.string.first_semester)
 
                 courseList.add(SimpleCourse("Μαθηματικά Ι", "course/1101"))
                 courseList.add(SimpleCourse("Δομημένος Προγραμματισμός", "course/1102"))
@@ -39,7 +39,7 @@ class SemesterFragment : Fragment(), AdapterView.OnItemClickListener {
                 view.course_list.onItemClickListener = this
             }
             "2" -> {
-                toolbar.title = "2nd Semester"
+                toolbar.title = getString(R.string.second_semester)
 
                 courseList.add(SimpleCourse("Μαθηματικά ΙΙ", "course/1201"))
                 courseList.add(SimpleCourse("Μετρήσεις και Κυκλώματα Εναλλασσόμενου Ρεύματος", "course/1202"))
@@ -52,7 +52,7 @@ class SemesterFragment : Fragment(), AdapterView.OnItemClickListener {
                 view.course_list.onItemClickListener = this
             }
             "3" -> {
-                toolbar.title = "3rd Semester"
+                toolbar.title = getString(R.string.third_semester)
 
                 courseList.add(SimpleCourse("Θεωρία Πιθανοτήτων και Στατιστική", "course/1301"))
                 courseList.add(SimpleCourse("Μαθηματικά ΙΙI", "course/1302"))
@@ -65,7 +65,7 @@ class SemesterFragment : Fragment(), AdapterView.OnItemClickListener {
                 view.course_list.onItemClickListener = this
             }
             "4" -> {
-                toolbar.title = "4th Semester"
+                toolbar.title = getString(R.string.fourth_semester)
 
                 courseList.add(SimpleCourse("Οργάνωση και Αρχιτεκτονική Υπολογιστικών Συστημάτων\t", "course/1304"))
                 courseList.add(SimpleCourse("Συστήματα Διαχείρισης Βάσεων Δεδομένων", "course/1401"))
@@ -78,7 +78,7 @@ class SemesterFragment : Fragment(), AdapterView.OnItemClickListener {
                 view.course_list.onItemClickListener = this
             }
             "5" -> {
-                toolbar.title = "5th Semester"
+                toolbar.title = getString(R.string.fifth_semester)
 
                 courseList.add(SimpleCourse("Ασύρματες Επικοινωνίες", "course/1501"))
                 courseList.add(SimpleCourse("Μικροελεγκτές", "course/1502"))
@@ -91,7 +91,7 @@ class SemesterFragment : Fragment(), AdapterView.OnItemClickListener {
                 view.course_list.onItemClickListener = this
             }
             "6" -> {
-                toolbar.title = "6th Semester"
+                toolbar.title = getString(R.string.sixth_semester)
 
                 courseList.add(SimpleCourse("Τεχνητή Νοημοσύνη", "course/1601"))
                 courseList.add(SimpleCourse("Ενσωματωμένα Συστήματα", "course/1602"))
@@ -110,7 +110,7 @@ class SemesterFragment : Fragment(), AdapterView.OnItemClickListener {
                 view.course_list.onItemClickListener = this
             }
             "7" -> {
-                toolbar.title = "7th Semester"
+                toolbar.title = getString(R.string.seventh_semester)
 
                 courseList.add(SimpleCourse("Δίκτυα Υπολογιστών", "course/1701"))
                 courseList.add(SimpleCourse("Ηλεκτρονικά Ισχύος", "course/1702"))
@@ -129,7 +129,7 @@ class SemesterFragment : Fragment(), AdapterView.OnItemClickListener {
                 view.course_list.onItemClickListener = this
             }
             "8" -> {
-                toolbar.title = "8th Semester"
+                toolbar.title = getString(R.string.eighth_semester)
 
                 courseList.add(SimpleCourse("Ασφάλεια Πληροφοριακών Συστημάτων", "course/1801"))
                 courseList.add(SimpleCourse("Αρχές και Μέθοδοι Μηχανικής Μάθησης", "course/1802"))
@@ -154,7 +154,7 @@ class SemesterFragment : Fragment(), AdapterView.OnItemClickListener {
                 view.course_list.onItemClickListener = this
             }
             "9" -> {
-                toolbar.title = "9th Semester"
+                toolbar.title = getString(R.string.ninth_semester)
 
                 courseList.add(SimpleCourse("Πρακτική Άσκηση", "course/1970"))
                 courseList.add(SimpleCourse("Εφαρμογές Ενσωματωμένων Συστημάτων", "course/1911"))
@@ -185,7 +185,7 @@ class SemesterFragment : Fragment(), AdapterView.OnItemClickListener {
                 view.course_list.onItemClickListener = this
             }
             "10" -> {
-                toolbar.title = "10th Semester"
+                toolbar.title = getString(R.string.tenth_semester)
 
                 courseList.add(SimpleCourse("Διπλωματική Εργασία", "course/1999"))
 

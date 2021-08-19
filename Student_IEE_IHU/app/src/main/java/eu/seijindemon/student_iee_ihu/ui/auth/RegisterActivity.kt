@@ -40,8 +40,8 @@ class RegisterActivity : AppCompatActivity() {
 
         register_password.doOnTextChanged { text, start, before, count ->
             when {
-                text!!.length < 10 -> register_password.error = "Password >= 10!"
-                text.length > 20 -> register_password.error = "Password <= 20!"
+                text!!.length < 10 -> register_password.error = "${getString(R.string.password)} >= 10!"
+                text.length > 20 -> register_password.error = "${getString(R.string.password)} <= 20!"
                 else -> register_password.error = null
             }
         }
@@ -59,8 +59,8 @@ class RegisterActivity : AppCompatActivity() {
                 register_email.text.toString().trim().isEmpty() -> {
                     MotionToast.Companion.createColorToast(
                         this,
-                        "Warning",
-                        "Input Email",
+                        getString(R.string.warning),
+                        getString(R.string.input_email),
                         MotionToast.Companion.TOAST_WARNING,
                         MotionToast.Companion.GRAVITY_BOTTOM,
                         MotionToast.Companion.LONG_DURATION,
@@ -69,8 +69,8 @@ class RegisterActivity : AppCompatActivity() {
                 register_am.text.toString().trim().isEmpty() -> {
                     MotionToast.Companion.createColorToast(
                         this,
-                        "Warning",
-                        "Input AM",
+                        getString(R.string.warning),
+                        getString(R.string.input_am),
                         MotionToast.Companion.TOAST_WARNING,
                         MotionToast.Companion.GRAVITY_BOTTOM,
                         MotionToast.Companion.LONG_DURATION,
@@ -79,8 +79,8 @@ class RegisterActivity : AppCompatActivity() {
                 register_firstName.text.toString().trim().isEmpty() -> {
                     MotionToast.Companion.createColorToast(
                         this,
-                        "Warning",
-                        "Input FirstName",
+                        getString(R.string.warning),
+                        getString(R.string.input_firstname),
                         MotionToast.Companion.TOAST_WARNING,
                         MotionToast.Companion.GRAVITY_BOTTOM,
                         MotionToast.Companion.LONG_DURATION,
@@ -89,8 +89,8 @@ class RegisterActivity : AppCompatActivity() {
                 register_lastName.text.toString().trim().isEmpty() -> {
                     MotionToast.Companion.createColorToast(
                         this,
-                        "Warning",
-                        "Input LastName",
+                        getString(R.string.warning),
+                        getString(R.string.input_lastname),
                         MotionToast.Companion.TOAST_WARNING,
                         MotionToast.Companion.GRAVITY_BOTTOM,
                         MotionToast.Companion.LONG_DURATION,
@@ -99,8 +99,8 @@ class RegisterActivity : AppCompatActivity() {
                 register_password.text.toString().trim().isEmpty() || register_verify_password.text.toString().trim().isEmpty() -> {
                     MotionToast.Companion.createColorToast(
                         this,
-                        "Warning",
-                        "Input Password or Confirm Password",
+                        getString(R.string.warning),
+                        getString(R.string.input_password_or_confirm_password),
                         MotionToast.Companion.TOAST_WARNING,
                         MotionToast.Companion.GRAVITY_BOTTOM,
                         MotionToast.Companion.LONG_DURATION,
@@ -109,8 +109,8 @@ class RegisterActivity : AppCompatActivity() {
                 register_password.text.toString().trim() != register_verify_password.text.toString().trim() -> {
                     MotionToast.Companion.createColorToast(
                         this,
-                        "Warning",
-                        "Passwords are different",
+                        getString(R.string.warning),
+                        getString(R.string.passwords_are_different),
                         MotionToast.Companion.TOAST_WARNING,
                         MotionToast.Companion.GRAVITY_BOTTOM,
                         MotionToast.Companion.LONG_DURATION,
@@ -142,7 +142,7 @@ class RegisterActivity : AppCompatActivity() {
                         currentUser!!.updateProfile(profileUpdates)
                             .addOnCompleteListener(this){ task ->
                                 if (task.isSuccessful) {
-                                    Log.e("TAG", "Updated Profile")
+                                    Log.e("TAG", getString(R.string.updated_profile))
                                 }
                             }
 
@@ -156,8 +156,8 @@ class RegisterActivity : AppCompatActivity() {
                         currentUser.sendEmailVerification().addOnCompleteListener{
                             MotionToast.Companion.createColorToast(
                                 this,
-                                "Successful",
-                                "Verification Email has been sent.",
+                                getString(R.string.successful),
+                                getString(R.string.vefification_email),
                                 MotionToast.Companion.TOAST_SUCCESS,
                                 MotionToast.Companion.GRAVITY_BOTTOM,
                                 MotionToast.Companion.LONG_DURATION,
@@ -166,8 +166,8 @@ class RegisterActivity : AppCompatActivity() {
 
                         MotionToast.Companion.createColorToast(
                             this,
-                            "Successful",
-                            "Registration successful",
+                            getString(R.string.successful),
+                            getString(R.string.registration_successful),
                             MotionToast.Companion.TOAST_SUCCESS,
                             MotionToast.Companion.GRAVITY_BOTTOM,
                             MotionToast.Companion.LONG_DURATION,
@@ -180,8 +180,8 @@ class RegisterActivity : AppCompatActivity() {
                     else -> {
                         MotionToast.Companion.createColorToast(
                             this,
-                            "Failed",
-                            "Registration failed, please try again!",
+                            getString(R.string.failed),
+                            getString(R.string.registration_failed),
                             MotionToast.Companion.TOAST_ERROR,
                             MotionToast.Companion.GRAVITY_BOTTOM,
                             MotionToast.Companion.LONG_DURATION,

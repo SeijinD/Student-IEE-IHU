@@ -52,8 +52,8 @@ class CommunityAdapter: RecyclerView.Adapter<CommunityAdapter.MyViewHolder>() {
         } catch (e: ActivityNotFoundException) {
             MotionToast.Companion.createColorToast(
                 view.context as Activity,
-                "Warning",
-                "Link Not Found!",
+                view.context.getString(R.string.warning),
+                view.context.getString(R.string.link_not_found),
                 MotionToast.Companion.TOAST_WARNING,
                 MotionToast.Companion.GRAVITY_BOTTOM,
                 MotionToast.Companion.LONG_DURATION,

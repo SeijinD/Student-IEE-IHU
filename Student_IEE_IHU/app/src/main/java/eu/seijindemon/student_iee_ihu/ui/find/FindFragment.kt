@@ -76,8 +76,8 @@ class FindFragment : Fragment(), EasyPermissions.PermissionCallbacks {
     override fun onPermissionsGranted(requestCode: Int, perms: List<String>) {
         MotionToast.Companion.createColorToast(
                 requireActivity(),
-                "Successful",
-                "Permissions Granted!",
+                getString(R.string.successful),
+                getString(R.string.permissions_granted),
                 MotionToast.Companion.TOAST_SUCCESS,
                 MotionToast.Companion.GRAVITY_BOTTOM,
                 MotionToast.Companion.LONG_DURATION,

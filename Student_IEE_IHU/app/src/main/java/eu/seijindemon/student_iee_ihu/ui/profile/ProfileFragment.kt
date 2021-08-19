@@ -83,8 +83,8 @@ class ProfileFragment : Fragment() {
             profile_am.text.toString().trim().isEmpty() -> {
                 MotionToast.Companion.createColorToast(
                         requireActivity(),
-                        "Warning",
-                        "Input AM",
+                        getString(R.string.warning),
+                        getString(R.string.input_am),
                         MotionToast.Companion.TOAST_WARNING,
                         MotionToast.Companion.GRAVITY_BOTTOM,
                         MotionToast.Companion.LONG_DURATION,
@@ -93,8 +93,8 @@ class ProfileFragment : Fragment() {
             profile_firstName.text.toString().trim().isEmpty() -> {
                 MotionToast.Companion.createColorToast(
                         requireActivity(),
-                        "Warning",
-                        "Input FirstName",
+                        getString(R.string.warning),
+                        getString(R.string.input_firstname),
                         MotionToast.Companion.TOAST_WARNING,
                         MotionToast.Companion.GRAVITY_BOTTOM,
                         MotionToast.Companion.LONG_DURATION,
@@ -103,8 +103,8 @@ class ProfileFragment : Fragment() {
             profile_lastName.text.toString().trim().isEmpty() -> {
                 MotionToast.Companion.createColorToast(
                         requireActivity(),
-                        "Warning",
-                        "Input LastName",
+                        getString(R.string.warning),
+                        getString(R.string.input_lastname),
                         MotionToast.Companion.TOAST_WARNING,
                         MotionToast.Companion.GRAVITY_BOTTOM,
                         MotionToast.Companion.LONG_DURATION,
@@ -130,8 +130,8 @@ class ProfileFragment : Fragment() {
 
                 MotionToast.Companion.createColorToast(
                     this.requireActivity(),
-                    "Succeeded",
-                    "Updated Profile Info",
+                    getString(R.string.successful),
+                    getString(R.string.updated_profile_info),
                     MotionToast.Companion.TOAST_SUCCESS,
                     MotionToast.Companion.GRAVITY_BOTTOM,
                     MotionToast.Companion.LONG_DURATION,
@@ -154,8 +154,8 @@ class ProfileFragment : Fragment() {
             imageUri = data.data
             MotionToast.Companion.createColorToast(
                 this.requireActivity(),
-                "Wait",
-                "Image Uploading...",
+                getString(R.string.wait),
+                getString(R.string.image_uploading_),
                 MotionToast.Companion.TOAST_INFO,
                 MotionToast.Companion.GRAVITY_BOTTOM,
                 MotionToast.Companion.LONG_DURATION,
