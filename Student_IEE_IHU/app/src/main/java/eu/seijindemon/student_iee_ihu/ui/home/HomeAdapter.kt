@@ -15,14 +15,22 @@ import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.textview.MaterialTextView
 import eu.seijindemon.student_iee_ihu.R
+import eu.seijindemon.student_iee_ihu.utils.Texts
 
-class HomeAdapter(var context: Context) : RecyclerView.Adapter<HomeAdapter.MyHolder>(){
+class HomeAdapter(var context: Context, var language: String) : RecyclerView.Adapter<HomeAdapter.MyHolder>(){
 
-    private var colorTextMatrix = arrayOf<IntArray>(
-        intArrayOf(R.string.about_app),
-        intArrayOf(R.string.admin_page),
-        intArrayOf(R.string.app_name),
-        intArrayOf(R.string.apps)
+    private var homeTextsEn = arrayOf<String>(
+        Texts.home1En,
+        Texts.home2En,
+        Texts.home3En,
+        Texts.home4En
+    )
+
+    private var homeTextsGr = arrayOf<String>(
+        Texts.home1Gr,
+        Texts.home2Gr,
+        Texts.home3Gr,
+        Texts.home4Gr
     )
 
     class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -35,11 +43,20 @@ class HomeAdapter(var context: Context) : RecyclerView.Adapter<HomeAdapter.MyHol
     }
 
     override fun getItemCount(): Int {
-        return colorTextMatrix.size
+        return if (language == "en") {
+            homeTextsEn.size
+        } else {
+            homeTextsGr.size
+        }
     }
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
-        holder.textView.setText(colorTextMatrix[position][0])
+        if (language == "en") {
+            holder.textView.text = homeTextsEn[position]
+        }
+        else {
+            holder.textView.text = homeTextsGr[position]
+        }
 //        holder.container.setBackgroundResource(colorTextMatrix[position][0])
     }
 

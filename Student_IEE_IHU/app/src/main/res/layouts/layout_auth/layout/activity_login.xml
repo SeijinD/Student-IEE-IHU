@@ -103,10 +103,20 @@
             android:textAlignment="center"
             android:textSize="20sp"
             android:layout_margin="25dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/login_button"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/login_help_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:srcCompat="@android:drawable/ic_menu_help"
+            app:layout_constraintTop_toBottomOf="@+id/create_account_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="@string/help_you" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

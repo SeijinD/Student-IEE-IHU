@@ -3,6 +3,18 @@ package eu.seijindemon.student_iee_ihu.utils
 class Texts {
     companion object {
 
+        const val home1Gr = "Φοιτητές IEE-IHU"
+        const val home1En = "Student IEE-IHU"
+
+        const val home2Gr = "Καλή αρχή στο χειμερινό εξάμηνο 2021-2022."
+        const val home2En = "Good start in the winter semester 2021-2022."
+
+        const val home3Gr = "Δείτε συχνά τις ανακοινώσεις του Apps."
+        const val home3En = "Check out Apps' announcements often."
+
+        const val home4Gr = "Αν αντιμετωπίζετε πρόβλημα, δείτε αν υπάρχει λύση στη σελίδα βοήθειας."
+        const val home4En = "If you're having trouble, see if there is a solution on the help page."
+
         const val helpText1Gr = "Αν θέλετε να προτείνετε κάτι νέο για την εφαρμογή ...\n" +
                 "Μεταβείτε στο πλευρικό μενού στις \"Ρυθμίσεις\" -> \"Αναφορά ή αλλαγή\" και συμπληρώστε τη φόρμα για να στείλετε το μήνυμα ηλεκτρονικού ταχυδρομείου."
         const val helpText1En = "If you want to suggest something new for the application ... \n" +

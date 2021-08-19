@@ -155,4 +155,6 @@
     <string name="home_welcome">Welcome student in the application!</string>
     <string name="feeding">Feeding</string>
     <string name="housing">Housing</string>
+    <string name="help_message">Help Message</string>
+    <string name="help_message_body">"If you have not logged out and you have closed the application and when you reopen the application it does not enter automatically. Close and reopen the application. "</string>
 </resources>

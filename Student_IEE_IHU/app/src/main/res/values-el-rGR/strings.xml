@@ -136,4 +136,6 @@
     <string name="softwares">Λογισμικά</string>
     <string name="housing">Στέγαση</string>
     <string name="feeding">Σίτιση</string>
+    <string name="help_message">Μήνυμα Bοήθειας</string>
+    <string name="help_message_body">"Εάν δεν έχετε αποσυνδεθεί και έχετε κλείσει την εφαρμογή και όταν ανοίξετε ξανά την εφαρμογή δεν μπαίνει αυτόματα. Κλείστε και ανοίξτε ξανά την εφαρμογή. "</string>
 </resources>

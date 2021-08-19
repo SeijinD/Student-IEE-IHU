@@ -106,6 +106,10 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
             finish()
         }
 
+        login_help_button.setOnClickListener {
+            loginHelpButton()
+        }
+
     }
 
     override fun onDestroy() {
@@ -145,6 +149,14 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
         }
 
         setLocale(kv?.decodeString("string")!!)
+    }
+
+    private fun loginHelpButton() {
+        MaterialStyledDialog.Builder(this)
+            .setTitle(R.string.help_message)
+            .setDescription(R.string.help_message_body)
+            .setStyle(Style.HEADER_WITH_TITLE)
+            .show()
     }
 
     @SuppressLint("CheckResult")
