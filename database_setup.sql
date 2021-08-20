@@ -2,8 +2,8 @@
 
 CREATE TABLE `courses` (
   `id` int(11) NOT NULL,
-  `titlee_gr` VARCHAR(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `titlee_en` VARCHAR(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `title_gr` VARCHAR(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `title_en` VARCHAR(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `semester` VARCHAR(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `teachers_gr` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
   `teachers_en` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
