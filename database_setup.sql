@@ -2,9 +2,11 @@
 
 CREATE TABLE `courses` (
   `id` int(11) NOT NULL,
-  `title` VARCHAR(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `titlee_gr` VARCHAR(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `titlee_en` VARCHAR(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `semester` VARCHAR(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `teachers` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `teachers_gr` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `teachers_en` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
   `link` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=UTF8_UNICODE_CI;
 
@@ -18,10 +20,12 @@ ALTER TABLE `courses`
 
 CREATE TABLE `teachers` (
   `id` int(11) NOT NULL,
-  `name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name_gr` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name_en` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `email` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `personal_site` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `category` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `category_gr` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `category_en` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `link` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -35,7 +39,8 @@ ALTER TABLE `teachers`
 
 CREATE TABLE `communities` (
   `id` int(11) NOT NULL,
-  `title` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `title_gr` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `title_en` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `category` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `link` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -50,8 +55,10 @@ ALTER TABLE `communities`
 
 CREATE TABLE `offers` (
   `id` int(11) NOT NULL,
-  `title` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `description` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `title_gr` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `title_en` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description_gr` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description_en` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
   `category` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `link` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -68,8 +75,10 @@ CREATE TABLE `maps` (
   `id` int(11) NOT NULL,
   `latitude` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `longitude` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `description` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL
+  `title_gr` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `title_en` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description_gr` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description_en` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 ALTER TABLE `maps`
@@ -82,8 +91,10 @@ ALTER TABLE `maps`
 
 CREATE TABLE `official_services` (
   `id` int(11) NOT NULL,
-  `title` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `description` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `title_gr` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `title_en` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description_gr` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description_en` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
   `category` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `link` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -98,9 +109,12 @@ ALTER TABLE `official_services`
 
 CREATE TABLE `unofficial_services` (
   `id` int(11) NOT NULL,
-  `title` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `description` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `creator` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `title_gr` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `title_en` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description_gr` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description_en` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `creator_gr` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `creator_en` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `category` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `link` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -115,8 +129,10 @@ ALTER TABLE `unofficial_services`
 
 CREATE TABLE `useful_websites` (
   `id` int(11) NOT NULL,
-  `title` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `description` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `title_gr` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `title_en` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description_gr` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description_en` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
   `category` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `link` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
