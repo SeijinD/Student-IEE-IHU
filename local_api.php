@@ -49,7 +49,7 @@ switch($table) {
 		 }
 		break;
 	case 'courses':
-		 $stmt = $conn->prepare("SELECT `id`, `titlee_gr`, `titlee_en`, `semester`, `teachers_gr`, `teachers_en`, `link` FROM `courses`");
+		 $stmt = $conn->prepare("SELECT `id`, `title_gr`, `title_en`, `semester`, `teachers_gr`, `teachers_en`, `link` FROM `courses`");
 		 
 		 $stmt->execute();
 		 
@@ -70,19 +70,21 @@ switch($table) {
 		 }
 		break;
 	case 'offers':
-		 $stmt = $conn->prepare("SELECT `id`, `title`, `description`, `category`, `link` FROM `offers`");
+		 $stmt = $conn->prepare("SELECT `id`, `title_gr`, `title_en`, `description_gr`, `description_en`, `category`, `link` FROM `offers`");
 		 
 		 $stmt->execute();
 		 
-		 $stmt->bind_result($id, $title, $description, $category, $link);
+		 $stmt->bind_result($id, $title_gr, $title_en, $description_gr, $description_en, $category, $link);
 		 
 		 $results = array(); 
 		 
 		 while($stmt->fetch()){
 			 $temp = array();
 			 $temp['id'] = $id; 
-			 $temp['title'] = $title; 
-			 $temp['description'] = $description; 
+			 $temp['title_gr'] = $title_gr; 
+			 $temp['title_en'] = $title_en;
+			 $temp['description_gr'] = $description_gr; 
+			 $temp['description_en'] = $description_en;
 			 $temp['category'] = $category; 
 			 $temp['link'] = $link; 
 			 array_push($results, $temp);
