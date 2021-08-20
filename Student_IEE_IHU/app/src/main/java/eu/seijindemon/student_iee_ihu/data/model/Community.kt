@@ -5,7 +5,8 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "community_table")
 data class Community(
-    var title: String? = null,
+    var title_gr: String? = null,
+    var title_en: String? = null,
     var category: String? = null,
     var link: String? = null
 ){

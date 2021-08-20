@@ -7,8 +7,10 @@ import androidx.room.PrimaryKey
 data class Map(
     var latitude: String? = null,
     var longitude: String? = null,
-    var name: String? = null,
-    var description: String? = null,
+    var title_gr: String? = null,
+    var title_en: String? = null,
+    var description_gr: String? = null,
+    var description_en: String? = null
 ){
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0

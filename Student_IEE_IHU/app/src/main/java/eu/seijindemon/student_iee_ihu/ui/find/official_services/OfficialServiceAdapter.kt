@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.data.model.OfficialService
 import eu.seijindemon.student_iee_ihu.databinding.ModelOfficialServiceBinding
+import eu.seijindemon.student_iee_ihu.utils.LoadLanguage
 import www.sanju.motiontoast.MotionToast
 
 class OfficialServiceAdapter: RecyclerView.Adapter<OfficialServiceAdapter.MyViewHolder>() {
@@ -25,8 +26,18 @@ class OfficialServiceAdapter: RecyclerView.Adapter<OfficialServiceAdapter.MyView
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.binding.officialServiceTitle.text = oldData[position].title
-        holder.binding.officialServiceDescription.text = oldData[position].description
+
+        when(LoadLanguage.loadLanguage()) {
+            "el" -> {
+                holder.binding.officialServiceTitle.text = oldData[position].title_gr
+                holder.binding.officialServiceDescription.text = oldData[position].description_gr
+            }
+            "en" -> {
+                holder.binding.officialServiceTitle.text = oldData[position].title_en
+                holder.binding.officialServiceDescription.text = oldData[position].description_en
+            }
+        }
+
         holder.binding.officialServiceCategory.text = oldData[position].category
         holder.binding.root.setOnClickListener{
             openLink(oldData[position].link, holder.binding.root)

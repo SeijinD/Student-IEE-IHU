@@ -16,7 +16,7 @@ interface UsefulWebsiteDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertData(usefulWebsites: List<UsefulWebsite>)
 
-    @Query("SELECT * FROM useful_website_table WHERE title LIKE :searchQuery OR category LIKE :searchQuery OR link LIKE :searchQuery OR description LIKE :searchQuery")
+    @Query("SELECT * FROM useful_website_table WHERE title_gr LIKE :searchQuery OR title_en LIKE :searchQuery OR category LIKE :searchQuery OR link LIKE :searchQuery OR description_gr LIKE :searchQuery OR description_en LIKE :searchQuery")
     fun searchDatabase(searchQuery: String): Flow<List<UsefulWebsite>>
 
 }

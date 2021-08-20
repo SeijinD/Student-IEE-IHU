@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.data.model.UsefulWebsite
 import eu.seijindemon.student_iee_ihu.databinding.ModelUsefulWebsiteBinding
+import eu.seijindemon.student_iee_ihu.utils.LoadLanguage
 import www.sanju.motiontoast.MotionToast
 
 class UsefulWebsiteAdapter: RecyclerView.Adapter<UsefulWebsiteAdapter.MyViewHolder>() {
@@ -25,8 +26,18 @@ class UsefulWebsiteAdapter: RecyclerView.Adapter<UsefulWebsiteAdapter.MyViewHold
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.binding.usefulWebsiteTitle.text = oldData[position].title
-        holder.binding.usefulWebsiteDescription.text = oldData[position].description
+
+        when(LoadLanguage.loadLanguage()) {
+            "el" -> {
+                holder.binding.usefulWebsiteTitle.text = oldData[position].title_gr
+                holder.binding.usefulWebsiteDescription.text = oldData[position].description_gr
+            }
+            "en" -> {
+                holder.binding.usefulWebsiteTitle.text = oldData[position].title_en
+                holder.binding.usefulWebsiteDescription.text = oldData[position].description_en
+            }
+        }
+
         holder.binding.usefulWebsiteCategory.text = oldData[position].category
         holder.binding.root.setOnClickListener{
             openLink(oldData[position].link, holder.binding.root)

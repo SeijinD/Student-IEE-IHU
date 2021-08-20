@@ -6,8 +6,10 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "official_service_table")
 data class OfficialService(
-    var title: String? = null,
-    var description: String? = null,
+    var title_gr: String? = null,
+    var title_en: String? = null,
+    var description_gr: String? = null,
+    var description_en: String? = null,
     var category: String? = null,
     var link: String? = null
 ){

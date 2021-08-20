@@ -16,7 +16,7 @@ interface TeacherDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertData(teachers: List<Teacher>)
 
-    @Query("SELECT * FROM teacher_table WHERE name LIKE :searchQuery OR email LIKE :searchQuery OR category LIKE :searchQuery")
+    @Query("SELECT * FROM teacher_table WHERE name_gr LIKE :searchQuery OR name_en LIKE :searchQuery OR email LIKE :searchQuery OR category_gr LIKE :searchQuery OR category_en LIKE :searchQuery")
     fun searchDatabase(searchQuery: String): Flow<List<Teacher>>
 
 }

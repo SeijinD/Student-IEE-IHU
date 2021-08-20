@@ -16,7 +16,7 @@ interface OfferDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertData(offers: List<Offer>)
 
-    @Query("SELECT * FROM offer_table WHERE title LIKE :searchQuery OR category LIKE :searchQuery OR link LIKE :searchQuery OR description LIKE :searchQuery")
+    @Query("SELECT * FROM offer_table WHERE title_gr LIKE :searchQuery OR title_en LIKE :searchQuery OR category LIKE :searchQuery OR link LIKE :searchQuery OR description_gr LIKE :searchQuery OR description_en LIKE :searchQuery")
     fun searchDatabase(searchQuery: String): Flow<List<Offer>>
 
 }

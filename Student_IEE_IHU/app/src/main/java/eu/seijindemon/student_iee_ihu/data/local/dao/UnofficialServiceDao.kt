@@ -16,7 +16,7 @@ interface UnofficialServiceDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertData(unofficialServices: List<UnofficialService>)
 
-    @Query("SELECT * FROM unofficial_service_table WHERE title LIKE :searchQuery OR description LIKE :searchQuery OR category LIKE :searchQuery OR link LIKE :searchQuery OR creator LIKE :searchQuery")
+    @Query("SELECT * FROM unofficial_service_table WHERE title_gr LIKE :searchQuery OR title_en LIKE :searchQuery OR description_gr LIKE :searchQuery OR description_en LIKE :searchQuery OR category LIKE :searchQuery OR link LIKE :searchQuery OR creator_gr LIKE :searchQuery OR creator_en LIKE :searchQuery")
     fun searchDatabase(searchQuery: String): Flow<List<UnofficialService>>
 
 }

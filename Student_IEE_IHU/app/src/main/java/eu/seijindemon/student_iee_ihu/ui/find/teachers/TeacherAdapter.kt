@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.data.model.Teacher
 import eu.seijindemon.student_iee_ihu.databinding.ModelTeacherBinding
+import eu.seijindemon.student_iee_ihu.utils.LoadLanguage
 import www.sanju.motiontoast.MotionToast
 
 class TeacherAdapter: RecyclerView.Adapter<TeacherAdapter.MyViewHolder>() {
@@ -25,10 +26,20 @@ class TeacherAdapter: RecyclerView.Adapter<TeacherAdapter.MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.binding.teacherName.text = oldData[position].name
+
+        when(LoadLanguage.loadLanguage()) {
+            "el" -> {
+                holder.binding.teacherName.text = oldData[position].name_gr
+                holder.binding.teacherCategory.text = oldData[position].category_gr
+            }
+            "en" -> {
+                holder.binding.teacherName.text = oldData[position].name_en
+                holder.binding.teacherCategory.text = oldData[position].category_en
+            }
+        }
+
         holder.binding.teacherEmail.text = oldData[position].email
         holder.binding.teacherPersonalSite.text = oldData[position].personal_site
-        holder.binding.teacherCategory.text = oldData[position].category
         holder.binding.root.setOnClickListener{
             openLink(oldData[position].link, holder.binding.root)
         }

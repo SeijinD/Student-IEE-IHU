@@ -55,7 +55,7 @@ class SemesterFragment : Fragment(), AdapterView.OnItemClickListener {
                 toolbar.title = getString(R.string.third_semester)
 
                 courseList.add(SimpleCourse("Θεωρία Πιθανοτήτων και Στατιστική", "course/1301"))
-                courseList.add(SimpleCourse("Μαθηματικά ΙΙI", "course/1302"))
+                courseList.add(SimpleCourse("Μαθηματικά ΙΙΙ", "course/1302"))
                 courseList.add(SimpleCourse("Επεξεργασία Σήματος", "course/1303"))
                 courseList.add(SimpleCourse("Γλώσσες και Τεχνολογίες Ιστού", "course/1405"))
                 courseList.add(SimpleCourse("Δομές Δεδομένων και Ανάλυση Αλγορίθμων", "course/1305"))
@@ -67,7 +67,7 @@ class SemesterFragment : Fragment(), AdapterView.OnItemClickListener {
             "4" -> {
                 toolbar.title = getString(R.string.fourth_semester)
 
-                courseList.add(SimpleCourse("Οργάνωση και Αρχιτεκτονική Υπολογιστικών Συστημάτων\t", "course/1304"))
+                courseList.add(SimpleCourse("Οργάνωση και Αρχιτεκτονική Υπολογιστικών Συστημάτων", "course/1304"))
                 courseList.add(SimpleCourse("Συστήματα Διαχείρισης Βάσεων Δεδομένων", "course/1401"))
                 courseList.add(SimpleCourse("Τηλεπικοινωνιακά Συστήματα", "course/1402"))
                 courseList.add(SimpleCourse("Εισαγωγή στα Λειτουργικά Συστήματα", "course/1403"))

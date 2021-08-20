@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.data.model.Offer
 import eu.seijindemon.student_iee_ihu.databinding.ModelOfferBinding
+import eu.seijindemon.student_iee_ihu.utils.LoadLanguage
 import www.sanju.motiontoast.MotionToast
 
 class OfferAdapter: RecyclerView.Adapter<OfferAdapter.MyViewHolder>() {
@@ -25,8 +26,18 @@ class OfferAdapter: RecyclerView.Adapter<OfferAdapter.MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.binding.offerTitle.text = oldData[position].title
-        holder.binding.offerDescription.text = oldData[position].description
+
+        when(LoadLanguage.loadLanguage()) {
+            "el" -> {
+                holder.binding.offerTitle.text = oldData[position].title_gr
+                holder.binding.offerDescription.text = oldData[position].description_gr
+            }
+            "en" -> {
+                holder.binding.offerTitle.text = oldData[position].title_en
+                holder.binding.offerDescription.text = oldData[position].description_en
+            }
+        }
+
         holder.binding.offerCategory.text = oldData[position].category
         holder.binding.root.setOnClickListener{
             openLink(oldData[position].link, holder.binding.root)

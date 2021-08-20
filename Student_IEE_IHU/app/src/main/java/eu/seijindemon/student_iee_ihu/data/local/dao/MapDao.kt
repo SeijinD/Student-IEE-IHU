@@ -16,7 +16,7 @@ interface MapDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertData(maps: List<Map>)
 
-    @Query("SELECT * FROM map_table WHERE name LIKE :searchQuery OR description LIKE :searchQuery")
+    @Query("SELECT * FROM map_table WHERE title_gr LIKE :searchQuery OR title_en LIKE :searchQuery OR description_gr LIKE :searchQuery OR description_en LIKE :searchQuery")
     fun searchDatabase(searchQuery: String): Flow<List<Map>>
 
 }

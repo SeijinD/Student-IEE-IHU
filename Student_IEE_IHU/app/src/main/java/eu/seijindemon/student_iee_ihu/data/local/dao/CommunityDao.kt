@@ -17,7 +17,7 @@ interface CommunityDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertData(communities: List<Community>)
 
-    @Query("SELECT * FROM community_table WHERE title LIKE :searchQuery OR category LIKE :searchQuery")
+    @Query("SELECT * FROM community_table WHERE title_gr LIKE :searchQuery OR title_en LIKE :searchQuery OR category LIKE :searchQuery")
     fun searchDatabase(searchQuery: String): Flow<List<Community>>
 
     @Query("SELECT * FROM community_table WHERE category = 'facebook_groups' ")

@@ -20,6 +20,7 @@ import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.data.viewmodel.MapViewModel
 import eu.seijindemon.student_iee_ihu.data.viewmodel.MapViewModelFactory
 import eu.seijindemon.student_iee_ihu.data.model.Map
+import eu.seijindemon.student_iee_ihu.utils.LoadLanguage
 import kotlinx.android.synthetic.main.fragment_maps.view.*
 
 class MapsFragment : Fragment(), OnMapReadyCallback, SearchView.OnQueryTextListener, GoogleMap.OnMarkerClickListener {
@@ -63,13 +64,27 @@ class MapsFragment : Fragment(), OnMapReadyCallback, SearchView.OnQueryTextListe
 
         mapViewModel.readData().observe(this, { list ->
             mapList = list
-            for (map in mapList) {
-                viewMap.addMarker(
-                    MarkerOptions()
-                        .position(LatLng((map.latitude)!!.toDouble(), (map.longitude)!!.toDouble()))
-                        .title(map.name)
-                        .snippet(map.description)
-                )
+            when(LoadLanguage.loadLanguage()) {
+                "el" -> {
+                    for (map in mapList) {
+                        viewMap.addMarker(
+                            MarkerOptions()
+                                .position(LatLng((map.latitude)!!.toDouble(), (map.longitude)!!.toDouble()))
+                                .title(map.title_gr)
+                                .snippet(map.description_gr)
+                        )
+                    }
+                }
+                "en" -> {
+                    for (map in mapList) {
+                        viewMap.addMarker(
+                            MarkerOptions()
+                                .position(LatLng((map.latitude)!!.toDouble(), (map.longitude)!!.toDouble()))
+                                .title(map.title_en)
+                                .snippet(map.description_en)
+                        )
+                    }
+                }
             }
         })
     }
@@ -97,13 +112,27 @@ class MapsFragment : Fragment(), OnMapReadyCallback, SearchView.OnQueryTextListe
 
         mapViewModel.searchDatabase(searchQuery).observe(this, { list ->
             mapList = list
-            for (map in mapList) {
-                viewMap.addMarker(
-                    MarkerOptions()
-                        .position(LatLng((map.latitude)!!.toDouble(), (map.longitude)!!.toDouble()))
-                        .title(map.name)
-                        .snippet(map.description)
-                )
+            when(LoadLanguage.loadLanguage()) {
+                "el" -> {
+                    for (map in mapList) {
+                        viewMap.addMarker(
+                            MarkerOptions()
+                                .position(LatLng((map.latitude)!!.toDouble(), (map.longitude)!!.toDouble()))
+                                .title(map.title_gr)
+                                .snippet(map.description_gr)
+                        )
+                    }
+                }
+                "en" -> {
+                    for (map in mapList) {
+                        viewMap.addMarker(
+                            MarkerOptions()
+                                .position(LatLng((map.latitude)!!.toDouble(), (map.longitude)!!.toDouble()))
+                                .title(map.title_en)
+                                .snippet(map.description_en)
+                        )
+                    }
+                }
             }
         })
 

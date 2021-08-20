@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.data.model.Community
 import eu.seijindemon.student_iee_ihu.databinding.ModelCommunityBinding
+import eu.seijindemon.student_iee_ihu.utils.LoadLanguage
 import www.sanju.motiontoast.MotionToast
 
 class CommunityAdapter: RecyclerView.Adapter<CommunityAdapter.MyViewHolder>() {
@@ -25,7 +26,11 @@ class CommunityAdapter: RecyclerView.Adapter<CommunityAdapter.MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.binding.communityTitle.text = oldData[position].title
+        when(LoadLanguage.loadLanguage()) {
+            "el" -> holder.binding.communityTitle.text = oldData[position].title_gr
+            "en" -> holder.binding.communityTitle.text = oldData[position].title_en
+        }
+
         when(oldData[position].category) {
             "facebook_groups", "facebook_pages" -> {
                 holder.binding.communityLogo.setBackgroundResource(R.drawable.facebook)
