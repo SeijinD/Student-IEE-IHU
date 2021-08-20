@@ -24,13 +24,13 @@
 switch($table) {
 	case 'teachers':
 		 //creating a query
-		 $stmt = $conn->prepare("SELECT `id`, `name`, `email`, `personal_site`, `category`, `link` FROM `teachers`");
+		 $stmt = $conn->prepare("SELECT `id`, `name_gr`, `name_en`, `email`, `personal_site`, `category_gr`, `category_en`, `link` FROM `teachers`");
 		 
 		 //executing the query 
 		 $stmt->execute();
 		 
 		 //binding results to the query 
-		 $stmt->bind_result($id, $name, $email, $personal_site, $category, $link);
+		 $stmt->bind_result($id, $name_gr, $name_en, $email, $personal_site, $category_gr, $category_en, $link);
 		 
 		 $results = array(); 
 		 
@@ -38,29 +38,33 @@ switch($table) {
 		 while($stmt->fetch()){
 			 $temp = array();
 			 $temp['id'] = $id; 
-			 $temp['name'] = $name; 
+			 $temp['name_gr'] = $name_gr; 
+			 $temp['name_en'] = $name_en; 
 			 $temp['email'] = $email; 
 			 $temp['personal_site'] = $personal_site; 
-			 $temp['category'] = $category; 
+			 $temp['category_gr'] = $category_gr; 
+			 $temp['category_en'] = $category_en;
 			 $temp['link'] = $link; 
 			 array_push($results, $temp);
 		 }
 		break;
 	case 'courses':
-		 $stmt = $conn->prepare("SELECT `id`, `title`, `semester`, `teachers`, `link` FROM `courses`");
+		 $stmt = $conn->prepare("SELECT `id`, `titlee_gr`, `titlee_en`, `semester`, `teachers_gr`, `teachers_en`, `link` FROM `courses`");
 		 
 		 $stmt->execute();
 		 
-		 $stmt->bind_result($id, $title, $semester, $teachers, $link);
+		 $stmt->bind_result($id, $title_gr, $title_en, $semester, $teachers_gr, $teachers_en, $link);
 		 
 		 $results = array(); 
 		 
 		 while($stmt->fetch()){
 			 $temp = array();
 			 $temp['id'] = $id; 
-			 $temp['title'] = $title; 
+			 $temp['title_gr'] = $title_gr; 
+			 $temp['title_en'] = $title_en; 
 			 $temp['semester'] = $semester; 
-			 $temp['teachers'] = $teachers; 
+			 $temp['teachers_gr'] = $teachers_gr; 
+			 $temp['teachers_en'] = $teachers_en; 
 			 $temp['link'] = $link; 
 			 array_push($results, $temp);
 		 }
@@ -85,29 +89,30 @@ switch($table) {
 		 }
 		break;
 	case 'communities':
-		 $stmt = $conn->prepare("SELECT `id`, `title`, `category`, `link` FROM `communities`");
+		 $stmt = $conn->prepare("SELECT `id`, `title_gr`, `title_en`, `category`, `link` FROM `communities`");
 		 
 		 $stmt->execute();
 		 
-		 $stmt->bind_result($id, $title, $category, $link);
+		 $stmt->bind_result($id, $title_gr, $title_en, $category, $link);
 		 
 		 $results = array(); 
 		 
 		 while($stmt->fetch()){
 			 $temp = array();
 			 $temp['id'] = $id; 
-			 $temp['title'] = $title; 
+			 $temp['title_gr'] = $title_gr; 
+			 $temp['title_en'] = $title_en; 
 			 $temp['category'] = $category; 
 			 $temp['link'] = $link; 
 			 array_push($results, $temp);
 		 }
 		break;
 	case 'maps':
-		 $stmt = $conn->prepare("SELECT `id`, `latitude`, `longitude`, `name`, `description` FROM `maps`");
+		 $stmt = $conn->prepare("SELECT `id`, `latitude`, `longitude`, `title_gr`, `title_en`, `description_gr`, `description_en` FROM `maps`");
 		 
 		 $stmt->execute();
 		 
-		 $stmt->bind_result($id, $latitude, $longitude, $description, $name);
+		 $stmt->bind_result($id, $latitude, $longitude, $title_gr, $title_en, $description_gr, $description_en);
 		 
 		 $results = array(); 
 		 
@@ -116,64 +121,73 @@ switch($table) {
 			 $temp['id'] = $id; 
 			 $temp['latitude'] = $latitude; 
 			 $temp['longitude'] = $longitude; 
-			 $temp['name'] = $name; 
-			 $temp['description'] = $description; 
+			 $temp['title_gr'] = $title_gr; 
+			 $temp['title_en'] = $title_en;
+			 $temp['description_gr'] = $description_gr; 
+			 $temp['description_en'] = $description_en; 
 			 array_push($results, $temp);
 		 }
 		break;
 	case 'official_services':
-		 $stmt = $conn->prepare("SELECT `id`, `title`, `description`, `category`, `link` FROM `official_services`");
+		 $stmt = $conn->prepare("SELECT `id`, `title_gr`, `title_en`, `description_gr`, `description_en`, `category`, `link` FROM `official_services`");
 		 
 		 $stmt->execute();
 		 
-		 $stmt->bind_result($id, $title, $description, $category, $link);
+		 $stmt->bind_result($id, $title_gr, $title_en, $description_gr, $description_en, $category, $link);
 		 
 		 $results = array(); 
 		 
 		 while($stmt->fetch()){
 			 $temp = array();
 			 $temp['id'] = $id; 
-			 $temp['title'] = $title; 
-			 $temp['description'] = $description; 
+			 $temp['title_gr'] = $title_gr; 
+			 $temp['title_en'] = $title_en;
+			 $temp['description_gr'] = $description_gr; 
+			 $temp['description_en'] = $description_en;  
 			 $temp['category'] = $category; 
 			 $temp['link'] = $link; 
 			 array_push($results, $temp);
 		 }
 		break;
 	case 'unofficial_services':
-		 $stmt = $conn->prepare("SELECT `id`, `title`, `description`, `creator`, `category`, `link` FROM `unofficial_services`");
+		 $stmt = $conn->prepare("SELECT `id`, `title_gr`, `title_en`, `description_gr`, `description_en`, `creator_gr`, `creator_en`, `category`, `link` FROM `unofficial_services`");
 		 
 		 $stmt->execute();
 		 
-		 $stmt->bind_result($id, $title, $description, $creator, $category, $link);
+		 $stmt->bind_result($id, $title_gr, $title_en, $description_gr, $description_en, $creator_gr, $creator_en, $category, $link);
 		 
 		 $results = array(); 
 		 
 		 while($stmt->fetch()){
 			 $temp = array();
 			 $temp['id'] = $id; 
-			 $temp['title'] = $title; 
-			 $temp['description'] = $description; 
-			 $temp['creator'] = $creator; 
+			 $temp['title_gr'] = $title_gr; 
+			 $temp['title_en'] = $title_en;
+			 $temp['description_gr'] = $description_gr; 
+			 $temp['description_en'] = $description_en; 
+			 $temp['creator_gr'] = $creator_gr;
+			 $temp['creator_en'] = $creator_en; 
 			 $temp['category'] = $category; 
 			 $temp['link'] = $link; 
 			 array_push($results, $temp);
 		 }
 		break;
 	case 'useful_websites':
-		 $stmt = $conn->prepare("SELECT `id`, `title`, `description`, `category`, `link` FROM `useful_websites`");
+		 $stmt = $conn->prepare("SELECT `id`, `title_gr`, `title_en`, `description_gr`, `description_en`, `category`, `link` FROM `useful_websites`");
 		 
 		 $stmt->execute();
 		 
-		 $stmt->bind_result($id, $title, $description, $category, $link);
+		 $stmt->bind_result($id, $title_gr, $title_en, $description_gr, $description_en, $category, $link);
 		 
 		 $results = array(); 
 		 
 		 while($stmt->fetch()){
 			 $temp = array();
 			 $temp['id'] = $id; 
-			 $temp['title'] = $title; 
-			 $temp['description'] = $description; 
+			 $temp['title_gr'] = $title_gr; 
+			 $temp['title_en'] = $title_en;
+			 $temp['description_gr'] = $description_gr; 
+			 $temp['description_en'] = $description_en; 
 			 $temp['category'] = $category; 
 			 $temp['link'] = $link; 
 			 array_push($results, $temp);
