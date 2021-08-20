@@ -24,8 +24,8 @@ CREATE TABLE `teachers` (
   `name_en` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `email` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `personal_site` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `category_gr` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `category_en` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `category_gr` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `category_en` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `link` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
