@@ -28,8 +28,6 @@ Development of an Android application for the support and organization of the st
         - [https://github.com/wasabeef/glide-transformations](https://github.com/wasabeef/glide-transformations)
     - MotionToast
         - [https://github.com/Spikeysanju/MotionToast](https://github.com/Spikeysanju/MotionToast)
-    - Alerter
-        - [https://github.com/Tapadoo/Alerter](https://github.com/Tapadoo/Alerter)
     - Navigation Components
         - [https://developer.android.com/guide/navigation](https://developer.android.com/guide/navigation)
         - [https://www.raywenderlich.com/19327407-using-safe-args-with-the-android-navigation-component](https://www.raywenderlich.com/19327407-using-safe-args-with-the-android-navigation-component)
@@ -63,3 +61,4 @@ Development of an Android application for the support and organization of the st
         - [https://github.com/Manabu-GT/ExpandableTextView](https://github.com/Manabu-GT/ExpandableTextView) 
     - ViewPager2
         - [https://www.raywenderlich.com/8192680-viewpager2-in-android-getting-started](https://www.raywenderlich.com/8192680-viewpager2-in-android-getting-started)
+    
