@@ -402,10 +402,7 @@ class Texts {
                 "Η διαδικασία αυτή γίνεται μια φορά και ισχύει για όλη τη διάρκεια των σπουδών τους.\n"
         const val library3En = "\n" +
                 ""
-
-
-        private const val netbeansLink1 = ""
-        private const val netbeansLink2 = "https://www.youtube.com/watch?v=vt7_6HwCFOU"
+        
 
         const val netbeansGr = "Το NetBeans είναι ένα ολοκληρωμένο περιβάλλον ανάπτυξης για Java. Το NetBeans επιτρέπει την ανάπτυξη εφαρμογών από ένα σύνολο αρθρωτών στοιχείων λογισμικού που ονομάζονται modules. Το NetBeans τρέχει σε Windows, macOS, Linux και Solaris. \n" +
                 "\n Η ιστοσελίδα του Netbeans είναι : https://netbeans.apache.org \n" +
