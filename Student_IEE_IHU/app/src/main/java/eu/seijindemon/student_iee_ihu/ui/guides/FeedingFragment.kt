@@ -1,5 +1,7 @@
 package eu.seijindemon.student_iee_ihu.ui.guides
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -44,8 +46,12 @@ class FeedingFragment : Fragment() {
             }
         }
 
-        view.moreFeeding.setOnClickListener {
+        view.more_feeding.setOnClickListener {
             Navigation.findNavController(requireView()).navigate(FeedingFragmentDirections.actionMenuFeedingToPdfWebview("http://feeding.teithe.gr/uploads/fek-1965-18-06-2012-b.pdf"))
+        }
+
+        view.site_feeding.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://feeding.teithe.gr")))
         }
 
         return view
