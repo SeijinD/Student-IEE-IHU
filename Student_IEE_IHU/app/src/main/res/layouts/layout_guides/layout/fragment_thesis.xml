@@ -34,11 +34,34 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:background="@color/blue_700"/>
 
+<!--        <LinearLayout-->
+<!--            android:id="@+id/thesis_texts"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/first_line"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent">-->
+
+<!--            <include-->
+<!--                android:id="@+id/sample1"-->
+<!--                layout="@layout/text_item" />-->
+
+<!--            <include-->
+<!--                android:id="@+id/sample2"-->
+<!--                layout="@layout/text_item" />-->
+
+<!--            <include-->
+<!--                android:id="@+id/sample3"-->
+<!--                layout="@layout/text_item" />-->
+
+<!--        </LinearLayout>-->
+
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/description"
+            android:id="@+id/more_thesis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/description"
+            android:text="@string/moreThesis"
             android:textColor="@color/blue_500"
             android:textAlignment="textStart"
             android:textSize="20sp"
@@ -46,6 +69,20 @@
             app:layout_constraintTop_toBottomOf="@+id/first_line"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/site_thesis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/site"
+            android:textColor="@color/blue_500"
+            android:textAlignment="textStart"
+            android:textSize="20sp"
+            android:layout_margin="25dp"
+            app:layout_constraintTop_toBottomOf="@+id/more_thesis"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

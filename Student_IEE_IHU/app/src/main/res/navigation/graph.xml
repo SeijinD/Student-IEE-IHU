@@ -319,7 +319,11 @@
         android:id="@+id/menuSoftwares"
         android:name="eu.seijindemon.student_iee_ihu.ui.guides.SoftwaresFragment"
         android:label="@string/softwares"
-        tools:layout="@layout/fragment_softwares" />
+        tools:layout="@layout/fragment_softwares" >
+        <action
+            android:id="@+id/action_menuSoftwares_to_menuSoftware"
+            app:destination="@id/menuSoftware" />
+    </fragment>
     <fragment
         android:id="@+id/menuDepartment"
         android:name="eu.seijindemon.student_iee_ihu.ui.department.DepartmentFragment"
@@ -344,4 +348,13 @@
         android:name="eu.seijindemon.student_iee_ihu.ui.guides.LibraryFragment"
         android:label="@string/library"
         tools:layout="@layout/fragment_library" />
+    <fragment
+        android:id="@+id/menuSoftware"
+        android:name="eu.seijindemon.student_iee_ihu.ui.guides.SoftwareFragment"
+        android:label="@string/software"
+        tools:layout="@layout/fragment_software" >
+        <argument
+            android:name="title"
+            app:argType="string" />
+    </fragment>
 </navigation>

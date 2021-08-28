@@ -201,4 +201,7 @@
     <string name="site">Website</string>
     <string name="moreLibrary">For more questions and answers here.</string>
     <string name="moreHousing">Required documents for admission to the student dormitories.</string>
+    <string name="moreThesis">"Diploma Thesis Regulation (March 2021) "</string>
+    <string name="netbeans">Netbeans</string>
+    <string name="software">Software</string>
 </resources>

@@ -403,5 +403,24 @@ class Texts {
         const val library3En = "\n" +
                 ""
 
+
+        private const val netbeansLink1 = ""
+        private const val netbeansLink2 = "https://www.youtube.com/watch?v=vt7_6HwCFOU"
+
+        const val netbeansGr = "Το NetBeans είναι ένα ολοκληρωμένο περιβάλλον ανάπτυξης για Java. Το NetBeans επιτρέπει την ανάπτυξη εφαρμογών από ένα σύνολο αρθρωτών στοιχείων λογισμικού που ονομάζονται modules. Το NetBeans τρέχει σε Windows, macOS, Linux και Solaris. \n" +
+                "\n Η ιστοσελίδα του Netbeans είναι : https://netbeans.apache.org \n" +
+                "Στον ιστότοπο θα βρείτε διάφορους οδηγούς βοήθειας, πρόσθετα, κοινότητες κλπ. \n" +
+                "\n Ένας οδηγός για την εγκατάσταση του Netbeans IDE και του Java JDK στα Windows: \n" +
+                "https://www.youtube.com/watch?v=vt7_6HwCFOU \n" +
+                "\n "
+
+        const val netbeansEn = "NetBeans is an integrated development environment for Java. NetBeans allows applications to be developed from a set of modular software components called modules. NetBeans runs on Windows, macOS, Linux and Solaris. \n" +
+                "\n The website from Netbeans is : https://netbeans.apache.org \n" +
+                "\n On the website you will find various help guides, add-ons, communities etc. \n" +
+                "\n A guide to installing Netbeans IDE and Java JDK in Windows: \n" +
+                "https://www.youtube.com/watch?v=vt7_6HwCFOU \n" +
+                "\n "
+
+
     }
 }
