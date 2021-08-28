@@ -329,7 +329,11 @@
         android:id="@+id/menuFeeding"
         android:name="eu.seijindemon.student_iee_ihu.ui.guides.FeedingFragment"
         android:label="@string/feeding"
-        tools:layout="@layout/fragment_feeding" />
+        tools:layout="@layout/fragment_feeding" >
+        <action
+            android:id="@+id/action_menuFeeding_to_pdf_webview"
+            app:destination="@id/pdf_webview" />
+    </fragment>
     <fragment
         android:id="@+id/menuHousing"
         android:name="eu.seijindemon.student_iee_ihu.ui.guides.HousingFragment"

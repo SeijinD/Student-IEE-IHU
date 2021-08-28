@@ -178,4 +178,5 @@
     <string name="account_deleted">Ο λογαριασμός διαγράφηκε</string>
     <string name="link_not_found">"Ο σύνδεσμος δεν βρέθηκε! "</string>
     <string name="permissions_granted">"Χορηγήθηκαν άδειες! "</string>
+    <string name="moreFeeding">Για περισσότερες πληροφορίες μπορείτε να κατεβάσετε το ΦΕΚ Β\' 1965/18.06.2012 (Απόφαση 4)</string>
 </resources>
