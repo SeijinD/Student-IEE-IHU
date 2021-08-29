@@ -95,13 +95,21 @@ class AdminMainActivity : AppCompatActivity() {
             openApps()
         }
 
+        exams.setOnClickListener{
+            openExams()
+        }
+
         help_button.setOnClickListener{
             navController.navigate(R.id.menuHelp)
         }
 
     }
 
-    private fun openApps(){
+    private fun openExams() {
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.iee.ihu.gr/exams-program")))
+    }
+
+    private fun openApps() {
         val intent = packageManager.getLaunchIntentForPackage("gr.teithe.it.it_app")
         if (intent != null) {
             startActivity(intent)

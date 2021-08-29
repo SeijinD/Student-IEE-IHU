@@ -1,6 +1,5 @@
 package eu.seijindemon.student_iee_ihu.ui.main
 
-import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.res.Configuration
 import android.net.Uri
@@ -25,7 +24,9 @@ import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.ui.not_network.NotNetworkActivity
 import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import eu.seijindemon.student_iee_ihu.utils.NetworkStatus
+import kotlinx.android.synthetic.main.activity_admin_main.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.help_button
 import kotlinx.android.synthetic.main.activity_main.open_apps
 import kotlinx.android.synthetic.main.activity_main.text_title
 import kotlinx.android.synthetic.main.navigation_header.view.*
@@ -95,13 +96,21 @@ class MainActivity : AppCompatActivity() {
             openApps()
         }
 
+        exams.setOnClickListener{
+            openExams(navController)
+        }
+
         help_button.setOnClickListener{
             navController.navigate(R.id.menuHelp)
         }
 
     }
 
-    private fun openApps(){
+    private fun openExams(navController: NavController) {
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.iee.ihu.gr/exams-program")))
+    }
+
+    private fun openApps() {
         val intent = packageManager.getLaunchIntentForPackage("gr.teithe.it.it_app")
         if (intent != null) {
             startActivity(intent)
