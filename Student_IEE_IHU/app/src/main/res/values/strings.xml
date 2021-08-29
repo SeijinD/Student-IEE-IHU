@@ -202,6 +202,23 @@
     <string name="moreLibrary">For more questions and answers here.</string>
     <string name="moreHousing">Required documents for admission to the student dormitories.</string>
     <string name="moreThesis">"Diploma Thesis Regulation (March 2021) "</string>
-    <string name="netbeans">Netbeans</string>
+    <string name="netbeans" translatable="false">Netbeans</string>
     <string name="software">Software</string>
+    <string name="build_p">Building P</string>
+    <string name="build_h">Building H</string>
+    <string name="r101" translatable="false">101</string>
+    <string name="r102" translatable="false">102</string>
+    <string name="r109" translatable="false">109</string>
+    <string name="r201" translatable="false">201</string>
+    <string name="r202" translatable="false">202</string>
+    <string name="r208" translatable="false">208</string>
+    <string name="r210" translatable="false">210</string>
+    <string name="r211" translatable="false">211</string>
+    <string name="amphitheater_p">Amphitheater P</string>
+    <string name="amphitheater_h">Amphiteater H</string>
+    <string name="a1_a5">A1-A5</string>
+    <string name="b1_b6">B1-B6</string>
+    <string name="c1_c6">C1-C6</string>
+    <string name="d1_d4">D1-D4</string>
+
 </resources>

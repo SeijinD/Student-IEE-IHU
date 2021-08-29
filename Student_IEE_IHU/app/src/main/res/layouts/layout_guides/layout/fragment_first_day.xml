@@ -35,7 +35,7 @@
             android:background="@color/blue_700"/>
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/description"
+            android:id="@+id/more_firstday"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/description"

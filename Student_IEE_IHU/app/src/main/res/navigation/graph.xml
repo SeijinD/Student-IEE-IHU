@@ -206,10 +206,10 @@
         tools:layout="@layout/fragment_rooms" >
         <action
             android:id="@+id/action_menuRooms_to_menuZoomRoom"
-            app:destination="@id/menuZoomRoom" />
+            app:destination="@id/menuZoomRooms" />
         <action
             android:id="@+id/action_menuRooms_to_menuRoom"
-            app:destination="@id/menuRoom" />
+            app:destination="@id/menuPhysicalRooms" />
     </fragment>
     <fragment
         android:id="@+id/menuResetEmail"
@@ -228,15 +228,15 @@
         android:label="@string/first_day"
         tools:layout="@layout/fragment_first_day" />
     <fragment
-        android:id="@+id/menuRoom"
-        android:name="eu.seijindemon.student_iee_ihu.ui.find.rooms.RoomFragment"
+        android:id="@+id/menuPhysicalRooms"
+        android:name="eu.seijindemon.student_iee_ihu.ui.find.rooms.PhysicalRoomsFragment"
         android:label="@string/rooms"
-        tools:layout="@layout/fragment_room" />
+        tools:layout="@layout/fragment_physical_rooms" />
     <fragment
-        android:id="@+id/menuZoomRoom"
-        android:name="eu.seijindemon.student_iee_ihu.ui.find.rooms.ZoomRoomFragment"
+        android:id="@+id/menuZoomRooms"
+        android:name="eu.seijindemon.student_iee_ihu.ui.find.rooms.ZoomRoomsFragment"
         android:label="@string/zoom_rooms"
-        tools:layout="@layout/fragment_zoom_room" />
+        tools:layout="@layout/fragment_zoom_rooms" />
     <fragment
         android:id="@+id/webview"
         android:name="eu.seijindemon.student_iee_ihu.ui.webview.WebViewFragment"

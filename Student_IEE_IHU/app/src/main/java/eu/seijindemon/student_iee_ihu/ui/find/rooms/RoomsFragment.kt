@@ -16,11 +16,11 @@ class RoomsFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_rooms, container, false)
 
         view.zoom_rooms.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.menuZoomRoom)
+            Navigation.findNavController(view).navigate(R.id.menuZoomRooms)
         }
 
         view.rooms.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.menuRoom)
+            Navigation.findNavController(view).navigate(R.id.menuPhysicalRooms)
         }
 
         return view

@@ -8,23 +8,23 @@ import android.view.ViewGroup
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import eu.seijindemon.student_iee_ihu.R
-import kotlinx.android.synthetic.main.fragment_zoom_room.view.*
+import kotlinx.android.synthetic.main.fragment_physical_rooms.view.*
 
-class ZoomRoomFragment : Fragment() {
+class PhysicalRoomsFragment : Fragment() {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_zoom_room, container, false)
+        val view = inflater.inflate(R.layout.fragment_physical_rooms, container, false)
 
         val tabLayout = view.tab_layout_rooms
         val pager2 = view.view_page2_rooms
 
         val fm = fragmentManager
-        val adapter = RoomsAdapter(fm!!, lifecycle)
+        val adapter = PhysicalRoomsAdapter(fm!!, lifecycle)
         pager2.adapter = adapter
 
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.r1_r8))
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.e1_e8))
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.build_p))
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.build_h))
 
         tabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {

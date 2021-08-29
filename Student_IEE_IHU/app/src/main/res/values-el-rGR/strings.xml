@@ -71,14 +71,14 @@
     <string name="zoom_link_1">"Εγκατάσταση - Ήχος - Βίντεο "</string>
     <string name="zoom_link_2">"Οδηγός συμμετεχόντων "</string>
     <string name="guides">Οδηγοί</string>
-    <string name="rooms">"Δωμάτια "</string>
+    <string name="rooms">Αίθουσες</string>
     <string name="webview">"Προβολή ιστοσελίδων "</string>
     <string name="update_email">Ενημέρωση email</string>
     <string name="old_email">Παλιό email</string>
     <string name="new_email">Νέο email</string>
     <string name="send_verification_email">"Αποστολή email επαλήθευσης "</string>
     <string name="help_you">Κάντε κλικ για να σας βοηθήσουμε!</string>
-    <string name="zoom_rooms">Zoom δωμάτια</string>
+    <string name="zoom_rooms">Zoom αίθουσες</string>
     <string name="help_title">Σελίδα βοήθειας</string>
     <string name="first_day">Πρώτη μέρα</string>
     <string name="admin_page">"Σελίδα διαχειριστή "</string>
@@ -183,4 +183,13 @@
     <string name="moreLibrary">Για περισσότερες ερωτήσεις και απαντήσεις εδώ.</string>
     <string name="moreHousing">"Απαιτούμενα δικαιολογητικά για την εισαγωγή στις φοιτητικές εστίες. "</string>
     <string name="moreThesis">Κανονισμός Διπλωματικών Εργασιών (Μάρτιος 2021)</string>
+    <string name="software">Λογισμικό</string>
+    <string name="build_p">Κτίριο Π</string>
+    <string name="build_h">Κτίριο Η</string>
+    <string name="amphitheater_p">Αμφιθέτρο Π</string>
+    <string name="amphitheater_h">Αμφιθέτρο Η</string>
+    <string name="a1_a5">Α1-Α5</string>
+    <string name="b1_b6">Β1-Β6</string>
+    <string name="c1_c6">Γ1-Γ6</string>
+    <string name="d1_d4">Δ1-Δ4</string>
 </resources>

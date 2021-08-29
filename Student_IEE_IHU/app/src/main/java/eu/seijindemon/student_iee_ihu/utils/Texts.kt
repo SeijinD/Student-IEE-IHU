@@ -59,16 +59,6 @@ class Texts {
         const val firstDay1En = "\n" +
                 ""
 
-        const val firstDay2Gr = "\n" +
-                ""
-        const val firstDay2En = "\n" +
-                ""
-
-        const val firstDay3Gr = "\n" +
-                ""
-        const val firstDay3En = "\n" +
-                ""
-
 
         const val thesis1Gr = "\n" +
                 ""
@@ -402,7 +392,7 @@ class Texts {
                 "Η διαδικασία αυτή γίνεται μια φορά και ισχύει για όλη τη διάρκεια των σπουδών τους.\n"
         const val library3En = "\n" +
                 ""
-        
+
 
         const val netbeansGr = "Το NetBeans είναι ένα ολοκληρωμένο περιβάλλον ανάπτυξης για Java. Το NetBeans επιτρέπει την ανάπτυξη εφαρμογών από ένα σύνολο αρθρωτών στοιχείων λογισμικού που ονομάζονται modules. Το NetBeans τρέχει σε Windows, macOS, Linux και Solaris. \n" +
                 "\n Η ιστοσελίδα του Netbeans είναι : https://netbeans.apache.org \n" +
