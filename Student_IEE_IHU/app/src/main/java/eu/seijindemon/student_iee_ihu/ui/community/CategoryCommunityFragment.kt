@@ -32,25 +32,25 @@ class CategoryCommunityFragment : Fragment() {
 
         when(CategoryCommunityFragmentArgs.fromBundle(requireArguments()).categoryCommunity) {
             "discords_servers" -> {
-                toolbar.title = "Discord Servers"
+                toolbar.title = getString(R.string.discord_servers)
                 communityViewModel.communityDiscordServers().observe(viewLifecycleOwner) { data ->
                     communityAdapter.setData(data)
                 }
             }
             "facebook_groups" -> {
-                toolbar.title = "Facebook Groups"
+                toolbar.title = getString(R.string.facebook_groups)
                 communityViewModel.communityFbGroups().observe(viewLifecycleOwner) { data ->
                     communityAdapter.setData(data)
                 }
             }
             "facebook_pages" -> {
-                toolbar.title = "Facebook Pages"
+                toolbar.title = getString(R.string.facebook_pages)
                 communityViewModel.communityFbPages().observe(viewLifecycleOwner) { data ->
                     communityAdapter.setData(data)
                 }
             }
             "other_community" -> {
-                toolbar.title = "Other Community"
+                toolbar.title = getString(R.string.other_community)
                 communityViewModel.communityOther().observe(viewLifecycleOwner) { data ->
                     communityAdapter.setData(data)
                 }

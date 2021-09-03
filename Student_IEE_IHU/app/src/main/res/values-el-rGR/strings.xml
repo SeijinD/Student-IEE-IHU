@@ -193,4 +193,26 @@
     <string name="c1_c6">Γ1-Γ6</string>
     <string name="d1_d4">Δ1-Δ4</string>
     <string name="exams">Εξετάσεις</string>
+    <string name="r201_info">Εργαστήριο Λειτουργικών Συστημάτων</string>
+    <string name="r202_info">Εργαστήριο Πληροφοριακών Συστημάτων και Διοίκησης</string>
+    <string name="size_24">24 σταθμούς εργασίας</string>
+    <string name="size_28">28 σταθμούς εργασίας</string>
+    <string name="size_10">10 σταθμούς εργασίας</string>
+    <string name="size_26">26 σταθμούς εργασίας</string>
+    <string name="size_100">100 σταθμούς εργασίας</string>
+    <string name="r208_info">Εργαστήριο Διαχείρισης της Πληροφορίας και Μηχανικής Λογισμικού</string>
+    <string name="r211_info">Εργαστήριο Προγραμματισμού και Πολυμέσων</string>
+    <string name="r210_info">Εργαστήριο Συστημάτων Υπολογιστών, Ασφάλειας και Δικτύων</string>
+    <string name="r301_info">Εργαστήριο Ευφυών Συστημάτων και Διαδικτυακών Εφαρμογών</string>
+    <string name="r302_info">Αίθουσα Στήριξης Ερευνητικών Δραστηριοτήτων</string>
+    <string name="size_60">60 σταθμούς εργασίας</string>
+    <string name="r101_info">"Αίθουσα διδασκαλίας "</string>
+    <string name="r102_info">"Αίθουσα διδασκαλίας "</string>
+    <string name="r109_info">"Αίθουσα διδασκαλίας "</string>
+    <string name="amphitheater_p_info">"Αμφιθέατρο κτιρίου πληροφορικής "</string>
+    <string name="amphitheater_h_info">"Αμφιθέατρο κτιρίου ηλεκτρονικής "</string>
+    <string name="b1_b6_info">"Αίθουσες διδασκαλίας "</string>
+    <string name="a1_a5_info">Α1  Ηλεκτρονικών Ισχύος,\n-Α2 Ηλεκτρονικών,\n-Α3 Τεχνολογία Μέσων Μαζικής Επικοινωνίας,\n-Α4 Κεραιών, Μικροκυμάτων &amp; Ραντάρ,\n-Α5 Προγραμματισμού Η/Υ &amp; Δικτύων Η/Υ</string>
+    <string name="c1_c6_info">Γ1 Οπτοηλεκτρονικής &amp; Οπτικών Επικοινωνιών,\n-Γ2 Ηλεκτρικών Κυκλωμάτων,\n-Γ3 Τηλεπικοινωνιών,\n-Γ4 Μικροϋπολογιστών,\n-Γ5  C.A.D.,\n-Γ6 Studio Τηλεόρασης &amp;  Studio Ραδιοφώνου</string>
+    <string name="d1_d4_info">Δ1 Ψηφιακών Κυκλωμάτων,\n-Δ2 Ηλεκτρονικών,\n-Δ3 Συστήματα Αυτομάτου Ελέγχου,\n-Δ4 Ηλεκτρονικών Μετρήσεων</string>
 </resources>

@@ -221,5 +221,28 @@
     <string name="c1_c6">C1-C6</string>
     <string name="d1_d4">D1-D4</string>
     <string name="exams">Exams</string>
-
+    <string name="r201_info">Operating Systems Lab</string>
+    <string name="r202_info">Information Systems and Management Lab</string>
+    <string name="r301" translatable="false">301</string>
+    <string name="r302" translatable="false">302</string>
+    <string name="size_24">24 computing stations</string>
+    <string name="size_28">28 computing stations</string>
+    <string name="size_10">10 computing stations</string>
+    <string name="size_26">26 computing stations</string>
+    <string name="r208_info">Information Processing and Software Engineering Lab</string>
+    <string name="r210_info">Computing Systems, Security and Networks Lab</string>
+    <string name="r211_info">Programming and Multimedia Lab</string>
+    <string name="r301_info">Intelligent Systems and Internet Applications Lab</string>
+    <string name="r302_info">Laboratory to support research programs</string>
+    <string name="size_100">100 computing stations</string>
+    <string name="size_60">60 computing stations</string>
+    <string name="r101_info">Lecture classroom</string>
+    <string name="r102_info">Lecture classroom</string>
+    <string name="r109_info">Lecture classroom</string>
+    <string name="amphitheater_p_info">"IT building amphitheater "</string>
+    <string name="amphitheater_h_info">Electronic building amphitheater</string>
+    <string name="b1_b6_info">Lecture classrooms</string>
+    <string name="a1_a5_info">A1  Electronic Power,\n-A2 Electronics,\n-A3 Mass media technology,\n-A4 Κεραιών, Microwave &amp; Ραντάρ,\n-A5 Computer programming Η/Υ &amp; Network Η/Υ</string>
+    <string name="c1_c6_info">C1 Optoelectronics &amp; Optical Communications ,\n-C2 Electrical Circuits,\n-C3 Telecommunication,\n-C4 Microcomputer,\n-C5  C.A.D.,\n-C6 Studio Television &amp;  Studio Radio</string>
+    <string name="d1_d4_info">D1 Digital Circuits,\n-D2 Electronics,\n-D3 Automatic Control Systems,\n-D4 Electronic Measurements</string>
 </resources>
