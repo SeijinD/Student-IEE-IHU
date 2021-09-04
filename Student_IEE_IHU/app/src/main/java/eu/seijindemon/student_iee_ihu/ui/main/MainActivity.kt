@@ -25,7 +25,6 @@ import eu.seijindemon.student_iee_ihu.ui.not_network.NotNetworkActivity
 import eu.seijindemon.student_iee_ihu.utils.Constants.Companion.BASE_URL_SITE_EL
 import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import eu.seijindemon.student_iee_ihu.utils.NetworkStatus
-import kotlinx.android.synthetic.main.activity_admin_main.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.help_button
 import kotlinx.android.synthetic.main.activity_main.open_apps
@@ -98,7 +97,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         exams.setOnClickListener{
-            openExams(navController)
+            openExams()
         }
 
         help_button.setOnClickListener{
@@ -107,7 +106,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun openExams(navController: NavController) {
+    private fun openExams() {
         startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(BASE_URL_SITE_EL+"exams-program/")))
     }
 
