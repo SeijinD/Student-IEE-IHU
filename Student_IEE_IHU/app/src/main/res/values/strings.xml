@@ -187,7 +187,7 @@
     <string name="password_is_wrong">Password is wrong!</string>
     <string name="updated_profile_info">Updated profile info</string>
     <string name="wait">Wait</string>
-    <string name="image_uploading_">Image u\'ploading…</string>
+    <string name="image_uploading_">Image uploading…</string>
     <string name="share_with">Share with</string>
     <string name="privacy_policy_not_found">Privacy policy not found!</string>
     <string name="reset_your_password">Reset your password</string>
@@ -245,4 +245,6 @@
     <string name="a1_a5_info">A1  Electronic Power,\n-A2 Electronics,\n-A3 Mass media technology,\n-A4 Κεραιών, Microwave &amp; Ραντάρ,\n-A5 Computer programming Η/Υ &amp; Network Η/Υ</string>
     <string name="c1_c6_info">C1 Optoelectronics &amp; Optical Communications ,\n-C2 Electrical Circuits,\n-C3 Telecommunication,\n-C4 Microcomputer,\n-C5  C.A.D.,\n-C6 Studio Television &amp;  Studio Radio</string>
     <string name="d1_d4_info">D1 Digital Circuits,\n-D2 Electronics,\n-D3 Automatic Control Systems,\n-D4 Electronic Measurements</string>
+    <string name="admin_email">"If the email was not filled in automatically, this is the email: georgekara2010@yahoo.gr. "</string>
+    <string name="no_image_uri_profile">The link is empty, please try again.</string>
 </resources>
