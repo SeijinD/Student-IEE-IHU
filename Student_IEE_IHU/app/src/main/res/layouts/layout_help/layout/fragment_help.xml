@@ -60,6 +60,18 @@
                 android:id="@+id/sample4"
                 layout="@layout/text_item" />
 
+            <include
+                android:id="@+id/sample5"
+                layout="@layout/text_item" />
+
+            <include
+                android:id="@+id/sample6"
+                layout="@layout/text_item" />
+
+            <include
+                android:id="@+id/sample7"
+                layout="@layout/text_item" />
+
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,6 +22,9 @@ class HelpFragment : Fragment() {
         val textHelp2: ExpandableTextView = view.sample2.expand_text_view
         val textHelp3: ExpandableTextView = view.sample3.expand_text_view
         val textHelp4: ExpandableTextView = view.sample4.expand_text_view
+        val textHelp5: ExpandableTextView = view.sample4.expand_text_view
+        val textHelp6: ExpandableTextView = view.sample4.expand_text_view
+        val textHelp7: ExpandableTextView = view.sample4.expand_text_view
 
         when(LoadLanguage.loadLanguage()) {
             "el" -> {
@@ -29,12 +32,18 @@ class HelpFragment : Fragment() {
                 textHelp2.text = Texts.helpText2Gr
                 textHelp3.text = Texts.helpText3Gr
                 textHelp4.text = Texts.helpText4Gr
+                textHelp5.text = Texts.helpText5Gr
+                textHelp6.text = Texts.helpText6Gr
+                textHelp7.text = Texts.helpText7Gr
             }
             "en" -> {
                 textHelp1.text = Texts.helpText1En
                 textHelp2.text = Texts.helpText2En
                 textHelp3.text = Texts.helpText3En
                 textHelp4.text = Texts.helpText4En
+                textHelp5.text = Texts.helpText5En
+                textHelp6.text = Texts.helpText6En
+                textHelp7.text = Texts.helpText7En
             }
         }
 

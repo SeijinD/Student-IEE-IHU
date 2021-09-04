@@ -36,6 +36,21 @@ class Texts {
         const val helpText4En = "\n" +
                 ""
 
+        const val helpText5Gr = "\n" +
+                ""
+        const val helpText5En = "\n" +
+                ""
+
+        const val helpText6Gr = "\n" +
+                ""
+        const val helpText6En = "\n" +
+                ""
+
+        const val helpText7Gr = "\n" +
+                ""
+        const val helpText7En = "\n" +
+                ""
+
 
         const val aboutDescriptionGr = "Αυτή η εφαρμογή έγινε από τον Γιώργο Καρανικόλα στο πλαίσιο διπλώματος. \n" +
                 "Η εφαρμογή υλοποιήθηκε σε Kotlin, χρησιμοποιούνται τοπικές και απομακρυσμένες βάσεις δεδομένων, επίσης χρησιμοποιείται πληθώρα βιβλιοθηκών."

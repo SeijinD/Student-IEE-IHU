@@ -31,9 +31,10 @@ import eu.seijindemon.student_iee_ihu.utils.Permissions
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import java.util.*
+import kotlin.concurrent.schedule
 import kotlinx.coroutines.launch
 import www.sanju.motiontoast.MotionToast
-import java.util.*
 
 class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
 
@@ -52,67 +53,71 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
 
         loading.startLoading()
 
-        when (FirebaseSetup.auth?.currentUser) {
-            null -> {
-                loading.isDismiss()
-            }
-            else -> {
-                FirebaseSetup.userReference?.child("admin")?.get()?.addOnSuccessListener { data ->
-                    val isAdmin = data.value as String
-                    val currentUser = FirebaseSetup.auth?.currentUser
-                    if (isAdmin == "no") {
-                        if (currentUser?.isEmailVerified!!) {
+        val user = FirebaseSetup.auth?.currentUser
+
+        Timer().schedule(3_000) {
+            when (user) {
+                null -> {
+                    loading.isDismiss()
+                }
+                else -> {
+                    FirebaseSetup.userReference?.child("admin")?.get()?.addOnSuccessListener { data ->
+                        val isAdmin = data.value as String
+                        val currentUser = FirebaseSetup.auth?.currentUser
+                        if (isAdmin == "no") {
+                            if (currentUser?.isEmailVerified!!) {
+                                loading.isDismiss()
+
+                                MotionToast.Companion.createColorToast(
+                                    this@LoginActivity,
+                                    getString(R.string.successful),
+                                    getString(R.string.login_),
+                                    MotionToast.Companion.TOAST_SUCCESS,
+                                    MotionToast.Companion.GRAVITY_BOTTOM,
+                                    MotionToast.Companion.SHORT_DURATION,
+                                    ResourcesCompat.getFont(this@LoginActivity, R.font.helvetica_regular))
+
+                                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                                finish()
+                            } else if (!currentUser.isEmailVerified) {
+                                loading.isDismiss()
+
+                                MotionToast.Companion.createColorToast(
+                                    this@LoginActivity,
+                                    getString(R.string.warning),
+                                    getString(R.string.must_verify_email),
+                                    MotionToast.Companion.TOAST_WARNING,
+                                    MotionToast.Companion.GRAVITY_BOTTOM,
+                                    MotionToast.Companion.LONG_DURATION,
+                                    ResourcesCompat.getFont(this@LoginActivity, R.font.helvetica_regular))
+
+                                MaterialStyledDialog.Builder(this@LoginActivity)
+                                    .setTitle(getString(R.string.send_email_again))
+                                    .setNegativeText(R.string.no)
+                                    .setPositiveText(R.string.yes)
+                                    .onPositive { sendVerificationAgain() }
+                                    .setStyle(Style.HEADER_WITH_TITLE)
+                                    .show()
+                            }
+                        } else if (isAdmin == "yes") {
                             loading.isDismiss()
 
                             MotionToast.Companion.createColorToast(
-                                this,
+                                this@LoginActivity,
                                 getString(R.string.successful),
                                 getString(R.string.login_),
                                 MotionToast.Companion.TOAST_SUCCESS,
                                 MotionToast.Companion.GRAVITY_BOTTOM,
                                 MotionToast.Companion.SHORT_DURATION,
-                                ResourcesCompat.getFont(this, R.font.helvetica_regular))
+                                ResourcesCompat.getFont(this@LoginActivity, R.font.helvetica_regular))
 
-                            startActivity(Intent(this, MainActivity::class.java))
+                            startActivity(Intent(this@LoginActivity, AdminMainActivity::class.java))
                             finish()
-                        } else if (!currentUser.isEmailVerified) {
-                            loading.isDismiss()
-
-                            MotionToast.Companion.createColorToast(
-                                this,
-                                getString(R.string.warning),
-                                getString(R.string.must_verify_email),
-                                MotionToast.Companion.TOAST_WARNING,
-                                MotionToast.Companion.GRAVITY_BOTTOM,
-                                MotionToast.Companion.LONG_DURATION,
-                                ResourcesCompat.getFont(this, R.font.helvetica_regular))
-
-                            MaterialStyledDialog.Builder(this)
-                                .setTitle(getString(R.string.send_email_again))
-                                .setNegativeText(R.string.no)
-                                .setPositiveText(R.string.yes)
-                                .onPositive { sendVerificationAgain() }
-                                .setStyle(Style.HEADER_WITH_TITLE)
-                                .show()
                         }
-                    } else if (isAdmin == "yes") {
+                    }?.addOnFailureListener {
+                        Log.e("firebase", "Error getting data", it)
                         loading.isDismiss()
-
-                        MotionToast.Companion.createColorToast(
-                            this,
-                            getString(R.string.successful),
-                            getString(R.string.login_),
-                            MotionToast.Companion.TOAST_SUCCESS,
-                            MotionToast.Companion.GRAVITY_BOTTOM,
-                            MotionToast.Companion.SHORT_DURATION,
-                            ResourcesCompat.getFont(this, R.font.helvetica_regular))
-
-                        startActivity(Intent(this, AdminMainActivity::class.java))
-                        finish()
                     }
-                }?.addOnFailureListener {
-                    Log.e("firebase", "Error getting data", it)
-                    loading.isDismiss()
                 }
             }
         }
