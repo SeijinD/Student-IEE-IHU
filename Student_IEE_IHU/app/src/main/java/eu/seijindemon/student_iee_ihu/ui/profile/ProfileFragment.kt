@@ -196,9 +196,22 @@ class ProfileFragment : Fragment() {
                         Log.d("TAG", "onSuccess: deleted file");
                     }?.addOnFailureListener {
                         Log.d("TAG", "onFailure: did not delete file"); }
+
+                    loading.isDismiss()
                 }
-                loading.isDismiss()
             }
+        }
+        else {
+            MotionToast.Companion.createColorToast(
+                requireActivity(),
+                getString(R.string.warning),
+                getString(R.string.no_image_uri_profile),
+                MotionToast.Companion.TOAST_WARNING,
+                MotionToast.Companion.GRAVITY_BOTTOM,
+                MotionToast.Companion.LONG_DURATION,
+                ResourcesCompat.getFont(requireContext(), R.font.helvetica_regular))
+
+            loading.isDismiss()
         }
     }
 
