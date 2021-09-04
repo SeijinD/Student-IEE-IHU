@@ -90,6 +90,16 @@ class ProfileFragment : Fragment() {
                         MotionToast.Companion.LONG_DURATION,
                         ResourcesCompat.getFont(requireActivity(), R.font.helvetica_regular))
             }
+            profile_am.text.toString().length < 6 -> {
+                MotionToast.Companion.createColorToast(
+                    requireActivity(),
+                    getString(R.string.warning),
+                    getString(R.string.am_is_small),
+                    MotionToast.Companion.TOAST_WARNING,
+                    MotionToast.Companion.GRAVITY_BOTTOM,
+                    MotionToast.Companion.LONG_DURATION,
+                    ResourcesCompat.getFont(requireActivity(), R.font.helvetica_regular))
+            }
             profile_firstName.text.toString().trim().isEmpty() -> {
                 MotionToast.Companion.createColorToast(
                         requireActivity(),

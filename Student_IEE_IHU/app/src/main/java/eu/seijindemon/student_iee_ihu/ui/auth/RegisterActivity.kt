@@ -76,6 +76,16 @@ class RegisterActivity : AppCompatActivity() {
                         MotionToast.Companion.LONG_DURATION,
                         ResourcesCompat.getFont(this, R.font.helvetica_regular))
                 }
+                register_am.text.toString().length < 6 -> {
+                    MotionToast.Companion.createColorToast(
+                        this,
+                        getString(R.string.warning),
+                        getString(R.string.am_is_small),
+                        MotionToast.Companion.TOAST_WARNING,
+                        MotionToast.Companion.GRAVITY_BOTTOM,
+                        MotionToast.Companion.LONG_DURATION,
+                        ResourcesCompat.getFont(this, R.font.helvetica_regular))
+                }
                 register_firstName.text.toString().trim().isEmpty() -> {
                     MotionToast.Companion.createColorToast(
                         this,
@@ -101,6 +111,16 @@ class RegisterActivity : AppCompatActivity() {
                         this,
                         getString(R.string.warning),
                         getString(R.string.input_password_or_confirm_password),
+                        MotionToast.Companion.TOAST_WARNING,
+                        MotionToast.Companion.GRAVITY_BOTTOM,
+                        MotionToast.Companion.LONG_DURATION,
+                        ResourcesCompat.getFont(this, R.font.helvetica_regular))
+                }
+                register_password.text.toString().length < 10 || register_verify_password.text.toString().length < 10 -> {
+                    MotionToast.Companion.createColorToast(
+                        this,
+                        getString(R.string.warning),
+                        getString(R.string.passwords_are_small),
                         MotionToast.Companion.TOAST_WARNING,
                         MotionToast.Companion.GRAVITY_BOTTOM,
                         MotionToast.Companion.LONG_DURATION,

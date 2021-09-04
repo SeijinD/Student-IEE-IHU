@@ -247,4 +247,6 @@
     <string name="d1_d4_info">D1 Digital Circuits,\n-D2 Electronics,\n-D3 Automatic Control Systems,\n-D4 Electronic Measurements</string>
     <string name="admin_email">"If the email was not filled in automatically, this is the email: georgekara2010@yahoo.gr. "</string>
     <string name="no_image_uri_profile">The link is empty, please try again.</string>
+    <string name="passwords_are_small">Password or confirm password are small.</string>
+    <string name="am_is_small">AM is small.</string>
 </resources>
