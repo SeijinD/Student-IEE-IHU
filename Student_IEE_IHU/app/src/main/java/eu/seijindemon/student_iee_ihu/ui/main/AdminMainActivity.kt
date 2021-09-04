@@ -34,6 +34,10 @@ import java.util.*
 
 class AdminMainActivity : AppCompatActivity() {
 
+    companion object {
+        var imageRef: String? = null
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -125,6 +129,7 @@ class AdminMainActivity : AppCompatActivity() {
                 headView.header_email_admin.text = snapshot.child("email").value.toString()
 
                 val loadImage = snapshot.child("profile").value.toString()
+                imageRef = loadImage
                 Glide.with(applicationContext)
                     .load(loadImage)
                     .apply(RequestOptions.circleCropTransform())

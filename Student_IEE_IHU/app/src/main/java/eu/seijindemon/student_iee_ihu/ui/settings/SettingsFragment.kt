@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +19,8 @@ import com.tencent.mmkv.MMKV
 import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import eu.seijindemon.student_iee_ihu.ui.auth.LoginActivity
 import eu.seijindemon.student_iee_ihu.R
+import eu.seijindemon.student_iee_ihu.ui.main.AdminMainActivity
+import eu.seijindemon.student_iee_ihu.ui.main.MainActivity
 import kotlinx.android.synthetic.main.fragment_settings.view.*
 import www.sanju.motiontoast.MotionToast
 import java.util.*
@@ -198,18 +201,31 @@ class SettingsFragment : Fragment() {
     }
 
     private fun confirmDelete() {
+        val imageRef = if (MainActivity.imageRef != null) {
+            MainActivity.imageRef!!
+        } else {
+            AdminMainActivity.imageRef!!
+        }
+
+        FirebaseSetup.storage?.getReferenceFromUrl(imageRef)?.delete()?.addOnSuccessListener {
+            Log.d("TAG", "onSuccess: deleted file");
+        }?.addOnFailureListener {
+            Log.d("TAG", "onFailure: did not delete file"); }
+
         FirebaseSetup.user?.delete()
             ?.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     FirebaseSetup.userReference?.removeValue()
+
                     MotionToast.Companion.createColorToast(
-                            this.requireActivity(),
-                            getString(R.string.successful),
-                            getString(R.string.account_deleted),
-                            MotionToast.Companion.TOAST_SUCCESS,
-                            MotionToast.Companion.GRAVITY_BOTTOM,
-                            MotionToast.Companion.LONG_DURATION,
-                            ResourcesCompat.getFont(this.requireContext(), R.font.helvetica_regular))
+                        this.requireActivity(),
+                        getString(R.string.successful),
+                        getString(R.string.account_deleted),
+                        MotionToast.Companion.TOAST_SUCCESS,
+                        MotionToast.Companion.GRAVITY_BOTTOM,
+                        MotionToast.Companion.LONG_DURATION,
+                        ResourcesCompat.getFont(this.requireContext(), R.font.helvetica_regular))
+
                     startActivity(Intent(activity, LoginActivity::class.java))
                     activity?.finish()
                 }
