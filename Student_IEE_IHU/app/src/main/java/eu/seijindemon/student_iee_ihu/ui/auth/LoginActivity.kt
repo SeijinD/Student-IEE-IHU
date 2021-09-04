@@ -1,12 +1,10 @@
 package eu.seijindemon.student_iee_ihu.ui.auth
 
 import android.annotation.SuppressLint
-import android.app.ProgressDialog
 import android.content.Intent
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import android.text.InputType
 import android.util.Log
 import androidx.annotation.WorkerThread
@@ -61,10 +59,45 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
             else -> {
                 FirebaseSetup.userReference?.child("admin")?.get()?.addOnSuccessListener { data ->
                     val isAdmin = data.value as String
+                    val currentUser = FirebaseSetup.auth?.currentUser
                     if (isAdmin == "no") {
-                        startActivity(Intent(this, MainActivity::class.java))
-                        finish()
+                        if (currentUser?.isEmailVerified!!) {
+                            loading.isDismiss()
+
+                            MotionToast.Companion.createColorToast(
+                                this,
+                                getString(R.string.successful),
+                                getString(R.string.login_),
+                                MotionToast.Companion.TOAST_SUCCESS,
+                                MotionToast.Companion.GRAVITY_BOTTOM,
+                                MotionToast.Companion.SHORT_DURATION,
+                                ResourcesCompat.getFont(this, R.font.helvetica_regular))
+
+                            startActivity(Intent(this, MainActivity::class.java))
+                            finish()
+                        } else if (!currentUser.isEmailVerified) {
+                            loading.isDismiss()
+
+                            MotionToast.Companion.createColorToast(
+                                this,
+                                getString(R.string.warning),
+                                getString(R.string.must_verify_email),
+                                MotionToast.Companion.TOAST_WARNING,
+                                MotionToast.Companion.GRAVITY_BOTTOM,
+                                MotionToast.Companion.LONG_DURATION,
+                                ResourcesCompat.getFont(this, R.font.helvetica_regular))
+
+                            MaterialStyledDialog.Builder(this)
+                                .setTitle(getString(R.string.send_email_again))
+                                .setNegativeText(R.string.no)
+                                .setPositiveText(R.string.yes)
+                                .onPositive { sendVerificationAgain() }
+                                .setStyle(Style.HEADER_WITH_TITLE)
+                                .show()
+                        }
+                    } else if (isAdmin == "yes") {
                         loading.isDismiss()
+
                         MotionToast.Companion.createColorToast(
                             this,
                             getString(R.string.successful),
@@ -73,18 +106,9 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                             MotionToast.Companion.GRAVITY_BOTTOM,
                             MotionToast.Companion.SHORT_DURATION,
                             ResourcesCompat.getFont(this, R.font.helvetica_regular))
-                    } else if (isAdmin == "yes") {
+
                         startActivity(Intent(this, AdminMainActivity::class.java))
                         finish()
-                        loading.isDismiss()
-                        MotionToast.Companion.createColorToast(
-                            this,
-                            getString(R.string.successful),
-                            getString(R.string.login_),
-                            MotionToast.Companion.TOAST_SUCCESS,
-                            MotionToast.Companion.GRAVITY_BOTTOM,
-                            MotionToast.Companion.SHORT_DURATION,
-                            ResourcesCompat.getFont(this, R.font.helvetica_regular))
                     }
                 }?.addOnFailureListener {
                     Log.e("firebase", "Error getting data", it)
