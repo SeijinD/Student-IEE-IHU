@@ -1,6 +1,5 @@
 package eu.seijindemon.student_iee_ihu.ui.main
 
-import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.res.Configuration
 import android.net.Uri
@@ -9,7 +8,6 @@ import android.util.Log
 import android.view.View
 import androidx.annotation.WorkerThread
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
@@ -24,6 +22,7 @@ import com.google.firebase.database.ValueEventListener
 import com.tencent.mmkv.MMKV
 import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.ui.not_network.NotNetworkActivity
+import eu.seijindemon.student_iee_ihu.utils.Constants.Companion.BASE_URL_SITE_EL
 import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import eu.seijindemon.student_iee_ihu.utils.NetworkStatus
 import kotlinx.android.synthetic.main.activity_admin_main.*
@@ -31,7 +30,6 @@ import kotlinx.android.synthetic.main.navigation_header_admin.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import www.sanju.motiontoast.MotionToast
 import java.util.*
 
 class AdminMainActivity : AppCompatActivity() {
@@ -106,7 +104,7 @@ class AdminMainActivity : AppCompatActivity() {
     }
 
     private fun openExams() {
-        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.iee.ihu.gr/exams-program")))
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(BASE_URL_SITE_EL +"exams-program/")))
     }
 
     private fun openApps() {
