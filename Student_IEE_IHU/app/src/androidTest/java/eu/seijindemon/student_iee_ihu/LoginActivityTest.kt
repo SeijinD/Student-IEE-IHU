@@ -7,6 +7,7 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
 import eu.seijindemon.student_iee_ihu.ui.auth.LoginActivity
+import okhttp3.internal.wait
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -19,6 +20,7 @@ class LoginActivityTest {
 
     @Test
     fun login() {
+        Thread.sleep(3000);
         onView(withId(R.id.login_email)).perform(replaceText("georgekara2010@yahoo.gr"))
         onView(withId(R.id.login_password)).perform(replaceText("password"))
         onView(withId(R.id.login_button)).perform(click())

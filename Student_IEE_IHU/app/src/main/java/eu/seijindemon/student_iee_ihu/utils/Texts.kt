@@ -19,36 +19,36 @@ class Texts {
         const val helpText1Gr = "Αν θέλετε να προτείνετε κάτι νέο για την εφαρμογή ...\n" +
                 "Μεταβείτε στο πλευρικό μενού στις \"Ρυθμίσεις\" -> \"Αναφορά ή αλλαγή\" και συμπληρώστε τη φόρμα για να στείλετε το μήνυμα ηλεκτρονικού ταχυδρομείου."
         const val helpText1En = "If you want to suggest something new for the application ... \n" +
-                "Go to the \"Settings\" sidebar -> \"Report or change\" and fill out the form to send the e-mail. "
+                "Go to the \"Settings\" sidebar -> \"Report or change\" and fill out the form to send the e-mail."
 
-        const val helpText2Gr = "\n" +
-                ""
-        const val helpText2En = "\n" +
-                ""
+        const val helpText2Gr = "Αν θέλετε να αναφέρετε κάτι για την εφαρμογή ...\n" +
+                "Μεταβείτε στο πλευρικό μενού στις \"Ρυθμίσεις\" -> \"Αναφορά ή αλλαγή\" και συμπληρώστε τη φόρμα για να στείλετε το μήνυμα ηλεκτρονικού ταχυδρομείου."
+        const val helpText2En = "If you want to mention something about the application ...\n" +
+                "Go to the \"Settings\" sidebar -> \"Report or change\" and fill out the form to send the e-mail."
 
-        const val helpText3Gr = "\n" +
+        const val helpText3Gr = "Αν θέλετε να αλλάξετε γλωσσά ή θέμα στην εφαρμογή ...\n" +
                 ""
-        const val helpText3En = "\n" +
-                ""
-
-        const val helpText4Gr = "\n" +
-                ""
-        const val helpText4En = "\n" +
+        const val helpText3En = "If you want to change the language or theme in the application ...\n" +
                 ""
 
-        const val helpText5Gr = "\n" +
+        const val helpText4Gr = "Αν θέλετε να μοιραστείτε την εφαρμογή με άλλον φοιτητή ...\n" +
                 ""
-        const val helpText5En = "\n" +
-                ""
-
-        const val helpText6Gr = "\n" +
-                ""
-        const val helpText6En = "\n" +
+        const val helpText4En = "If you want to share the application with another student ...\n" +
                 ""
 
-        const val helpText7Gr = "\n" +
+        const val helpText5Gr = "Αν θέλετε να δείτε τις ανακοινώσεις του τμήματος ...\n" +
                 ""
-        const val helpText7En = "\n" +
+        const val helpText5En = "If you want to see the announcements of the department ...\n" +
+                ""
+
+        const val helpText6Gr = "Αν θέλετε να δείτε τις εξετάσεις των τμημάτων ...\n" +
+                ""
+        const val helpText6En = "If you want to see the exams of the departments ...\n" +
+                ""
+
+        const val helpText7Gr = "Αν θέλετε να διαγράψετε τον λογαριασμό σας ...\n" +
+                ""
+        const val helpText7En = "If you want to delete your account ... \n" +
                 ""
 
 
