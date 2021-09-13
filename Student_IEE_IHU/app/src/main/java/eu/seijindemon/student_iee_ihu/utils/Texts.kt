@@ -27,29 +27,29 @@ class Texts {
                 "Go to the \"Settings\" sidebar -> \"Report or change\" and fill out the form to send the e-mail."
 
         const val helpText3Gr = "Αν θέλετε να αλλάξετε γλωσσά ή θέμα στην εφαρμογή ...\n" +
-                ""
+                "Μεταβείτε στο πλευρικό μενού στις \"Ρυθμίσεις\" -> και υπάρχουν δύο επιλογές, μία αλλαγή γλώσσας και μία αλλαγή θέματος. "
         const val helpText3En = "If you want to change the language or theme in the application ...\n" +
-                ""
+                "Go to the \"Settings\" sidebar -> and there are two options, one language change and one theme change."
 
         const val helpText4Gr = "Αν θέλετε να μοιραστείτε την εφαρμογή με άλλον φοιτητή ...\n" +
-                ""
+                "Μεταβείτε στο πλευρικό μενού στις \"Ρυθμίσεις\" -> \"Μοιραστείτε την εφαρμογή\" και να το μοιραστείτε όπου θέλετε."
         const val helpText4En = "If you want to share the application with another student ...\n" +
-                ""
+                "Go to the \"Settings\" sidebar -> \"Share App\" and share it where you want."
 
         const val helpText5Gr = "Αν θέλετε να δείτε τις ανακοινώσεις του τμήματος ...\n" +
-                ""
+                "Μεταβείτε στη \"Γραμμή εργαλείων\" στο επάνω μέρος της οθόνης και κάντε κλικ στο \"Καμπανάκι\"."
         const val helpText5En = "If you want to see the announcements of the department ...\n" +
-                ""
+                "Go to the \"Toolbar\" at the top of the screen and click on \"Bell\"."
 
         const val helpText6Gr = "Αν θέλετε να δείτε τις εξετάσεις των τμημάτων ...\n" +
-                ""
+                "Μεταβείτε στη \"Γραμμή εργαλείων\" στο επάνω μέρος της οθόνης και κάντε κλικ στο \"Ε\"."
         const val helpText6En = "If you want to see the exams of the departments ...\n" +
-                ""
+                "Go to the \"Toolbar\" at the top of the screen and click on \"E\"."
 
         const val helpText7Gr = "Αν θέλετε να διαγράψετε τον λογαριασμό σας ...\n" +
-                ""
+                "Μεταβείτε στο πλευρικό μενού στις \"Ρυθμίσεις\" -> \"Διαγραφή λογαριασμού\" και κάντε κλικ στο \"Ναι\" στο παράθυρο επιβεβαίωσης."
         const val helpText7En = "If you want to delete your account ... \n" +
-                ""
+                "Go to the \"Settings\" sidebar -> \"Delete account\" and and click \"Yes\" in the confirmation window."
 
 
         const val aboutDescriptionGr = "Αυτή η εφαρμογή έγινε από τον Γιώργο Καρανικόλα στο πλαίσιο διπλώματος. \n" +

@@ -22,9 +22,9 @@ class HelpFragment : Fragment() {
         val textHelp2: ExpandableTextView = view.sample2.expand_text_view
         val textHelp3: ExpandableTextView = view.sample3.expand_text_view
         val textHelp4: ExpandableTextView = view.sample4.expand_text_view
-        val textHelp5: ExpandableTextView = view.sample4.expand_text_view
-        val textHelp6: ExpandableTextView = view.sample4.expand_text_view
-        val textHelp7: ExpandableTextView = view.sample4.expand_text_view
+        val textHelp5: ExpandableTextView = view.sample5.expand_text_view
+        val textHelp6: ExpandableTextView = view.sample6.expand_text_view
+        val textHelp7: ExpandableTextView = view.sample7.expand_text_view
 
         when(LoadLanguage.loadLanguage()) {
             "el" -> {
