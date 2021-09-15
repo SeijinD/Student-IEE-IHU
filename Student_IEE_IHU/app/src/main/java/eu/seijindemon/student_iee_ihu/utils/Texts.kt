@@ -69,10 +69,36 @@ class Texts {
         const val departmentText2En = "The duration of the Department’s first cycle of studies is set to ten (10) academic semesters in accordance with Government Gazette 2657/1-7-2019/issue B and the first implementation of the corresponding Undergraduate Program of Studies was defined for the academic year 2019-20."
 
 
-        const val firstDay1Gr = "\n" +
-                ""
-        const val firstDay1En = "\n" +
-                ""
+        const val firstDay1Gr = "Καλως ηρθατε πρωτοετείς,\n\n" +
+                "Σε αυτό τον οδηγό θα σας δείξω, κάποια πράγματα που πρέπει να κάνετε σαν νέοι στο τμήμα.\n" +
+                "Μέσα από την εφαρμογή που ειστε, μπορείτε να βρείτε πολλές πληροφορίες για το τμήμα και ό,τι σύνδεσμο μπορείτε να χρειαστείτε, όπως τα παρακάτω:\n\n" +
+                "* Πρέπει να μπείτε στην εφαρμογή \"Apps\", ώστε να βλέπετε τις γενικές ανακοινώσεις που σας αφορούν Αυτές που αφορούν τους πρωτοετείς είναι ανοιχτές και δεν χρειάζεται λογαριασμό.\n" +
+                "* Για να κάνετε την εγγραφή σας στο τμήμα, θα πάτε στην γραμματεία του τμήματος όπου βρίσκεται στο κτίριο Ηλεκτρονικής (μπορείτε να το δείτε στο χάρτη από το \"Βρείτε\").\n" +
+                "* Πρέπει να ενεργοποιήσετε τον λογαριασμό σας μέσω της εφαρμογής \"Apps\". Υπάρχουν οδηγίες για το πώς να το ενεργοποιήσετε. Η διαδικασία είναι εύκολη.\n" +
+                "* Όταν βγει η ανακοίνωση της Σίτισης, που γίνεται στις αρχές του χειμερινού εξαμήνου, θα πρέπει να πάτε στο κτίριο Σίτισης (μπορείτε να το δείτε στο χάρτη από το \"Βρειτε\"). Θα σας συμβούλευα να πατε οσο πιο σύντομα γίνεται για να μην υπάρχει κόσμος, εκτός και αν γίνεται και ηλεκτρονικά. (Οδηγίες για το τι χρειάζεται η σίτιση, μπορείτε να το δείτε και στον οδηγό \"Σίτιση\").\n" +
+                "* Μπορείτε οποιαδήποτε στιγμή να εγγραφείτε στην βιβλιοθήκη της σχολής, ώστε να μπορείτε να δανείζεστε βιβλία. Μπορειτε να κάθεστε εκεί και να τα διαβάζετε ή να χρησιμοποιείτε τους υπολογιστές που υπάρχουν χωρίς εγγραφή. (Οδηγιες για το τι χρειαζεται η βιβλιοθήκη, μπορείτε να το βρείτε στον οδηγό \"Βιβλιοθήκη\").\n" +
+                "* Πρέπει να προσέχετε καθημερινά τις ανακοινώσεις, γιατί ο,τιδήποτε νεο ανακοινώνεται εκεί.\n" +
+                "* Όταν βγει η ανακοίνωση για την εγγραφή στο εξάμηνο, θα πρεπει να μπείτε έγκαιρα και να κανετε την εγγραφή σας. Εξαιρείται το πρώτο εξάμηνο, όπου η εγγραφή γίνεται αυτόματα. Αυτό πρέπει να επαναλαμβάνεται κάθε εξάμηνο. Υπάρχει ειδική ιστοσελίδα για να το κάνετε.\n" +
+                "* Μέσω της εφαρμογής \"Apps\" μπορείτε να ενεργοποιήσετε το VPN της σχολής, ώστε να συνδέεστε με την IP της σχολης, για διάφορα εργαστήρια ή για να έχετε πρόσβαση σε διάφορους παγκόσμιους οργανισμούς που παρέχουν υλικό, όπως papers προς χρήση.\n" +
+                "* Το τμήμα σας παρέχει προσωπική ιστοσελίδα και προσωπική βάση για να τα χρησιμοποιήσετε, μπορείτε μέσα από την εφαρμογή \"Apps\" να τα ενεργοποιήσετε.\n" +
+                "* Καλό θα ήταν να κάνετε έγκαιρα μια περιήγηση στο Moodle του τμήματος, μιας και χρησιμοποιείται από πολλά μαθήματα και θα πρέπει να εγγραφείτε.\n" +
+                "* Τέλος, μην ξεχάσετε να μπείτε σε διάφορα κοινωνικά δίκτυα (Θα τα βρείτε στο \"Κοινότητες\") ώστε να έχετε επικοινωνία με διάφορους συμφοιτητές σας."
+
+        const val firstDay1En = "Welcome, first years,\n\n" +
+                "In this guide, you’ll be given, some of the things you have to do as newcomers to the course.\n" +
+                "Through this app, you can find information about the course and any link you might need, such as: \n\n" +
+                "* Through “Apps”, you can check general announcements that interest you. Those regarding first years are open to view and don’t require an account.\n" +
+                "* To register, you need to visit the Secretariat in the Electronics building. (You can check the map location in “Find”.)\n" +
+                "* You have to verify your account though “Apps”. Instructions on how to verify your account are included. It is an easy process.\n" +
+                "* When the Feeding notice is posted, which happens at the start of the winter semester, you need to visit the Feeding building (can be found in the map through “Find”.) You’re advised to go there as soon possible so it’s not overcrowded, unless there’s an option to register online. (Instructions of what you’ll need can be found in “Feeding”.)\n" +
+                "* You can register at the Library at any given time, so you can borrow books. You can also remain present there to read or use their computers without registering. (Information about what’s required for registration can be found in “Library”.)\n" +
+                "* You’re advised to check Notices daily, since everything new is announced there.\n" +
+                "* When the announcement regarding semester registration is announced, you have to log in on time and register for the semester. The first semester is an exception, since registration is handled automatically. This process needs to be repeated for every semester. There is a specific website for this.\n" +
+                "* Through “Apps”, you can have access to VPN service, so you can log in to our IP, for a variety of courses and international organisation, for different material, such as papers to use.\n" +
+                "* We provide a personal website and base to use, you can activate them though “Apps”.\n" +
+                "* You’re advised to check our Moodle on time, since it’s used by many courses and requires registration.\n" +
+                "* Lastly, don’t forget to join a variety of social media (can be found in “Communities”) so you can be and stay in touch with your fellow students."
+
 
 
         const val thesis1Gr = "\n" +
