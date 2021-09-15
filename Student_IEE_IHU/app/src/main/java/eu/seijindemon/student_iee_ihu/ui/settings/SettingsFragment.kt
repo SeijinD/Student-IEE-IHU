@@ -23,7 +23,9 @@ import eu.seijindemon.student_iee_ihu.ui.main.AdminMainActivity
 import eu.seijindemon.student_iee_ihu.ui.main.MainActivity
 import kotlinx.android.synthetic.main.fragment_settings.view.*
 import www.sanju.motiontoast.MotionToast
+import java.lang.NullPointerException
 import java.util.*
+import kotlin.math.log
 
 class SettingsFragment : Fragment() {
 
@@ -201,16 +203,24 @@ class SettingsFragment : Fragment() {
     }
 
     private fun confirmDelete() {
-        val imageRef = if (MainActivity.imageRef != null) {
-            MainActivity.imageRef!!
-        } else {
-            AdminMainActivity.imageRef!!
+        var imageRef = ""
+        try {
+            if (MainActivity.imageRef!!.startsWith("https")) {
+                imageRef = MainActivity.imageRef!!
+            } else if (AdminMainActivity.imageRef!!.startsWith("https")) {
+                imageRef = AdminMainActivity.imageRef!!
+            }
+        } catch (e: NullPointerException) {
+            Log.d("TAGG", e.toString())
         }
 
-        FirebaseSetup.storage?.getReferenceFromUrl(imageRef)?.delete()?.addOnSuccessListener {
-            Log.d("TAG", "onSuccess: deleted file");
-        }?.addOnFailureListener {
-            Log.d("TAG", "onFailure: did not delete file"); }
+
+        if (imageRef.startsWith("https")) {
+            FirebaseSetup.storage?.getReferenceFromUrl(imageRef)?.delete()?.addOnSuccessListener {
+                Log.d("TAG", "onSuccess: deleted file");
+            }?.addOnFailureListener {
+                Log.d("TAG", "onFailure: did not delete file"); }
+        }
 
         FirebaseSetup.user?.delete()
             ?.addOnCompleteListener { task ->
