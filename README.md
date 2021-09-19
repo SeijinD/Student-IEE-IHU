@@ -2,7 +2,7 @@
 
 ### Description:
 
-* A Android application for the support and organization of the students of the Department of Information and Electronic Engineering (I.H.U.)
+* A Android App for the support and organization of the students of the Department of Information and Electronic Engineering (I.H.U.)
 * Created for my thesis.
 
 ### Sources:
