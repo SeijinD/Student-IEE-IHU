@@ -14,14 +14,10 @@ import androidx.core.content.res.ResourcesCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.gms.tasks.Continuation
-import com.google.android.gms.tasks.OnFailureListener
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.StorageTask
 import com.google.firebase.storage.UploadTask
 import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
@@ -30,7 +26,7 @@ import eu.seijindemon.student_iee_ihu.utils.LoadingDialog
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 import www.sanju.motiontoast.MotionToast
-import java.lang.Exception
+import kotlin.Exception
 
 class ProfileFragment : Fragment() {
 
@@ -201,12 +197,16 @@ class ProfileFragment : Fragment() {
                     val currentUserDb = FirebaseSetup.userReference
                     currentUserDb?.updateChildren(mapProfileImg)
 
-                    val previousImgRef = FirebaseSetup.storage?.getReferenceFromUrl(imageRef!!)
-                    previousImgRef?.delete()?.addOnSuccessListener {
-                        Log.d("TAG", "onSuccess: deleted file");
-                    }?.addOnFailureListener {
-                        Log.d("TAG", "onFailure: did not delete file"); }
-
+                    try {
+                        val previousImgRef = FirebaseSetup.storage?.getReferenceFromUrl(imageRef!!)
+                        previousImgRef?.delete()?.addOnSuccessListener {
+                            Log.d("TAG", "onSuccess: deleted file")
+                        }?.addOnFailureListener {
+                            Log.d("TAG", "onFailure: did not delete file")
+                        }
+                    } catch (e: Exception) {
+                        Log.d("TAG", e.toString())
+                    }
                     loading.isDismiss()
                 }
             }
