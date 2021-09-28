@@ -1,5 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/drawable/btn_custom.xml" value="0.20260416666666667" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/drawable/ic_baseline_description_24.xml" value="0.3651041666666667" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.3651041666666667" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/drawable/tab_indicator_default.xml" value="0.3651041666666667" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/drawable/tab_indicator_selected.xml" value="0.3651041666666667" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/drawable/tab_selector.xml" value="0.3651041666666667" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/drawable/tab_selector_home.xml" value="0.3651041666666667" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_auth/layout/activity_login.xml" value="0.33" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_auth/layout/activity_register.xml" value="0.3489583333333333" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_contact/layout/fragment_contact.xml" value="0.3489583333333333" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_department/drawable/ic_baseline_food_bank_24.xml" value="0.3651041666666667" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_department/drawable/ic_baseline_house_24.xml" value="0.3651041666666667" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_department/layout/fragment_department.xml" value="0.32653985507246375" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_find/layout/fragment_erooms.xml" value="0.3489583333333333" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_find/layout/fragment_find.xml" value="0.3489583333333333" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_find/layout/fragment_hrooms.xml" value="0.3489583333333333" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_find/layout/fragment_maps.xml" value="0.32653985507246375" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_find/layout/fragment_physical_rooms.xml" value="0.3489583333333333" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_find/layout/fragment_prooms.xml" value="0.3489583333333333" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_find/layout/fragment_room.xml" value="0.3489583333333333" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_find/layout/fragment_rooms.xml" value="0.3489583333333333" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_find/layout/fragment_zoom_room.xml" value="0.24094202898550723" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_find/layout/fragment_zoom_rooms.xml" value="0.3489583333333333" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_guides/layout/fragment_feeding.xml" value="0.32653985507246375" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_guides/layout/fragment_first_day.xml" value="0.33" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_guides/layout/fragment_guides.xml" value="0.32653985507246375" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_guides/layout/fragment_housing.xml" value="0.32653985507246375" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_guides/layout/fragment_library.xml" value="0.32653985507246375" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_guides/layout/fragment_software.xml" value="0.3489583333333333" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_guides/layout/fragment_softwares.xml" value="0.3489583333333333" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_guides/layout/fragment_thesis.xml" value="0.3489583333333333" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_guides/layout/fragment_zoom.xml" value="0.3489583333333333" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_help/layout/fragment_help.xml" value="0.32653985507246375" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_help/layout/text_item.xml" value="0.32653985507246375" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_home/layout/fragment_home.xml" value="0.32653985507246375" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_home/layout/item_page.xml" value="0.33106884057971014" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_main/layout/activity_admin_main.xml" value="0.32653985507246375" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_main/layout/activity_main.xml" value="0.3489583333333333" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_other/layout/loading_item.xml" value="0.18645833333333334" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_other/layout/toolbar.xml" value="0.3489583333333333" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_profile/layout/fragment_profile.xml" value="0.3489583333333333" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_settings/layout/fragment_about.xml" value="0.32653985507246375" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_settings/layout/fragment_email_form.xml" value="0.1" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/layouts/layout_settings/layout/fragment_settings.xml" value="0.18645833333333334" />
+        <entry key="..\:/Projects/Android/Kotlin/Student_IEE_IHU/app/src/main/res/menu/navigation_menu.xml" value="0.18645833333333334" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
