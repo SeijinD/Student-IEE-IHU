@@ -3,7 +3,7 @@ buildscript {
     ext.kotlin_version = "1.5.30"
     ext.nav_version = "2.3.5"
     ext.room_version = "2.3.0"
-    ext.coroutines = "1.5.1-native-mt"
+    ext.coroutines = "1.5.2"
     ext.glide = "4.12.0"
     ext.retrofit = "2.9.0"
     ext.okhttp3 = "5.0.0-alpha.2"
@@ -12,7 +12,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.0'
+        classpath 'com.android.tools.build:gradle:7.0.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // Google Services
@@ -20,6 +20,10 @@ buildscript {
 
         // Safe Args
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+
+        // Hilt
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.38.1'
+
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

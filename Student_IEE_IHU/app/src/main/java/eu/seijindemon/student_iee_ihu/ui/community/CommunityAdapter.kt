@@ -10,8 +10,8 @@ import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import eu.seijindemon.student_iee_ihu.R
-import eu.seijindemon.student_iee_ihu.data.model.Community
 import eu.seijindemon.student_iee_ihu.databinding.ModelCommunityBinding
+import eu.seijindemon.student_iee_ihu.refactor.framework.community.model.Community
 import eu.seijindemon.student_iee_ihu.utils.LoadLanguage
 import www.sanju.motiontoast.MotionToast
 

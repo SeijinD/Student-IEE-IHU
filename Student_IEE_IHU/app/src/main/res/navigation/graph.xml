@@ -146,7 +146,7 @@
     </fragment>
     <fragment
         android:id="@+id/menuMaps"
-        android:name="eu.seijindemon.student_iee_ihu.ui.find.google_maps.MapsFragment"
+        android:name="eu.seijindemon.student_iee_ihu.ui.find.maps.MapsFragment"
         android:label="@string/maps"
         tools:layout="@layout/fragment_maps" />
     <fragment

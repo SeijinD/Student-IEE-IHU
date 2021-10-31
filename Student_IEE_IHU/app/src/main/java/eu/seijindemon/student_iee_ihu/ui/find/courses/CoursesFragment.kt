@@ -4,20 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import android.widget.SearchView
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import eu.seijindemon.student_iee_ihu.CoreApplication
+import dagger.hilt.android.AndroidEntryPoint
 import eu.seijindemon.student_iee_ihu.R
-import eu.seijindemon.student_iee_ihu.data.viewmodel.CourseViewModel
-import eu.seijindemon.student_iee_ihu.data.viewmodel.CourseViewModelFactory
 import kotlinx.android.synthetic.main.fragment_courses.view.*
 
-
+@AndroidEntryPoint
 class CoursesFragment : Fragment(), SearchView.OnQueryTextListener {
 
-    private val courseViewModel: CourseViewModel by viewModels { CourseViewModelFactory((activity?.application as CoreApplication).courseRepository) }
+    private val courseViewModel: CourseViewModel by activityViewModels()
 
     private val courseAdapter: CourseAdapter by lazy { CourseAdapter() }
 

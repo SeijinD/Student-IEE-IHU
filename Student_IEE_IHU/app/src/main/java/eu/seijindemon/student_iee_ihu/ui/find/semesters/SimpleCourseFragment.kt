@@ -1,23 +1,24 @@
 package eu.seijindemon.student_iee_ihu.ui.find.semesters
 
 import android.annotation.SuppressLint
-import android.app.ProgressDialog
 import android.net.http.SslError
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.SslErrorHandler
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import androidx.fragment.app.Fragment
+import dagger.hilt.android.AndroidEntryPoint
 import eu.seijindemon.student_iee_ihu.R
-import eu.seijindemon.student_iee_ihu.utils.Constants.Companion.BASE_URL_SITE_EN
 import eu.seijindemon.student_iee_ihu.utils.Constants.Companion.BASE_URL_SITE_EL
+import eu.seijindemon.student_iee_ihu.utils.Constants.Companion.BASE_URL_SITE_EN
 import eu.seijindemon.student_iee_ihu.utils.LoadLanguage
 import eu.seijindemon.student_iee_ihu.utils.LoadingDialog
 import kotlinx.android.synthetic.main.fragment_simple_course.view.*
 
+@AndroidEntryPoint
 class SimpleCourseFragment : Fragment() {
 
     @SuppressLint("SetJavaScriptEnabled")

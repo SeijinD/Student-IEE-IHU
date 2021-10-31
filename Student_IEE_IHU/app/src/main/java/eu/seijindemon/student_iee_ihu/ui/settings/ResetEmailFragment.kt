@@ -2,20 +2,22 @@ package eu.seijindemon.student_iee_ihu.ui.settings
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
+import androidx.fragment.app.Fragment
 import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import dagger.hilt.android.AndroidEntryPoint
 import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.ui.auth.LoginActivity
 import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import kotlinx.android.synthetic.main.fragment_reset_email.view.*
 import www.sanju.motiontoast.MotionToast
 
+@AndroidEntryPoint
 class ResetEmailFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

@@ -3,17 +3,18 @@ package eu.seijindemon.student_iee_ihu.ui.settings
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
+import androidx.fragment.app.Fragment
+import dagger.hilt.android.AndroidEntryPoint
 import eu.seijindemon.student_iee_ihu.R
 import kotlinx.android.synthetic.main.fragment_email_form.*
 import kotlinx.android.synthetic.main.fragment_email_form.view.*
 import www.sanju.motiontoast.MotionToast
-import java.lang.Exception
 
+@AndroidEntryPoint
 class EmailFormFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

@@ -4,20 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import android.widget.SearchView
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import eu.seijindemon.student_iee_ihu.CoreApplication
+import dagger.hilt.android.AndroidEntryPoint
 import eu.seijindemon.student_iee_ihu.R
-import eu.seijindemon.student_iee_ihu.data.viewmodel.OfficialServiceViewModel
-import eu.seijindemon.student_iee_ihu.data.viewmodel.OfficialServiceViewModelFactory
 import kotlinx.android.synthetic.main.fragment_official_services.view.*
 
-
+@AndroidEntryPoint
 class OfficialServicesFragment : Fragment(), SearchView.OnQueryTextListener {
 
-    private val officialServiceViewModel: OfficialServiceViewModel by viewModels { OfficialServiceViewModelFactory((activity?.application as CoreApplication).officialServiceRepository) }
+    private val officialServiceViewModel: OfficialServiceViewModel by activityViewModels()
 
     private val officialServiceAdapter: OfficialServiceAdapter by lazy { OfficialServiceAdapter() }
 

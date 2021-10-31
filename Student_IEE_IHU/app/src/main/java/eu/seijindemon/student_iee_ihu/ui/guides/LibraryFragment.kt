@@ -3,19 +3,19 @@ package eu.seijindemon.student_iee_ihu.ui.guides
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
+import androidx.fragment.app.Fragment
 import com.ms.square.android.expandabletextview.ExpandableTextView
+import dagger.hilt.android.AndroidEntryPoint
 import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.utils.LoadLanguage
 import eu.seijindemon.student_iee_ihu.utils.Texts
 import kotlinx.android.synthetic.main.fragment_library.view.*
 import kotlinx.android.synthetic.main.text_item.view.*
 
-
+@AndroidEntryPoint
 class LibraryFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

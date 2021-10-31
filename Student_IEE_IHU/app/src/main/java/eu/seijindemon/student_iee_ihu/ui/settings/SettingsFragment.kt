@@ -6,27 +6,27 @@ import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.res.ResourcesCompat
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog
 import com.github.javiersantos.materialstyleddialogs.enums.Style
 import com.tencent.mmkv.MMKV
-import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
-import eu.seijindemon.student_iee_ihu.ui.auth.LoginActivity
+import dagger.hilt.android.AndroidEntryPoint
 import eu.seijindemon.student_iee_ihu.R
+import eu.seijindemon.student_iee_ihu.ui.auth.LoginActivity
 import eu.seijindemon.student_iee_ihu.ui.main.AdminMainActivity
 import eu.seijindemon.student_iee_ihu.ui.main.MainActivity
+import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import kotlinx.android.synthetic.main.fragment_settings.view.*
 import www.sanju.motiontoast.MotionToast
-import java.lang.NullPointerException
 import java.util.*
-import kotlin.math.log
 
+@AndroidEntryPoint
 class SettingsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

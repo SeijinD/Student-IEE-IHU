@@ -1,18 +1,19 @@
 package eu.seijindemon.student_iee_ihu.ui.find.semesters
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
-import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import dagger.hilt.android.AndroidEntryPoint
 import eu.seijindemon.student_iee_ihu.R
-import eu.seijindemon.student_iee_ihu.data.model.SimpleCourse
+import eu.seijindemon.student_iee_ihu.refactor.framework.model.SimpleCourse
 import kotlinx.android.synthetic.main.fragment_semester.view.*
 
+@AndroidEntryPoint
 class SemesterFragment : Fragment(), AdapterView.OnItemClickListener {
 
     private val courseList = ArrayList<SimpleCourse>()

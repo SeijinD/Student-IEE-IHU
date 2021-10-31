@@ -3,11 +3,11 @@ package eu.seijindemon.student_iee_ihu.ui.auth
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.res.Configuration
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
 import android.util.Log
 import androidx.annotation.WorkerThread
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.res.ResourcesCompat
 import com.afollestad.materialdialogs.MaterialDialog
@@ -20,6 +20,7 @@ import com.github.javiersantos.materialstyleddialogs.enums.Style
 import com.tencent.mmkv.MMKV
 import com.vmadalin.easypermissions.EasyPermissions
 import com.vmadalin.easypermissions.dialogs.SettingsDialog
+import dagger.hilt.android.AndroidEntryPoint
 import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.ui.main.AdminMainActivity
 import eu.seijindemon.student_iee_ihu.ui.main.MainActivity
@@ -31,11 +32,12 @@ import eu.seijindemon.student_iee_ihu.utils.Permissions
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import java.util.*
-import kotlin.concurrent.schedule
 import kotlinx.coroutines.launch
 import www.sanju.motiontoast.MotionToast
+import java.util.*
+import kotlin.concurrent.schedule
 
+@AndroidEntryPoint
 class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
 
     private val loading = LoadingDialog(this)

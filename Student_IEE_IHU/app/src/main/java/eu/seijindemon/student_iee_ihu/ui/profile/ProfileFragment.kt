@@ -1,16 +1,15 @@
 package eu.seijindemon.student_iee_ihu.ui.profile
 
 import android.app.Activity
-import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
+import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.gms.tasks.Continuation
@@ -20,14 +19,15 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.StorageTask
 import com.google.firebase.storage.UploadTask
-import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
+import dagger.hilt.android.AndroidEntryPoint
 import eu.seijindemon.student_iee_ihu.R
+import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
 import eu.seijindemon.student_iee_ihu.utils.LoadingDialog
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 import www.sanju.motiontoast.MotionToast
-import kotlin.Exception
 
+@AndroidEntryPoint
 class ProfileFragment : Fragment() {
 
     private val requestCode = 438

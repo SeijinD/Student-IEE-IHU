@@ -3,19 +3,21 @@ package eu.seijindemon.student_iee_ihu.ui.contact
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import com.vmadalin.easypermissions.EasyPermissions
 import com.vmadalin.easypermissions.dialogs.SettingsDialog
+import dagger.hilt.android.AndroidEntryPoint
 import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.utils.Permissions
 import kotlinx.android.synthetic.main.fragment_contact.view.*
 import www.sanju.motiontoast.MotionToast
 
+@AndroidEntryPoint
 class ContactFragment : Fragment(), EasyPermissions.PermissionCallbacks {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

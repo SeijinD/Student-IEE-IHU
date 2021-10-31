@@ -8,10 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import dagger.hilt.android.AndroidEntryPoint
 import eu.seijindemon.student_iee_ihu.R
 import kotlinx.android.synthetic.main.fragment_webview.view.*
 
-
+@AndroidEntryPoint
 class PDFWebViewFragment : Fragment() {
 
     @SuppressLint("SetJavaScriptEnabled")
