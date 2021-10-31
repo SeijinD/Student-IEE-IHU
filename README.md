@@ -52,4 +52,6 @@
         - [https://github.com/Manabu-GT/ExpandableTextView](https://github.com/Manabu-GT/ExpandableTextView) 
     - ViewPager2
         - [https://www.raywenderlich.com/8192680-viewpager2-in-android-getting-started](https://www.raywenderlich.com/8192680-viewpager2-in-android-getting-started)
+    - Hilt
+        - [https://developer.android.com/training/dependency-injection/hilt-android](https://developer.android.com/training/dependency-injection/hilt-android)
     
