@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import dagger.hilt.android.AndroidEntryPoint
 import eu.seijindemon.student_iee_ihu.R
-import eu.seijindemon.student_iee_ihu.utils.LoadLanguage
-import eu.seijindemon.student_iee_ihu.utils.Texts
+import eu.seijindemon.student_iee_ihu.util.LoadLanguage
+import eu.seijindemon.student_iee_ihu.util.Text
 import kotlinx.android.synthetic.main.fragment_about.view.*
 
 @AndroidEntryPoint
@@ -21,10 +21,10 @@ class AboutFragment : Fragment() {
 
         when(LoadLanguage.loadLanguage()) {
             "el" -> {
-                aboutDescription.text = Texts.aboutDescriptionGr
+                aboutDescription.text = Text.aboutDescriptionGr
             }
             "en" -> {
-                aboutDescription.text = Texts.aboutDescriptionEn
+                aboutDescription.text = Text.aboutDescriptionEn
             }
         }
 

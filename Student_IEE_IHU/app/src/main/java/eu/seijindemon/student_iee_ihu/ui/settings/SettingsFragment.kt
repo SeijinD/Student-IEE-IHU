@@ -21,7 +21,7 @@ import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.ui.auth.LoginActivity
 import eu.seijindemon.student_iee_ihu.ui.main.AdminMainActivity
 import eu.seijindemon.student_iee_ihu.ui.main.MainActivity
-import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
+import eu.seijindemon.student_iee_ihu.util.FirebaseSetup
 import kotlinx.android.synthetic.main.fragment_settings.view.*
 import www.sanju.motiontoast.MotionToast
 import java.util.*

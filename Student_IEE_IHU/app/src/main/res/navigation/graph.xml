@@ -29,7 +29,7 @@
         tools:layout="@layout/activity_admin_main" />
     <fragment
         android:id="@+id/menuHome"
-        android:name="eu.seijindemon.student_iee_ihu.ui.home.HomeFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.home.HomeFragment"
         android:label="@string/home"
         tools:layout="@layout/fragment_home" />
     <fragment
@@ -49,7 +49,7 @@
     </fragment>
     <fragment
         android:id="@+id/menuProfile"
-        android:name="eu.seijindemon.student_iee_ihu.ui.profile.ProfileFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.profile.ProfileFragment"
         android:label="@string/profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
@@ -64,7 +64,7 @@
         tools:layout="@layout/fragment_email_form" />
     <fragment
         android:id="@+id/menuCommunity"
-        android:name="eu.seijindemon.student_iee_ihu.ui.community.CommunityFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.community.CommunityFragment"
         android:label="@string/communities"
         tools:layout="@layout/fragment_community" >
         <action
@@ -156,7 +156,7 @@
         tools:layout="@layout/fragment_courses" />
     <fragment
         android:id="@+id/menuZoom"
-        android:name="eu.seijindemon.student_iee_ihu.ui.guides.ZoomFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.guides.guide.ZoomFragment"
         android:label="@string/zoom"
         tools:layout="@layout/fragment_zoom" >
         <action
@@ -165,7 +165,7 @@
     </fragment>
     <fragment
         android:id="@+id/menuGuides"
-        android:name="eu.seijindemon.student_iee_ihu.ui.guides.GuidesFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.guides.GuidesFragment"
         android:label="@string/guides"
         tools:layout="@layout/fragment_guides" >
         <action
@@ -218,13 +218,13 @@
         tools:layout="@layout/fragment_reset_email" />
     <fragment
         android:id="@+id/menuHelp"
-        android:name="eu.seijindemon.student_iee_ihu.ui.help.HelpFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.help.HelpFragment"
         android:label="@string/help_title"
         tools:layout="@layout/fragment_help" >
     </fragment>
     <fragment
         android:id="@+id/menuFirstDay"
-        android:name="eu.seijindemon.student_iee_ihu.ui.guides.FirstDayFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.guides.guide.FirstDayFragment"
         android:label="@string/first_day"
         tools:layout="@layout/fragment_first_day" />
     <fragment
@@ -248,7 +248,7 @@
     </fragment>
     <fragment
         android:id="@+id/categoryCommunity"
-        android:name="eu.seijindemon.student_iee_ihu.ui.community.CategoryCommunityFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.community.CategoryCommunityFragment"
         android:label="@string/communities"
         tools:layout="@layout/fragment_category_community" >
         <argument
@@ -257,12 +257,12 @@
     </fragment>
     <fragment
         android:id="@+id/menuContact"
-        android:name="eu.seijindemon.student_iee_ihu.ui.contact.ContactFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.contact.ContactFragment"
         android:label="@string/contact"
         tools:layout="@layout/fragment_contact"/>
     <fragment
         android:id="@+id/menuThesis"
-        android:name="eu.seijindemon.student_iee_ihu.ui.guides.ThesisFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.guides.guide.ThesisFragment"
         android:label="@string/thesis"
         tools:layout="@layout/fragment_thesis" />
     <fragment
@@ -317,7 +317,7 @@
         tools:layout="@layout/fragment_admin_deletes"/>
     <fragment
         android:id="@+id/menuSoftwares"
-        android:name="eu.seijindemon.student_iee_ihu.ui.guides.SoftwaresFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.guides.guide.SoftwaresFragment"
         android:label="@string/softwares"
         tools:layout="@layout/fragment_softwares" >
         <action
@@ -326,12 +326,12 @@
     </fragment>
     <fragment
         android:id="@+id/menuDepartment"
-        android:name="eu.seijindemon.student_iee_ihu.ui.department.DepartmentFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.department.DepartmentFragment"
         android:label="@string/department"
         tools:layout="@layout/fragment_department" />
     <fragment
         android:id="@+id/menuFeeding"
-        android:name="eu.seijindemon.student_iee_ihu.ui.guides.FeedingFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.guides.guide.FeedingFragment"
         android:label="@string/feeding"
         tools:layout="@layout/fragment_feeding" >
         <action
@@ -340,17 +340,17 @@
     </fragment>
     <fragment
         android:id="@+id/menuHousing"
-        android:name="eu.seijindemon.student_iee_ihu.ui.guides.HousingFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.guides.guide.HousingFragment"
         android:label="@string/housing"
         tools:layout="@layout/fragment_housing" />
     <fragment
         android:id="@+id/menuLibrary"
-        android:name="eu.seijindemon.student_iee_ihu.ui.guides.LibraryFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.guides.guide.LibraryFragment"
         android:label="@string/library"
         tools:layout="@layout/fragment_library" />
     <fragment
         android:id="@+id/menuSoftware"
-        android:name="eu.seijindemon.student_iee_ihu.ui.guides.SoftwareFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.guides.guide.SoftwareFragment"
         android:label="@string/software"
         tools:layout="@layout/fragment_software" >
         <argument

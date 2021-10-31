@@ -11,7 +11,7 @@ import com.vmadalin.easypermissions.EasyPermissions
 import com.vmadalin.easypermissions.dialogs.SettingsDialog
 import dagger.hilt.android.AndroidEntryPoint
 import eu.seijindemon.student_iee_ihu.R
-import eu.seijindemon.student_iee_ihu.utils.Permissions
+import eu.seijindemon.student_iee_ihu.util.Permission
 import kotlinx.android.synthetic.main.fragment_find.view.*
 import www.sanju.motiontoast.MotionToast
 
@@ -71,7 +71,7 @@ class FindFragment : Fragment(), EasyPermissions.PermissionCallbacks {
             SettingsDialog.Builder(requireContext()).build().show()
         }
         else {
-            Permissions.requestLocationPermission(requireActivity())
+            Permission.requestLocationPermission(requireActivity())
         }
     }
 
@@ -89,11 +89,11 @@ class FindFragment : Fragment(), EasyPermissions.PermissionCallbacks {
 
 
     private fun checkPermissions(view: View) {
-        if (Permissions.hasLocationPermission(requireContext())) {
+        if (Permission.hasLocationPermission(requireContext())) {
             Navigation.findNavController(view).navigate(R.id.menuMaps)
         }
         else {
-            Permissions.requestLocationPermission(requireActivity())
+            Permission.requestLocationPermission(requireActivity())
         }
     }
 

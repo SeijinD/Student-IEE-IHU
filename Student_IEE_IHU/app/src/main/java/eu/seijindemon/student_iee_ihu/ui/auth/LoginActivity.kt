@@ -25,10 +25,10 @@ import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.ui.main.AdminMainActivity
 import eu.seijindemon.student_iee_ihu.ui.main.MainActivity
 import eu.seijindemon.student_iee_ihu.ui.not_network.NotNetworkActivity
-import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
-import eu.seijindemon.student_iee_ihu.utils.LoadingDialog
-import eu.seijindemon.student_iee_ihu.utils.NetworkStatus
-import eu.seijindemon.student_iee_ihu.utils.Permissions
+import eu.seijindemon.student_iee_ihu.util.FirebaseSetup
+import eu.seijindemon.student_iee_ihu.util.view.LoadingDialog
+import eu.seijindemon.student_iee_ihu.util.NetworkStatus
+import eu.seijindemon.student_iee_ihu.util.Permission
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -372,7 +372,7 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
             SettingsDialog.Builder(this).build().show()
         }
         else {
-            Permissions.requestBasicPermission(this)
+            Permission.requestBasicPermission(this)
         }
     }
 
@@ -389,11 +389,11 @@ class LoginActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
 
 
     private fun checkPermissions() {
-        if (Permissions.hasBasicPermission(this)) {
+        if (Permission.hasBasicPermission(this)) {
             loginUser(login_email.text.toString().trim(), login_password.text.toString().trim())
         }
         else {
-            Permissions.requestBasicPermission(this)
+            Permission.requestBasicPermission(this)
         }
     }
 

@@ -11,8 +11,8 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.databinding.ModelOfferBinding
-import eu.seijindemon.student_iee_ihu.refactor.framework.offer.model.Offer
-import eu.seijindemon.student_iee_ihu.utils.LoadLanguage
+import eu.seijindemon.student_iee_ihu.framework.offer.model.Offer
+import eu.seijindemon.student_iee_ihu.util.LoadLanguage
 import www.sanju.motiontoast.MotionToast
 
 class OfferAdapter: RecyclerView.Adapter<OfferAdapter.MyViewHolder>() {

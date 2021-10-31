@@ -22,10 +22,10 @@ import com.google.firebase.database.ValueEventListener
 import com.tencent.mmkv.MMKV
 import dagger.hilt.android.AndroidEntryPoint
 import eu.seijindemon.student_iee_ihu.R
+import eu.seijindemon.student_iee_ihu.util.BASE_URL_SITE_EL
 import eu.seijindemon.student_iee_ihu.ui.not_network.NotNetworkActivity
-import eu.seijindemon.student_iee_ihu.utils.Constants.Companion.BASE_URL_SITE_EL
-import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
-import eu.seijindemon.student_iee_ihu.utils.NetworkStatus
+import eu.seijindemon.student_iee_ihu.util.FirebaseSetup
+import eu.seijindemon.student_iee_ihu.util.NetworkStatus
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.navigation_header.view.*
 import kotlinx.coroutines.CoroutineScope

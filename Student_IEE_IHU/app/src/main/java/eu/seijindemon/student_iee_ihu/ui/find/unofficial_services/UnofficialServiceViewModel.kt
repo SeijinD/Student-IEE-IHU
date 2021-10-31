@@ -6,11 +6,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import eu.seijindemon.student_iee_ihu.refactor.framework.unofficialservice.model.UnofficialService
-import eu.seijindemon.student_iee_ihu.refactor.usecase.unofficilianservice.GetUnofficialServicesUseCase
-import eu.seijindemon.student_iee_ihu.refactor.usecase.unofficilianservice.InsertDataUseCase
-import eu.seijindemon.student_iee_ihu.refactor.usecase.unofficilianservice.ReadDataUseCase
-import eu.seijindemon.student_iee_ihu.refactor.usecase.unofficilianservice.SearchDatabaseUseCase
+import eu.seijindemon.student_iee_ihu.framework.unofficialservice.model.UnofficialService
+import eu.seijindemon.student_iee_ihu.usecase.unofficilianservice.GetUnofficialServicesUseCase
+import eu.seijindemon.student_iee_ihu.usecase.unofficilianservice.InsertDataUseCase
+import eu.seijindemon.student_iee_ihu.usecase.unofficilianservice.ReadDataUseCase
+import eu.seijindemon.student_iee_ihu.usecase.unofficilianservice.SearchDatabaseUseCase
 import kotlinx.coroutines.*
 import javax.inject.Inject
 

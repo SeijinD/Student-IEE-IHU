@@ -11,8 +11,8 @@ import com.google.firebase.auth.UserProfileChangeRequest
 import dagger.hilt.android.AndroidEntryPoint
 import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.ui.not_network.NotNetworkActivity
-import eu.seijindemon.student_iee_ihu.utils.FirebaseSetup
-import eu.seijindemon.student_iee_ihu.utils.NetworkStatus
+import eu.seijindemon.student_iee_ihu.util.FirebaseSetup
+import eu.seijindemon.student_iee_ihu.util.NetworkStatus
 import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

@@ -11,8 +11,8 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.databinding.ModelUsefulWebsiteBinding
-import eu.seijindemon.student_iee_ihu.refactor.framework.usefulwebsite.model.UsefulWebsite
-import eu.seijindemon.student_iee_ihu.utils.LoadLanguage
+import eu.seijindemon.student_iee_ihu.framework.usefulwebsite.model.UsefulWebsite
+import eu.seijindemon.student_iee_ihu.util.LoadLanguage
 import www.sanju.motiontoast.MotionToast
 
 class UsefulWebsiteAdapter: RecyclerView.Adapter<UsefulWebsiteAdapter.MyViewHolder>() {

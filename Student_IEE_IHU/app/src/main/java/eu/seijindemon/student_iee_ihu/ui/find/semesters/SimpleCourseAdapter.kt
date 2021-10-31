@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import eu.seijindemon.student_iee_ihu.R
-import eu.seijindemon.student_iee_ihu.refactor.framework.model.SimpleCourse
+import eu.seijindemon.student_iee_ihu.framework.model.SimpleCourse
 import kotlinx.android.synthetic.main.model_simple_course.view.*
 
 class SimpleCourseAdapter(private val context: Context, private val dataSet: ArrayList<SimpleCourse>) : BaseAdapter(){

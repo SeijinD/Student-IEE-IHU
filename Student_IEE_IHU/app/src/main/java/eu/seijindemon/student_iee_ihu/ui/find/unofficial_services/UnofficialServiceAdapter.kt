@@ -11,8 +11,8 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.databinding.ModelUnofficialServiceBinding
-import eu.seijindemon.student_iee_ihu.refactor.framework.unofficialservice.model.UnofficialService
-import eu.seijindemon.student_iee_ihu.utils.LoadLanguage
+import eu.seijindemon.student_iee_ihu.framework.unofficialservice.model.UnofficialService
+import eu.seijindemon.student_iee_ihu.util.LoadLanguage
 import www.sanju.motiontoast.MotionToast
 
 class UnofficialServiceAdapter: RecyclerView.Adapter<UnofficialServiceAdapter.MyViewHolder>() {

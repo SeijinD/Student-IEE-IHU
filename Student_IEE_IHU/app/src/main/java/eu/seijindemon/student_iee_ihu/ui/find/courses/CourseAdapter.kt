@@ -11,9 +11,10 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.databinding.ModelCourseBinding
-import eu.seijindemon.student_iee_ihu.refactor.framework.course.model.Course
-import eu.seijindemon.student_iee_ihu.utils.Constants
-import eu.seijindemon.student_iee_ihu.utils.LoadLanguage
+import eu.seijindemon.student_iee_ihu.framework.course.model.Course
+import eu.seijindemon.student_iee_ihu.util.BASE_URL_SITE_EL
+import eu.seijindemon.student_iee_ihu.util.BASE_URL_SITE_EN
+import eu.seijindemon.student_iee_ihu.util.LoadLanguage
 import www.sanju.motiontoast.MotionToast
 
 class CourseAdapter: RecyclerView.Adapter<CourseAdapter.MyViewHolder>() {
@@ -33,14 +34,14 @@ class CourseAdapter: RecyclerView.Adapter<CourseAdapter.MyViewHolder>() {
                 holder.binding.courseTitle.text = oldData[position].title_gr
                 holder.binding.courseTeachers.text = oldData[position].teachers_gr
                 holder.binding.root.setOnClickListener{
-                    openLink(Constants.BASE_URL_SITE_EL + oldData[position].link, holder.binding.root)
+                    openLink(BASE_URL_SITE_EL + oldData[position].link, holder.binding.root)
                 }
             }
             "en" -> {
                 holder.binding.courseTitle.text = oldData[position].title_en
                 holder.binding.courseTeachers.text = oldData[position].teachers_en
                 holder.binding.root.setOnClickListener{
-                    openLink(Constants.BASE_URL_SITE_EN + oldData[position].link, holder.binding.root)
+                    openLink(BASE_URL_SITE_EN + oldData[position].link, holder.binding.root)
                 }
             }
         }

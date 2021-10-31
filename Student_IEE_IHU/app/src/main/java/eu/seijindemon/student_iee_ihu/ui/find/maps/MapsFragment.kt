@@ -16,8 +16,8 @@ import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import dagger.hilt.android.AndroidEntryPoint
 import eu.seijindemon.student_iee_ihu.R
-import eu.seijindemon.student_iee_ihu.refactor.framework.map.model.Map
-import eu.seijindemon.student_iee_ihu.utils.LoadLanguage
+import eu.seijindemon.student_iee_ihu.framework.map.model.Map
+import eu.seijindemon.student_iee_ihu.util.LoadLanguage
 import kotlinx.android.synthetic.main.fragment_maps.view.*
 
 @AndroidEntryPoint

@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import dagger.hilt.android.AndroidEntryPoint
 import eu.seijindemon.student_iee_ihu.R
-import eu.seijindemon.student_iee_ihu.refactor.framework.model.SimpleCourse
+import eu.seijindemon.student_iee_ihu.framework.model.SimpleCourse
 import kotlinx.android.synthetic.main.fragment_semester.view.*
 
 @AndroidEntryPoint

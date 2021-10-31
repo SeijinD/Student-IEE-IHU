@@ -6,6 +6,4 @@ import dagger.hilt.android.HiltAndroidApp
 @HiltAndroidApp
 class CoreApplication: Application() {
 
-//    val database by lazy { Database.getDatabase(this) }
-
 }

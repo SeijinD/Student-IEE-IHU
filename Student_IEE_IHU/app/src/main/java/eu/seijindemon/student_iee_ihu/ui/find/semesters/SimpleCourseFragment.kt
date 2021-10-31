@@ -12,10 +12,10 @@ import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import dagger.hilt.android.AndroidEntryPoint
 import eu.seijindemon.student_iee_ihu.R
-import eu.seijindemon.student_iee_ihu.utils.Constants.Companion.BASE_URL_SITE_EL
-import eu.seijindemon.student_iee_ihu.utils.Constants.Companion.BASE_URL_SITE_EN
-import eu.seijindemon.student_iee_ihu.utils.LoadLanguage
-import eu.seijindemon.student_iee_ihu.utils.LoadingDialog
+import eu.seijindemon.student_iee_ihu.util.BASE_URL_SITE_EL
+import eu.seijindemon.student_iee_ihu.util.BASE_URL_SITE_EN
+import eu.seijindemon.student_iee_ihu.util.LoadLanguage
+import eu.seijindemon.student_iee_ihu.util.view.LoadingDialog
 import kotlinx.android.synthetic.main.fragment_simple_course.view.*
 
 @AndroidEntryPoint
