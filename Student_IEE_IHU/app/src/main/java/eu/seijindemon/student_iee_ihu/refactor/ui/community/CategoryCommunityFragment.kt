@@ -60,8 +60,7 @@ class CategoryCommunityFragment : BaseFragment<FragmentCategoryCommunityBinding>
                         adapter.setData(data)
                     }
                 }
-                else -> {
-                }
+                else -> {}
             }
         }
     }

@@ -1,51 +1,57 @@
 package eu.seijindemon.student_iee_ihu.refactor.ui.guides
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import eu.seijindemon.student_iee_ihu.R
-import kotlinx.android.synthetic.main.fragment_guides.view.*
+import eu.seijindemon.student_iee_ihu.databinding.FragmentGuidesBinding
+import eu.seijindemon.student_iee_ihu.refactor.ui.base.BaseFragment
 
 @AndroidEntryPoint
-class GuidesFragment : Fragment() {
+class GuidesFragment : BaseFragment<FragmentGuidesBinding>() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_guides, container, false)
-
-        view.first_day.setOnClickListener{
-           findNavController().navigate(R.id.menuFirstDay)
-        }
-
-        view.zoom.setOnClickListener{
-            findNavController().navigate(R.id.menuZoom)
-        }
-
-        view.thesis.setOnClickListener{
-            findNavController().navigate(R.id.menuThesis)
-        }
-
-        view.feeding.setOnClickListener{
-            findNavController().navigate(R.id.menuFeeding)
-        }
-
-        view.housing.setOnClickListener{
-            findNavController().navigate(R.id.menuHousing)
-        }
-
-        view.library.setOnClickListener{
-            findNavController().navigate(R.id.menuLibrary)
-        }
-
-        view.softwares.setOnClickListener{
-            findNavController().navigate(R.id.menuSoftwares)
-        }
-
-        return view
+    override fun getViewBinding(): FragmentGuidesBinding {
+        return FragmentGuidesBinding.inflate(layoutInflater)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setupListeners()
+
+    }
+
+    fun setupListeners() {
+        with(binding) {
+            firstDay.setOnClickListener{
+                findNavController().navigate(R.id.menuFirstDay)
+            }
+
+            zoom.setOnClickListener{
+                findNavController().navigate(R.id.menuZoom)
+            }
+
+            thesis.setOnClickListener{
+                findNavController().navigate(R.id.menuThesis)
+            }
+
+            feeding.setOnClickListener{
+                findNavController().navigate(R.id.menuFeeding)
+            }
+
+            housing.setOnClickListener{
+                findNavController().navigate(R.id.menuHousing)
+            }
+
+            library.setOnClickListener{
+                findNavController().navigate(R.id.menuLibrary)
+            }
+
+            softwares.setOnClickListener{
+                findNavController().navigate(R.id.menuSoftwares)
+            }
+        }
+    }
 
 }

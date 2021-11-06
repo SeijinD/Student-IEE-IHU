@@ -34,7 +34,7 @@
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/menuSettings"
-        android:name="eu.seijindemon.student_iee_ihu.ui.settings.SettingsFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.settings.SettingsFragment"
         android:label="@string/settings"
         tools:layout="@layout/fragment_settings" >
         <action
@@ -54,12 +54,12 @@
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/menuAbout"
-        android:name="eu.seijindemon.student_iee_ihu.ui.settings.AboutFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.settings.AboutFragment"
         android:label="@string/about_app"
         tools:layout="@layout/fragment_about" />
     <fragment
         android:id="@+id/menuEmailForm"
-        android:name="eu.seijindemon.student_iee_ihu.ui.settings.EmailFormFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.settings.EmailFormFragment"
         android:label="@string/email"
         tools:layout="@layout/fragment_email_form" />
     <fragment
@@ -213,7 +213,7 @@
     </fragment>
     <fragment
         android:id="@+id/menuResetEmail"
-        android:name="eu.seijindemon.student_iee_ihu.ui.settings.ResetEmailFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.settings.ResetEmailFragment"
         android:label="@string/reset_email"
         tools:layout="@layout/fragment_reset_email" />
     <fragment
