@@ -22,7 +22,7 @@ class GuidesFragment : BaseFragment<FragmentGuidesBinding>() {
 
     }
 
-    fun setupListeners() {
+    private fun setupListeners() {
         with(binding) {
             firstDay.setOnClickListener{
                 findNavController().navigate(R.id.menuFirstDay)

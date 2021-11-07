@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.find.useful_websites.UsefulWebsitesFragment">
+    tools:context=".refactor.ui.find.useful_websites.UsefulWebsitesFragment">
 
     <SearchView
         android:id="@+id/search_useful_website"

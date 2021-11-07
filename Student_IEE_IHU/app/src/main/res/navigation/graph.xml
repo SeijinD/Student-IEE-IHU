@@ -78,7 +78,7 @@
         tools:layout="@layout/activity_not_network" />
     <fragment
         android:id="@+id/menuFind"
-        android:name="eu.seijindemon.student_iee_ihu.ui.find.FindFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.find.FindFragment"
         android:label="@string/find"
         tools:layout="@layout/fragment_find" >
         <action
@@ -111,7 +111,7 @@
     </fragment>
     <fragment
         android:id="@+id/menuSemesters"
-        android:name="eu.seijindemon.student_iee_ihu.ui.find.semesters.SemestersFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.find.semesters.SemestersFragment"
         android:label="@string/semesters"
         tools:layout="@layout/fragment_semesters" >
         <action
@@ -120,12 +120,12 @@
     </fragment>
     <fragment
         android:id="@+id/menuTeachers"
-        android:name="eu.seijindemon.student_iee_ihu.ui.find.teachers.TeachersFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.find.teachers.TeachersFragment"
         android:label="@string/teachers"
         tools:layout="@layout/fragment_teachers" />
     <fragment
         android:id="@+id/menuSemester"
-        android:name="eu.seijindemon.student_iee_ihu.ui.find.semesters.SemesterFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.find.semesters.SemesterFragment"
         android:label="@string/semesters"
         tools:layout="@layout/fragment_semester" >
         <action
@@ -137,7 +137,7 @@
     </fragment>
     <fragment
         android:id="@+id/menuSimpleCourse"
-        android:name="eu.seijindemon.student_iee_ihu.ui.find.semesters.SimpleCourseFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.find.semesters.SimpleCourseFragment"
         android:label="@string/course"
         tools:layout="@layout/fragment_simple_course" >
         <argument
@@ -146,12 +146,12 @@
     </fragment>
     <fragment
         android:id="@+id/menuMaps"
-        android:name="eu.seijindemon.student_iee_ihu.ui.find.maps.MapsFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.find.maps.MapsFragment"
         android:label="@string/maps"
         tools:layout="@layout/fragment_maps" />
     <fragment
         android:id="@+id/menuCourses"
-        android:name="eu.seijindemon.student_iee_ihu.ui.find.courses.CoursesFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.find.courses.CoursesFragment"
         android:label="@string/courses"
         tools:layout="@layout/fragment_courses" />
     <fragment
@@ -201,7 +201,7 @@
     </fragment>
     <fragment
         android:id="@+id/menuRooms"
-        android:name="eu.seijindemon.student_iee_ihu.ui.find.rooms.RoomsFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.find.rooms.RoomsFragment"
         android:label="@string/rooms"
         tools:layout="@layout/fragment_rooms" >
         <action
@@ -229,12 +229,12 @@
         tools:layout="@layout/fragment_first_day" />
     <fragment
         android:id="@+id/menuPhysicalRooms"
-        android:name="eu.seijindemon.student_iee_ihu.ui.find.rooms.PhysicalRoomsFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.find.rooms.PhysicalRoomsFragment"
         android:label="@string/rooms"
         tools:layout="@layout/fragment_physical_rooms" />
     <fragment
         android:id="@+id/menuZoomRooms"
-        android:name="eu.seijindemon.student_iee_ihu.ui.find.rooms.ZoomRoomsFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.find.rooms.ZoomRoomsFragment"
         android:label="@string/zoom_rooms"
         tools:layout="@layout/fragment_zoom_rooms" />
     <fragment
@@ -282,22 +282,22 @@
     </fragment>
     <fragment
         android:id="@+id/menuUsefulWebsites"
-        android:name="eu.seijindemon.student_iee_ihu.ui.find.useful_websites.UsefulWebsitesFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.find.useful_websites.UsefulWebsitesFragment"
         android:label="@string/useful_websites"
         tools:layout="@layout/fragment_useful_websites" />
     <fragment
         android:id="@+id/menuOffers"
-        android:name="eu.seijindemon.student_iee_ihu.ui.find.offers.OffersFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.find.offers.OffersFragment"
         android:label="@string/offers"
         tools:layout="@layout/fragment_offers" />
     <fragment
         android:id="@+id/menuOfficialServices"
-        android:name="eu.seijindemon.student_iee_ihu.ui.find.official_services.OfficialServicesFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.find.official_services.OfficialServicesFragment"
         android:label="@string/official_services"
         tools:layout="@layout/fragment_official_services" />
     <fragment
         android:id="@+id/menuUnofficialServices"
-        android:name="eu.seijindemon.student_iee_ihu.ui.find.unofficial_services.UnofficialServicesFragment"
+        android:name="eu.seijindemon.student_iee_ihu.refactor.ui.find.unofficial_services.UnofficialServicesFragment"
         android:label="@string/unofficial_services"
         tools:layout="@layout/fragment_unofficial_services" />
     <fragment
