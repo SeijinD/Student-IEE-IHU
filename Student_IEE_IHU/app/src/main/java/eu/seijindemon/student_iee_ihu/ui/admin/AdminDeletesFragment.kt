@@ -1,25 +1,29 @@
 package eu.seijindemon.student_iee_ihu.ui.admin
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import dagger.hilt.android.AndroidEntryPoint
-import eu.seijindemon.student_iee_ihu.R
+import eu.seijindemon.student_iee_ihu.databinding.FragmentAdminDeletesBinding
+import eu.seijindemon.student_iee_ihu.ui.base.BaseFragment
 
 @AndroidEntryPoint
-class AdminDeletesFragment : Fragment() {
+class AdminDeletesFragment : BaseFragment<FragmentAdminDeletesBinding>() {
 
-
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_admin_deletes, container, false)
-
-
-
-        return view
+    override fun getViewBinding(): FragmentAdminDeletesBinding {
+        return FragmentAdminDeletesBinding.inflate(layoutInflater)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setupListeners()
+
+    }
+
+    private fun setupListeners() {
+        with(binding) {
+
+        }
+    }
 
 }

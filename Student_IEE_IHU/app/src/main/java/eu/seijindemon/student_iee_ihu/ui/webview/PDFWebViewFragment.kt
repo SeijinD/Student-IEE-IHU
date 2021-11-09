@@ -21,9 +21,7 @@ class PDFWebViewFragment : Fragment() {
 
         view.webview.settings.javaScriptEnabled = true
         view.webview.webViewClient = object : WebViewClient() {
-            override fun onPageFinished(view: WebView?, url: String?) {
-
-            }
+            override fun onPageFinished(view: WebView?, url: String?) {}
         }
         val pdf = PDFWebViewFragmentArgs.fromBundle(requireArguments()).url
         view.webview.loadUrl("https://drive.google.com/viewerng/viewer?embedded=true&url=$pdf")

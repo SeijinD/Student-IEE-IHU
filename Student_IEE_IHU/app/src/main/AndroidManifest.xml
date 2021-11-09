@@ -24,11 +24,6 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.StudentIEEIHU">
-        <activity android:name=".ui.not_network.NotNetworkActivity" />
-        <activity android:name=".ui.main.AdminMainActivity" />
-        <activity android:name=".ui.auth.RegisterActivity" />
-        <activity android:name=".ui.main.MainActivity" />
-
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -38,7 +33,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name=".ui.auth.LoginActivity"
+            android:name="eu.seijindemon.student_iee_ihu.ui.app.AppActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

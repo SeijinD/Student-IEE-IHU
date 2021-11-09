@@ -155,8 +155,6 @@
     <string name="home_welcome">Welcome student in the application!</string>
     <string name="feeding">Feeding</string>
     <string name="housing">Housing</string>
-    <string name="help_message">Help message</string>
-    <string name="help_message_body">"If you have not logged out and you have closed the application and when you reopen the application it does not enter automatically. Close and reopen the application. "</string>
     <string name="successful">Successful</string>
     <string name="login_">Login…</string>
     <string name="send_reset_password_email">Send reset password email!</string>
@@ -249,4 +247,5 @@
     <string name="no_image_uri_profile">The link is empty, please try again.</string>
     <string name="passwords_are_small">Password or confirm password are small.</string>
     <string name="am_is_small">AM is small.</string>
+    <string name="dashboard">Dashboard</string>
 </resources>

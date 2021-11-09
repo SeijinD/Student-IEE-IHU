@@ -136,8 +136,6 @@
     <string name="softwares">Λογισμικά</string>
     <string name="housing">Στέγαση</string>
     <string name="feeding">Σίτιση</string>
-    <string name="help_message">Μήνυμα βοήθειας</string>
-    <string name="help_message_body">"Εάν δεν έχετε αποσυνδεθεί και έχετε κλείσει την εφαρμογή και όταν ανοίξετε ξανά την εφαρμογή δεν μπαίνει αυτόματα. Κλείστε και ανοίξτε ξανά την εφαρμογή. "</string>
     <string name="send_reset_password_email">"Αποστολή επαναφορά κωδικού Email "</string>
     <string name="login_">"Σύνδεση… "</string>
     <string name="successful">Επιτυχής</string>
@@ -217,4 +215,7 @@
     <string name="d1_d4_info">Δ1 Ψηφιακών Κυκλωμάτων,\n-Δ2 Ηλεκτρονικών,\n-Δ3 Συστήματα Αυτομάτου Ελέγχου,\n-Δ4 Ηλεκτρονικών Μετρήσεων</string>
     <string name="admin_email">"Εάν το email δεν συμπληρώθηκε αυτόματα, αυτό είναι το email: georgekara2010@yahoo.gr. "</string>
     <string name="no_image_uri_profile">"Ο σύνδεσμος είναι άδειος, δοκιμάστε ξανά. "</string>
+    <string name="passwords_are_small">"Ο κωδικός πρόσβασης ή ο κωδικός επιβεβαίωσης είναι μικρός. "</string>
+    <string name="am_is_small">"Το AM είναι μικρό. "</string>
+    <string name="dashboard">Ταμπλό</string>
 </resources>

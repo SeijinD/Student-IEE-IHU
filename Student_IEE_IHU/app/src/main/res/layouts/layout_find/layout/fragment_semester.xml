@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".refactor.ui.find.semesters.SemesterFragment">
+    tools:context=".ui.dashboard.find.semesters.SemesterFragment">
 
     <include
         android:id="@+id/toolbar"

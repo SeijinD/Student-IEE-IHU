@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_dashboard_content"
+    app:startDestination="@id/menuHome">
+
+    <fragment
+        android:id="@+id/menuHome"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.home.HomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/menuSettings"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.settings.SettingsFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_menuSettings_to_menuEmailForm"
+            app:destination="@id/menuEmailForm" />
+        <action
+            android:id="@+id/action_menuSettings_to_menuAbout"
+            app:destination="@id/menuAbout" />
+        <action
+            android:id="@+id/action_menuSettings_to_menuResetEmail"
+            app:destination="@id/menuResetEmail" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuProfile"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.profile.ProfileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/menuAbout"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.settings.AboutFragment"
+        android:label="@string/about_app"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/menuEmailForm"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.settings.EmailFormFragment"
+        android:label="@string/email"
+        tools:layout="@layout/fragment_email_form" />
+    <fragment
+        android:id="@+id/menuCommunity"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.community.CommunityFragment"
+        android:label="@string/communities"
+        tools:layout="@layout/fragment_community" >
+        <action
+            android:id="@+id/action_menuCommunity_to_categoryCommunity"
+            app:destination="@id/categoryCommunity" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuFind"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.find.FindFragment"
+        android:label="@string/find"
+        tools:layout="@layout/fragment_find" >
+        <action
+            android:id="@+id/action_menuFind_to_menuSemesters"
+            app:destination="@id/menuSemesters" />
+        <action
+            android:id="@+id/action_menuFind_to_menuTeachers"
+            app:destination="@id/menuTeachers" />
+        <action
+            android:id="@+id/action_menuFind_to_menuMaps"
+            app:destination="@id/menuMaps" />
+        <action
+            android:id="@+id/action_menuFind_to_menuCourses"
+            app:destination="@id/menuCourses" />
+        <action
+            android:id="@+id/action_menuFind_to_menuRooms"
+            app:destination="@id/menuRooms" />
+        <action
+            android:id="@+id/action_menuFind_to_menuUsefulWebsites"
+            app:destination="@id/menuUsefulWebsites" />
+        <action
+            android:id="@+id/action_menuFind_to_menuOfficialServices"
+            app:destination="@id/menuOfficialServices" />
+        <action
+            android:id="@+id/action_menuFind_to_menuOffers"
+            app:destination="@id/menuOffers" />
+        <action
+            android:id="@+id/action_menuFind_to_menuUnofficialServices"
+            app:destination="@id/menuUnofficialServices" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuSemesters"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.find.semesters.SemestersFragment"
+        android:label="@string/semesters"
+        tools:layout="@layout/fragment_semesters" >
+        <action
+            android:id="@+id/action_menuSemesters_to_semesterFragment"
+            app:destination="@id/menuSemester" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuTeachers"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.find.teachers.TeachersFragment"
+        android:label="@string/teachers"
+        tools:layout="@layout/fragment_teachers" />
+    <fragment
+        android:id="@+id/menuSemester"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.find.semesters.SemesterFragment"
+        android:label="@string/semesters"
+        tools:layout="@layout/fragment_semester" >
+        <action
+            android:id="@+id/action_menuSemester_to_simpleCourseFragment"
+            app:destination="@id/menuSimpleCourse" />
+        <argument
+            android:name="semester_number"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuSimpleCourse"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.find.semesters.SimpleCourseFragment"
+        android:label="@string/course"
+        tools:layout="@layout/fragment_simple_course" >
+        <argument
+            android:name="course_link"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuMaps"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.find.maps.MapsFragment"
+        android:label="@string/maps"
+        tools:layout="@layout/fragment_maps" />
+    <fragment
+        android:id="@+id/menuCourses"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.find.courses.CoursesFragment"
+        android:label="@string/courses"
+        tools:layout="@layout/fragment_courses" />
+    <fragment
+        android:id="@+id/menuZoom"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.guides.guide.ZoomFragment"
+        android:label="@string/zoom"
+        tools:layout="@layout/fragment_zoom" >
+        <action
+            android:id="@+id/action_menuZoom_to_pdf_webview"
+            app:destination="@id/pdf_webview" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuGuides"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.guides.GuidesFragment"
+        android:label="@string/guides"
+        tools:layout="@layout/fragment_guides" >
+        <action
+            android:id="@+id/action_menuGuides_to_menuZoom"
+            app:destination="@id/menuZoom" />
+        <action
+            android:id="@+id/action_menuGuides_to_menuFirstDay"
+            app:destination="@id/menuFirstDay" />
+        <action
+            android:id="@+id/action_menuGuides_to_menuThesis"
+            app:destination="@id/menuThesis" />
+        <action
+            android:id="@+id/action_menuGuides_to_menuSoftwares"
+            app:destination="@id/menuSoftwares" />
+        <action
+            android:id="@+id/action_menuGuides_to_menuFeeding"
+            app:destination="@id/menuFeeding" />
+        <action
+            android:id="@+id/action_menuGuides_to_menuHousing"
+            app:destination="@id/menuHousing" />
+        <action
+            android:id="@+id/action_menuGuides_to_menuLibrary"
+            app:destination="@id/menuLibrary" />
+    </fragment>
+    <fragment
+        android:id="@+id/pdf_webview"
+        android:name="eu.seijindemon.student_iee_ihu.ui.webview.PDFWebViewFragment"
+        android:label="@string/pdf_webview"
+        tools:layout="@layout/fragment_pdf_webview" >
+        <argument
+            android:name="url"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuRooms"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.find.rooms.RoomsFragment"
+        android:label="@string/rooms"
+        tools:layout="@layout/fragment_rooms" >
+        <action
+            android:id="@+id/action_menuRooms_to_menuZoomRoom"
+            app:destination="@id/menuZoomRooms" />
+        <action
+            android:id="@+id/action_menuRooms_to_menuRoom"
+            app:destination="@id/menuPhysicalRooms" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuResetEmail"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.settings.ResetEmailFragment"
+        android:label="@string/reset_email"
+        tools:layout="@layout/fragment_reset_email" />
+    <fragment
+        android:id="@+id/menuHelp"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.help.HelpFragment"
+        android:label="@string/help_title"
+        tools:layout="@layout/fragment_help" >
+    </fragment>
+    <fragment
+        android:id="@+id/menuFirstDay"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.guides.guide.FirstDayFragment"
+        android:label="@string/first_day"
+        tools:layout="@layout/fragment_first_day" />
+    <fragment
+        android:id="@+id/menuPhysicalRooms"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.find.rooms.PhysicalRoomsFragment"
+        android:label="@string/rooms"
+        tools:layout="@layout/fragment_physical_rooms" />
+    <fragment
+        android:id="@+id/menuZoomRooms"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.find.rooms.ZoomRoomsFragment"
+        android:label="@string/zoom_rooms"
+        tools:layout="@layout/fragment_zoom_rooms" />
+    <fragment
+        android:id="@+id/webview"
+        android:name="eu.seijindemon.student_iee_ihu.ui.webview.WebViewFragment"
+        android:label="@string/webview"
+        tools:layout="@layout/fragment_webview" >
+        <argument
+            android:name="url"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryCommunity"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.community.CategoryCommunityFragment"
+        android:label="@string/communities"
+        tools:layout="@layout/fragment_category_community" >
+        <argument
+            android:name="categoryCommunity"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuContact"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.contact.ContactFragment"
+        android:label="@string/contact"
+        tools:layout="@layout/fragment_contact"/>
+    <fragment
+        android:id="@+id/menuThesis"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.guides.guide.ThesisFragment"
+        android:label="@string/thesis"
+        tools:layout="@layout/fragment_thesis" />
+    <fragment
+        android:id="@+id/menuAdmin"
+        android:name="eu.seijindemon.student_iee_ihu.ui.admin.AdminFragment"
+        android:label="@string/admin_page"
+        tools:layout="@layout/fragment_admin" >
+        <action
+            android:id="@+id/action_menuAdmin_to_menuAdminUpdates"
+            app:destination="@id/menuAdminUpdates" />
+        <action
+            android:id="@+id/action_menuAdmin_to_menuAdminInserts"
+            app:destination="@id/menuAdminInserts" />
+        <action
+            android:id="@+id/action_menuAdmin_to_menuAdminDeletes"
+            app:destination="@id/menuAdminDeletes" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuUsefulWebsites"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.find.useful_websites.UsefulWebsitesFragment"
+        android:label="@string/useful_websites"
+        tools:layout="@layout/fragment_useful_websites" />
+    <fragment
+        android:id="@+id/menuOffers"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.find.offers.OffersFragment"
+        android:label="@string/offers"
+        tools:layout="@layout/fragment_offers" />
+    <fragment
+        android:id="@+id/menuOfficialServices"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.find.official_services.OfficialServicesFragment"
+        android:label="@string/official_services"
+        tools:layout="@layout/fragment_official_services" />
+    <fragment
+        android:id="@+id/menuUnofficialServices"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.find.unofficial_services.UnofficialServicesFragment"
+        android:label="@string/unofficial_services"
+        tools:layout="@layout/fragment_unofficial_services" />
+    <fragment
+        android:id="@+id/menuAdminInserts"
+        android:name="eu.seijindemon.student_iee_ihu.ui.admin.AdminInsertsFragment"
+        android:label="@string/inserts"
+        tools:layout="@layout/fragment_admin_inserts" />
+    <fragment
+        android:id="@+id/menuAdminUpdates"
+        android:name="eu.seijindemon.student_iee_ihu.ui.admin.AdminUpdatesFragment"
+        android:label="@string/updates"
+        tools:layout="@layout/fragment_admin_deletes" />
+    <fragment
+        android:id="@+id/menuAdminDeletes"
+        android:name="eu.seijindemon.student_iee_ihu.ui.admin.AdminDeletesFragment"
+        android:label="@string/deletes"
+        tools:layout="@layout/fragment_admin_deletes"/>
+    <fragment
+        android:id="@+id/menuSoftwares"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.guides.guide.SoftwaresFragment"
+        android:label="@string/softwares"
+        tools:layout="@layout/fragment_softwares" >
+        <action
+            android:id="@+id/action_menuSoftwares_to_menuSoftware"
+            app:destination="@id/menuSoftware" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuDepartment"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.department.DepartmentFragment"
+        android:label="@string/department"
+        tools:layout="@layout/fragment_department" />
+    <fragment
+        android:id="@+id/menuFeeding"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.guides.guide.FeedingFragment"
+        android:label="@string/feeding"
+        tools:layout="@layout/fragment_feeding" >
+        <action
+            android:id="@+id/action_menuFeeding_to_pdf_webview"
+            app:destination="@id/pdf_webview" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuHousing"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.guides.guide.HousingFragment"
+        android:label="@string/housing"
+        tools:layout="@layout/fragment_housing" />
+    <fragment
+        android:id="@+id/menuLibrary"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.guides.guide.LibraryFragment"
+        android:label="@string/library"
+        tools:layout="@layout/fragment_library" />
+    <fragment
+        android:id="@+id/menuSoftware"
+        android:name="eu.seijindemon.student_iee_ihu.ui.dashboard.guides.guide.SoftwareFragment"
+        android:label="@string/software"
+        tools:layout="@layout/fragment_software" >
+        <argument
+            android:name="title"
+            app:argType="string" />
+    </fragment>
+
+</navigation>

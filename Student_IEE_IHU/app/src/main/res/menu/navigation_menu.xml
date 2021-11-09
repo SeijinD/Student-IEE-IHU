@@ -40,11 +40,15 @@
             android:title="@string/profile"
             />
         <item
+            android:id="@+id/menuAdmin"
+            android:icon="@drawable/ic_baseline_admin_panel_settings_24"
+            android:title="@string/admin_page"
+            />
+        <item
             android:id="@+id/menuSettings"
             android:icon="@drawable/ic_baseline_settings_24"
             android:title="@string/settings"
             />
-
     </group>
 
 </menu>
