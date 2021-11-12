@@ -9,16 +9,16 @@ import com.google.android.material.textview.MaterialTextView
 import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.util.Text
 
-class HomeAdapter(var context: Context, var language: String) : RecyclerView.Adapter<HomeAdapter.MyHolder>(){
+class HomeAdapter(var context: Context, private var language: String) : RecyclerView.Adapter<HomeAdapter.MyHolder>(){
 
-    private var homeTextsEn = arrayOf<String>(
+    private var homeTextsEn = arrayOf(
         Text.home1En,
         Text.home2En,
         Text.home3En,
         Text.home4En
     )
 
-    private var homeTextsGr = arrayOf<String>(
+    private var homeTextsGr = arrayOf(
         Text.home1Gr,
         Text.home2Gr,
         Text.home3Gr,

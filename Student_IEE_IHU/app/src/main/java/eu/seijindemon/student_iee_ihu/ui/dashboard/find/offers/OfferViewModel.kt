@@ -2,11 +2,11 @@ package eu.seijindemon.student_iee_ihu.ui.dashboard.find.offers
 
 import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.seijindemon.student_iee_ihu.framework.offer.model.Offer
+import eu.seijindemon.student_iee_ihu.ui.base.BaseViewModel
 import eu.seijindemon.student_iee_ihu.usecase.offer.GetOffersUseCase
 import eu.seijindemon.student_iee_ihu.usecase.offer.InsertDataUseCase
 import eu.seijindemon.student_iee_ihu.usecase.offer.ReadDataUseCase
@@ -20,7 +20,7 @@ class OfferViewModel @Inject constructor(
     private val insertDataUseCase: InsertDataUseCase,
     private val searchDatabaseUseCase: SearchDatabaseUseCase,
     private val getOffersUseCase: GetOffersUseCase
-): ViewModel() {
+): BaseViewModel() {
 
     fun readData(): LiveData<List<Offer>> {
         return readDataUseCase.invoke().asLiveData()

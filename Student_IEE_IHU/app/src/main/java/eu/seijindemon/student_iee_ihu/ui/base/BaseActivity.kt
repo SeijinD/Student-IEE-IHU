@@ -19,6 +19,6 @@ abstract class BaseActivity<VB : ViewBinding, VM : BaseViewModel>(clazz: Class<V
 
     }
 
-    protected val viewModel: VM by lazy { ViewModelProvider(this).get(clazz) }
+    protected val viewModel: VM by lazy { ViewModelProvider(this)[clazz] }
 
 }

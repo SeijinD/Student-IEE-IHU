@@ -2,11 +2,11 @@ package eu.seijindemon.student_iee_ihu.ui.dashboard.find.useful_websites
 
 import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.seijindemon.student_iee_ihu.framework.usefulwebsite.model.UsefulWebsite
+import eu.seijindemon.student_iee_ihu.ui.base.BaseViewModel
 import eu.seijindemon.student_iee_ihu.usecase.usefulwebsite.GetUsefulWebsitesUseCase
 import eu.seijindemon.student_iee_ihu.usecase.usefulwebsite.InsertDataUseCase
 import eu.seijindemon.student_iee_ihu.usecase.usefulwebsite.ReadDataUseCase
@@ -20,7 +20,7 @@ class UsefulWebsiteViewModel @Inject constructor(
     private val insertDataUseCase: InsertDataUseCase,
     private val searchDatabaseUseCase: SearchDatabaseUseCase,
     private val getUsefulWebsitesUseCase: GetUsefulWebsitesUseCase
-): ViewModel() {
+): BaseViewModel() {
 
     fun readData(): LiveData<List<UsefulWebsite>> {
         return readDataUseCase.invoke().asLiveData()

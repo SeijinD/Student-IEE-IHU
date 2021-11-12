@@ -2,11 +2,11 @@ package eu.seijindemon.student_iee_ihu.ui.dashboard.find.teachers
 
 import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.seijindemon.student_iee_ihu.framework.teacher.model.Teacher
+import eu.seijindemon.student_iee_ihu.ui.base.BaseViewModel
 import eu.seijindemon.student_iee_ihu.usecase.teacher.GetTeachersUseCase
 import eu.seijindemon.student_iee_ihu.usecase.teacher.InsertDataUseCase
 import eu.seijindemon.student_iee_ihu.usecase.teacher.ReadDataUseCase
@@ -20,7 +20,7 @@ class TeacherViewModel @Inject constructor(
     private val insertDataUseCase: InsertDataUseCase,
     private val searchDatabaseUseCase: SearchDatabaseUseCase,
     private val getTeachersUseCase: GetTeachersUseCase
-): ViewModel() {
+): BaseViewModel() {
 
     fun readData(): LiveData<List<Teacher>> {
         return readDataUseCase.invoke().asLiveData()

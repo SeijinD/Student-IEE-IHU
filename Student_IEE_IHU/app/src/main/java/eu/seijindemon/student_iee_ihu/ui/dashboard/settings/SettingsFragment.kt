@@ -225,7 +225,7 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>() {
 
         if (imageRef.startsWith("https")) {
             FirebaseSetup.storage?.getReferenceFromUrl(imageRef)?.delete()?.addOnSuccessListener {
-                Log.d("TAG", "onSuccess: deleted file");
+                Log.d("TAG", "onSuccess: deleted file")
             }?.addOnFailureListener {
                 Log.d("TAG", "onFailure: did not delete file"); }
         }

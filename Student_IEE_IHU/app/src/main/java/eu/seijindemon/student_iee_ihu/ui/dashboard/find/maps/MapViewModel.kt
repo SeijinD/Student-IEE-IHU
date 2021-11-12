@@ -2,11 +2,11 @@ package eu.seijindemon.student_iee_ihu.ui.dashboard.find.maps
 
 import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.seijindemon.student_iee_ihu.framework.map.model.Map
+import eu.seijindemon.student_iee_ihu.ui.base.BaseViewModel
 import eu.seijindemon.student_iee_ihu.usecase.map.GetMapsUseCase
 import eu.seijindemon.student_iee_ihu.usecase.map.InsertDataUseCase
 import eu.seijindemon.student_iee_ihu.usecase.map.ReadDataUseCase
@@ -20,7 +20,7 @@ class MapViewModel @Inject constructor(
     private val insertDataUseCase: InsertDataUseCase,
     private val searchDatabaseUseCase: SearchDatabaseUseCase,
     private val getMapsUseCase: GetMapsUseCase
-): ViewModel() {
+): BaseViewModel() {
 
     fun readData(): LiveData<List<Map>> {
         return readDataUseCase.invoke().asLiveData()

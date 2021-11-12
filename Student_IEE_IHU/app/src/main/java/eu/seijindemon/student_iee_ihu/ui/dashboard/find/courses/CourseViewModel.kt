@@ -2,11 +2,11 @@ package eu.seijindemon.student_iee_ihu.ui.dashboard.find.courses
 
 import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.seijindemon.student_iee_ihu.framework.course.model.Course
+import eu.seijindemon.student_iee_ihu.ui.base.BaseViewModel
 import eu.seijindemon.student_iee_ihu.usecase.course.GetCoursesUseCase
 import eu.seijindemon.student_iee_ihu.usecase.course.InsertDataUseCase
 import eu.seijindemon.student_iee_ihu.usecase.course.ReadDataUseCase
@@ -20,7 +20,7 @@ class CourseViewModel @Inject constructor(
     private val insertDataUseCase: InsertDataUseCase,
     private val searchDatabaseUseCase: SearchDatabaseUseCase,
     private val getCoursesUseCase: GetCoursesUseCase
-): ViewModel() {
+): BaseViewModel() {
 
     fun readData(): LiveData<List<Course>> {
         return readDataUseCase.invoke().asLiveData()

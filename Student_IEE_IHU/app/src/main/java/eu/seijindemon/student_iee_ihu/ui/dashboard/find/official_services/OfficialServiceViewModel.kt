@@ -2,11 +2,11 @@ package eu.seijindemon.student_iee_ihu.ui.dashboard.find.official_services
 
 import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.seijindemon.student_iee_ihu.framework.officialservice.model.OfficialService
+import eu.seijindemon.student_iee_ihu.ui.base.BaseViewModel
 import eu.seijindemon.student_iee_ihu.usecase.officialservice.GetOfficialServicesUseCase
 import eu.seijindemon.student_iee_ihu.usecase.officialservice.InsertDataUseCase
 import eu.seijindemon.student_iee_ihu.usecase.officialservice.ReadDataUseCase
@@ -20,7 +20,7 @@ class OfficialServiceViewModel @Inject constructor(
     private val insertDataUseCase: InsertDataUseCase,
     private val searchDatabaseUseCase: SearchDatabaseUseCase,
     private val getOfficialServicesUseCase: GetOfficialServicesUseCase
-): ViewModel() {
+): BaseViewModel() {
 
     fun readData(): LiveData<List<OfficialService>> {
         return readDataUseCase.invoke().asLiveData()

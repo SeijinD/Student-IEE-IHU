@@ -3,6 +3,7 @@ package eu.seijindemon.student_iee_ihu.ui.dashboard.guides.guide
 import android.os.Bundle
 import android.view.View
 import dagger.hilt.android.AndroidEntryPoint
+import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.databinding.FragmentSoftwareBinding
 import eu.seijindemon.student_iee_ihu.ui.base.BaseFragment
 import eu.seijindemon.student_iee_ihu.util.LoadLanguage
@@ -28,7 +29,7 @@ class SoftwareFragment : BaseFragment<FragmentSoftwareBinding>() {
                 "el" -> {
                     when(SoftwareFragmentArgs.fromBundle(requireArguments()).title) {
                         "netbeans" -> {
-                            softwareTitle.text = "Netbeans"
+                            softwareTitle.text = getString(R.string.netbeans)
                             softwareDescription.text = Text.netbeansGr
                         }
                     }
@@ -36,7 +37,7 @@ class SoftwareFragment : BaseFragment<FragmentSoftwareBinding>() {
                 "en" -> {
                     when(SoftwareFragmentArgs.fromBundle(requireArguments()).title) {
                         "netbeans" -> {
-                            softwareTitle.text = "Netbeans"
+                            softwareTitle.text = getString(R.string.netbeans)
                             softwareDescription.text = Text.netbeansEn
                         }
                     }

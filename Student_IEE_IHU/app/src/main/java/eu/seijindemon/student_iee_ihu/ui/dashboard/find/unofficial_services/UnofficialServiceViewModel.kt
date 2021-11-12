@@ -2,11 +2,11 @@ package eu.seijindemon.student_iee_ihu.ui.dashboard.find.unofficial_services
 
 import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.seijindemon.student_iee_ihu.framework.unofficialservice.model.UnofficialService
+import eu.seijindemon.student_iee_ihu.ui.base.BaseViewModel
 import eu.seijindemon.student_iee_ihu.usecase.unofficilianservice.GetUnofficialServicesUseCase
 import eu.seijindemon.student_iee_ihu.usecase.unofficilianservice.InsertDataUseCase
 import eu.seijindemon.student_iee_ihu.usecase.unofficilianservice.ReadDataUseCase
@@ -20,7 +20,7 @@ class UnofficialServiceViewModel @Inject constructor(
     private val insertDataUseCase: InsertDataUseCase,
     private val searchDatabaseUseCase: SearchDatabaseUseCase,
     private val getUnofficialServicesUseCase: GetUnofficialServicesUseCase
-): ViewModel() {
+): BaseViewModel() {
 
     fun readData(): LiveData<List<UnofficialService>> {
         return readDataUseCase.invoke().asLiveData()
