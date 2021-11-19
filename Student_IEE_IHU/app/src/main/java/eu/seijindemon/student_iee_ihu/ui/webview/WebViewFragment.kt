@@ -3,38 +3,43 @@ package eu.seijindemon.student_iee_ihu.ui.webview
 import android.annotation.SuppressLint
 import android.net.http.SslError
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.webkit.SslErrorHandler
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import androidx.fragment.app.Fragment
 import dagger.hilt.android.AndroidEntryPoint
-import eu.seijindemon.student_iee_ihu.R
-import kotlinx.android.synthetic.main.fragment_webview.view.*
+import eu.seijindemon.student_iee_ihu.databinding.FragmentWebviewBinding
+import eu.seijindemon.student_iee_ihu.ui.base.BaseFragment
 
 @AndroidEntryPoint
-class WebViewFragment : Fragment() {
+class WebViewFragment : BaseFragment<FragmentWebviewBinding>() {
 
-    @SuppressLint("SetJavaScriptEnabled")
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_webview, container, false)
-
-        view.webview.settings.javaScriptEnabled = true
-        view.webview.webViewClient = object : WebViewClient() {
-            override fun onPageFinished(view: WebView?, url: String?) {
-                view?.webview?.loadUrl(url!!)
-            }
-            override fun onReceivedSslError(view: WebView?, handler: SslErrorHandler?, error: SslError?) {
-                handler?.proceed()
-            }
-        }
-        val url = WebViewFragmentArgs.fromBundle(requireArguments()).url
-        view.webview.loadUrl(url)
-
-        return view
+    override fun getViewBinding(): FragmentWebviewBinding {
+        return FragmentWebviewBinding.inflate(layoutInflater)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setupViews()
+
+    }
+
+    @SuppressLint("SetJavaScriptEnabled")
+    private fun setupViews() {
+        with(binding) {
+            webview.settings.javaScriptEnabled = true
+            webview.webViewClient = object : WebViewClient() {
+                override fun onPageFinished(view: WebView?, url: String?) {
+                    webview.loadUrl(url!!)
+                }
+                override fun onReceivedSslError(view: WebView?, handler: SslErrorHandler?, error: SslError?) {
+                    handler?.proceed()
+                }
+            }
+            val url = WebViewFragmentArgs.fromBundle(requireArguments()).url
+            webview.loadUrl(url)
+        }
+    }
 
 }

@@ -6,6 +6,9 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.core.view.GravityCompat
 import androidx.core.view.doOnLayout
 import androidx.drawerlayout.widget.DrawerLayout
@@ -25,7 +28,6 @@ import eu.seijindemon.student_iee_ihu.databinding.FragmentDashboardBinding
 import eu.seijindemon.student_iee_ihu.ui.base.BaseFragment
 import eu.seijindemon.student_iee_ihu.util.BASE_URL_SITE_EL
 import eu.seijindemon.student_iee_ihu.util.FirebaseSetup
-import kotlinx.android.synthetic.main.navigation_header.view.*
 import java.util.*
 
 @AndroidEntryPoint
@@ -44,15 +46,16 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
-//            override fun handleOnBackPressed() {
-//                if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
-//                    binding.drawerLayout.closeDrawer(GravityCompat.START)
-//                } else {
-//                    activity?.onBackPressed()
-//                }
-//            }
-//        })
+        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                    binding.drawerLayout.closeDrawer(GravityCompat.START)
+                }
+                else {
+                    requireActivity().finish()
+                }
+            }
+        })
 
         FirebaseSetup.setupFirebase()
 
@@ -136,10 +139,14 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
 
     private fun loadHeader() {
         val headView: View = binding.navigationView.getHeaderView(0)
+        val headerAm = headView.findViewById<TextView>(R.id.header_am)
+        val headerEmail = headView.findViewById<TextView>(R.id.header_email)
+        val imageProfile = headView.findViewById<ImageView>(R.id.image_profile)
+
         FirebaseSetup.userReference?.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                headView.header_am.text = snapshot.child("am").value.toString()
-                headView.header_email.text = snapshot.child("email").value.toString()
+                headerAm.text = snapshot.child("am").value.toString()
+                headerEmail.text = snapshot.child("email").value.toString()
 
                 val loadImage = snapshot.child("profile").value.toString()
                 imageRef = loadImage
@@ -147,26 +154,12 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
                     .load(loadImage)
                     .apply(RequestOptions.circleCropTransform())
                     .error(R.drawable.default_profile)
-                    .into(headView.imageProfile)
+                    .into(imageProfile)
             }
             override fun onCancelled(error: DatabaseError) {
                 Log.e("TAG", error.message)
             }
         })
     }
-
-//    override fun onResume() {
-//        super.onResume()
-//        CoroutineScope(Dispatchers.IO).launch {
-//            networkAvailable()
-//        }
-//    }
-//
-//    @WorkerThread
-//    private suspend fun networkAvailable() {
-//        if (!NetworkStatus.networkAvailable(requireActivity().application)) {
-//            findNavController().navigate(DashboardFragmentDirections.actionNavDashboardToNavNotNetwork())
-//        }
-//    }
 
 }

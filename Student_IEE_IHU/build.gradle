@@ -1,13 +1,16 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext.kotlin_version = "1.5.31"
-    ext.gradle_version = "7.0.3"
-    ext.nav_version = "2.3.5"
-    ext.room_version = "2.3.0"
-    ext.coroutines_version = "1.5.2"
-    ext.glide_version = "4.12.0"
-    ext.retrofit_version = "2.9.0"
-    ext.okhttp3_version = "5.0.0-alpha.2"
+    ext {
+        kotlin_version = "1.5.31"
+        gradle_version = "7.0.3"
+        nav_version = "2.3.5"
+        room_version = "2.3.0"
+        coroutines_version = "1.5.2"
+        glide_version = "4.12.0"
+        retrofit_version = "2.9.0"
+        okhttp3_version = "5.0.0-alpha.2"
+        hilt_version = "2.40.1"
+    }
     repositories {
         google()
         mavenCentral()

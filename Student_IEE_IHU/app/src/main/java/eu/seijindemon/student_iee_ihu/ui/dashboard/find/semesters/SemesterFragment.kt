@@ -10,7 +10,6 @@ import eu.seijindemon.student_iee_ihu.databinding.FragmentSemesterBinding
 import eu.seijindemon.student_iee_ihu.framework.model.SimpleCourse
 import eu.seijindemon.student_iee_ihu.ui.base.BaseFragment
 import eu.seijindemon.student_iee_ihu.ui.dashboard.find.semesters.adapter.SimpleCourseAdapter
-import kotlinx.android.synthetic.main.fragment_category_community.*
 
 @AndroidEntryPoint
 class SemesterFragment : BaseFragment<FragmentSemesterBinding>(), AdapterView.OnItemClickListener {

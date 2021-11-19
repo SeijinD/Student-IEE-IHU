@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.TextView
 import eu.seijindemon.student_iee_ihu.R
 import eu.seijindemon.student_iee_ihu.framework.model.SimpleCourse
-import kotlinx.android.synthetic.main.model_simple_course.view.*
 
 class SimpleCourseAdapter(private val context: Context, private val dataSet: ArrayList<SimpleCourse>) : BaseAdapter(){
 
@@ -28,7 +28,8 @@ class SimpleCourseAdapter(private val context: Context, private val dataSet: Arr
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val view = LayoutInflater.from(context).inflate(R.layout.model_simple_course, parent, false)
 
-        view.course_title.text = dataSet[position].title
+        val courseTitle = view.findViewById<TextView>(R.id.course_title)
+        courseTitle.text = dataSet[position].title
 
         return view
     }
