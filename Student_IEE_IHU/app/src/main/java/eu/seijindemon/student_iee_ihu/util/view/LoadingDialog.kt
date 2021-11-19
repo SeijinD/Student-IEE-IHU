@@ -8,7 +8,7 @@ class LoadingDialog (private val mActivity: Activity) {
 
     private lateinit var isdialog: AlertDialog
 
-    fun startLoading(){
+    fun startLoading() {
         /**set View*/
         val inflater = mActivity.layoutInflater
         val dialogView = inflater.inflate(R.layout.loading_item,null)
@@ -20,7 +20,7 @@ class LoadingDialog (private val mActivity: Activity) {
         isdialog.show()
     }
 
-    fun isDismiss(){
+    fun isDismiss() {
         isdialog.dismiss()
     }
 }
