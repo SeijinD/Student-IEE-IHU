@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.res.ResourcesCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -31,7 +32,6 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
         return FragmentProfileBinding.inflate(layoutInflater)
     }
 
-    private val requestCode = 438
     private var imageUri: Uri? = null
     private var imageRef: String? = null
 
@@ -160,25 +160,24 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
         val intent = Intent()
         intent.type = "image/*"
         intent.action = Intent.ACTION_GET_CONTENT
-        startActivityForResult(intent, requestCode)
+        getResult.launch(intent)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == this.requestCode && resultCode == Activity.RESULT_OK && data!!.data != null) {
-            imageUri = data.data
-            MotionToast.Companion.createColorToast(
-                this.requireActivity(),
-                getString(R.string.wait),
-                getString(R.string.image_uploading_),
-                MotionToast.Companion.TOAST_INFO,
-                MotionToast.Companion.GRAVITY_BOTTOM,
-                MotionToast.Companion.LONG_DURATION,
-                ResourcesCompat.getFont(this.requireContext(), R.font.helvetica_regular))
-            uploadImageToDatabase()
+    private val getResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if(it.resultCode == Activity.RESULT_OK){
+                imageUri = it.data?.data
+                MotionToast.Companion.createColorToast(
+                    this.requireActivity(),
+                    getString(R.string.wait),
+                    getString(R.string.image_uploading_),
+                    MotionToast.Companion.TOAST_INFO,
+                    MotionToast.Companion.GRAVITY_BOTTOM,
+                    MotionToast.Companion.LONG_DURATION,
+                    ResourcesCompat.getFont(this.requireContext(), R.font.helvetica_regular))
+                uploadImageToDatabase()
+            }
         }
-    }
 
     private fun uploadImageToDatabase() {
 

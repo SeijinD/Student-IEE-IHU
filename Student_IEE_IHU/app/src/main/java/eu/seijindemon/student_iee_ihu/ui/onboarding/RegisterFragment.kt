@@ -172,8 +172,8 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
                             .setDisplayName(am).build()
 
                         currentUser!!.updateProfile(profileUpdates)
-                            .addOnCompleteListener(requireActivity()){ task ->
-                                if (task.isSuccessful) {
+                            .addOnCompleteListener(requireActivity()){
+                                if (it.isSuccessful) {
                                     Log.e("TAG", getString(R.string.updated_profile))
                                 }
                             }

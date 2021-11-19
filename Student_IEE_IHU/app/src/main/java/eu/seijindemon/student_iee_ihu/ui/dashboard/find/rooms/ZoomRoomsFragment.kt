@@ -2,6 +2,7 @@ package eu.seijindemon.student_iee_ihu.ui.dashboard.find.rooms
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,8 +25,7 @@ class ZoomRoomsFragment : BaseFragment<FragmentZoomRoomsBinding>() {
             val tabLayout = tabLayoutRooms
             val pager2 = viewPage2Rooms
 
-            val fm = fragmentManager
-            val adapter = ZoomRoomsAdapter(fm!!, lifecycle)
+            val adapter = ZoomRoomsAdapter(activity?.supportFragmentManager!!, lifecycle)
             pager2.adapter = adapter
 
             tabLayout.addTab(tabLayout.newTab().setText(R.string.r1_r8))

@@ -25,8 +25,7 @@ class PhysicalRoomsFragment : BaseFragment<FragmentPhysicalRoomsBinding>() {
             val tabLayout = tabLayoutRooms
             val pager2 = viewPage2Rooms
 
-            val fm = fragmentManager
-            val adapter = PhysicalRoomsAdapter(fm!!, lifecycle)
+            val adapter = PhysicalRoomsAdapter(activity?.supportFragmentManager!!, lifecycle)
             pager2.adapter = adapter
 
             tabLayout.addTab(tabLayout.newTab().setText(R.string.build_p))
